@@ -16,13 +16,19 @@
   to = "/omvp/lead-magnet/:splat"
   status = 200
 
-# Main landing page redirect
+# Main landing page redirect (exact match)
 [[redirects]]
   from = "/"
   to = "/dojjjo-landing.html"
-  status = 200
+  status = 301
 
-# Fallback for any other 404s
+# Index redirect (if someone hits index.html directly)
+[[redirects]]
+  from = "/index.html"
+  to = "/dojjjo-landing.html"
+  status = 301
+
+# Fallback for any other 404s (must be last)
 [[redirects]]
   from = "/*"
   to = "/dojjjo-landing.html"
