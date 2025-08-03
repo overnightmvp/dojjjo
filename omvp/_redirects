@@ -1,0 +1,15 @@
+# Netlify redirects for DOJJJO production deployment
+
+# Main redirects
+/blueprint    /48-hour-business-blueprint.md    200
+/diagnosis    /studio/lead-magnet-diagnosis/diagnosis.html    200
+/dashboard    /dashboard/DOJJJO-Dashboard.html    200
+
+# Email template access (for development/testing)
+/email/*      /email%20template/:splat    200
+
+# 404 fallback to main page
+/*            /index.html    404
+
+# Force HTTPS
+http://dojjjo.netlify.app/*    https://dojjjo.netlify.app/:splat    301!

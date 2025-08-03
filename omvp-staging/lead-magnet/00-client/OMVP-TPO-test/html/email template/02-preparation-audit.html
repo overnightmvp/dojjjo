@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Préparation de votre Audit Stratégique - The Pitch Office</title>
+    <style>
+        /* The Pitch Office Professional Email Design System */
+        :root {
+            /* Updated Brand Colors */
+            --brand-primary: #F200FF;
+            --primary-black: #000000;
+            --clean-white: #FFFFFF;
+            --success-gold: #B8860B;
+            --strategic-blue: #1E3A8A;
+            --subtle-green: #059669;
+            --professional-gray: #6B7280;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            background-color: #f5f5f5;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--clean-white);
+            border: 2px solid var(--primary-black);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .header {
+            background: var(--strategic-blue);
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-black);
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--clean-white);
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.0rem;
+            color: var(--clean-white);
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .audit-badge {
+            background: var(--success-gold);
+            color: var(--clean-white);
+            padding: 12px 20px;
+            font-weight: 700;
+            border: 1px solid var(--primary-black);
+            display: inline-block;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .key-preparation {
+            background: var(--subtle-green);
+            color: var(--clean-white);
+            padding: 25px;
+            border: 1px solid var(--primary-black);
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+        
+        .key-preparation h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--clean-white);
+        }
+        
+        .preparation-framework {
+            border: 1px solid var(--professional-gray);
+            padding: 25px;
+            margin: 25px 0;
+            background: #f9f9f9;
+        }
+        
+        .framework-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--clean-white);
+            border: 1px solid var(--professional-gray);
+            border-radius: 4px;
+        }
+        
+        .step-icon {
+            background: var(--success-gold);
+            color: var(--clean-white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            border: 1px solid var(--primary-black);
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-size: 1.0rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--primary-black);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 10px;
+            text-align: center;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--strategic-blue);
+            color: var(--clean-white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--success-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .expert-tip {
+            background: #FFF8E1;
+            border: 1px solid var(--success-gold);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .expert-tip h4 {
+            color: var(--success-gold);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            background: var(--primary-black);
+            color: var(--clean-white);
+            padding: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: var(--success-gold);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 10px;
+                border: 1px solid var(--primary-black);
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .framework-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-icon {
+                margin: 0 auto 15px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎯 Préparation de votre Audit Stratégique</h1>
+            <p>Optimisez l'efficacité de notre consultation en 30 minutes</p>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <div class="audit-badge">📅 AUDIT CONFIRMÉ - {{audit_date}}</div>
+            
+            <h2 style="margin-bottom: 20px;">Bonjour {{client_name}},</h2>
+            
+            <p style="margin-bottom: 20px;">Votre audit stratégique est confirmé pour <strong>{{audit_date}} à {{audit_time}}</strong>. Pour maximiser l'impact de notre consultation, voici votre guide de préparation personnalisé.</p>
+            
+            <div class="key-preparation">
+                <h3>🎯 Objectif de l'Audit : Identifier vos 3 Leviers Critiques</h3>
+                <p><strong>En 30 minutes, nous identifierons ensemble :</strong> vos avantages concurrentiels cachés, vos points de vulnérabilité prioritaires, et votre stratégie d'optimisation pour les prochains appels d'offres.</p>
+            </div>
+            
+            <div class="preparation-framework">
+                <h3 style="margin-bottom: 20px;">📋 Votre Préparation Stratégique</h3>
+                
+                <div class="framework-step">
+                    <div class="step-icon">1</div>
+                    <div>
+                        <strong>Rassemblez 3 Exemples d'Appels d'Offres</strong><br>
+                        • 1 appel d'offres récent que vous avez GAGNÉ<br>
+                        • 1 appel d'offres récent que vous avez PERDU<br>
+                        • 1 appel d'offres en cours ou à venir<br>
+                        <em>Nous analyserons vos patterns de succès et d'échec</em>
+                    </div>
+                </div>
+                
+                <div class="framework-step">
+                    <div class="step-icon">2</div>
+                    <div>
+                        <strong>Préparez votre Contexte Entreprise</strong><br>
+                        • Secteur d'activité et spécialités<br>
+                        • Taille équipe dédiée aux appels d'offres<br>
+                        • Fréquence de réponse (combien par mois/an)<br>
+                        • Budget moyen des contrats visés<br>
+                        <em>Context is king pour des recommandations précises</em>
+                    </div>
+                </div>
+                
+                <div class="framework-step">
+                    <div class="step-icon">3</div>
+                    <div>
+                        <strong>Identifiez vos 3 Défis Principaux</strong><br>
+                        • Quel est votre taux de succès actuel ?<br>
+                        • Sur quoi perdez-vous le plus souvent ?<br>
+                        • Quelle étape vous prend le plus de temps ?<br>
+                        • Quel type d'appel d'offres vous pose problème ?<br>
+                        <em>Nous concentrerons l'audit sur vos priorités</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="expert-tip">
+                <h4>💡 Conseil d'Expert - Audrey</h4>
+                <p><em>"Les entreprises qui préparent leur audit avec des exemples concrets obtiennent 3x plus de recommandations actionnables. Ne venez pas les mains vides - vos cas réels sont notre matière première pour des conseils sur-mesure."</em></p>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px 0;">📝 Checklist Pré-Audit (5 minutes) :</h3>
+            
+            <div style="background: var(--success-gold); color: var(--clean-white); padding: 20px; border: 1px solid var(--primary-black); margin: 20px 0; border-radius: 4px;">
+                <ul style="padding-left: 20px;">
+                    <li style="margin-bottom: 8px;"><strong>✓ Exemples d'appels d'offres</strong> rassemblés et accessibles</li>
+                    <li style="margin-bottom: 8px;"><strong>✓ Informations entreprise</strong> actualisées (secteur, équipe, fréquence)</li>
+                    <li style="margin-bottom: 8px;"><strong>✓ Top 3 défis</strong> identifiés et priorisés</li>
+                    <li style="margin-bottom: 8px;"><strong>✓ Questions spécifiques</strong> préparées pour l'expert</li>
+                    <li><strong>✓ Agenda bloqué</strong> pour 30 minutes sans interruption</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="{{calendly_link}}" class="btn btn-primary">
+                    Confirmer ma Présence - {{audit_date}} 🎯
+                </a>
+            </div>
+            
+            <div style="border: 1px solid var(--subtle-green); padding: 20px; margin: 25px 0; background: #F0FDF4; border-radius: 4px;">
+                <h4 style="color: var(--subtle-green); margin-bottom: 10px;">🚀 Ce qui vous attend après l'audit :</h4>
+                <p><strong>• Plan d'action personnalisé</strong> avec vos 3 axes d'amélioration prioritaires<br>
+                <strong>• Recommandations concrètes</strong> pour vos prochains appels d'offres<br>
+                <strong>• Accès aux ressources exclusives</strong> The Pitch Office si pertinent</p>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border: 1px solid var(--professional-gray); border-radius: 4px;">
+                <p style="font-weight: 600;">Questions avant notre rencontre ?</p>
+                <p style="color: var(--professional-gray); margin-top: 10px;">Répondez à cet email : <a href="mailto:audrey@thepitchoffice.fr" style="color: var(--strategic-blue);">audrey@thepitchoffice.fr</a></p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>🎯 The Pitch Office - Audit Stratégique</strong></p>
+            <p>« Transformons vos échecs en victoires systématiques »</p>
+            <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.8;">
+                Vous recevez cet email suite à votre réservation d'audit stratégique.<br>
+                <a href="#">Se désabonner</a> | <a href="#">Préférences</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

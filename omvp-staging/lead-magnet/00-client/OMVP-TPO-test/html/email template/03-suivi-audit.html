@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi de votre Audit Stratégique - The Pitch Office</title>
+    <style>
+        /* The Pitch Office Professional Email Design System */
+        :root {
+            /* The Pitch Office Professional Palette */
+            --primary-black: #000000;
+            --clean-white: #FFFFFF;
+            --success-gold: #B8860B;
+            --strategic-blue: #1E3A8A;
+            --subtle-green: #059669;
+            --professional-gray: #6B7280;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-black);
+            background-color: #f5f5f5;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--clean-white);
+            border: 2px solid var(--primary-black);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .header {
+            background: var(--success-gold);
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-black);
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--clean-white);
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.0rem;
+            color: var(--clean-white);
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .audit-recap {
+            background: var(--strategic-blue);
+            color: var(--clean-white);
+            padding: 25px;
+            border: 1px solid var(--primary-black);
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+        
+        .audit-recap h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--clean-white);
+        }
+        
+        .insights-framework {
+            border: 1px solid var(--professional-gray);
+            padding: 25px;
+            margin: 25px 0;
+            background: #f9f9f9;
+        }
+        
+        .insight-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--clean-white);
+            border: 1px solid var(--professional-gray);
+            border-radius: 4px;
+        }
+        
+        .insight-icon {
+            background: var(--success-gold);
+            color: var(--clean-white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            border: 1px solid var(--primary-black);
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-size: 1.0rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--primary-black);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 10px;
+            text-align: center;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--strategic-blue);
+            color: var(--clean-white);
+        }
+        
+        .btn-secondary {
+            background-color: var(--subtle-green);
+            color: var(--clean-white);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .action-plan {
+            background: #F0FDF4;
+            border: 1px solid var(--subtle-green);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .action-plan h4 {
+            color: var(--subtle-green);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .next-steps {
+            background: var(--success-gold);
+            color: var(--clean-white);
+            padding: 25px;
+            border: 1px solid var(--primary-black);
+            margin: 25px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .footer {
+            background: var(--primary-black);
+            color: var(--clean-white);
+            padding: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer a {
+            color: var(--success-gold);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 10px;
+                border: 1px solid var(--primary-black);
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .insight-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .insight-icon {
+                margin: 0 auto 15px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎯 Résumé de votre Audit Stratégique</h1>
+            <p>Vos 3 leviers d'optimisation identifiés et plan d'action personnalisé</p>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <h2 style="margin-bottom: 20px;">Bonjour {{client_name}},</h2>
+            
+            <p style="margin-bottom: 20px;">Merci pour cet échange riche de <strong>30 minutes</strong>. Voici le résumé personnalisé de votre audit stratégique et vos axes d'optimisation prioritaires.</p>
+            
+            <div class="audit-recap">
+                <h3>📊 Diagnostic de votre Situation Actuelle</h3>
+                <p><strong>Secteur :</strong> {{client_sector}}<br>
+                <strong>Fréquence appels d'offres :</strong> {{tender_frequency}} par mois<br>
+                <strong>Taux de succès actuel :</strong> {{current_success_rate}}%<br>
+                <strong>Défi principal identifié :</strong> {{main_challenge}}</p>
+            </div>
+            
+            <div class="insights-framework">
+                <h3 style="margin-bottom: 20px;">🔍 Vos 3 Leviers Critiques d'Optimisation</h3>
+                
+                <div class="insight-item">
+                    <div class="insight-icon">1</div>
+                    <div>
+                        <strong>{{insight_1_title}}</strong><br>
+                        {{insight_1_description}}<br>
+                        <em>Impact estimé : {{insight_1_impact}}</em>
+                    </div>
+                </div>
+                
+                <div class="insight-item">
+                    <div class="insight-icon">2</div>
+                    <div>
+                        <strong>{{insight_2_title}}</strong><br>
+                        {{insight_2_description}}<br>
+                        <em>Impact estimé : {{insight_2_impact}}</em>
+                    </div>
+                </div>
+                
+                <div class="insight-item">
+                    <div class="insight-icon">3</div>
+                    <div>
+                        <strong>{{insight_3_title}}</strong><br>
+                        {{insight_3_description}}<br>
+                        <em>Impact estimé : {{insight_3_impact}}</em>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-plan">
+                <h4>🚀 Plan d'Action Immédiat (Prochaines 2 semaines)</h4>
+                <ul style="padding-left: 20px;">
+                    <li style="margin-bottom: 8px;"><strong>Action prioritaire :</strong> {{priority_action}}</li>
+                    <li style="margin-bottom: 8px;"><strong>Quick win :</strong> {{quick_win}}</li>
+                    <li style="margin-bottom: 8px;"><strong>Ressource recommandée :</strong> {{recommended_resource}}</li>
+                    <li><strong>Échéance suggérée :</strong> {{suggested_deadline}}</li>
+                </ul>
+            </div>
+            
+            <h3 style="margin: 30px 0 15px 0;">📈 Estimation d'Impact sur vos Résultats :</h3>
+            
+            <div style="background: var(--subtle-green); color: var(--clean-white); padding: 20px; border: 1px solid var(--primary-black); margin: 20px 0; border-radius: 4px;">
+                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>Avec ces optimisations appliquées :</strong></p>
+                <ul style="padding-left: 20px;">
+                    <li style="margin-bottom: 8px;"><strong>Taux de succès projeté :</strong> {{projected_success_rate}}% (vs {{current_success_rate}}% actuellement)</li>
+                    <li style="margin-bottom: 8px;"><strong>Gain de temps :</strong> {{time_saving}} heures par appel d'offres</li>
+                    <li><strong>ROI potentiel :</strong> {{potential_roi}} sur 12 mois</li>
+                </ul>
+            </div>
+            
+            <div class="next-steps">
+                <h3 style="margin-bottom: 15px; color: var(--clean-white);">Prochaines Étapes Recommandées</h3>
+                <p style="margin-bottom: 20px;">Vous avez maintenant une feuille de route claire. Voici comment maximiser ces insights :</p>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <a href="{{methodology_link}}" class="btn btn-primary">
+                        Accéder à la Méthodologie Complète 📚
+                    </a>
+                    <a href="{{consultation_link}}" class="btn btn-secondary">
+                        Réserver un Accompagnement Personnalisé 🎯
+                    </a>
+                </div>
+            </div>
+            
+            <div style="border: 1px solid var(--professional-gray); padding: 20px; margin: 25px 0; background: #f9f9f9; border-radius: 4px;">
+                <h4 style="color: var(--primary-black); margin-bottom: 10px;">💡 Message Personnel d'Audrey :</h4>
+                <p style="font-style: italic;">"{{personal_message}}"</p>
+                <p style="margin-top: 15px; font-weight: 600;">Des questions sur l'implémentation ? Répondez à cet email, je lis personnellement chaque message.</p>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0; padding: 20px; background: #FFF8E1; border: 1px solid var(--success-gold); border-radius: 4px;">
+                <h4 style="color: var(--success-gold); margin-bottom: 10px;">📞 Suivi dans 2 Semaines</h4>
+                <p>Je vous recontacterai le <strong>{{followup_date}}</strong> pour connaître vos progrès et répondre à vos questions d'implémentation.</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>🎯 The Pitch Office - Audit Stratégique Personnalisé</strong></p>
+            <p>« Transformons ensemble vos insights en victoires systématiques »</p>
+            <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.8;">
+                Cet audit personnalisé est confidentiel et réservé à {{client_name}}.<br>
+                <a href="#">Se désabonner</a> | <a href="mailto:audrey@thepitchoffice.fr">Contact direct</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

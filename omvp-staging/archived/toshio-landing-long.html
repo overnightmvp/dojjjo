@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny Toshio - From Broke to Bangkok: Build Systems That Convert</title>
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs" type="module"></script>
+    <style>
+        body {
+            background: var(--brutal-black);
+            color: var(--brutal-white);
+            line-height: 1.7;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--brutal-red) 0%, var(--brutal-orange) 50%, var(--brutal-black) 100%);
+            padding: var(--spacing-3xl) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '道場';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20rem;
+            opacity: 0.05;
+            font-weight: var(--font-weight-brutal);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tagline {
+            font-size: 18px;
+            color: var(--brutal-orange);
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: var(--font-weight-brutal);
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 8vw, 84px);
+            font-weight: var(--font-weight-brutal);
+            line-height: 0.9;
+            margin-bottom: 32px;
+            text-shadow: 4px 4px 0px var(--brutal-black);
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: var(--brutal-white);
+            margin-bottom: 48px;
+            font-weight: var(--font-weight-bold);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto 48px auto;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 32px 24px;
+            border: var(--brutal-border);
+            border-color: var(--brutal-orange);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: 48px;
+            font-weight: var(--font-weight-brutal);
+            color: var(--brutal-orange);
+            text-shadow: var(--brutal-shadow-text);
+            margin-bottom: 8px;
+        }
+
+        .hero-stat-label {
+            font-size: 14px;
+            color: var(--brutal-white);
+            text-transform: uppercase;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .story-section {
+            padding: var(--spacing-3xl) 0;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--spacing-2xl);
+            align-items: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .story-image {
+            background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
+            aspect-ratio: 1;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: var(--brutal-white);
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+        }
+
+        .story-content h2 {
+            font-size: 36px;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+
+        .story-content p {
+            font-size: 18px;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary);
+        }
+
+        .philosophy-section {
+            background: var(--brutal-black);
+            color: var(--brutal-white);
+            padding: var(--spacing-3xl) 0;
+            position: relative;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .philosophy-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: var(--spacing-xl);
+            border: var(--brutal-border);
+            border-color: var(--brutal-orange);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-normal);
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--brutal-shadow-hover);
+            border-color: var(--brutal-red);
+        }
+
+        .philosophy-icon {
+            font-size: 48px;
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .philosophy-title {
+            font-size: 24px;
+            font-weight: var(--font-weight-brutal);
+            color: var(--brutal-orange);
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .philosophy-text {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .services-section {
+            padding: var(--spacing-3xl) 0;
+            background: var(--bg-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .service-card {
+            background: var(--bg-primary);
+            padding: var(--spacing-xl);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            box-shadow: var(--brutal-shadow);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brutal-red), var(--brutal-orange));
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px) translateX(-8px);
+            box-shadow: var(--brutal-shadow-hover);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: var(--font-weight-brutal);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-lg);
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+        }
+
+        .service-title {
+            font-size: 28px;
+            font-weight: var(--font-weight-brutal);
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+        }
+
+        .service-price {
+            font-size: 24px;
+            color: var(--brutal-red);
+            font-weight: var(--font-weight-brutal);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .service-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-primary);
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .service-features li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: var(--brutal-red);
+            font-weight: var(--font-weight-brutal);
+        }
+
+        .flowchart-section {
+            background: var(--bg-primary);
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .flowchart-container {
+            background: var(--brutal-white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+            margin-bottom: var(--spacing-xl);
+            overflow-x: auto;
+        }
+
+        .mermaid {
+            text-align: center;
+        }
+
+        .lead-magnets-section {
+            background: var(--brutal-black);
+            color: var(--brutal-white);
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .lead-magnets-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .lead-magnet-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-xl);
+            border: var(--brutal-border);
+            border-color: var(--brutal-orange);
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-normal);
+            text-align: center;
+        }
+
+        .lead-magnet-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--brutal-shadow-hover);
+            border-color: var(--brutal-red);
+        }
+
+        .lead-magnet-icon {
+            font-size: 64px;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .lead-magnet-title {
+            font-size: 20px;
+            font-weight: var(--font-weight-brutal);
+            color: var(--brutal-orange);
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+        }
+
+        .lead-magnet-description {
+            font-size: 14px;
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.5;
+        }
+
+        .portfolio-section {
+            background: var(--bg-secondary);
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .portfolio-item {
+            background: var(--bg-primary);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--brutal-shadow);
+            transition: all var(--transition-normal);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--brutal-shadow-hover);
+        }
+
+        .portfolio-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--brutal-white);
+            font-weight: var(--font-weight-brutal);
+        }
+
+        .portfolio-content {
+            padding: var(--spacing-lg);
+        }
+
+        .portfolio-title {
+            font-size: 20px;
+            font-weight: var(--font-weight-brutal);
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+        }
+
+        .portfolio-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.5;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--brutal-red) 0%, var(--brutal-orange) 100%);
+            color: var(--brutal-white);
+            padding: var(--spacing-3xl) 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-title {
+            font-size: 48px;
+            font-weight: var(--font-weight-brutal);
+            margin-bottom: var(--spacing-lg);
+            text-shadow: var(--brutal-shadow-text);
+            text-transform: uppercase;
+        }
+
+        .cta-subtitle {
+            font-size: 20px;
+            margin-bottom: var(--spacing-2xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--brutal-white);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border: var(--brutal-border);
+            border-color: var(--brutal-white);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: var(--font-weight-bold);
+            transition: all var(--transition-fast);
+            backdrop-filter: blur(10px);
+        }
+
+        .social-link:hover {
+            background: var(--brutal-white);
+            color: var(--brutal-black);
+            transform: translateY(-4px);
+            box-shadow: var(--brutal-shadow-hover);
+        }
+
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tagline">⚡ From $560/month BJJ Coach to $15K/month Entrepreneur ⚡</div>
+                <h1 class="hero-title">From Broke to Bangkok:<br>Build Systems That Convert</h1>
+                <p class="hero-subtitle">I've built 5 failed startups and 1 successful exit in 4 countries. Now I teach what I learned so you don't make the same mistakes.</p>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">15</div>
+                        <div class="hero-stat-label">Years Experience</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">5</div>
+                        <div class="hero-stat-label">Failed Startups</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">1</div>
+                        <div class="hero-stat-label">Successful Exit</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">4</div>
+                        <div class="hero-stat-label">Countries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image">👋🏼</div>
+                <div class="story-content">
+                    <h2>Hey, Johnny Toshio Here</h2>
+                    <p><strong>Product Designer, cannapreneur and aspiring black belt from Brazil, living in Bangkok.</strong></p>
+                    <p>Ten years ago, I was a kid fresh out of high school, very interested in smoking joints and martial arts, not much into websites.</p>
+                    <p>Fast forward five years, and I'd not only sold my first website, but I had a thriving development house, a team, and the trappings of success – rooftop pool, nice cars, the whole shebang.</p>
+                    <p><strong>But here's the thing... it wasn't sustainable.</strong></p>
+                </div>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-content">
+                    <h2>That Flashy Life Crashed and Burned</h2>
+                    <p>It took me another five years, three failed startups in 3 countries, and two brushes with bankruptcy to understand what truly matters:</p>
+                    <p><strong>Building businesses that last.</strong></p>
+                    <p>Today, I'm a seasoned designer who's helped founders in four countries turn their ideas into profitable, sustainable businesses.</p>
+                    <p>I've seen the mistakes, the dead ends, and the shortcuts that actually work.</p>
+                </div>
+                <div class="story-image">💥</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy-section">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--brutal-white); text-align: center; margin-bottom: var(--spacing-2xl);">Here's What I Know For Sure</h2>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">⚡</div>
+                    <div class="philosophy-title">Simple Can Be Powerful</div>
+                    <div class="philosophy-text">You don't need a million-dollar marketing campaign to succeed. A single landing page, a handful of emails, and the right systems can generate serious revenue.</div>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">👑</div>
+                    <div class="philosophy-title">Clarity Is King</div>
+                    <div class="philosophy-text">Before you build anything, you need a crystal-clear understanding of your product, your audience, and your goals. My #1 Worksheet will help you achieve that clarity.</div>
+                </div>
+                
+                <div class="philosophy-card">
+                    <div class="philosophy-icon">🔧</div>
+                    <div class="philosophy-title">Processes Are The Engine</div>
+                    <div class="philosophy-text">Automation, templates, and well-defined systems are the secret sauce of sustainable growth. I'll show you how to build them.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OMVP Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">The OMVP Method: Build Your Business in 48 Hours</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3 class="service-title">OMVP Starter</h3>
+                    <div class="service-price">$2,500</div>
+                    <p class="service-description">Perfect for solo founders ready to validate their idea and launch their first revenue-generating system.</p>
+                    <ul class="service-features">
+                        <li>Discovery call with 15 strategic questions</li>
+                        <li>AI-generated product documentation</li>
+                        <li>Landing page design & development</li>
+                        <li>Basic email sequence setup</li>
+                        <li>48-hour implementation timeline</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Start Your Journey</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3 class="service-title">OMVP Complete</h3>
+                    <div class="service-price">$5,000</div>
+                    <p class="service-description">Full methodology implementation with automation systems and conversion optimization for serious entrepreneurs.</p>
+                    <ul class="service-features">
+                        <li>Everything in Starter package</li>
+                        <li>Complete automation toolkit</li>
+                        <li>Conversion optimization audit</li>
+                        <li>7-day support & refinements</li>
+                        <li>Performance monitoring setup</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Complete System</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💎</div>
+                    <h3 class="service-title">OMVP Premium</h3>
+                    <div class="service-price">$10,000</div>
+                    <p class="service-description">White-glove service with 30-day support and guaranteed results. For founders who want maximum success.</p>
+                    <ul class="service-features">
+                        <li>Everything in Complete package</li>
+                        <li>30-day implementation support</li>
+                        <li>Personal strategy calls with Johnny</li>
+                        <li>Revenue guarantee or refund</li>
+                        <li>Priority support access</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Go Premium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Flow Visualization -->
+    <section class="flowchart-section">
+        <div class="container">
+            <h2 class="section-title">The Complete Customer Journey</h2>
+            <p style="text-align: center; margin-bottom: var(--spacing-xl); color: var(--text-secondary); font-size: 18px;">Here's exactly how founders go from idea to profitable business using the OMVP methodology:</p>
+            
+            <div class="flowchart-container">
+                <div class="mermaid">
+                    flowchart TD
+                        START[👤 Founder with Unvalidated Idea] --> AWARENESS[📱 AWARENESS STAGE]
+                        
+                        subgraph AWARENESS[📱 AWARENESS - Social Discovery]
+                            A1[LinkedIn/Instagram Post:<br/>Johnny's Failure Stories] --> A2[Profile Visit:<br/>Bangkok/BJJ Lifestyle]
+                            A2 --> A3[Landing Page Click:<br/>Free Worksheet Offer]
+                            A3 --> A4[Email Capture Form:<br/>48-Hour Business Blueprint]
+                            A4 --> A5[📧 Welcome Email +<br/>Free Worksheet Download]
+                        end
+                        
+                        AWARENESS --> CONSIDERATION[🤔 CONSIDERATION STAGE]
+                        
+                        subgraph CONSIDERATION[🤔 CONSIDERATION - Email Nurture]
+                            C1[📧 Email #1:<br/>Why 90% of Startups Fail]
+                            C2[📧 Email #2:<br/>48-Hour Validation Method]
+                            C3[📧 Email #3:<br/>Case Study: From BJJ Coach to $15K]
+                            C4[🌐 OMVP Landing Page:<br/>$2.5K-$10K Services]
+                            C5[❓ FAQ Page:<br/>Objection Handling]
+                            
+                            C1 --> C2 --> C3 --> C4 --> C5
+                        end
+                        
+                        CONSIDERATION --> DECISION[💳 DECISION STAGE]
+                        
+                        subgraph DECISION[💳 DECISION - Purchase Process]
+                            D1[📊 Service Tiers Review]
+                            D2[⭐ Testimonials & Portfolio]
+                            D3[💳 Stripe Checkout Process]
+                            D4[✅ Purchase Confirmation]
+                            D5[📧 Onboarding Email Sequence]
+                            
+                            D1 --> D2 --> D3 --> D4 --> D5
+                        end
+                        
+                        DECISION --> DELIVERY[🚀 48-HOUR DELIVERY]
+                        
+                        subgraph DELIVERY[🚀 OMVP METHOD EXECUTION]
+                            E1[📅 Day 1: Discovery Call<br/>15 Strategic Questions]
+                            E2[📅 Day 2: AI Documentation<br/>Product Requirements]
+                            E3[📅 Day 3: Design & Development<br/>Landing Page + Emails]
+                            E4[📅 Day 4: Deploy & Monitor<br/>Go Live + Analytics]
+                            E5[📅 Day 5: Review & Optimize<br/>Performance Analysis]
+                            
+                            E1 --> E2 --> E3 --> E4 --> E5
+                        end
+                        
+                        DELIVERY --> SUCCESS[🎉 RESULTS & ADVOCACY]
+                        
+                        %% Styling
+                        classDef awareness fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
+                        classDef consideration fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
+                        classDef decision fill:#45b7d1,stroke:#333,stroke-width:2px,color:#fff
+                        classDef delivery fill:#ffd93d,stroke:#333,stroke-width:2px,color:#000
+                        classDef success fill:#6bcf7f,stroke:#333,stroke-width:2px,color:#000
+                        
+                        class AWARENESS,A1,A2,A3,A4,A5 awareness
+                        class CONSIDERATION,C1,C2,C3,C4,C5 consideration
+                        class DECISION,D1,D2,D3,D4,D5 decision
+                        class DELIVERY,E1,E2,E3,E4,E5 delivery
+                        class SUCCESS success
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--spacing-xl);">
+                <a href="/studio/workshop-generating-flowchart-in-5-minutes" class="btn btn-primary" style="margin-right: var(--spacing-md);">🔧 Workshop: Generate Your Flowchart</a>
+                <a href="/studio/workshop-visualizing-processes-with-ai" class="btn btn-secondary">🤖 AI Process Visualization</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conversion Funnel -->
+    <section class="flowchart-section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title">Conversion Funnel with Real Metrics</h2>
+            <p style="text-align: center; margin-bottom: var(--spacing-xl); color: var(--text-secondary); font-size: 18px;">Based on actual data from my transition from BJJ coaching to OMVP business:</p>
+            
+            <div class="flowchart-container">
+                <div class="mermaid">
+                    graph TD
+                        subgraph "Johnny's Actual Conversion Funnel"
+                            LD[Social Media Discovery: 10,000] --> LPV[Landing Page Visit: 1,200]
+                            LPV --> ES[Email Signup: 240]
+                            ES --> PPV[Service Page View: 144]
+                            PPV --> CS[Consultation Booked: 72]
+                            CS --> PC[Purchase Complete: 18]
+                            PC --> D1S[Day 1 Delivery: 17]
+                            D1S --> SUCCESS[48h Success: 15]
+                            SUCCESS --> T[Testimonial: 12]
+                            T --> R[Referral: 6]
+                        end
+                        
+                        style LD fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff;
+                        style LPV fill:#ff8c42,stroke:#333,stroke-width:2px,color:#fff;
+                        style ES fill:#ffd23f,stroke:#333,stroke-width:2px,color:#000;
+                        style PPV fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff;
+                        style CS fill:#45b7d1,stroke:#333,stroke-width:2px,color:#fff;
+                        style PC fill:#96ceb4,stroke:#333,stroke-width:2px,color:#000;
+                        style D1S fill:#6bcf7f,stroke:#333,stroke-width:2px,color:#000;
+                        style SUCCESS fill:#51cf66,stroke:#333,stroke-width:2px,color:#000;
+                        style T fill:#69db7c,stroke:#333,stroke-width:2px,color:#000;
+                        style R fill:#8ce99a,stroke:#333,stroke-width:2px,color:#000;
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--spacing-xl);">
+                <a href="/studio/workshop-conversion-funnels" class="btn btn-primary" style="margin-right: var(--spacing-md);">📊 Conversion Workshop</a>
+                <a href="/tools/social-media-automation" class="btn btn-secondary">🤖 Social Automation Tools</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnets Carousel -->
+    <section class="lead-magnets-section">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--brutal-white); text-align: center; margin-bottom: var(--spacing-2xl);">Free Resources & Tools</h2>
+            
+            <div class="lead-magnets-carousel">
+                <div class="lead-magnet-card">
+                    <div class="lead-magnet-icon">📋</div>
+                    <div class="lead-magnet-title">48-Hour Business Blueprint</div>
+                    <div class="lead-magnet-description">The exact worksheet I use to help founders validate and launch profitable businesses in 48 hours.</div>
+                    <a href="48-hour-business-blueprint.md" class="btn btn-primary">Download Free</a>
+                </div>
+                
+                <div class="lead-magnet-card">
+                    <div class="lead-magnet-icon">⚡</div>
+                    <div class="lead-magnet-title">MVP Validation Checklist</div>
+                    <div class="lead-magnet-description">Brutal 8-phase validation framework to avoid the 90% failure rate of most startups.</div>
+                    <a href="/studio/lead-magnet-brutal-mvp-validation-checklist/mvp-validation-checklist.html" class="btn btn-primary">Get Checklist</a>
+                </div>
+                
+                <div class="lead-magnet-card">
+                    <div class="lead-magnet-icon">🎯</div>
+                    <div class="lead-magnet-title">AI Agent Swarm</div>
+                    <div class="lead-magnet-description">Launch initialization system for AI-driven product development and automation.</div>
+                    <a href="/studio/lead-magnet-agent-swarm/launch_initialization.html" class="btn btn-primary">Launch Now</a>
+                </div>
+                
+                <div class="lead-magnet-card">
+                    <div class="lead-magnet-icon">📊</div>
+                    <div class="lead-magnet-title">24-Hour Product Landing</div>
+                    <div class="lead-magnet-description">Complete landing page system that converts visitors to customers in 24 hours.</div>
+                    <a href="/studio/lead-magnet-24-hour/product_landing_page.html" class="btn btn-primary">Build Page</a>
+                </div>
+                
+                <div class="lead-magnet-card">
+                    <div class="lead-magnet-icon">🔍</div>
+                    <div class="lead-magnet-title">Business Diagnosis Tool</div>
+                    <div class="lead-magnet-description">Brutally honest assessment of your business model and growth potential.</div>
+                    <a href="/studio/lead-magnet-diagnosis/diagnosis.html" class="btn btn-primary">Get Diagnosis</a>
+                </div>
+                
+                <div class="lead-magnet-card">
+                    <div class="lead-magnet-icon">📝</div>
+                    <div class="lead-magnet-title">Agile Backlog System</div>
+                    <div class="lead-magnet-description">Complete project management system for rapid product development.</div>
+                    <a href="/studio/lead-magnet-backlog/DOJJJO-AGILE-BACKLOG.html" class="btn btn-primary">Organize Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Proven Results: Portfolio & Case Studies</h2>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">OMVP</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">Overnight MVP Framework</div>
+                        <div class="portfolio-description">Complete methodology for validating and launching MVPs in 48 hours. Generated $100K+ in revenue and helped 200+ founders.</div>
+                        <a href="/studio/lead-magnet-omvp" class="btn btn-secondary">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🌐</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">TSJ Studio</div>
+                        <div class="portfolio-description">Webflow development house with focus on conversion optimization and brutal design systems.</div>
+                        <a href="https://tsj-studio.webflow.io/groundfloor" target="_blank" class="btn btn-secondary">Visit Site</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🥋</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">Bangkok Jiu-Jitsu</div>
+                        <div class="portfolio-description">Local SEO domination strategy for BJJ gym launch. Simple one-page site designed to fuel growth.</div>
+                        <a href="/guyjinn.dojjjo.com" class="btn btn-secondary">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🛒</div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-title">DOJJJO Store</div>
+                        <div class="portfolio-description">EDC store featuring curated items from 23kg nomad lifestyle. Hemp wear, gadgets, and essentials.</div>
+                        <a href="https://painkilleratelier.myshopify.com/password" target="_blank" class="btn btn-secondary">View Store</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Timeline -->
+    <section class="story-section">
+        <div class="container">
+            <h2 class="section-title">Career Journey: 15 Years of Brutal Lessons</h2>
+            
+            <div style="background: var(--bg-primary); padding: var(--spacing-xl); border: var(--brutal-border); border-radius: var(--border-radius); box-shadow: var(--brutal-shadow);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg);">
+                    <div>
+                        <strong>🌏 24 / Head of Design @toshioj.studio & Athlete @BangkokJiuJitsu</strong><br>
+                        Current: Building OMVP methodology, BJJ coaching, Bangkok nomad life
+                    </div>
+                    <div>
+                        <strong>🇩🇰 23 / Product Specialist - CPO @Tripdoodler</strong><br>
+                        Denmark: Learned systematic product development in Scandinavian startup
+                    </div>
+                    <div>
+                        <strong>🇦🇺 21 / Business Analyst and Product Designer @SwaggieCo</strong><br>
+                        Australia: Corporate experience, learned what doesn't work at scale
+                    </div>
+                    <div>
+                        <strong>🇦🇺 20 / Product Designer @ClaimApp</strong><br>
+                        Australia: First real product role, mobile app development
+                    </div>
+                    <div>
+                        <strong>🇧🇷 15 / Founder/ Product Owner @RTY.solutions</strong><br>
+                        Brazil: First exit - sold development house after 5 years
+                    </div>
+                    <div>
+                        <strong>🇧🇷 13 / Freelancer Web Designer</strong><br>
+                        Brazil: Started from zero, joints and martial arts kid learning websites
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Stop Letting Your Ideas Gather Dust</h2>
+            <p class="cta-subtitle">Let's build something real, something that lasts. Download my free 48-Hour Business Blueprint and see if we're a good fit.</p>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/toshioj" target="_blank" class="social-link">📸 @toshioj</a>
+                <a href="https://instagram.com/guyjinn.life" target="_blank" class="social-link">🎵 @guyjinn.life</a>
+                <a href="https://instagram.com/toshiojbjj" target="_blank" class="social-link">🥋 @toshiojbjj</a>
+                <a href="https://instagram.com/overnight.mvp" target="_blank" class="social-link">⚡ @overnight.mvp</a>
+                <a href="https://x.com/guyjinn.life" target="_blank" class="social-link">🐦 @guyjinn.life</a>
+                <a href="https://x.com/overnight_mvp" target="_blank" class="social-link">🚀 @overnight_mvp</a>
+            </div>
+            
+            <div style="margin-top: var(--spacing-xl);">
+                <a href="48-hour-business-blueprint.md" class="btn btn-primary" style="font-size: 20px; padding: var(--spacing-lg) var(--spacing-2xl); margin-right: var(--spacing-md);">📋 Get Free Blueprint</a>
+                <a href="#services" class="btn btn-secondary" style="font-size: 20px; padding: var(--spacing-lg) var(--spacing-2xl); background: rgba(255,255,255,0.2); border-color: var(--brutal-white);">⚡ Book OMVP Call</a>
+            </div>
+            
+            <div style="margin-top: var(--spacing-xl); font-size: 18px; opacity: 0.9;">
+                <p><strong>P.S.</strong> Want proof this works? Check out my journey from $560/month BJJ coach to building systematic business frameworks. Simple, yet powerful.</p>
+            </div>
+        </div>
+    </section>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#ef4444',
+                primaryTextColor: '#111827',
+                primaryBorderColor: '#111827',
+                lineColor: '#374151',
+                secondaryColor: '#f97316',
+                tertiaryColor: '#fbbf24'
+            }
+        });
+    </script>
+</body>
+</html>
