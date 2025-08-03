@@ -404,14 +404,47 @@ function addEventListeners() {
  * ====================================
  */
 
+/**
+ * Initialize DOJJJO system
+ */
+function initializeDOJJJO(config = {}) {
+    try {
+        // Initialize theme from localStorage or system preference
+        const savedTheme = localStorage.getItem('dojjjo-theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        
+        // Initialize language from localStorage
+        const savedLanguage = localStorage.getItem('preferred-language');
+        if (savedLanguage) {
+            currentLanguage = savedLanguage;
+            switchLanguage(savedLanguage);
+        }
+        
+        // Track page view
+        if (window.trackEvent) {
+            trackEvent('page_view', {
+                'event_category': 'DOJJJO',
+                'event_label': window.location.pathname,
+                'page_title': document.title
+            });
+        }
+        
+        console.log('DOJJJO system initialized successfully');
+    } catch (error) {
+        console.error('Error initializing DOJJJO:', error);
+    }
+}
+
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     // Wait for config to be loaded
     if (typeof BRAND_CONFIG !== 'undefined') {
-        initializePitchOffice(BRAND_CONFIG);
+        initializeDOJJJO(BRAND_CONFIG);
     } else {
-        console.warn('BRAND_CONFIG not found, using defaults');
-        initializePitchOffice({});
+        console.log('BRAND_CONFIG not found, using defaults');
+        initializeDOJJJO({});
     }
 });
 
