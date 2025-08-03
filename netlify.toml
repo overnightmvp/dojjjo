@@ -16,12 +16,17 @@
   to = "/omvp/lead-magnet/:splat"
   status = 200
 
-# SPA fallback for any client-side routing
+# Main landing page redirect
+[[redirects]]
+  from = "/"
+  to = "/dojjjo-landing.html"
+  status = 200
+
+# Fallback for any other 404s
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"]}
+  to = "/dojjjo-landing.html"
+  status = 404
 
 # Headers for security and performance
 [[headers]]
