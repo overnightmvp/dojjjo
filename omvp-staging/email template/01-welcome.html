@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the OMVP System - Your 48-Hour Blueprint is Here</title>
+    <style>
+        /* iOS-Inspired Email Design System */
+        :root {
+            /* Template brand colors - matches main site */
+            --template-primary: #FF3B30;    /* iOS Red */
+            --template-secondary: #FF9500;  /* iOS Orange */
+            --template-accent: #007AFF;     /* iOS Blue */
+            --template-success: #34C759;    /* iOS Green */
+            
+            /* iOS Email Colors */
+            --ios-black: #000000;
+            --ios-white: #FFFFFF;
+            --ios-gray: #8E8E93;
+            --ios-gray-light: #F2F2F7;
+            --ios-gray-medium: #E5E5EA;
+            
+            /* iOS Typography */
+            --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+            --text-large-title: 28px;
+            --text-title-1: 22px;
+            --text-title-2: 20px;
+            --text-body: 17px;
+            --text-subhead: 15px;
+            --text-footnote: 13px;
+            
+            /* iOS Spacing */
+            --spacing-sm: 8px;
+            --spacing-md: 12px;
+            --spacing-lg: 16px;
+            --spacing-xl: 20px;
+            --spacing-2xl: 24px;
+            --spacing-3xl: 32px;
+            --spacing-4xl: 40px;
+            
+            /* iOS Effects */
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-system);
+            line-height: 1.5;
+            color: var(--ios-black);
+            background-color: var(--ios-gray-light);
+            font-size: var(--text-body);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: var(--spacing-3xl) auto;
+            background: var(--ios-white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--template-primary) 0%, var(--template-secondary) 100%);
+            padding: var(--spacing-4xl) var(--spacing-3xl);
+            text-align: center;
+            color: var(--ios-white);
+            position: relative;
+        }
+        
+        .header::before {
+            content: '🎯';
+            position: absolute;
+            top: var(--spacing-lg);
+            left: var(--spacing-lg);
+            font-size: 24px;
+            opacity: 0.7;
+        }
+        
+        .header h1 {
+            font-size: var(--text-large-title);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header p {
+            font-size: var(--text-subhead);
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .content {
+            padding: var(--spacing-4xl) var(--spacing-3xl);
+        }
+        
+        .greeting {
+            font-size: var(--text-title-2);
+            font-weight: 600;
+            margin-bottom: var(--spacing-2xl);
+            color: var(--ios-black);
+        }
+        
+        .body-text {
+            font-size: var(--text-body);
+            color: var(--ios-black);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.6;
+        }
+        
+        .highlight-box {
+            background: var(--ios-gray-light);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            margin: var(--spacing-2xl) 0;
+            border-left: 4px solid var(--template-primary);
+        }
+        
+        .highlight-box h3 {
+            font-size: var(--text-title-2);
+            font-weight: 600;
+            color: var(--template-primary);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .highlight-box p {
+            color: var(--ios-black);
+            font-size: var(--text-body);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--template-primary);
+            color: var(--ios-white);
+            text-decoration: none;
+            padding: var(--spacing-lg) var(--spacing-3xl);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: var(--text-body);
+            text-align: center;
+            margin: var(--spacing-xl) 0;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+        
+        .cta-button:hover {
+            background: #E6342A;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .bullet-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-md);
+            font-size: var(--text-body);
+        }
+        
+        .bullet-list li::before {
+            content: '✅';
+            margin-right: var(--spacing-md);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin: var(--spacing-2xl) 0;
+        }
+        
+        .stat-card {
+            background: var(--ios-gray-light);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: var(--text-title-1);
+            font-weight: 700;
+            color: var(--template-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .stat-label {
+            font-size: var(--text-footnote);
+            color: var(--ios-gray);
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer {
+            background: var(--ios-gray-light);
+            padding: var(--spacing-3xl);
+            text-align: center;
+            border-top: 1px solid var(--ios-gray-medium);
+        }
+        
+        .footer p {
+            font-size: var(--text-footnote);
+            color: var(--ios-gray);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--template-accent);
+            text-decoration: none;
+            font-size: var(--text-footnote);
+            font-weight: 500;
+        }
+        
+        .social-link:hover {
+            color: var(--template-primary);
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 640px) {
+            .email-container {
+                margin: var(--spacing-lg);
+                border-radius: var(--radius-lg);
+            }
+            
+            .header, .content, .footer {
+                padding: var(--spacing-2xl) var(--spacing-xl);
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1C1C1E;
+            }
+            
+            .email-container {
+                background: #2C2C2E;
+            }
+            
+            .content, .greeting, .body-text {
+                color: #FFFFFF;
+            }
+            
+            .highlight-box {
+                background: #1C1C1E;
+            }
+            
+            .stat-card {
+                background: #1C1C1E;
+            }
+            
+            .footer {
+                background: #1C1C1E;
+                border-top-color: #38383A;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Welcome to the OMVP System</h1>
+            <p>Your 48-Hour Business Blueprint has arrived</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="greeting">Hey there, future systematic entrepreneur!</div>
+            
+            <p class="body-text">
+                You just downloaded the same 48-Hour Business Blueprint that took me from $560/month BJJ coaching in Bangkok to building $15K/month OMVP systems.
+            </p>
+            
+            <p class="body-text">
+                <strong>Here's the brutal truth:</strong> Most entrepreneurs fail because they skip the system. They build products nobody wants, burn through savings, and think working harder will magically fix everything.
+            </p>
+            
+            <div class="highlight-box">
+                <h3>🎯 What You'll Learn in This Blueprint</h3>
+                <p>This isn't theory—it's the exact systematic approach I used to transform scattered chaos into focused revenue. Every step is battle-tested.</p>
+            </div>
+            
+            <ul class="bullet-list">
+                <li><strong>Hour 1-8:</strong> Problem validation that actually matters (no surveys, real money)</li>
+                <li><strong>Hour 9-24:</strong> MVP building with laser focus on core value only</li>
+                <li><strong>Hour 25-36:</strong> Launch strategy that cuts through noise</li>
+                <li><strong>Hour 37-48:</strong> Systematic scaling framework for growth</li>
+            </ul>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Years Building</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Failures Learned From</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Exit Achieved</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$15K</div>
+                    <div class="stat-label">Monthly OMVP Revenue</div>
+                </div>
+            </div>
+            
+            <p class="body-text">
+                <strong>Your next step:</strong> Read through the blueprint today. Don't let it sit in your downloads folder like every other "guide" you've collected.
+            </p>
+            
+            <center>
+                <a href="https://cal.com/johnnytoshio/omvp-discovery" class="cta-button">
+                    📞 Book Your OMVP Discovery Call
+                </a>
+            </center>
+            
+            <p class="body-text">
+                Over the next 5 days, I'll share the exact systematic approach that transformed my business. Each email builds on the last—from validation to scaling.
+            </p>
+            
+            <div class="highlight-box">
+                <h3>🥋 From the Dojo to Bangkok</h3>
+                <p>Martial arts taught me that discipline beats motivation. Consistency beats intensity. The same principles that built my physical foundation built my business foundation. Systems over chaos, always.</p>
+            </div>
+            
+            <p class="body-text">
+                <strong>Tomorrow:</strong> I'll show you exactly why most startups fail (and the systematic approach that prevents it).
+            </p>
+            
+            <p class="body-text">
+                Talk soon,<br>
+                <strong>Johnny Toshio</strong><br>
+                <em>OMVP Systems • Bangkok, Thailand</em>
+            </p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Johnny Toshio • OMVP Systems • Bangkok, Thailand</p>
+            <p>From $560/month to $15K/month through systematic business building</p>
+            
+            <div class="social-links">
+                <a href="https://instagram.com/toshioj" class="social-link">📸 Instagram</a>
+                <a href="https://x.com/overnight_mvp" class="social-link">🚀 Twitter</a>
+                <a href="https://linkedin.com/in/johnnytoshio" class="social-link">💼 LinkedIn</a>
+            </div>
+            
+            <p style="margin-top: var(--spacing-xl); font-size: 11px; color: var(--ios-gray);">
+                You're receiving this because you downloaded the 48-Hour Business Blueprint.<br>
+                Want to unsubscribe? <a href="#" style="color: var(--template-primary);">Click here</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

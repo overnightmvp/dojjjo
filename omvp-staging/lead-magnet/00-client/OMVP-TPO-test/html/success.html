@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr" data-language="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-fr="🎯 Audit Réservé ! | The Pitch Office - Excellence Consultation" data-en="🎯 Audit Booked! | The Pitch Office - Excellence Consultation">🎯 Audit Réservé ! | The Pitch Office - Excellence Consultation</title>
+    <meta name="description" data-fr="Votre audit stratégique est confirmé ! Accédez à votre outil d'évaluation interactif et préparez votre consultation avec Audrey." data-en="Your strategic audit is confirmed! Access your interactive assessment tool and prepare for your consultation with Audrey." content="Votre audit stratégique est confirmé ! Accédez à votre outil d'évaluation interactif et préparez votre consultation avec Audrey.">
+    
+    <!-- Prevent indexing of success page -->
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-57CDVXRW');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L99CMW68TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-L99CMW68TS');
+    </script>
+    
+    <!-- Hotjar Tracking Code -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6476354,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    
+    <!-- Shared Resources -->
+    <link rel="stylesheet" href="./assets/css/design-system.css">
+    <script src="./assets/js/brand-config.js"></script>
+    <script src="./assets/js/core.js"></script>
+    
+    <!-- Success Page Specific Styles -->
+    <style>
+        /* Success page specific layout */
+        body {
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--success-gold) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .success-container {
+            max-width: 600px;
+            margin: 20px;
+            background: var(--bg-primary);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--primary-black);
+            box-shadow: var(--pitch-shadow);
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .success-header {
+            background: linear-gradient(135deg, var(--success-gold), var(--strategic-blue));
+            padding: 40px 30px;
+            position: relative;
+            border-bottom: 2px solid var(--primary-black);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .success-header h1 {
+            font-size: 2.2rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 10px;
+            color: var(--clean-white);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .success-header p {
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--clean-white);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .success-content {
+            padding: 40px 30px;
+        }
+
+        .success-steps {
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--pitch-shadow);
+            transition: all var(--transition-normal);
+        }
+
+        .step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .step-number {
+            background: var(--success-gold);
+            color: var(--clean-white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--primary-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: var(--font-weight-bold);
+            font-size: 1.1rem;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-weight: var(--font-weight-normal);
+        }
+
+        .expert-section {
+            background: linear-gradient(135deg, var(--success-gold) 0%, var(--subtle-green) 100%);
+            padding: 30px;
+            margin-top: 0;
+            border-top: 2px solid var(--primary-black);
+            color: var(--clean-white);
+        }
+
+        .expert-section h3 {
+            margin-bottom: 15px;
+            color: var(--clean-white);
+        }
+
+        .support-info {
+            background: var(--primary-black);
+            color: var(--clean-white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .support-info h3 {
+            color: var(--clean-white);
+            margin-bottom: 12px;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .support-info p {
+            color: var(--clean-white);
+            line-height: 1.6;
+            font-weight: var(--font-weight-normal);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .success-container {
+                margin: 10px;
+            }
+            
+            .success-header {
+                padding: 30px 20px;
+            }
+            
+            .success-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .success-content {
+                padding: 30px 20px;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin: 0 auto 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57CDVXRW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Language and Theme Controls -->
+    <div class="controls-wrapper">
+        <button onclick="toggleTheme()" class="control-button" title="Toggle Dark Mode">🌓</button>
+        <button onclick="switchLanguage('fr')" id="langFr" class="control-button active">FR</button>
+        <button onclick="switchLanguage('en')" id="langEn" class="control-button">EN</button>
+    </div>
+
+    <div class="success-container">
+        <!-- Success Header -->
+        <div class="success-header">
+            <div class="success-icon">🎯</div>
+            <div data-lang="fr">
+                <h1 id="successTitle">Audit Réservé ! Préparez-vous à l'Excellence.</h1>
+                <p id="successSubtitle">Votre consultation stratégique avec Audrey commence maintenant</p>
+            </div>
+            <div data-lang="en" style="display: none;">
+                <h1>Audit Booked! Prepare for Excellence.</h1>
+                <p>Your strategic consultation with Audrey starts now</p>
+            </div>
+        </div>
+        
+        <!-- Success Content -->
+        <div class="success-content">
+            <div class="success-steps">
+                <div data-lang="fr">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>🎯 Confirmation Envoyée</h3>
+                            <p id="emailStatus"><strong>EXCELLENT :</strong> Vous recevrez votre confirmation d'audit sous 2h avec un guide de préparation personnalisé pour maximiser l'efficacité de notre consultation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" id="preparationStep">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>📊 Évaluez Votre Situation Actuelle</h3>
+                            <p><strong>PRÉPARATION OPTIMALE :</strong> Utilisez notre outil d'évaluation interactif pour analyser vos derniers appels d'offres. Cette auto-évaluation guidera notre discussion stratégique.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>🚀 Consultation Stratégique - 30 min</h3>
+                            <p id="consultationAccess"><strong>EXCELLENCE GARANTIE :</strong> Discussion approfondie de vos défis, identification de vos 3 leviers d'optimisation prioritaires, et plan d'action concret avec Audrey.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-lang="en" style="display: none;">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>🎯 Confirmation Sent</h3>
+                            <p><strong>EXCELLENT:</strong> You will receive your audit confirmation within 2 hours with a personalized preparation guide to maximize the effectiveness of our consultation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>📊 Assess Your Current Situation</h3>
+                            <p><strong>OPTIMAL PREPARATION:</strong> Use our interactive assessment tool to analyze your recent tenders. This self-evaluation will guide our strategic discussion.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>🚀 Strategic Consultation - 30 min</h3>
+                            <p><strong>EXCELLENCE GUARANTEED:</strong> In-depth discussion of your challenges, identification of your 3 priority optimization levers, and concrete action plan with Audrey.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="./lead magnet/mvp-validation-checklist.html" class="btn btn-primary" id="accessTool" data-lang="fr">
+                    Accéder à l'Outil d'Évaluation 📊
+                </a>
+                <a href="./lead magnet/mvp-validation-checklist.html" class="btn btn-primary" id="accessToolEn" data-lang="en" style="display: none;">
+                    Access Assessment Tool 📊
+                </a>
+            </div>
+            
+            <div class="support-info">
+                <div data-lang="fr">
+                    <h3>🔥 MÉTHODOLOGIE ÉPROUVÉE</h3>
+                    <p><strong>Cette approche a généré des millions d'euros en contrats gagnés pour 200+ entreprises.</strong> Suivez le processus de préparation pour maximiser les résultats de votre audit gratuit.</p>
+                </div>
+                <div data-lang="en" style="display: none;">
+                    <h3>🔥 PROVEN METHODOLOGY</h3>
+                    <p><strong>This approach has generated millions of euros in won contracts for 200+ companies.</strong> Follow the preparation process to maximize the results of your free audit.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Expert Section -->
+        <div class="expert-section" id="expertSection">
+            <div data-lang="fr">
+                <h3>👩‍💼 Rencontrez Audrey - Votre Expert Appels d'Offres</h3>
+                <p><strong>15+ ans d'expertise en consultation stratégique.</strong> Audrey a accompagné plus de 200 entreprises vers l'excellence dans leurs appels d'offres, avec un taux de succès moyen de 85%.</p>
+                
+                <div style="margin: 20px 0;">
+                    <strong>Spécialités d'Audrey :</strong>
+                    <ul style="text-align: left; margin: 15px 0; padding-left: 20px; font-weight: 500;">
+                        <li>Analyse stratégique et différenciation concurrentielle</li>
+                        <li>Optimisation des processus de réponse</li>
+                        <li>Formation d'équipes pour excellence opérationnelle</li>
+                        <li>Méthodologies sectorielles spécialisées</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 0.9rem; font-weight: 600; color: var(--clean-white);">
+                    <strong>Votre audit gratuit :</strong> Une opportunité exclusive d'accéder à cette expertise de niveau international.
+                </p>
+            </div>
+
+            <div data-lang="en" style="display: none;">
+                <h3>👩‍💼 Meet Audrey - Your Tender Expert</h3>
+                <p><strong>15+ years of strategic consulting expertise.</strong> Audrey has guided over 200 companies toward excellence in their tenders, with an average success rate of 85%.</p>
+                
+                <div style="margin: 20px 0;">
+                    <strong>Audrey's Specialties:</strong>
+                    <ul style="text-align: left; margin: 15px 0; padding-left: 20px; font-weight: 500;">
+                        <li>Strategic analysis and competitive differentiation</li>
+                        <li>Response process optimization</li>
+                        <li>Team training for operational excellence</li>
+                        <li>Specialized sector methodologies</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 0.9rem; font-weight: 600; color: var(--clean-white);">
+                    <strong>Your free audit:</strong> An exclusive opportunity to access this international-level expertise.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Success page specific functionality
+        function handleSuccessPageFlow() {
+            // Get parameters from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const userEmail = urlParams.get('email');
+            const isEnrolled = urlParams.get('enrolled');
+            const source = urlParams.get('source');
+            
+            // Update tool link with email parameter
+            const toolLink = document.getElementById('accessTool');
+            const toolLinkEn = document.getElementById('accessToolEn');
+            
+            if (toolLink) {
+                toolLink.href = `./lead magnet/mvp-validation-checklist.html?email=${encodeURIComponent(userEmail || '')}`;
+            }
+            if (toolLinkEn) {
+                toolLinkEn.href = `./lead magnet/mvp-validation-checklist.html?email=${encodeURIComponent(userEmail || '')}`;
+            }
+            
+            // Track successful booking
+            if (isEnrolled === 'true') {
+                trackEvent('audit_booking_success', {
+                    'event_category': 'The Pitch Office',
+                    'event_label': 'Strategic Audit Booked',
+                    'email_source': source || 'main_landing'
+                });
+            }
+        }
+        
+        // Track tool access clicks
+        function trackToolAccess() {
+            const toolButtons = document.querySelectorAll('#accessTool, #accessToolEn');
+            toolButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    trackEvent('assessment_tool_access', {
+                        'event_category': 'The Pitch Office',
+                        'event_label': 'Tender Assessment Tool'
+                    });
+                });
+            });
+        }
+        
+        // Initialize success page
+        document.addEventListener('DOMContentLoaded', function() {
+            handleSuccessPageFlow();
+            trackToolAccess();
+        });
+    </script>
+</body>
+</html>

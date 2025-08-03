@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny Toshio - From BJJ Coach to $15K/Month</title>
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, var(--brutal-black) 0%, var(--brutal-gray) 100%);
+            color: var(--brutal-white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease-out forwards;
+        }
+
+        .brutal-tagline {
+            font-size: 14px;
+            color: var(--brutal-orange);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: var(--font-weight-brutal);
+        }
+
+        .main-heading {
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: var(--font-weight-brutal);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-shadow: var(--brutal-shadow-text);
+            text-transform: uppercase;
+        }
+
+        .brutal-subtitle {
+            font-size: 20px;
+            color: var(--brutal-orange);
+            margin-bottom: 40px;
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+        }
+
+        .credibility-bar {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .credibility-item {
+            text-align: center;
+        }
+
+        .credibility-number {
+            font-size: 32px;
+            font-weight: var(--font-weight-brutal);
+            color: var(--brutal-red);
+            text-shadow: var(--brutal-shadow-text);
+            margin-bottom: 8px;
+        }
+
+        .credibility-label {
+            font-size: 12px;
+            color: var(--brutal-white);
+            text-transform: uppercase;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .services {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            display: flex;
+            align-items: center;
+            padding: 32px;
+            background: var(--bg-primary);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            box-shadow: var(--brutal-shadow);
+            transition: all var(--transition-normal);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.8s ease-out forwards;
+            cursor: pointer;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.4s; }
+        .service-card:nth-child(3) { animation-delay: 0.6s; }
+        .service-card:nth-child(4) { animation-delay: 0.8s; }
+        .service-card:nth-child(5) { animation-delay: 1.0s; }
+
+        .service-card:hover {
+            transform: translateY(-4px) translateX(-4px);
+            box-shadow: var(--brutal-shadow-hover);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--border-radius);
+            margin-right: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: var(--font-weight-brutal);
+            flex-shrink: 0;
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+        }
+
+        .omvp-starter-icon {
+            background: var(--brutal-orange);
+            color: var(--brutal-black);
+        }
+
+        .omvp-complete-icon {
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+        }
+
+        .omvp-premium-icon {
+            background: var(--brutal-black);
+            color: var(--brutal-orange);
+            border-color: var(--brutal-orange);
+        }
+
+        .blueprint-icon {
+            background: var(--success-green);
+            color: var(--brutal-white);
+        }
+
+        .bjj-icon {
+            background: var(--brutal-white);
+            color: var(--brutal-black);
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-title {
+            font-size: 24px;
+            font-weight: var(--font-weight-brutal);
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+
+        .service-price {
+            font-size: 18px;
+            color: var(--brutal-red);
+            font-weight: var(--font-weight-brutal);
+            margin-bottom: 12px;
+        }
+
+        .service-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+
+        .service-features li {
+            padding: 4px 0;
+            font-size: 14px;
+            color: var(--text-primary);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .service-features li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: var(--brutal-red);
+            font-weight: var(--font-weight-brutal);
+        }
+
+        .service-action {
+            padding: 16px 32px;
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: var(--font-weight-brutal);
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            box-shadow: var(--brutal-shadow);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .service-action:hover {
+            background: var(--brutal-orange);
+            color: var(--brutal-black);
+            transform: translateY(-2px) translateX(-2px);
+            box-shadow: var(--brutal-shadow-hover);
+        }
+
+        .free-tag {
+            background: var(--success-green);
+            color: var(--brutal-white);
+            padding: 4px 12px;
+            border-radius: var(--border-radius);
+            font-size: 12px;
+            font-weight: var(--font-weight-brutal);
+            text-transform: uppercase;
+            margin-left: 16px;
+        }
+
+        .founder-story {
+            background: var(--brutal-black);
+            color: var(--brutal-white);
+            padding: 60px 40px;
+            border: var(--brutal-border);
+            border-color: var(--brutal-orange);
+            border-radius: var(--border-radius);
+            margin: 80px 0;
+            box-shadow: var(--brutal-shadow);
+        }
+
+        .founder-story h2 {
+            color: var(--brutal-orange);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .story-item {
+            text-align: center;
+            padding: 24px;
+            border: 2px solid var(--brutal-orange);
+            border-radius: var(--border-radius);
+        }
+
+        .story-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .story-title {
+            font-size: 16px;
+            font-weight: var(--font-weight-brutal);
+            color: var(--brutal-orange);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .story-text {
+            font-size: 14px;
+            color: var(--brutal-white);
+            line-height: 1.4;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 60px 16px 40px;
+            }
+            
+            .service-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px;
+            }
+            
+            .service-icon {
+                margin-right: 0;
+                margin-bottom: 16px;
+            }
+            
+            .credibility-bar {
+                gap: 16px;
+            }
+            
+            .credibility-number {
+                font-size: 24px;
+            }
+            
+            .founder-story {
+                padding: 40px 24px;
+            }
+            
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Brutal particles animation */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--brutal-red);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .particle:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 60%; left: 85%; animation-delay: 3s; }
+        .particle:nth-child(3) { top: 30%; left: 20%; animation-delay: 6s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="brutal-tagline">⚡ From $560/month to $15K/month ⚡</div>
+            <h1 class="main-heading">I Build Brutal Systems<br>That Convert. Period.</h1>
+            <p class="brutal-subtitle">15 Years Experience • 1 Successful Exit • 5 Failures Learned From</p>
+            
+            <div class="credibility-bar">
+                <div class="credibility-item">
+                    <div class="credibility-number">15</div>
+                    <div class="credibility-label">Years Experience</div>
+                </div>
+                <div class="credibility-item">
+                    <div class="credibility-number">$100K+</div>
+                    <div class="credibility-label">Revenue Generated</div>
+                </div>
+                <div class="credibility-item">
+                    <div class="credibility-number">85%</div>
+                    <div class="credibility-label">Success Rate</div>
+                </div>
+                <div class="credibility-item">
+                    <div class="credibility-number">48H</div>
+                    <div class="credibility-label">To Launch</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="services">
+            <div class="service-card">
+                <div class="service-icon omvp-starter-icon">🚀</div>
+                <div class="service-content">
+                    <h3 class="service-title">OMVP Starter</h3>
+                    <div class="service-price">$2,500</div>
+                    <p class="service-description">48-hour foundation system to get your MVP launched and generating revenue</p>
+                    <ul class="service-features">
+                        <li>Discovery call with 15 strategic questions</li>
+                        <li>AI-generated product documentation</li>
+                        <li>Landing page design & development</li>
+                        <li>Basic email sequence setup</li>
+                    </ul>
+                    <a href="#contact" class="service-action">Start Now</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon omvp-complete-icon">⚡</div>
+                <div class="service-content">
+                    <h3 class="service-title">OMVP Complete</h3>
+                    <div class="service-price">$5,000</div>
+                    <p class="service-description">Full methodology implementation with automation and optimization systems</p>
+                    <ul class="service-features">
+                        <li>Everything in Starter package</li>
+                        <li>Complete automation toolkit</li>
+                        <li>Conversion optimization audit</li>
+                        <li>7-day support & refinements</li>
+                    </ul>
+                    <a href="#contact" class="service-action">Get Complete</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon omvp-premium-icon">💎</div>
+                <div class="service-content">
+                    <h3 class="service-title">OMVP Premium</h3>
+                    <div class="service-price">$10,000</div>
+                    <p class="service-description">White-glove service with 30-day support and guaranteed results</p>
+                    <ul class="service-features">
+                        <li>Everything in Complete package</li>
+                        <li>30-day implementation support</li>
+                        <li>Performance monitoring & optimization</li>
+                        <li>Revenue guarantee or refund</li>
+                    </ul>
+                    <a href="#contact" class="service-action">Go Premium</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon blueprint-icon">📋</div>
+                <div class="service-content">
+                    <h3 class="service-title">48-Hour Business Blueprint<span class="free-tag">FREE</span></h3>
+                    <div class="service-price">$0</div>
+                    <p class="service-description">The exact worksheet I use to help founders gain clarity and launch in 48 hours</p>
+                    <ul class="service-features">
+                        <li>15 strategic questions framework</li>
+                        <li>AI prompt engineering guide</li>
+                        <li>Revenue validation checklist</li>
+                        <li>Implementation timeline</li>
+                    </ul>
+                    <a href="#blueprint" class="service-action">Download Free</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon bjj-icon">🥋</div>
+                <div class="service-content">
+                    <h3 class="service-title">BJJ Discipline Content</h3>
+                    <div class="service-price">Follow Journey</div>
+                    <p class="service-description">How martial arts discipline translates to business execution and results</p>
+                    <ul class="service-features">
+                        <li>Daily training mindset content</li>
+                        <li>Business execution philosophy</li>
+                        <li>Bangkok nomad lifestyle</li>
+                        <li>Behind-the-scenes content</li>
+                    </ul>
+                    <a href="https://instagram.com/toshioj" class="service-action" target="_blank">Follow @toshioj</a>
+                </div>
+            </div>
+        </main>
+
+        <section class="founder-story">
+            <h2>From BJJ Coach to Business Builder</h2>
+            <p>I'm Johnny Toshio. Currently making $560/month as a BJJ coach in Bangkok, but I've built and exited businesses before. Here's what makes me different:</p>
+            
+            <div class="story-grid">
+                <div class="story-item">
+                    <div class="story-icon">🥋</div>
+                    <div class="story-title">BJJ Discipline</div>
+                    <div class="story-text">Daily training builds the mental discipline needed for consistent business execution</div>
+                </div>
+                
+                <div class="story-item">
+                    <div class="story-icon">💀</div>
+                    <div class="story-title">5 Failed Startups</div>
+                    <div class="story-text">I know exactly what doesn't work and why most businesses fail in the first year</div>
+                </div>
+                
+                <div class="story-item">
+                    <div class="story-icon">🚀</div>
+                    <div class="story-title">1 Successful Exit</div>
+                    <div class="story-text">Sold my development house after learning what actually works in business</div>
+                </div>
+                
+                <div class="story-item">
+                    <div class="story-icon">🌏</div>
+                    <div class="story-title">Location Freedom</div>
+                    <div class="story-text">Built systems that work from anywhere - currently living in Bangkok</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 18px; color: var(--brutal-orange); font-weight: var(--font-weight-bold);">
+                    "I teach what I've learned from failures and validated through success."
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

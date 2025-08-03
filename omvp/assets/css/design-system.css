@@ -1,0 +1,724 @@
+/* 
+ * OMVP Gemini-Inspired Design System
+ * Template system for client work combining brutal conversion focus with modern crypto aesthetics
+ * Version: 3.0 - Gemini Integration
+ */
+
+/* ====================================
+   TEMPLATE CUSTOMIZATION VARIABLES
+   ==================================== */
+
+:root {
+    /* Template Brand Variables - Gemini-inspired defaults */
+    --template-primary: #010304;     /* Gemini Deep Charcoal - Professional & Clean */
+    --template-secondary: #26DDF9;   /* Gemini Bright Cyan - Tech/Crypto Accent */
+    --template-accent: #F59E00;      /* Gemini Warm Orange - Energy & Innovation */
+    --template-success: #34C759;     /* Keep iOS Green for success states */
+    --template-warning: #F59E00;     /* Gemini Orange for warnings */
+    --template-danger: #FF3B30;      /* Keep iOS Red for danger states */
+    
+    /* Gemini Color System */
+    --gemini-charcoal: #010304;
+    --gemini-cyan: #26DDF9;
+    --gemini-orange: #F59E00;
+    --gemini-warm-red: #FD6D6D;
+    --gemini-neutral-1: #B3B3B4;
+    --gemini-neutral-2: #676868;
+    --gemini-neutral-3: #F4F4F4;
+    
+    /* Legacy iOS Colors (for backward compatibility) */
+    --ios-blue: #007AFF;
+    --ios-red: #FF3B30;
+    --ios-orange: #FF9500;
+    --ios-yellow: #FFCC00;
+    --ios-green: #34C759;
+    --ios-mint: #00C7BE;
+    --ios-teal: #30B0C7;
+    --ios-cyan: #32D2FF;
+    --ios-indigo: #5856D6;
+    --ios-purple: #AF52DE;
+    --ios-pink: #FF2D92;
+    --ios-brown: #A2845E;
+    
+    /* Gemini Neutral System */
+    --gemini-black: #010304;
+    --gemini-white: #FFFFFF;
+    --gemini-gray-1: #676868;    /* Primary gray text */
+    --gemini-gray-2: #B3B3B4;    /* Secondary gray text */
+    --gemini-gray-3: #F4F4F4;    /* Light background */
+    --gemini-gray-4: #E5E5E7;    /* Borders */
+    
+    /* Legacy iOS Neutrals */
+    --ios-black: #000000;
+    --ios-white: #FFFFFF;
+    --ios-gray: #8E8E93;
+    --ios-gray2: #AEAEB2;
+    --ios-gray3: #C7C7CC;
+    --ios-gray4: #D1D1D6;
+    --ios-gray5: #E5E5EA;
+    --ios-gray6: #F2F2F7;
+    
+    /* Gemini Theme System - Light Mode */
+    --bg-primary: var(--gemini-white);
+    --bg-secondary: var(--gemini-gray-3);
+    --bg-tertiary: var(--gemini-gray-3);
+    --bg-elevated: var(--gemini-white);
+    --bg-grouped: var(--gemini-gray-3);
+    --text-primary: var(--gemini-charcoal);
+    --text-secondary: var(--gemini-gray-1);
+    --text-tertiary: var(--gemini-gray-2);
+    --accent-color: var(--template-secondary);
+    --border-color: var(--gemini-gray-4);
+    --separator-color: var(--gemini-gray-4);
+    
+    /* Gemini Typography System */
+    --font-system: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+    --font-primary: var(--font-system);
+    --font-heading: var(--font-system);
+    --font-monospace: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    
+    /* Gemini Font Weights (Inter optimized) */
+    --font-weight-ultralight: 100;
+    --font-weight-thin: 200;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-heavy: 800;
+    --font-weight-black: 900;
+    
+    /* Gemini Letter Spacing (tighter for modern feel) */
+    --letter-spacing-tight: -0.01em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.01em;
+    
+    /* iOS Typography Scales */
+    --text-large-title: 34px;
+    --text-title-1: 28px;
+    --text-title-2: 22px;
+    --text-title-3: 20px;
+    --text-headline: 17px;
+    --text-body: 17px;
+    --text-callout: 16px;
+    --text-subhead: 15px;
+    --text-footnote: 13px;
+    --text-caption-1: 12px;
+    --text-caption-2: 11px;
+    
+    /* iOS Spacing System */
+    --spacing-2xs: 2px;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 20px;
+    --spacing-2xl: 24px;
+    --spacing-3xl: 32px;
+    --spacing-4xl: 40px;
+    --spacing-5xl: 48px;
+    --spacing-6xl: 64px;
+    
+    /* iOS Visual Effects */
+    --ios-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --ios-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --ios-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --ios-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+    
+    /* iOS Border Radius */
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+    --radius-3xl: 24px;
+    --radius-full: 9999px;
+    
+    /* iOS Transitions */
+    --transition-fast: 0.15s ease-out;
+    --transition-normal: 0.25s ease-out;
+    --transition-slow: 0.35s ease-out;
+    --spring-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --spring-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* iOS Blur Effects */
+    --blur-light: blur(20px);
+    --blur-heavy: blur(40px);
+    --backdrop-filter-light: saturate(180%) blur(20px);
+    --backdrop-filter-heavy: saturate(180%) blur(40px);
+}
+
+/* iOS Dark Mode Theme */
+[data-theme="dark"] {
+    --bg-primary: #000000;
+    --bg-secondary: #1C1C1E;
+    --bg-tertiary: #2C2C2E;
+    --bg-elevated: #1C1C1E;
+    --bg-grouped: #000000;
+    --text-primary: #FFFFFF;
+    --text-secondary: #AEAEB2;
+    --text-tertiary: #8E8E93;
+    --border-color: #38383A;
+    --separator-color: #38383A;
+    
+    /* Dark mode shadows */
+    --ios-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --ios-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --ios-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+    --ios-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ====================================
+   RESET & BASE STYLES
+   ==================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--text-body);
+    line-height: 1.4;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    font-weight: var(--font-weight-regular);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ====================================
+   iOS TYPOGRAPHY SYSTEM
+   ==================================== */
+
+.text-large-title, h1 {
+    font-size: var(--text-large-title);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.02em;
+}
+
+.text-title-1, h2 {
+    font-size: var(--text-title-1);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.25;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.01em;
+}
+
+.text-title-2, h3 {
+    font-size: var(--text-title-2);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.text-title-3, h4 {
+    font-size: var(--text-title-3);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.35;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.text-headline, h5 {
+    font-size: var(--text-headline);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.text-body, p {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.text-callout {
+    font-size: var(--text-callout);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+    color: var(--text-primary);
+}
+
+.text-subhead {
+    font-size: var(--text-subhead);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+.text-footnote {
+    font-size: var(--text-footnote);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.35;
+    color: var(--text-secondary);
+}
+
+.text-caption-1 {
+    font-size: var(--text-caption-1);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.35;
+    color: var(--text-secondary);
+}
+
+.text-caption-2 {
+    font-size: var(--text-caption-2);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.35;
+    color: var(--text-tertiary);
+}
+
+/* ====================================
+   iOS BUTTON SYSTEM
+   ==================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-family: var(--font-primary);
+    font-size: var(--text-headline);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: var(--template-primary);
+    color: var(--ios-white);
+    box-shadow: var(--ios-shadow-sm);
+}
+
+.btn-primary:hover {
+    background: color-mix(in srgb, var(--template-primary) 90%, black);
+    box-shadow: var(--ios-shadow-md);
+}
+
+.btn-secondary {
+    background: var(--bg-tertiary);
+    color: var(--template-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-elevated);
+    border-color: var(--template-primary);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--template-primary);
+}
+
+.btn-ghost:hover {
+    background: color-mix(in srgb, var(--template-primary) 10%, transparent);
+}
+
+.btn-destructive {
+    background: var(--template-danger);
+    color: var(--ios-white);
+}
+
+.btn-destructive:hover {
+    background: color-mix(in srgb, var(--template-danger) 90%, black);
+}
+
+/* Button Sizes */
+.btn-sm {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--text-subhead);
+    border-radius: var(--radius-md);
+}
+
+.btn-lg {
+    padding: var(--spacing-xl) var(--spacing-4xl);
+    font-size: var(--text-title-3);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--radius-xl);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+/* ====================================
+   iOS CARD SYSTEM
+   ==================================== */
+
+.card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-3xl);
+    box-shadow: var(--ios-shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-normal);
+}
+
+.card:hover {
+    box-shadow: var(--ios-shadow-md);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.card-title {
+    font-size: var(--text-title-2);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-subtitle {
+    font-size: var(--text-subhead);
+    color: var(--text-secondary);
+}
+
+.card-body {
+    margin-bottom: var(--spacing-xl);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+}
+
+/* ====================================
+   iOS LIST SYSTEM
+   ==================================== */
+
+.list {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-bottom: 1px solid var(--separator-color);
+    transition: background-color var(--transition-fast);
+}
+
+.list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item:hover {
+    background: var(--bg-tertiary);
+}
+
+.list-item-content {
+    flex: 1;
+}
+
+.list-item-title {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-2xs);
+}
+
+.list-item-subtitle {
+    font-size: var(--text-subhead);
+    color: var(--text-secondary);
+}
+
+.list-item-accessory {
+    margin-left: var(--spacing-md);
+    color: var(--text-tertiary);
+}
+
+/* ====================================
+   iOS FORM SYSTEM
+   ==================================== */
+
+.form-group {
+    margin-bottom: var(--spacing-xl);
+}
+
+.form-label {
+    display: block;
+    font-size: var(--text-subhead);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-input {
+    width: 100%;
+    padding: var(--spacing-lg);
+    font-family: var(--font-primary);
+    font-size: var(--text-body);
+    color: var(--text-primary);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--template-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--template-primary) 15%, transparent);
+}
+
+.form-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+/* ====================================
+   iOS LAYOUT SYSTEM
+   ==================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+}
+
+.section {
+    padding: var(--spacing-6xl) 0;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--template-primary) 0%, var(--template-secondary) 100%);
+    color: var(--ios-white);
+    padding: var(--spacing-6xl) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.03"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.04"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: clamp(var(--text-title-1), 5vw, 48px);
+    font-weight: var(--font-weight-black);
+    line-height: 1.1;
+    margin-bottom: var(--spacing-xl);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+    font-size: var(--text-title-3);
+    font-weight: var(--font-weight-medium);
+    opacity: 0.9;
+    margin-bottom: var(--spacing-4xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ====================================
+   iOS GRID SYSTEM
+   ==================================== */
+
+.grid {
+    display: grid;
+    gap: var(--spacing-xl);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ====================================
+   iOS UTILITY CLASSES
+   ==================================== */
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-primary-color { color: var(--template-primary); }
+.text-secondary-color { color: var(--text-secondary); }
+.text-tertiary-color { color: var(--text-tertiary); }
+
+.bg-primary { background: var(--template-primary); }
+.bg-secondary { background: var(--bg-secondary); }
+.bg-tertiary { background: var(--bg-tertiary); }
+
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+.shadow-sm { box-shadow: var(--ios-shadow-sm); }
+.shadow-md { box-shadow: var(--ios-shadow-md); }
+.shadow-lg { box-shadow: var(--ios-shadow-lg); }
+
+/* ====================================
+   iOS ANIMATIONS & TRANSITIONS
+   ==================================== */
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 0.5s var(--spring-smooth);
+}
+
+.bounce {
+    animation: bounce 0.6s var(--spring-bounce);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ====================================
+   RESPONSIVE DESIGN
+   ==================================== */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+    
+    .hero {
+        padding: var(--spacing-4xl) 0;
+    }
+    
+    .section {
+        padding: var(--spacing-4xl) 0;
+    }
+    
+    .card {
+        padding: var(--spacing-xl);
+    }
+}
+
+/* ====================================
+   TEMPLATE CUSTOMIZATION HELPERS
+   ==================================== */
+
+/* Custom property overrides for easy client customization */
+.brand-primary { color: var(--template-primary); }
+.brand-secondary { color: var(--template-secondary); }
+.brand-accent { color: var(--template-accent); }
+
+.bg-brand-primary { background: var(--template-primary); }
+.bg-brand-secondary { background: var(--template-secondary); }
+.bg-brand-accent { background: var(--template-accent); }
+
+.border-brand-primary { border-color: var(--template-primary); }
+.border-brand-secondary { border-color: var(--template-secondary); }
+.border-brand-accent { border-color: var(--template-accent); }
+
+/* ====================================
+   DARK MODE SUPPORT
+   ==================================== */
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg-primary: #000000;
+        --bg-secondary: #1C1C1E;
+        --bg-tertiary: #2C2C2E;
+        --bg-elevated: #1C1C1E;
+        --bg-grouped: #000000;
+        --text-primary: #FFFFFF;
+        --text-secondary: #AEAEB2;
+        --text-tertiary: #8E8E93;
+        --border-color: #38383A;
+        --separator-color: #38383A;
+    }
+}

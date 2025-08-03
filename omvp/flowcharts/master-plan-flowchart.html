@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOJJJO Master Plan Flowchart - System Optimization</title>
+    <link rel="stylesheet" href="../assets/css/design-system.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs" type="module"></script>
+    <style>
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            padding: var(--spacing-xl);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+            padding: var(--spacing-2xl);
+            background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
+            border-radius: var(--border-radius);
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: var(--font-weight-brutal);
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-md);
+            text-shadow: var(--brutal-shadow-text);
+        }
+        
+        .header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            font-weight: var(--font-weight-bold);
+        }
+        
+        .section {
+            margin-bottom: var(--spacing-3xl);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: var(--spacing-2xl);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            box-shadow: var(--brutal-shadow);
+        }
+        
+        .section h2 {
+            color: var(--brutal-red);
+            font-size: 2rem;
+            font-weight: var(--font-weight-brutal);
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .mermaid {
+            background: var(--text-primary);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+            margin: var(--spacing-xl) 0;
+            overflow-x: auto;
+        }
+        
+        .transformation-alert {
+            background: var(--success-green);
+            color: var(--text-primary);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-2xl);
+            font-size: 1.125rem;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
+        }
+        
+        .before-card {
+            background: #fee2e2;
+            color: var(--danger-red);
+            padding: var(--spacing-xl);
+            border: 3px solid var(--danger-red);
+            border-radius: var(--border-radius);
+        }
+        
+        .after-card {
+            background: #d1fae5;
+            color: var(--success-green);
+            padding: var(--spacing-xl);
+            border: 3px solid var(--success-green);
+            border-radius: var(--border-radius);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-brutal);
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .card-content {
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
+            color: var(--text-primary);
+            text-align: center;
+            padding: var(--spacing-3xl);
+            border-radius: var(--border-radius);
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: var(--spacing-md) var(--spacing-xl);
+            background: var(--text-primary);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: var(--font-weight-bold);
+            text-transform: uppercase;
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            box-shadow: var(--brutal-shadow);
+            transition: all var(--transition-fast);
+            margin: var(--spacing-sm);
+        }
+        
+        .btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--brutal-shadow-hover);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>DOJJJO Master Plan</h1>
+            <p>System Optimization Flow - From Chaos to $15K/Month Revenue Machine</p>
+        </header>
+        
+        <div class="transformation-alert">
+            ✅ SYSTEM TRANSFORMATION COMPLETE - READY FOR REVENUE GENERATION
+        </div>
+        
+        <!-- Optimization Process Flow -->
+        <section class="section">
+            <h2>S-Tier Product Design Audit Process</h2>
+            <div class="mermaid">
+                flowchart TD
+                    AUDIT_START[🔍 S-Tier Product Design Audit] --> ANALYSIS[📊 System Analysis]
+                    
+                    subgraph ANALYSIS[📊 SYSTEM ANALYSIS]
+                        A1[Landing Page Audit: 3 different pages]
+                        A2[Lead Magnet Analysis: 6+ scattered magnets]
+                        A3[Service Tier Review: 3 tiers causing confusion]
+                        A4[Funnel Flow Mapping: No clear path]
+                        A5[Brand Navigation: Multi-brand chaos]
+                    end
+                    
+                    ANALYSIS --> PROBLEMS[🚨 Critical Issues Identified]
+                    
+                    subgraph PROBLEMS[🚨 CRITICAL ISSUES]
+                        P1[❌ Landing Page Confusion]
+                        P2[❌ Lead Magnet Chaos]
+                        P3[❌ Service Offering Paralysis]
+                        P4[❌ Email Sequence Disaster]
+                        P5[❌ Multi-Brand Navigation]
+                        P6[❌ No Clear Conversion Path]
+                    end
+                    
+                    PROBLEMS --> OPTIMIZATION[⚡ Brutal Optimization]
+                    
+                    subgraph OPTIMIZATION[⚡ BRUTAL OPTIMIZATION]
+                        O1[✅ Single Landing Page: index.html]
+                        O2[✅ 2 Strategic Lead Magnets Only]
+                        O3[✅ $5K OMVP Complete Service]
+                        O4[✅ 5-Email Nurture Sequence]
+                        O5[✅ Focused Social Presence]
+                        O6[✅ Clear Booking System]
+                    end
+                    
+                    OPTIMIZATION --> IMPLEMENTATION[🚀 Implementation Ready]
+                    
+                    subgraph IMPLEMENTATION[🚀 IMPLEMENTATION PLAN]
+                        I1[📧 Email Automation Setup]
+                        I2[📅 Cal.com Booking Integration]
+                        I3[💳 Stripe Payment Processing]
+                        I4[📊 Analytics & Tracking]
+                        I5[🎯 CRM Lead Management]
+                    end
+                    
+                    IMPLEMENTATION --> SUCCESS[🎉 Revenue Generation]
+                    
+                    %% Styling
+                    classDef analysis fill:#fbbf24,stroke:#333,stroke-width:3px,color:#000
+                    classDef problems fill:#ef4444,stroke:#333,stroke-width:3px,color:#fff
+                    classDef optimization fill:#10b981,stroke:#333,stroke-width:3px,color:#fff
+                    classDef implementation fill:#3b82f6,stroke:#333,stroke-width:3px,color:#fff
+                    classDef success fill:#8b5cf6,stroke:#333,stroke-width:3px,color:#fff
+                    
+                    class ANALYSIS,A1,A2,A3,A4,A5 analysis
+                    class PROBLEMS,P1,P2,P3,P4,P5,P6 problems
+                    class OPTIMIZATION,O1,O2,O3,O4,O5,O6 optimization
+                    class IMPLEMENTATION,I1,I2,I3,I4,I5 implementation
+                    class SUCCESS success
+            </div>
+        </section>
+        
+        <!-- Revenue Generation Flow -->
+        <section class="section">
+            <h2>Optimized Revenue Generation Flow</h2>
+            <div class="mermaid">
+                flowchart LR
+                    TRAFFIC[Social Media Traffic<br/>10,000 visitors/month] --> LANDING[Landing Page<br/>index.html]
+                    LANDING -->|20% conversion| LEADS[Email Leads<br/>2,000/month]
+                    LEADS -->|40% open rate| ENGAGED[Engaged Leads<br/>800/month]
+                    ENGAGED -->|15% booking| CALLS[Discovery Calls<br/>120/month]
+                    CALLS -->|25% close rate| CLIENTS[New Clients<br/>30/month]
+                    CLIENTS -->|$5K average| REVENUE[Monthly Revenue<br/>$150,000]
+                    
+                    %% Revenue Breakdown
+                    REVENUE --> CONSERVATIVE[Conservative Target<br/>3 clients = $15K/month]
+                    REVENUE --> OPTIMISTIC[Optimistic Target<br/>8 clients = $40K/month]
+                    REVENUE --> SCALE[Scale Target<br/>20 clients = $100K/month]
+                    
+                    %% Styling
+                    classDef traffic fill:#6366f1,stroke:#333,stroke-width:2px,color:#fff
+                    classDef conversion fill:#10b981,stroke:#333,stroke-width:2px,color:#fff
+                    classDef revenue fill:#ef4444,stroke:#333,stroke-width:3px,color:#fff
+                    
+                    class TRAFFIC,LANDING,LEADS,ENGAGED,CALLS traffic
+                    class CLIENTS conversion
+                    class REVENUE,CONSERVATIVE,OPTIMISTIC,SCALE revenue
+            </div>
+        </section>
+        
+        <!-- Technical Implementation Flow -->
+        <section class="section">
+            <h2>Technical Implementation Roadmap</h2>
+            <div class="mermaid">
+                gantt
+                    title DOJJJO System Implementation Timeline
+                    dateFormat  YYYY-MM-DD
+                    section Phase 1: Foundation
+                    Email Automation Setup     :active, email, 2024-01-01, 3d
+                    Cal.com Integration       :booking, after email, 2d
+                    Stripe Payment Setup      :payment, after booking, 2d
+                    
+                    section Phase 2: Optimization
+                    Analytics Implementation  :analytics, after payment, 3d
+                    CRM System Setup         :crm, after analytics, 2d
+                    Thank You Pages         :thankyou, after crm, 1d
+                    
+                    section Phase 3: Testing
+                    A/B Test Headlines      :testing, after thankyou, 5d
+                    Conversion Optimization :optimize, after testing, 7d
+                    Performance Monitoring  :monitor, after optimize, ongoing
+                    
+                    section Phase 4: Scale
+                    Testimonial Collection  :testimonials, after optimize, 3d
+                    Referral System        :referrals, after testimonials, 3d
+                    Content Marketing      :content, after referrals, ongoing
+            </div>
+        </section>
+        
+        <!-- Before vs After Comparison -->
+        <section class="section">
+            <h2>Transformation Results</h2>
+            <div class="comparison-grid">
+                <div class="before-card">
+                    <div class="card-title">❌ Before Audit</div>
+                    <div class="card-content">
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li>• 3 different landing pages</li>
+                            <li>• 6+ scattered lead magnets</li>
+                            <li>• 3 service tiers = confusion</li>
+                            <li>• Multi-brand navigation chaos</li>
+                            <li>• Static email templates</li>
+                            <li>• No clear conversion path</li>
+                            <li>• Inconsistent social presence</li>
+                            <li>• Revenue: Scattered $560/month</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="after-card">
+                    <div class="card-title">✅ After Audit</div>
+                    <div class="card-content">
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li>• 1 primary landing page (index.html)</li>
+                            <li>• 2 strategic lead magnets only</li>
+                            <li>• 1 focused $5K service offer</li>
+                            <li>• Clean, focused navigation</li>
+                            <li>• 5-email automation sequence</li>
+                            <li>• Clear funnel conversion path</li>
+                            <li>• 3 focused social accounts</li>
+                            <li>• Revenue Target: $15K/month</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- File Organization -->
+        <section class="section">
+            <h2>Active vs Archived Files</h2>
+            <div class="mermaid">
+                flowchart TD
+                    ROOT[DOJJJO Root Directory] --> ACTIVE[✅ ACTIVE FILES]
+                    ROOT --> ARCHIVED[🗑️ ARCHIVED FILES]
+                    
+                    subgraph ACTIVE[✅ ACTIVE FILES - USE THESE]
+                        AF1[index.html - Primary Landing]
+                        AF2[48-hour-business-blueprint.md - Lead Magnet #1]
+                        AF3[lead-magnet/staging/diagnosis/ - Future Release]
+                        AF4[email template/ - 5-Email Sequence]
+                        AF5[CUSTOMER-JOURNEY-OPTIMIZED.md - Strategy]
+                        AF6[ORGANIZATION-GUIDE.md - File Management]
+                        AF7[dashboard/DOJJJO-Dashboard.html - Results]
+                    end
+                    
+                    subgraph ARCHIVED[🗑️ ARCHIVED FILES - IGNORE THESE]
+                        AR1[index-OLD-BACKUP.html - Original chaos]
+                        AR2[toshio-personal-hub.html - Eliminated]
+                        AR3[toshio-landing-long.html - Used as base]
+                        AR4[lead-magnet/staging/lead-magnet-mvp-* - Future Releases]
+                        AR5[lead-magnet/staging/lead-magnet-agent-* - Future Releases]
+                        AR6[lead-magnet/staging/lead-magnet-24-* - Future Releases]
+                        AR7[lead-magnet/staging/00-client/ - Client Templates]
+                    end
+                    
+                    %% Styling
+                    classDef active fill:#10b981,stroke:#333,stroke-width:2px,color:#fff
+                    classDef archived fill:#ef4444,stroke:#333,stroke-width:2px,color:#fff
+                    
+                    class ACTIVE,AF1,AF2,AF3,AF4,AF5,AF6,AF7 active
+                    class ARCHIVED,AR1,AR2,AR3,AR4,AR5,AR6,AR7 archived
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 style="color: var(--text-primary); margin-bottom: var(--spacing-lg);">System Optimization Complete</h2>
+            <p style="font-size: 1.125rem; margin-bottom: var(--spacing-2xl); opacity: 0.9;">Your DOJJJO system has been transformed from chaos to a focused $15K/month revenue machine</p>
+            
+            <a href="../index.html" class="btn">🚀 View Optimized Landing</a>
+            <a href="../dashboard.html" class="btn">📊 Check Dashboard</a>
+            <a href="customer-journey-flowchart.html" class="btn">🗺️ View Customer Journey</a>
+            <a href="../strategy/master-plan.md" class="btn">📋 Master Plan</a>
+        </section>
+    </div>
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#ef4444',
+                primaryTextColor: '#111827',
+                primaryBorderColor: '#111827',
+                lineColor: '#374151',
+                secondaryColor: '#f97316',
+                tertiaryColor: '#fbbf24',
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondaryBkg: '#f9fafb',
+                gridColor: '#e5e7eb',
+                cScale0: '#ff6b6b',
+                cScale1: '#4ecdc4',
+                cScale2: '#45b7d1',
+                cScale3: '#ffd93d',
+                cScale4: '#6bcf7f',
+                cScale5: '#ff8c42',
+                cScale6: '#9b59b6',
+                cScale7: '#e74c3c'
+            }
+        });
+    </script>
+</body>
+</html>

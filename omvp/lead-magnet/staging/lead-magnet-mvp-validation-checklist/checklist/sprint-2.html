@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprint 2: Customer Portal & Auth | 7-Day MVP Validation</title>
+    <meta name="description" content="Build your customer portal, authentication system, and content management for Sprint 2. Interactive step-by-step guide.">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-57CDVXRW');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Hotjar Tracking Code for https://overnightmvp.netlify.app/ -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6476354,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="./assets/css/design-system.css">
+    <link rel="stylesheet" href="./assets/css/onboarding.css">
+    
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --warning: #f97316;
+            --error: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--gray-50);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 40px 0;
+            margin-bottom: 40px;
+            border-radius: 12px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            text-align: center;
+            opacity: 0.9;
+        }
+        
+        /* Progress Bar */
+        .progress-section {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .progress-stats {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            text-align: center;
+        }
+        
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+        
+        /* Steps Section */
+        .steps-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--gray-800);
+        }
+        
+        .step {
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .step.completed {
+            border-color: var(--success);
+            background: rgba(16, 185, 129, 0.05);
+        }
+        
+        .step.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .step-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--white);
+        }
+        
+        .step.completed .step-header {
+            background: rgba(16, 185, 129, 0.05);
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step.completed .step-number {
+            background: var(--success);
+            color: var(--white);
+        }
+        
+        .step.active .step-number {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .step-info {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .step-subtitle {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+        
+        .step-time {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .step-content {
+            padding: 0 20px 20px;
+            display: none;
+        }
+        
+        .step.active .step-content {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .step-description {
+            margin-bottom: 20px;
+            color: var(--gray-700);
+        }
+        
+        .checklist {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+        
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: var(--gray-400);
+            font-size: 1.2rem;
+        }
+        
+        .checklist li.completed::before {
+            content: "✓";
+            color: var(--success);
+        }
+        
+        .step-actions {
+            display: none; /* Commented out as requested */
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background: #5145cd;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--gray-200);
+        }
+        
+        .btn-success {
+            background: var(--success);
+            color: var(--white);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .sidebar-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--gray-800);
+        }
+        
+        .help-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            transition: background 0.2s ease;
+        }
+        
+        .help-item:hover {
+            background: var(--gray-50);
+        }
+        
+        .help-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            background: var(--gray-50);
+        }
+        
+        .timeline-time {
+            font-weight: 600;
+            color: var(--primary);
+            margin-right: 10px;
+            min-width: 60px;
+        }
+        
+        .emergency-contact {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--error);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .emergency-contact h4 {
+            color: var(--error);
+            margin-bottom: 10px;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: -1;
+            }
+            
+            .progress-stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .step-actions {
+                justify-content: flex-start;
+            }
+        }
+        
+        /* Utilities */
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+        
+        /* Success States */
+        .success-message {
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid var(--success);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .success-message h3 {
+            color: var(--success);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57CDVXRW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+<main id="main-content" class="onboarding-container">
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🏗️ Sprint 2: Customer Portal & Auth</h1>
+            <p>Build secure authentication, dashboard interface, and content management system</p>
+        </div>
+
+        <!-- Progress Section -->
+        <div class="progress-section">
+            <div class="progress-header">
+                <h2>Your Progress</h2>
+                <div class="progress-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="completedSteps">0</span>
+                        <span class="stat-label">Steps Complete</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="timeSpent">0h</span>
+                        <span class="stat-label">Time Spent</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="timeRemaining">30h</span>
+                        <span class="stat-label">Time Remaining</span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Ready to start Sprint 2: Customer Portal & Auth</div>
+        </div>
+
+        <div class="main-grid">
+            <!-- Main Steps Section -->
+            <div class="steps-section">
+                <h2 class="section-title">Sprint 2 Implementation Steps</h2>
+                
+                <!-- Step 1: User Authentication System -->
+                <div class="step active" data-step="1">
+                    <div class="step-header" onclick="toggleStep(1)">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <div class="step-title">User Authentication System</div>
+                            <div class="step-subtitle">Set up secure login, registration, and password management</div>
+                            <div class="step-time">⏱️ 10 hours</div>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-description">
+                            Create a secure authentication system that allows customers to register, log in, 
+                            and access their purchased content safely.
+                        </div>
+                        
+                        <ul class="checklist" id="step1-checklist">
+                            <li data-item="auth-setup">Set up Auth0 or custom authentication</li>
+                            <li data-item="registration">Implement user registration flow</li>
+                            <li data-item="login">Create secure login system</li>
+                            <li data-item="password-reset">Implement password reset functionality</li>
+                            <li data-item="profile-management">Create user profile management</li>
+                            <li data-item="role-access">Set up role-based access control</li>
+                            <li data-item="session-management">Test security and session management</li>
+                        </ul>
+                        
+                        <div class="step-actions">
+                            <button class="btn btn-primary" onclick="startAuthSetup()">
+                                🔐 Setup Authentication
+                            </button>
+                            <a href="/prototype/docs/sprint2/auth-guide.md" class="btn btn-secondary">
+                                📋 View Auth Guide
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Customer Dashboard -->
+                <div class="step" data-step="2">
+                    <div class="step-header" onclick="toggleStep(2)">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <div class="step-title">Customer Dashboard</div>
+                            <div class="step-subtitle">Build responsive dashboard with progress tracking</div>
+                            <div class="step-time">⏱️ 12 hours</div>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-description">
+                            Design and build a user-friendly dashboard where customers can track their progress
+                            through the 7-day validation program and access their content.
+                        </div>
+                        
+                        <ul class="checklist" id="step2-checklist">
+                            <li data-item="dashboard-wireframes">Design dashboard UI/UX wireframes</li>
+                            <li data-item="responsive-layout">Build responsive dashboard layout</li>
+                            <li data-item="progress-tracking">Create progress tracking visualization</li>
+                            <li data-item="day-navigation">Implement day-by-day content navigation</li>
+                            <li data-item="achievements">Add completion badges and achievements</li>
+                            <li data-item="user-settings">Create user settings and preferences</li>
+                        </ul>
+                        
+                        <div class="step-actions">
+                            <button class="btn btn-primary" onclick="startDashboardBuild()">
+                                📊 Build Dashboard
+                            </button>
+                            <a href="/prototype/docs/sprint2/dashboard-wireframes.md" class="btn btn-secondary">
+                                🎨 View Wireframes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Content Management System -->
+                <div class="step" data-step="3">
+                    <div class="step-header" onclick="toggleStep(3)">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <div class="step-title">Content Management System</div>
+                            <div class="step-subtitle">Set up content delivery and access controls</div>
+                            <div class="step-time">⏱️ 8 hours</div>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-description">
+                            Create a robust content management system that organizes the 7-day program materials
+                            and controls access based on user progression and payment status.
+                        </div>
+                        
+                        <ul class="checklist" id="step3-checklist">
+                            <li data-item="content-infrastructure">Set up content delivery infrastructure</li>
+                            <li data-item="day-organization">Create day-by-day content organization</li>
+                            <li data-item="content-gating">Implement content gating (unlock by day)</li>
+                            <li data-item="file-system">Build file upload and delivery system</li>
+                            <li data-item="access-restrictions">Test content access and restrictions</li>
+                            <li data-item="media-optimization">Optimize media loading and streaming</li>
+                        </ul>
+                        
+                        <div class="step-actions">
+                            <button class="btn btn-success" onclick="startCMSSetup()">
+                                📁 Setup Content Management
+                            </button>
+                            <button class="btn btn-secondary" onclick="reviewSprint2()">
+                                📋 Review Sprint 2
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Quick Help -->
+                <div class="sidebar-card">
+                    <h3 class="card-title">Quick Help</h3>
+                    <div class="help-item">
+                        <span class="help-icon">📚</span>
+                        <a href="/prototype/docs/sprint2/" style="text-decoration: none; color: inherit;">
+                            Sprint 2 Documentation
+                        </a>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-icon">💬</span>
+                        <span>Live Chat Support</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-icon">🎥</span>
+                        <span>Video Tutorials</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-icon">🐛</span>
+                        <span>Troubleshooting Guide</span>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="sidebar-card">
+                    <h3 class="card-title">Recommended Timeline</h3>
+                    <div class="timeline-item">
+                        <span class="timeline-time">0-10h</span>
+                        <span>Authentication System</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10-22h</span>
+                        <span>Customer Dashboard</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">22-30h</span>
+                        <span>Content Management</span>
+                    </div>
+                </div>
+
+
+                <!-- Emergency Support -->
+                <div class="sidebar-card">
+                    <div class="emergency-contact">
+                        <h4>🆘 Need Help?</h4>
+                        <p>Stuck on authentication or dashboard design? Get immediate development support.</p>
+                        <button class="btn btn-primary mt-20" onclick="requestSupport()">
+                            Get Support
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Success Preview -->
+                <div class="sidebar-card">
+                    <h3 class="card-title">🎯 Sprint 2 Deliverables</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 5px 0;">✅ Secure user authentication</li>
+                        <li style="padding: 5px 0;">✅ Customer dashboard interface</li>
+                        <li style="padding: 5px 0;">✅ Progress tracking system</li>
+                        <li style="padding: 5px 0;">✅ Content access controls</li>
+                        <li style="padding: 5px 0;">✅ User profile management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sprint Navigation - moved to bottom -->
+        <div style="margin-top: 30px; background: var(--white); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+            <h3 class="card-title">Sprint Navigation</h3>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                <a href="./sprint0-onboarding.html" class="btn btn-secondary" style="font-size: 0.8rem;">Sprint 0</a>
+                <a href="./sprint1-onboarding.html" class="btn btn-secondary" style="font-size: 0.8rem;">Sprint 1</a>
+                <span class="btn btn-primary" style="font-size: 0.8rem;">Sprint 2</span>
+                <a href="./sprint3-onboarding.html" class="btn btn-secondary" style="font-size: 0.8rem;">Sprint 3</a>
+                <a href="./sprint4-onboarding.html" class="btn btn-secondary" style="font-size: 0.8rem;">Sprint 4</a>
+                <a href="./sprint5-onboarding.html" class="btn btn-secondary" style="font-size: 0.8rem;">Sprint 5</a>
+                <a href="./sprint6-onboarding.html" class="btn btn-secondary" style="font-size: 0.8rem;">Sprint 6</a>
+                <a href="./sprint7-onboarding.html" class="btn btn-secondary" style="font-size: 0.8rem;">Sprint 7</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Progress tracking
+        let completedSteps = 0;
+        let timeSpent = 0;
+        let startTime = Date.now();
+
+        // Global variables
+        let userEmail = null;
+
+        // Load saved progress
+        window.addEventListener('load', function() {
+            // Get email from URL params if redirected from email capture
+            const urlParams = new URLSearchParams(window.location.search);
+            userEmail = urlParams.get('email');
+            
+            if (userEmail) {
+                loadProgressFromServer();
+                trackUser(userEmail);
+            } else {
+                loadProgress();
+            }
+            
+            updateProgress();
+        });
+
+        function loadProgress() {
+            const savedProgress = localStorage.getItem('sprint2-progress');
+            if (savedProgress) {
+                const progress = JSON.parse(savedProgress);
+                completedSteps = progress.completedSteps || 0;
+                timeSpent = progress.timeSpent || 0;
+                
+                // Restore checklist states
+                Object.keys(progress.checklistItems || {}).forEach(itemId => {
+                    const checkbox = document.querySelector(`[data-item="${itemId}"]`);
+                    if (checkbox && progress.checklistItems[itemId]) {
+                        checkbox.classList.add('completed');
+                    }
+                });
+                
+                // Update step states
+                for (let i = 1; i <= 3; i++) {
+                    const step = document.querySelector(`[data-step="${i}"]`);
+                    if (progress.completedStepNumbers && progress.completedStepNumbers.includes(i)) {
+                        step.classList.add('completed');
+                        step.classList.remove('active');
+                    }
+                }
+                
+                // Set active step
+                if (progress.activeStep) {
+                    setActiveStep(progress.activeStep);
+                }
+            }
+        }
+
+        async function loadProgressFromServer() {
+            if (!userEmail) return;
+            
+            try {
+                // GTM Testing: const response = await fetch(`/api/sprint2/progress/${encodeURIComponent(userEmail)}`);
+                // GTM Testing: const data = await response.json();
+                
+                if (data.success && data.progress) {
+                    const progress = data.progress;
+                    
+                    completedSteps = progress.completedSteps.length;
+                    timeSpent = (Date.now() - progress.startTime) / (1000 * 60 * 60);
+                    
+                    // Restore step states
+                    progress.completedSteps.forEach(stepNum => {
+                        const step = document.querySelector(`[data-step="${stepNum}"]`);
+                        if (step) {
+                            step.classList.add('completed');
+                            step.classList.remove('active');
+                        }
+                    });
+                    
+                    // Set active step
+                    if (progress.currentStep <= 3) {
+                        setActiveStep(progress.currentStep);
+                    }
+                    
+                    // Restore checklist items
+                    Object.keys(progress.stepProgress || {}).forEach(itemId => {
+                        const checkbox = document.querySelector(`[data-item="${itemId}"]`);
+                        if (checkbox && progress.stepProgress[itemId]) {
+                            checkbox.classList.add('completed');
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error('Failed to load progress from server:', error);
+                // Fallback to local storage
+                loadProgress();
+            }
+        }
+
+        function saveProgress() {
+            // Save to local storage
+            const checklistItems = {};
+            document.querySelectorAll('.checklist [data-item]').forEach(item => {
+                checklistItems[item.dataset.item] = item.classList.contains('completed');
+            });
+            
+            const completedStepNumbers = [];
+            document.querySelectorAll('.step.completed').forEach(step => {
+                completedStepNumbers.push(parseInt(step.dataset.step));
+            });
+            
+            const activeStep = document.querySelector('.step.active')?.dataset.step || 1;
+            
+            const progress = {
+                completedSteps,
+                timeSpent,
+                checklistItems,
+                completedStepNumbers,
+                activeStep: parseInt(activeStep),
+                lastUpdated: Date.now()
+            };
+            
+            localStorage.setItem('sprint2-progress', JSON.stringify(progress));
+            
+            // Save to server if user email available
+            if (userEmail) {
+                saveProgressToServer(progress);
+            }
+        }
+
+        async function saveProgressToServer(progress) {
+            if (!userEmail) return;
+            
+            try {
+                // GTM Testing: const response = await fetch(`/api/sprint2/progress/${encodeURIComponent(userEmail)}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        currentStep: progress.activeStep,
+                        completedSteps: progress.completedStepNumbers,
+                        stepProgress: progress.checklistItems,
+                        timeSpent: progress.timeSpent
+                    }),
+                });
+                
+                // GTM Testing: const data = await response.json();
+                if (!data.success) {
+                    console.warn('Failed to save progress to server:', data.error);
+                }
+            } catch (error) {
+                console.error('Error saving progress to server:', error);
+            }
+        }
+
+        function updateProgress() {
+            const totalSteps = 3;
+            const progressPercent = (completedSteps / totalSteps) * 100;
+            
+            document.getElementById('completedSteps').textContent = `${completedSteps}/${totalSteps}`;
+            document.getElementById('timeSpent').textContent = `${Math.round(timeSpent).toString().padStart(2, '0')}h`;
+            document.getElementById('timeRemaining').textContent = `${Math.max(0, 30 - timeSpent).toString().padStart(2, '0')}h`;
+            document.getElementById('progressFill').style.width = `${progressPercent}%`;
+            
+            let progressText = '';
+            if (completedSteps === 0) {
+                progressText = 'Ready to start Sprint 2: Customer Portal & Auth';
+            } else if (completedSteps === totalSteps) {
+                progressText = '🎉 Sprint 2 Complete! Customer portal is ready';
+            } else {
+                progressText = `Step ${completedSteps + 1} in progress - ${Math.round(progressPercent)}% complete`;
+            }
+            
+            document.getElementById('progressText').textContent = progressText;
+        }
+
+        function toggleStep(stepNumber) {
+            // Close all other steps
+            document.querySelectorAll('.step').forEach(step => {
+                if (step.dataset.step != stepNumber) {
+                    step.classList.remove('active');
+                }
+            });
+            
+            // Toggle current step
+            const currentStep = document.querySelector(`[data-step="${stepNumber}"]`);
+            currentStep.classList.toggle('active');
+            
+            saveProgress();
+        }
+
+        function setActiveStep(stepNumber) {
+            document.querySelectorAll('.step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            const targetStep = document.querySelector(`[data-step="${stepNumber}"]`);
+            if (targetStep) {
+                targetStep.classList.add('active');
+            }
+        }
+
+        async function markStepComplete(stepNumber) {
+            const step = document.querySelector(`[data-step="${stepNumber}"]`);
+            step.classList.add('completed');
+            step.classList.remove('active');
+            
+            completedSteps = Math.max(completedSteps, stepNumber);
+            
+            // Activate next step
+            if (stepNumber < 3) {
+                setActiveStep(stepNumber + 1);
+            }
+            
+            updateProgress();
+            saveProgress();
+            
+            // Track completion in analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'sprint2_step_complete', {
+                    event_category: 'Sprint Progress',
+                    event_label: `Step ${stepNumber}`,
+                    value: stepNumber
+                });
+            }
+        }
+
+        function toggleChecklistItem(element) {
+            element.classList.toggle('completed');
+            saveProgress();
+            
+            // Check if all items in this step are completed
+            const stepElement = element.closest('.step');
+            const stepNumber = parseInt(stepElement.dataset.step);
+            const allItems = stepElement.querySelectorAll('.checklist [data-item]');
+            const completedItems = stepElement.querySelectorAll('.checklist [data-item].completed');
+            
+            if (allItems.length === completedItems.length) {
+                setTimeout(() => markStepComplete(stepNumber), 500);
+            }
+        }
+
+        // Add click handlers to checklist items
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.checklist [data-item]').forEach(item => {
+                item.addEventListener('click', function() {
+                    toggleChecklistItem(this);
+                });
+                item.style.cursor = 'pointer';
+            });
+        });
+
+        // Step action functions
+        function startAuthSetup() {
+            alert('Opening authentication setup guide...');
+            // This would open a detailed guide or start wizard
+        }
+
+        function startDashboardBuild() {
+            alert('Starting dashboard development...');
+            // This would guide through dashboard creation
+        }
+
+        function startCMSSetup() {
+            alert('Opening content management setup...');
+            // This would start the CMS configuration process
+        }
+
+        function reviewSprint2() {
+            alert('Opening Sprint 2 review and next steps...');
+            // This would show summary and transition to Sprint 3
+        }
+
+        function requestSupport() {
+            // This would open a support chat or contact form
+            if (confirm('Would you like to schedule a Sprint 2 support call?')) {
+                window.open('https://calendly.com/toshioj/30min', '_blank');
+            }
+        }
+
+        function trackUser(email) {
+            // Track user engagement
+            console.log(`Tracking Sprint 2 for: ${email}`);
+            
+            // Send analytics event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'sprint2_onboarding_start', {
+                    event_category: 'Sprint Progress',
+                    event_label: 'Sprint 2 Guide Access',
+                    custom_parameter: email
+                });
+            }
+        }
+
+        // Time tracking
+        setInterval(function() {
+            timeSpent = (Date.now() - startTime) / (1000 * 60 * 60); // Convert to hours
+            updateProgress();
+            saveProgress();
+        }, 60000); // Update every minute
+
+        // Completion celebration
+        function celebrateCompletion() {
+            if (completedSteps === 3) {
+                const celebration = document.createElement('div');
+                celebration.innerHTML = `
+                    <div class="success-message">
+                        <h3>🎉 Sprint 2 Complete!</h3>
+                        <p>You've successfully built your customer portal and authentication system! Ready to move to Sprint 3.</p>
+                        <button class="btn btn-primary" onclick="proceedToSprint3()">
+                            🚀 Continue to Sprint 3
+                        </button>
+                    </div>
+                `;
+                document.querySelector('.steps-section').appendChild(celebration);
+            }
+        }
+
+        function proceedToSprint3() {
+            window.location.href = './sprint3-onboarding.html';
+        }
+
+        // Check for completion on load
+        window.addEventListener('load', function() {
+            setTimeout(celebrateCompletion, 1000);
+        });
+    </script>
+</main>
+</body>
+</html>

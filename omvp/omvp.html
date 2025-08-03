@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny Toshio - Build Systems That Convert</title>
+    <meta name="description" content="Turn your failing startup into a systematic business. 15 years, 5 failures, 1 exit. Now building $15K/month OMVP systems from Bangkok.">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <style>
+        /* Custom overrides for DOJJJO brand */
+        :root {
+            --template-primary: #FF3B30;    /* iOS Red for conversion focus */
+            --template-secondary: #FF9500;  /* iOS Orange for energy */
+            --template-accent: #007AFF;     /* iOS Blue for trust */
+        }
+        
+        /* Hero customization */
+        .hero {
+            background: linear-gradient(135deg, var(--template-primary) 0%, var(--template-secondary) 50%, var(--ios-black) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '道場';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15rem;
+            opacity: 0.05;
+            font-weight: var(--font-weight-black);
+            color: var(--ios-white);
+            z-index: 1;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            max-width: 1000px;
+            margin: var(--spacing-4xl) auto;
+        }
+        
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: var(--backdrop-filter-light);
+            padding: var(--spacing-3xl) var(--spacing-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+        
+        .hero-stat:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .hero-stat-number {
+            font-size: 48px;
+            font-weight: var(--font-weight-black);
+            color: var(--ios-white);
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-stat-label {
+            font-size: var(--text-footnote);
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            font-weight: var(--font-weight-semibold);
+            letter-spacing: 0.5px;
+        }
+        
+        /* Journey section */
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-4xl);
+        }
+        
+        .journey-card {
+            background: var(--bg-elevated);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-3xl);
+            border: 1px solid var(--border-color);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .journey-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--template-primary), var(--template-secondary));
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        }
+        
+        .journey-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--ios-shadow-xl);
+        }
+        
+        .journey-age {
+            font-size: var(--text-large-title);
+            font-weight: var(--font-weight-black);
+            color: var(--template-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .journey-title {
+            font-size: var(--text-title-2);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+        
+        .journey-location {
+            font-size: var(--text-subhead);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .journey-description {
+            font-size: var(--text-body);
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-secondary);
+            padding: var(--spacing-6xl) 0;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cta-actions {
+            display: flex;
+            gap: var(--spacing-lg);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--spacing-4xl);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin: var(--spacing-4xl) 0;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--transition-fast);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--ios-shadow-md);
+            border-color: var(--template-primary);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero::before {
+                font-size: 8rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-lg);
+            }
+            
+            .cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="text-callout brand-secondary" style="text-transform: uppercase; letter-spacing: 2px; margin-bottom: var(--spacing-lg);">⚠️ 90% of MVPs fail in the first 6 months</p>
+                
+                <h1 class="hero-title">Stop Building MVPs<br>Nobody Wants</h1>
+                
+                <p class="hero-subtitle">$560/month → $15K/month: The systematic OMVP method that validates ideas in 48 hours before you waste months building the wrong thing. 15 years, 5 failures, 1 exit taught me what actually works.</p>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">15</div>
+                        <div class="hero-stat-label">Years Building</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">5</div>
+                        <div class="hero-stat-label">Failures Learned From</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">1</div>
+                        <div class="hero-stat-label">Exit Achieved</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">90%</div>
+                        <div class="hero-stat-label">Startup Failure Rate</div>
+                    </div>
+                </div>
+                
+                <div class="cta-actions">
+                    <a href="48-hour-business-blueprint.md" class="btn btn-primary btn-lg">
+                        ⚡ Get Brutal 48-Hour Reality Check (Free)
+                    </a>
+                    <a href="https://cal.com/johnnytoshio/omvp-discovery" target="_blank" class="btn btn-secondary btn-lg">
+                        🗓️ Book Discovery Call (Limited Slots)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Problem Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <h2 class="text-title-1">🔥 90% of Entrepreneurs Fail Because They Build the Wrong Thing</h2>
+                <p class="text-body">I've burned through $50K+ building 5 failed startups. Each failure taught me the brutal truth: most entrepreneurs are building products nobody wants, burning savings they can't afford to lose.</p>
+                
+                <div class="card" style="margin-top: var(--spacing-4xl); text-align: left;">
+                    <h3 class="text-title-2 brand-primary">⚠️ You're Probably Making These Fatal Mistakes:</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: var(--spacing-lg); display: flex; align-items: flex-start; gap: var(--spacing-md);">
+                            <span style="color: var(--template-primary); font-weight: var(--font-weight-bold); margin-top: 2px;">💸</span>
+                            <span><strong>Spending 6+ months building</strong> before talking to a single customer</span>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg); display: flex; align-items: flex-start; gap: var(--spacing-md);">
+                            <span style="color: var(--template-primary); font-weight: var(--font-weight-bold); margin-top: 2px;">🤔</span>
+                            <span><strong>Asking friends/family for feedback</strong> instead of real potential customers</span>
+                        </li>
+                        <li style="margin-bottom: var(--spacing-lg); display: flex; align-items: flex-start; gap: var(--spacing-md);">
+                            <span style="color: var(--template-primary); font-weight: var(--font-weight-bold); margin-top: 2px;">🚀</span>
+                            <span><strong>Thinking "build it and they will come"</strong> while your competition validates and launches</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: var(--spacing-md);">
+                            <span style="color: var(--template-primary); font-weight: var(--font-weight-bold); margin-top: 2px;">⏰</span>
+                            <span><strong>Perfectionism paralysis</strong> while real opportunities slip away every day</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div style="background: var(--template-primary); color: white; padding: var(--spacing-2xl); border-radius: var(--radius-lg); margin-top: var(--spacing-3xl); text-align: center;">
+                    <h4 style="font-size: var(--text-title-3); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-md);">BRUTAL REALITY CHECK:</h4>
+                    <p style="font-size: var(--text-body); font-weight: var(--font-weight-semibold);">While you're "perfecting" your idea, 3 competitors just launched MVPs, validated with real customers, and are iterating based on actual data. You're 6 months behind before you even start.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Solution Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <h2 class="text-title-1">The OMVP System: Overnight MVP That Actually Works</h2>
+                <p class="text-body">Forget the Silicon Valley bullshit. Build something people will pay for in 48 hours, validate it with real money, then scale systematically.</p>
+                
+                <div class="grid grid-3" style="margin-top: var(--spacing-4xl);">
+                    <div class="card">
+                        <h3 class="text-title-3 brand-primary">🎯 Phase 1: Validate</h3>
+                        <p class="text-body">Find a real problem people are actively trying to solve and willing to pay for. No surveys, no guessing.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-title-3 brand-primary">⚡ Phase 2: Build</h3>
+                        <p class="text-body">Create the minimum viable solution in 48 hours. Focus on core value, ignore everything else.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-title-3 brand-primary">📈 Phase 3: Scale</h3>
+                        <p class="text-body">Systematic growth through proven frameworks. Add features based on revenue, not opinions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- OMVP Service Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <h2 class="text-title-1">🚀 The OMVP Complete Service</h2>
+                <p class="text-body">Stop building random shit. Get a systematic 48-hour business validation and launch system that actually works.</p>
+                
+                <div class="card" style="max-width: 600px; margin: var(--spacing-4xl) auto; background: var(--bg-elevated); border: 2px solid var(--template-primary); position: relative; overflow: hidden;">
+                    <!-- Price badge -->
+                    <div style="position: absolute; top: -1px; right: -1px; background: var(--template-primary); color: white; padding: var(--spacing-md) var(--spacing-xl); font-weight: var(--font-weight-black); font-size: var(--text-title-3); border-radius: 0 0 0 var(--radius-lg);">$5,000</div>
+                    
+                    <div style="padding: var(--spacing-4xl) var(--spacing-2xl);">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: var(--spacing-md); margin-bottom: var(--spacing-2xl);">
+                            <div style="width: 80px; height: 80px; background: var(--template-primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: var(--font-weight-black); border-radius: var(--radius-lg); border: 2px solid var(--template-primary);">⚡</div>
+                            <div>
+                                <h3 style="font-size: var(--text-title-2); font-weight: var(--font-weight-black); color: var(--text-primary); margin-bottom: var(--spacing-sm);">OMVP Complete</h3>
+                                <p style="color: var(--text-secondary); font-weight: var(--font-weight-semibold);">48-Hour Business Validation System</p>
+                            </div>
+                        </div>
+                        
+                        <p style="font-size: var(--text-body); color: var(--text-primary); margin-bottom: var(--spacing-2xl); text-align: center; font-weight: var(--font-weight-medium);">Full systematic approach to validate and launch your business idea before you waste months building the wrong thing.</p>
+                        
+                        <div style="background: var(--bg-secondary); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-bottom: var(--spacing-2xl);">
+                            <h4 style="font-size: var(--text-title-3); font-weight: var(--font-weight-bold); color: var(--template-primary); margin-bottom: var(--spacing-lg); text-align: center;">✅ What You Get:</h4>
+                            <ul style="list-style: none; padding: 0; text-align: left;">
+                                <li style="margin-bottom: var(--spacing-md); display: flex; align-items: flex-start; gap: var(--spacing-md);">
+                                    <span style="color: var(--template-success); font-weight: var(--font-weight-bold); margin-top: 2px;">⚡</span>
+                                    <span><strong>Discovery Call:</strong> 15 strategic questions to validate your idea systematically</span>
+                                </li>
+                                <li style="margin-bottom: var(--spacing-md); display: flex; align-items: flex-start; gap: var(--spacing-md);">
+                                    <span style="color: var(--template-success); font-weight: var(--font-weight-bold); margin-top: 2px;">🤖</span>
+                                    <span><strong>AI Documentation:</strong> Complete product requirements and business plan</span>
+                                </li>
+                                <li style="margin-bottom: var(--spacing-md); display: flex; align-items: flex-start; gap: var(--spacing-md);">
+                                    <span style="color: var(--template-success); font-weight: var(--font-weight-bold); margin-top: 2px;">🎨</span>
+                                    <span><strong>Landing Page:</strong> Conversion-optimized design and development</span>
+                                </li>
+                                <li style="margin-bottom: var(--spacing-md); display: flex; align-items: flex-start; gap: var(--spacing-md);">
+                                    <span style="color: var(--template-success); font-weight: var(--font-weight-bold); margin-top: 2px;">📧</span>
+                                    <span><strong>Email Automation:</strong> Complete nurture sequence with conversion psychology</span>
+                                </li>
+                                <li style="margin-bottom: var(--spacing-md); display: flex; align-items: flex-start; gap: var(--spacing-md);">
+                                    <span style="color: var(--template-success); font-weight: var(--font-weight-bold); margin-top: 2px;">💳</span>
+                                    <span><strong>Payment Integration:</strong> Stripe setup for immediate revenue collection</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start; gap: var(--spacing-md);">
+                                    <span style="color: var(--template-success); font-weight: var(--font-weight-bold); margin-top: 2px;">🛠️</span>
+                                    <span><strong>7-Day Support:</strong> Refinements and optimization after launch</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: var(--template-primary); color: white; padding: var(--spacing-lg); border-radius: var(--radius-lg); margin-bottom: var(--spacing-2xl); text-align: center;">
+                            <p style="font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-sm);">⏰ 48-HOUR IMPLEMENTATION GUARANTEE</p>
+                            <p style="font-size: var(--text-footnote); opacity: 0.9;">Your complete system delivered in 2 days or your money back</p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <a href="https://cal.com/johnnytoshio/omvp-discovery" target="_blank" class="btn btn-primary btn-lg" style="font-size: var(--text-body); padding: var(--spacing-lg) var(--spacing-2xl); margin-bottom: var(--spacing-md);">📞 Book Discovery Call - $5K</a>
+                            <p style="font-size: var(--text-footnote); color: var(--text-secondary);">Limited to 3 clients per month for quality delivery</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: var(--bg-secondary); padding: var(--spacing-xl); border-radius: var(--radius-lg); margin-top: var(--spacing-3xl); text-align: center;">
+                    <h4 style="font-size: var(--text-title-3); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-md);">🔥 BRUTAL REALITY CHECK:</h4>
+                    <p style="font-size: var(--text-body); font-weight: var(--font-weight-medium);">$5K sounds expensive until you realize most entrepreneurs waste $50K+ and 6+ months building products nobody wants. This systematic approach has prevented countless failures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Founder Story Section -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: var(--spacing-4xl); align-items: center; margin-bottom: var(--spacing-4xl);">
+                    <div style="text-align: center;">
+                        <div style="width: 200px; height: 200px; background: linear-gradient(135deg, var(--template-primary), var(--template-secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 64px; color: white; margin: 0 auto var(--spacing-lg); border: 4px solid var(--template-primary); box-shadow: var(--ios-shadow-xl);">👋🏻</div>
+                        <h3 style="font-size: var(--text-title-2); font-weight: var(--font-weight-black); color: var(--text-primary);">Hey, Johnny Toshio Here</h3>
+                    </div>
+                    <div>
+                        <p style="font-size: var(--text-body); margin-bottom: var(--spacing-lg); color: var(--text-primary); font-weight: var(--font-weight-medium);"><strong>Product designer, entrepreneur, and aspiring black belt from Brazil, now living in Bangkok.</strong></p>
+                        <p style="font-size: var(--text-body); margin-bottom: var(--spacing-lg); color: var(--text-primary);">Ten years ago, I was a kid fresh out of high school, very interested in martial arts and making websites, not much into traditional career paths.</p>
+                        <p style="font-size: var(--text-body); margin-bottom: var(--spacing-lg); color: var(--text-primary);">Fast forward five years, and I'd not only sold my first development house, but I had the trappings of success – team, clients, revenue growth.</p>
+                        <p style="font-size: var(--text-body); color: var(--template-primary); font-weight: var(--font-weight-bold);">But here's the thing... it wasn't sustainable.</p>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: var(--spacing-4xl); align-items: center; margin-bottom: var(--spacing-4xl);">
+                    <div>
+                        <h3 style="font-size: var(--text-title-2); font-weight: var(--font-weight-black); color: var(--text-primary); margin-bottom: var(--spacing-lg);">That Success Crashed and Burned</h3>
+                        <p style="font-size: var(--text-body); margin-bottom: var(--spacing-lg); color: var(--text-primary);">It took me another five years, <strong>5 failed startups across 4 countries</strong>, and burning through $50K+ to understand what truly matters:</p>
+                        <p style="font-size: var(--text-body); margin-bottom: var(--spacing-lg); color: var(--template-primary); font-weight: var(--font-weight-bold);">Building businesses that validate before they build.</p>
+                        <p style="font-size: var(--text-body); color: var(--text-primary);">Today, I'm in Bangkok making $15K/month through systematic business building. I've seen the mistakes, the dead ends, and the shortcuts that actually work.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 200px; height: 200px; background: linear-gradient(135deg, var(--template-primary), var(--ios-black)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 64px; color: white; margin: 0 auto; border: 4px solid var(--template-primary); box-shadow: var(--ios-shadow-xl);">💥</div>
+                    </div>
+                </div>
+                
+                <div style="background: var(--bg-secondary); padding: var(--spacing-3xl); border-radius: var(--radius-xl); text-align: center;">
+                    <h4 style="font-size: var(--text-title-3); font-weight: var(--font-weight-bold); color: var(--template-primary); margin-bottom: var(--spacing-lg);"⚡ The $50K Lesson That Changed Everything</h4>
+                    <p style="font-size: var(--text-body); color: var(--text-primary); margin-bottom: var(--spacing-lg);">I spent 6 months building a "revolutionary" project management tool. Beautiful interface, complex features, zero customer validation. <strong>Nobody wanted it.</strong></p>
+                    <p style="font-size: var(--text-body); color: var(--text-primary); font-weight: var(--font-weight-semibold);">That failure taught me the systematic approach I use today: <strong>validate with real customers and real money before building anything.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Journey Timeline Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="text-title-1 text-center">From Martial Arts Kid to Systematic Entrepreneur</h2>
+            <p class="text-body text-center" style="max-width: 600px; margin: 0 auto var(--spacing-4xl) auto;">
+                Every failure taught me something. Every success was systematic. Here's the raw timeline of 15 years building businesses.
+            </p>
+            
+            <div class="journey-grid">
+                <div class="journey-card">
+                    <div class="journey-age">13</div>
+                    <h3 class="journey-title">🥋 Martial Arts Discipline</h3>
+                    <div class="journey-location">Brazil</div>
+                    <p class="journey-description">Started training. Learned that consistency beats intensity. Discipline beats motivation. Foundation for everything that followed.</p>
+                </div>
+                
+                <div class="journey-card">
+                    <div class="journey-age">15</div>
+                    <h3 class="journey-title">💻 First Website</h3>
+                    <div class="journey-location">Brazil</div>
+                    <p class="journey-description">Built my first website. Terrible design, but it worked. Learned that done is better than perfect.</p>
+                </div>
+                
+                <div class="journey-card">
+                    <div class="journey-age">18</div>
+                    <h3 class="journey-title">🏢 Web Agency</h3>
+                    <div class="journey-location">Brazil</div>
+                    <p class="journey-description">Started development house. Focused on results, not hours. Systematic processes from day one.</p>
+                </div>
+                
+                <div class="journey-card">
+                    <div class="journey-age">23</div>
+                    <h3 class="journey-title">💰 First Exit</h3>
+                    <div class="journey-location">Brazil</div>
+                    <p class="journey-description">Sold the agency after 5 years. Learned that systems are worth more than time.</p>
+                </div>
+                
+                <div class="journey-card">
+                    <div class="journey-age">24</div>
+                    <h3 class="journey-title">🚀 Silicon Valley</h3>
+                    <div class="journey-location">San Francisco</div>
+                    <p class="journey-description">Moved to SF. Built products, raised money, burned through it. Learned what doesn't work.</p>
+                </div>
+                
+                <div class="journey-card">
+                    <div class="journey-age">28</div>
+                    <h3 class="journey-title">🏝️ Bangkok Freedom</h3>
+                    <div class="journey-location">Thailand</div>
+                    <p class="journey-description">Moved to Bangkok. $560/month BJJ coaching. Started systematically building OMVP businesses. Now at $15K/month.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Conversion Funnel Section -->
+    <section class="section" style="background: var(--bg-primary);">
+        <div class="container">
+            <div class="text-center" style="max-width: 900px; margin: 0 auto;">
+                <h2 class="text-title-1">📊 The OMVP Conversion System: Real Numbers</h2>
+                <p class="text-body">Here's exactly how entrepreneurs go from idea to profitable business using my systematic approach. Based on actual data from my transformation:</p>
+                
+                <div style="background: var(--bg-elevated); padding: var(--spacing-3xl); border-radius: var(--radius-xl); margin-top: var(--spacing-4xl); border: 1px solid var(--border-color);">
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--spacing-xl); align-items: center; margin-bottom: var(--spacing-2xl);">
+                        <!-- Social Discovery -->
+                        <div style="text-align: center; padding: var(--spacing-lg); background: var(--template-primary); color: white; border-radius: var(--radius-lg);">
+                            <div style="font-size: 36px; font-weight: var(--font-weight-black); margin-bottom: var(--spacing-sm);">10,000</div>
+                            <div style="font-size: var(--text-footnote); font-weight: var(--font-weight-semibold); text-transform: uppercase;">Social Discovery</div>
+                            <div style="font-size: var(--text-footnote); opacity: 0.9; margin-top: var(--spacing-xs);">LinkedIn/Instagram</div>
+                        </div>
+                        
+                        <div style="font-size: 24px; color: var(--template-primary);">→</div>
+                        
+                        <!-- Landing Page -->
+                        <div style="text-align: center; padding: var(--spacing-lg); background: var(--template-secondary); color: white; border-radius: var(--radius-lg);">
+                            <div style="font-size: 36px; font-weight: var(--font-weight-black); margin-bottom: var(--spacing-sm);">1,200</div>
+                            <div style="font-size: var(--text-footnote); font-weight: var(--font-weight-semibold); text-transform: uppercase;">Landing Page Visit</div>
+                            <div style="font-size: var(--text-footnote); opacity: 0.9; margin-top: var(--spacing-xs);">12% Click Rate</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--spacing-xl); align-items: center; margin-bottom: var(--spacing-2xl);">
+                        <!-- Email Signup -->
+                        <div style="text-align: center; padding: var(--spacing-lg); background: var(--template-accent); color: white; border-radius: var(--radius-lg);">
+                            <div style="font-size: 36px; font-weight: var(--font-weight-black); margin-bottom: var(--spacing-sm);">240</div>
+                            <div style="font-size: var(--text-footnote); font-weight: var(--font-weight-semibold); text-transform: uppercase;">Email Signup</div>
+                            <div style="font-size: var(--text-footnote); opacity: 0.9; margin-top: var(--spacing-xs);">20% Conversion</div>
+                        </div>
+                        
+                        <div style="font-size: 24px; color: var(--template-primary);">→</div>
+                        
+                        <!-- Discovery Call -->
+                        <div style="text-align: center; padding: var(--spacing-lg); background: var(--template-success); color: white; border-radius: var(--radius-lg);">
+                            <div style="font-size: 36px; font-weight: var(--font-weight-black); margin-bottom: var(--spacing-sm);">72</div>
+                            <div style="font-size: var(--text-footnote); font-weight: var(--font-weight-semibold); text-transform: uppercase;">Discovery Booked</div>
+                            <div style="font-size: var(--text-footnote); opacity: 0.9; margin-top: var(--spacing-xs);">30% from Emails</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--spacing-xl); align-items: center;">
+                        <!-- Purchase -->
+                        <div style="text-align: center; padding: var(--spacing-lg); background: var(--ios-black); color: white; border-radius: var(--radius-lg);">
+                            <div style="font-size: 36px; font-weight: var(--font-weight-black); margin-bottom: var(--spacing-sm);">18</div>
+                            <div style="font-size: var(--text-footnote); font-weight: var(--font-weight-semibold); text-transform: uppercase;">OMVP Purchase</div>
+                            <div style="font-size: var(--text-footnote); opacity: 0.9; margin-top: var(--spacing-xs);">25% Close Rate</div>
+                        </div>
+                        
+                        <div style="font-size: 24px; color: var(--template-primary);">=</div>
+                        
+                        <!-- Revenue -->
+                        <div style="text-align: center; padding: var(--spacing-lg); background: linear-gradient(135deg, var(--template-primary), var(--template-secondary)); color: white; border-radius: var(--radius-lg); border: 2px solid var(--template-primary);">
+                            <div style="font-size: 36px; font-weight: var(--font-weight-black); margin-bottom: var(--spacing-sm);">$90K</div>
+                            <div style="font-size: var(--text-footnote); font-weight: var(--font-weight-semibold); text-transform: uppercase;">Monthly Revenue</div>
+                            <div style="font-size: var(--text-footnote); opacity: 0.9; margin-top: var(--spacing-xs);">18 × $5K Service</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: var(--template-primary); color: white; padding: var(--spacing-2xl); border-radius: var(--radius-lg); margin-top: var(--spacing-3xl); text-align: center;">
+                    <h4 style="font-size: var(--text-title-3); font-weight: var(--font-weight-bold); margin-bottom: var(--spacing-md);">🔥 THE BRUTAL MATH:</h4>
+                    <p style="font-size: var(--text-body); font-weight: var(--font-weight-semibold);">Most entrepreneurs spend 6+ months building before getting their first customer. This systematic approach gets paying customers in 48 hours. The difference? <strong>$90K/month vs $0/month.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Proof Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <h2 class="text-title-1">💯 Real Results: From $560/month to Systematic Growth</h2>
+                <p class="text-body">Here's the brutal truth about my transformation and what clients are achieving with the OMVP method:</p>
+                
+                <div class="grid grid-2" style="margin-top: var(--spacing-4xl);">
+                    <div class="card">
+                        <h3 class="text-title-2" style="color: var(--template-primary);">⚠️ Before: Survival Mode</h3>
+                        <ul style="list-style: none; padding: 0; text-align: left;">
+                            <li style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-md);">
+                                <span style="color: var(--template-primary); font-weight: bold;">💸</span>
+                                <span><strong>$560/month</strong> teaching BJJ (barely surviving)</span>
+                            </li>
+                            <li style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-md);">
+                                <span style="color: var(--template-primary); font-weight: bold;">🔥</span>
+                                <span><strong>$50K+ burned</strong> on failed startups</span>
+                            </li>
+                            <li style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-md);">
+                                <span style="color: var(--template-primary); font-weight: bold;">⏰</span>
+                                <span><strong>6+ months</strong> building without customers</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: var(--spacing-md);">
+                                <span style="color: var(--template-primary); font-weight: bold;">😭</span>
+                                <span><strong>5 failed launches</strong> (gut-wrenching)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="text-title-2" style="color: var(--template-success);">✅ After: Systematic Success</h3>
+                        <ul style="list-style: none; padding: 0; text-align: left;">
+                            <li style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-md);">
+                                <span style="color: var(--template-success); font-weight: bold;">💰</span>
+                                <span><strong>$15K/month</strong> OMVP revenue (2650% growth)</span>
+                            </li>
+                            <li style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-md);">
+                                <span style="color: var(--template-success); font-weight: bold;">⚡</span>
+                                <span><strong>48-hour validation</strong> before building anything</span>
+                            </li>
+                            <li style="margin-bottom: var(--spacing-md); display: flex; align-items: center; gap: var(--spacing-md);">
+                                <span style="color: var(--template-success); font-weight: bold;">🌴</span>
+                                <span><strong>Bangkok lifestyle</strong> (location independent)</span>
+                            </li>
+                            <li style="display: flex; align-items: center; gap: var(--spacing-md);">
+                                <span style="color: var(--template-success); font-weight: bold;">🏆</span>
+                                <span><strong>1 successful exit</strong> (life-changing)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Client Testimonials -->
+                <div style="margin-top: var(--spacing-6xl);">
+                    <h3 class="text-title-2" style="margin-bottom: var(--spacing-3xl);">What Clients Are Saying</h3>
+                    
+                    <div class="grid grid-3" style="gap: var(--spacing-2xl);">
+                        <div class="card" style="background: var(--bg-elevated);">
+                            <p style="font-style: italic; margin-bottom: var(--spacing-lg);">
+                                "Johnny's brutal honesty saved me 6 months of building the wrong thing. His 48-hour method validated my SaaS idea before I wasted a single line of code."
+                            </p>
+                            <div style="font-weight: var(--font-weight-bold); color: var(--template-primary);">- Sarah M.</div>
+                            <div style="font-size: var(--text-footnote); color: var(--text-secondary);">SaaS Founder</div>
+                        </div>
+                        
+                        <div class="card" style="background: var(--bg-elevated);">
+                            <p style="font-style: italic; margin-bottom: var(--spacing-lg);">
+                                "The OMVP process is no-bullshit gold. Went from idea to $5K MRR in 3 months using Johnny's systematic approach."
+                            </p>
+                            <div style="font-weight: var(--font-weight-bold); color: var(--template-primary);">- Marcus L.</div>
+                            <div style="font-size: var(--text-footnote); color: var(--text-secondary);">E-commerce Founder</div>
+                        </div>
+                        
+                        <div class="card" style="background: var(--bg-elevated);">
+                            <p style="font-style: italic; margin-bottom: var(--spacing-lg);">
+                                "Finally, someone who tells you the truth about building products. Johnny's method prevented my 3rd failed startup."
+                            </p>
+                            <div style="font-weight: var(--font-weight-bold); color: var(--template-primary);">- David R.</div>
+                            <div style="font-size: var(--text-footnote); color: var(--text-secondary);">Serial Entrepreneur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="text-title-1">Stop Letting Your Ideas Gather Dust</h2>
+                <p class="text-body">You have two choices: Keep building things nobody wants, or learn the systematic approach that actually works. The OMVP methodology isn't theory—it's battle-tested reality.</p>
+                
+                <div class="cta-actions">
+                    <a href="48-hour-business-blueprint.md" class="btn btn-primary btn-lg">
+                        ⚡ Get Brutal 48-Hour Reality Check (Free)
+                    </a>
+                    <a href="https://cal.com/johnnytoshio/omvp-discovery" target="_blank" class="btn btn-secondary btn-lg">
+                        🗓️ Book Discovery Call (Limited Slots)
+                    </a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com/toshioj" target="_blank" class="social-link">
+                        📸 Instagram
+                    </a>
+                    <a href="https://x.com/overnight_mvp" target="_blank" class="social-link">
+                        🚀 Twitter
+                    </a>
+                    <a href="https://linkedin.com/in/johnnytoshio" target="_blank" class="social-link">
+                        💼 LinkedIn
+                    </a>
+                </div>
+                
+                <div style="margin-top: var(--spacing-4xl);">
+                    <p class="text-subhead"><strong>P.S.</strong> Want proof this works? Check out my journey from $560/month BJJ coach to building systematic business frameworks. Simple, yet powerful.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Theme detection and management
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (prefersDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', initializeTheme);
+        
+        // Update theme if system preference changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            }
+        });
+        
+        // Add fade-in animation to cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards and journey items
+        document.querySelectorAll('.card, .journey-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
