@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 🎯 Project Overview
 
-**DOJJJO** is a hybrid business model combining personal brand credibility with template-driven service delivery. The project evolved from scattered personal brand into systematic OMVP template business targeting $20K/month through disciplined execution and scalable client delivery.
+**DOJJJO** is a hybrid business model combining personal brand credibility with template-driven service delivery. The project evolved from scattered personal brand into systematic OMVP template business targeting $15K/month through disciplined execution and scalable client delivery.
 
 ### Current Structure
 - **Type**: Hybrid business model - Personal brand + Template service delivery system
@@ -180,16 +180,16 @@ dojjjo/ (Hybrid Business Model)
 ## 🎯 Business Context
 
 ### Hybrid Revenue Model
-- **Primary Revenue**: $20K/month through template service delivery (70% of total)
-- **Service Tiers**: $2.5K starter, $5K complete, $10K premium template transformations
-- **Secondary Revenue**: Personal OMVP services ($6K/month, 30% of total)
+- **Primary Revenue**: $10K/month through OMVP service delivery (70% of total)
+- **Service Offering**: Single $5K OMVP Complete service
+- **Secondary Revenue**: Personal OMVP services ($5K/month, 30% of total)
 - **Target Market**: Entrepreneurs needing systematic business transformation
 - **Service Delivery**: 7-day client template transformation with quality gates
 - **Success Metrics**: 90%+ client satisfaction, 50%+ template efficiency vs custom builds
 
 ### Business Evolution Story
 - **Credibility Foundation**: 15 years experience + 5 documented failures + 1 exit
-- **Transformation Journey**: From $560/month BJJ coaching to $20K/month hybrid business
+- **Transformation Journey**: From $560/month BJJ coaching to $15K/month hybrid business
 - **Template Innovation**: Personal brand success becomes systematic client delivery framework
 - **Philosophy**: Brutal honesty + martial arts discipline + systematic template execution
 - **Scaling Vision**: Team-delivered consistent results with minimal founder dependency
