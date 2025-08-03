@@ -4,7 +4,7 @@
 
 ### STAGE 1: AWARENESS (Social Discovery)
 **Traffic Sources:**
-- LinkedIn posts (Johnny's failure stories)
+- LinkedIn posts (Johnny's failure stories + Bangkok lifestyle)
 - Instagram content (@toshioj)
 - Twitter (@overnight_mvp)
 - Direct referrals
@@ -101,8 +101,8 @@
 
 ### Revenue Targets
 - $5K average deal size
-- 3 clients/month minimum
-- $15K/month revenue target
+- 4 clients/month minimum
+- $20K/month revenue target
 - 30% profit margins
 
 ---
