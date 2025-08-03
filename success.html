@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success | DOJJJO - Framework Sent</title>
+    <meta name="description" content="Success! Your DOJJJO framework is on the way. Check your email for immediate access.">
+    <link rel="stylesheet" href="assets/css/brutal-design-system.css">
+</head>
+<body>
+    <main class="container" style="text-align: center; padding: var(--spacing-2xl) var(--spacing-md);">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <!-- Success Hero -->
+            <div style="margin-bottom: var(--spacing-2xl);">
+                <div style="font-size: 4rem; margin-bottom: var(--spacing-md);">⚡</div>
+                <h1 style="color: var(--brutal-red); margin-bottom: var(--spacing-md);">
+                    BRUTAL FRAMEWORK SENT!
+                </h1>
+                <p style="font-size: 1.25rem; color: var(--brutal-gray); margin-bottom: var(--spacing-lg);">
+                    Check your email for immediate access to the $100k+ methodology that transforms failing startups into systematic businesses.
+                </p>
+            </div>
+
+            <!-- Next Steps -->
+            <div style="background: var(--bg-secondary); padding: var(--spacing-xl); border-radius: 8px; margin-bottom: var(--spacing-xl);">
+                <h2 style="color: var(--brutal-black); margin-bottom: var(--spacing-md);">What Happens Next?</h2>
+                <div style="text-align: left; max-width: 400px; margin: 0 auto;">
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <strong>📧 Email #1 (2 minutes):</strong> Your framework PDF + video walkthrough
+                    </div>
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <strong>📊 Email #2 (24 hours):</strong> Case study + implementation guide
+                    </div>
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <strong>🎯 Email #3 (48 hours):</strong> Advanced strategies + $5K service details
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Proof -->
+            <div style="background: var(--brutal-black); color: var(--brutal-white); padding: var(--spacing-lg); border-radius: 8px; margin-bottom: var(--spacing-xl);">
+                <p style="font-size: 1.1rem; margin-bottom: var(--spacing-sm);">
+                    <strong>"This methodology generated $100k+ for 100+ entrepreneurs through disciplined execution."</strong>
+                </p>
+                <p style="opacity: 0.8;">
+                    — Johnny Toshio, 15 years in tech (5 failures + 1 exit)
+                </p>
+            </div>
+
+            <!-- CTA -->
+            <div>
+                <a href="dojjjo-landing.html" class="btn btn-primary" style="font-size: 1.1rem; padding: var(--spacing-md) var(--spacing-xl);">
+                    ← Back to DOJJJO
+                </a>
+                <p style="margin-top: var(--spacing-md); color: var(--brutal-gray); font-size: 0.9rem;">
+                    Didn't receive the email? Check your spam folder or contact support.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/core.js"></script>
+    <script>
+        // Track success page view
+        if (window.trackEvent) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const source = urlParams.get('source') || 'unknown';
+            trackEvent('framework_success_view', {
+                'event_category': 'DOJJJO',
+                'event_label': 'Success Page',
+                'email_source': source
+            });
+        }
+    </script>
+</body>
+</html>
