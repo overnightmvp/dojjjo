@@ -194,3 +194,13 @@ dojjjo/ (Hybrid Business Model)
 - **Philosophy**: Brutal honesty + martial arts discipline + systematic template execution
 - **Scaling Vision**: Team-delivered consistent results with minimal founder dependency
 - **Location Freedom**: Bangkok-based with global template delivery capability
+
+## 🚀 Pre-Deployment Protocol
+Before every deployment (git push), act as S-tier product owner and execute:
+
+1. **Update @prompts.md**: Document all prompts used in customer journey style with complete methodology
+2. **Update @omvp/strategy/master-plan.md**: If changes affect strategic direction or business model  
+3. **Update @omvp/flowcharts/**: If changes impact customer journey or system architecture
+4. **Quality Gates**: Ensure all updates align with hybrid business model and $20K/month revenue targets
+
+This ensures complete methodology documentation for template replication and team scaling.
