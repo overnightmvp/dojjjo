@@ -167,8 +167,8 @@ function toggleTheme() {
  */
 function revealEmailForm() {
     try {
-        const buttonId = currentLanguage === 'fr' ? 'bookAuditBtn' : 'bookAuditBtnEn';
-        const formId = currentLanguage === 'fr' ? 'emailRevealForm' : 'emailRevealFormEn';
+        const buttonId = currentLanguage === 'en' ? 'bookAuditBtnEn' : 'bookAuditBtn';
+        const formId = currentLanguage === 'en' ? 'emailRevealFormEn' : 'emailRevealForm';
         
         const button = document.getElementById(buttonId);
         const form = document.getElementById(formId);
@@ -211,29 +211,29 @@ async function handleEmailReveal(event) {
         
         // Validate email
         if (!isValidEmail(email)) {
-            showError(currentLanguage === 'fr' ? 
-                'Veuillez entrer une adresse email valide.' : 
-                'Please enter a valid email address.');
+            showError(currentLanguage === 'en' ? 
+                'Please enter a valid email address.' :
+                'Veuillez entrer une adresse email valide.');
             return;
         }
         
         // Show loading state
         submitButton.disabled = true;
-        const loadingText = currentLanguage === 'fr' ? 'Réservation en cours...' : 'Booking in progress...';
+        const loadingText = currentLanguage === 'en' ? 'Booking in progress...' : 'Réservation en cours...';
         submitButton.textContent = loadingText;
         submitButton.style.opacity = '0.7';
         
         // Track email signup
-        trackEvent('audit_booking', {
-            'event_category': 'The Pitch Office',
-            'event_label': 'Audit Request',
+        trackEvent('framework_request', {
+            'event_category': 'DOJJJO',
+            'event_label': 'Framework Request',
             'email_source': source
         });
         
         // Show success state briefly
-        const successText = currentLanguage === 'fr' ? '✅ Audit Réservé !' : '✅ Audit Booked!';
+        const successText = currentLanguage === 'en' ? '✅ Framework Sent!' : '✅ Framework Envoyé!';
         submitButton.textContent = successText;
-        submitButton.style.backgroundColor = 'var(--subtle-green)';
+        submitButton.style.backgroundColor = 'var(--success-green)';
         
         setTimeout(() => {
             // Redirect to success page with email parameter
@@ -269,9 +269,9 @@ function handleFormError(error, form) {
     submitButton.style.backgroundColor = '';
     
     // Show user-friendly error
-    const errorText = currentLanguage === 'fr' ? 
-        'Oops ! Il y a eu un problème lors de la réservation. Veuillez réessayer ou actualiser la page.' :
-        'Oops! There was a problem with the booking. Please try again or refresh the page.';
+    const errorText = currentLanguage === 'en' ? 
+        'Oops! There was a problem with the booking. Please try again or refresh the page.' :
+        'Oops ! Il y a eu un problème lors de la réservation. Veuillez réessayer ou actualiser la page.';
     showError(errorText);
 }
 
