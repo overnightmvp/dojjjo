@@ -32,6 +32,9 @@
     --accent-color: var(--brutal-red);
     --border-color: var(--brutal-black);
     
+    /* Template Success Color - Fix missing variable */
+    --template-success: var(--success-green);
+    
     /* Brutal Typography System */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-heading: var(--font-primary);
@@ -373,11 +376,18 @@ a:hover {
 .hero-standard::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 15px,
+        rgba(255,255,255,0.05) 15px,
+        rgba(255,255,255,0.05) 30px
+    );
+    animation: slide 25s linear infinite;
     pointer-events: none;
 }
 
@@ -411,7 +421,7 @@ a:hover {
 .hero-standard .social-proof {
     background: rgba(0, 0, 0, 0.3);
     padding: var(--spacing-lg);
-    border-radius: 0;
+    border-radius: var(--border-radius);
     font-weight: var(--font-weight-bold);
     margin-top: var(--spacing-xl);
     color: var(--brutal-white);
@@ -432,7 +442,7 @@ a:hover {
     }
 }
 
-/* Legacy hero class - maintain existing functionality */
+/* Legacy hero class - maintain existing functionality with enhanced styling */
 .hero {
     background: linear-gradient(135deg, var(--brutal-red) 0%, var(--brutal-orange) 100%);
     color: var(--brutal-white);
@@ -440,6 +450,12 @@ a:hover {
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-bottom: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+}
+
+/* Ensure hero-standard matches legacy hero styling */
+.hero-standard {
     border-bottom: var(--brutal-border);
     box-shadow: var(--brutal-shadow);
 }
@@ -489,6 +505,81 @@ a:hover {
     font-weight: var(--font-weight-brutal);
     font-size: 1.2rem;
     text-shadow: var(--brutal-shadow-text);
+}
+
+/* ====================================
+   LANDING PAGE SPECIFIC COMPONENTS
+   ==================================== */
+
+/* Early Email Capture Box */
+.early-capture-box {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px;
+    background: var(--bg-primary);
+    border-radius: var(--border-radius);
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+}
+
+/* Comparison Grid */
+.comparison-container {
+    background: var(--bg-primary);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Email Form Components */
+.email-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.email-input-large {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    padding: 15px;
+    width: 100%;
+}
+
+.email-button-large {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 15px;
+}
+
+/* Fear Trigger Cards */
+.fear-trigger {
+    background: linear-gradient(135deg, var(--brutal-red) 0%, var(--brutal-orange) 100%) !important;
+    color: var(--brutal-white) !important;
+}
+
+.fear-trigger h3,
+.fear-trigger p {
+    color: var(--brutal-white) !important;
+}
+
+/* Section Headers */
+.section-header {
+    text-shadow: none;
+    color: var(--brutal-black);
 }
 
 /* ====================================
