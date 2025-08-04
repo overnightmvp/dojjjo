@@ -110,6 +110,19 @@ dojjjo/ (Hybrid Business Model)
 
 ### Key Design Components
 ```css
+/* Button Size System */
+.btn-lg            # Large buttons (20px 40px padding, 1.2rem font)
+.btn-md            # Medium buttons (16px 32px padding, 1rem font)
+.btn               # Standard button component with brutal aesthetics
+
+/* Enhanced Text Shadow System */
+h1, h2, h3         # Layered text shadows (2px solid + 4px blur)
+/* White headings get black shadows, dark headings get red shadows */
+
+/* Dynamic Components */
+#countdown-timer   # Fear-based countdown timer (48-hour urgency)
+.warning-box       # Time-sensitive urgency messaging
+
 /* Email-Style Step System */
 .step-container    # Container for step-based content
 .step-item         # Individual step with icon and content
@@ -140,6 +153,7 @@ dojjjo/ (Hybrid Business Model)
 - **Form Handling**: Lead magnet forms with validation
 - **Mobile Menu**: Touch-friendly navigation interactions
 - **Analytics Integration**: Event tracking for conversion optimization
+- **Countdown Timers**: Dynamic 48-hour urgency timers for conversion psychology
 - **No Dependencies**: Pure vanilla JavaScript implementation
 
 ### Brand Configuration (assets/js/brand-config.js)
@@ -209,6 +223,6 @@ Before every deployment (git push), act as S-tier product owner and execute:
 1. **Update @prompts.md**: Document all prompts used in customer journey style with complete methodology
 2. **Update @omvp/strategy/master-plan.md**: If changes affect strategic direction or business model  
 3. **Update @omvp/flowcharts/**: If changes impact customer journey or system architecture
-4. **Quality Gates**: Ensure all updates align with hybrid business model and $20K/month revenue targets
+4. **Quality Gates**: Ensure all updates align with hybrid business model and $15K/month revenue targets
 
 This ensures complete methodology documentation for template replication and team scaling.
