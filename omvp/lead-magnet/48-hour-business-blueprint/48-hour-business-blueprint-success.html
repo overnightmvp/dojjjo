@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assessment Complete! Your Results - DOJJJO</title>
-    <link rel="stylesheet" href="../assets/css/omvp-design-system.css">
+    <link rel="stylesheet" href="../../../../assets/css/omvp-design-system.css">
     <meta name="description" content="Your business diagnosis is complete! Check your personalized action plan and next steps.">
     
     <!-- Prevent indexing -->
@@ -12,8 +12,8 @@
     
     <style>
         body {
-            background: linear-gradient(135deg, var(--brutal-red) 0%, var(--brutal-orange) 100%);
-            color: var(--brutal-white);
+            background: linear-gradient(135deg, var(--template-primary) 0%, var(--template-accent) 100%);
+            color: var(--gemini-white);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -26,15 +26,15 @@
             text-align: center;
             background: var(--bg-primary);
             color: var(--text-primary);
-            border: var(--brutal-border);
-            border-radius: var(--border-radius);
-            box-shadow: var(--brutal-shadow);
+            border: 3px solid var(--gemini-charcoal);
+            border-radius: var(--radius-md);
+            box-shadow: 4px 4px 0px var(--gemini-charcoal);
             margin: var(--spacing-xl);
         }
         
         .diagnosis-icon {
             font-size: 4rem;
-            color: var(--brutal-red);
+            color: var(--template-primary);
             margin-bottom: var(--spacing-lg);
             animation: pulse 2s infinite;
         }
@@ -47,11 +47,11 @@
         
         .results-title {
             font-size: 2.5rem;
-            font-weight: var(--font-weight-brutal);
-            color: var(--brutal-red);
+            font-weight: var(--font-weight-black);
+            color: var(--template-primary);
             margin-bottom: var(--spacing-lg);
             text-transform: uppercase;
-            text-shadow: 2px 2px 0px var(--brutal-orange);
+            text-shadow: 2px 2px 0px var(--template-accent);
         }
         
         .results-message {
@@ -62,17 +62,17 @@
         }
         
         .diagnosis-results {
-            background: var(--brutal-black);
-            color: var(--brutal-white);
+            background: var(--gemini-charcoal);
+            color: var(--gemini-white);
             padding: var(--spacing-xl);
-            border-radius: var(--border-radius);
+            border-radius: var(--radius-md);
             margin-bottom: var(--spacing-2xl);
             text-align: left;
         }
         
         .diagnosis-results h3 {
-            color: var(--brutal-orange);
-            font-weight: var(--font-weight-brutal);
+            color: var(--template-accent);
+            font-weight: var(--font-weight-black);
             text-transform: uppercase;
             margin-bottom: var(--spacing-md);
             text-align: center;
@@ -80,28 +80,28 @@
         
         .weakness-item {
             background: rgba(239, 68, 68, 0.1);
-            border-left: 4px solid var(--brutal-red);
+            border-left: 4px solid var(--template-primary);
             padding: var(--spacing-md);
             margin-bottom: var(--spacing-md);
         }
         
         .weakness-title {
-            color: var(--brutal-red);
-            font-weight: var(--font-weight-bold);
+            color: var(--template-primary);
+            font-weight: var(--font-weight-semibold);
             margin-bottom: var(--spacing-sm);
         }
         
         .action-plan {
-            background: var(--success-green);
-            color: var(--brutal-white);
+            background: var(--template-success);
+            color: var(--gemini-white);
             padding: var(--spacing-xl);
-            border-radius: var(--border-radius);
+            border-radius: var(--radius-md);
             margin-bottom: var(--spacing-2xl);
         }
         
         .action-plan h3 {
-            color: var(--brutal-white);
-            font-weight: var(--font-weight-brutal);
+            color: var(--gemini-white);
+            font-weight: var(--font-weight-black);
             text-transform: uppercase;
             margin-bottom: var(--spacing-md);
         }
@@ -121,9 +121,9 @@
             content: "✓";
             position: absolute;
             left: 0;
-            color: var(--brutal-white);
-            font-weight: var(--font-weight-brutal);
-            background: var(--brutal-black);
+            color: var(--gemini-white);
+            font-weight: var(--font-weight-black);
+            background: var(--gemini-charcoal);
             border-radius: 50%;
             width: 20px;
             height: 20px;
@@ -140,36 +140,36 @@
         .btn {
             display: inline-block;
             padding: var(--spacing-md) var(--spacing-xl);
-            background: var(--brutal-red);
-            color: var(--brutal-white);
+            background: var(--template-primary);
+            color: var(--gemini-white);
             text-decoration: none;
-            font-weight: var(--font-weight-bold);
+            font-weight: var(--font-weight-semibold);
             text-transform: uppercase;
-            border: var(--brutal-border);
-            border-radius: var(--border-radius);
-            box-shadow: var(--brutal-shadow);
+            border: 3px solid var(--gemini-charcoal);
+            border-radius: var(--radius-md);
+            box-shadow: 4px 4px 0px var(--gemini-charcoal);
             transition: all var(--transition-fast);
             margin: var(--spacing-sm);
         }
         
         .btn:hover {
-            background: var(--brutal-orange);
+            background: var(--template-accent);
             transform: translate(-2px, -2px);
-            box-shadow: var(--brutal-shadow-hover);
+            box-shadow: 6px 6px 0px var(--gemini-charcoal);
         }
         
         .btn-secondary {
-            background: var(--brutal-white);
-            color: var(--brutal-black);
+            background: var(--gemini-white);
+            color: var(--gemini-charcoal);
         }
         
         .urgency-section {
-            background: var(--warning-yellow);
-            color: var(--brutal-black);
+            background: var(--template-warning);
+            color: var(--gemini-charcoal);
             padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
+            border-radius: var(--radius-md);
             margin-top: var(--spacing-xl);
-            border: 3px solid var(--brutal-black);
+            border: 3px solid var(--gemini-charcoal);
         }
         
         .social-proof {
@@ -225,7 +225,7 @@
         </div>
         
         <div class="cta-section">
-            <p style="margin-bottom: var(--spacing-lg); font-weight: var(--font-weight-bold); font-size: 1.1rem;">Ready to fix these issues in 48 hours?</p>
+            <p style="margin-bottom: var(--spacing-lg); font-weight: var(--font-weight-semibold); font-size: 1.1rem;">Ready to fix these issues in 48 hours?</p>
             <a href="https://cal.com/johnnytoshio/omvp-discovery" target="_blank" class="btn">📞 Book Strategy Call ($5K Solution)</a>
             <a href="48-hour-business-blueprint.md" class="btn btn-secondary">📋 Get Free Blueprint First</a>
         </div>
