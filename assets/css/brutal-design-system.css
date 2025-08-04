@@ -835,10 +835,19 @@ a:hover {
     text-align: center;
     margin-top: 50px;
     padding: 40px;
-    background: var(--bg-primary);
+    background: linear-gradient(135deg, var(--brutal-red) 0%, var(--brutal-orange) 100%);
     border-radius: var(--border-radius);
     border: var(--brutal-border);
     box-shadow: var(--brutal-shadow);
+}
+
+.early-capture-box h3 {
+    color: var(--brutal-white);
+    margin-bottom: 20px;
+}
+
+.early-capture-box p {
+    color: var(--brutal-white);
 }
 
 /* Comparison Grid */
