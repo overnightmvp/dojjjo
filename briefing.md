@@ -234,3 +234,82 @@ remove design focused tasks
 i want to use this project as a template for client work with the OMVP system, where i use @lead-magnet-omvp-mdgen to generate all /setup files abd easily customise branding.
 
 create a service-blueprint for the delivery of the OMVP offer. 
+
+
+----
+
+        <section class="section" style="background: var(--bg-primary);">
+            <div class="container">
+                <h2>⚡ DOJJJO MULTI-BRAND ECOSYSTEM<br>Stop building generic shit. Start building what converts.</h2>
+                
+                <div class="features">
+                    <div class="feature">
+                        <h3>⚡ Phase 1: OVERNIGHT MVP FRAMEWORK</h3>
+                        <p><strong>7-Day Brutal Validation Methodology:</strong></p>
+                        <ul class="brutal-list">
+                            <li>Customer interview frameworks that reveal brutal market truth</li>
+                            <li>MVP definition that focuses on what actually converts</li>
+                            <li>Launch strategy that eliminates analysis paralysis</li>
+                            <li>Feedback loops that prevent building shit nobody wants</li>
+                            <li>Systematic approach based on $100k+ proven methodology</li>
+        <section class="section" style="background: var(--bg-primary);">
+            <div class="container">
+                <h2>⚡ DOJJJO MULTI-BRAND ECOSYSTEM<br>Stop building generic shit. Start building what converts.</h2>
+                
+                <div class="features">
+                    <div class="feature">
+                        <h3>⚡ Phase 1: OVERNIGHT MVP FRAMEWORK</h3>
+                        <p><strong>7-Day Brutal Validation Methodology:</strong></p>
+                        <ul class="brutal-list">
+                            <li>Customer interview frameworks that reveal brutal market truth</li>
+                            <li>MVP definition that focuses on what actually converts</li>
+                            <li>Launch strategy that eliminates analysis paralysis</li>
+                            <li>Feedback loops that prevent building shit nobody wants</li>
+                            <li>Systematic approach based on $100k+ proven methodology</li>
+        <section class="section" style="background: var(--bg-primary);">
+            <div class="container">
+                <h2>⚡ DOJJJO MULTI-BRAND ECOSYSTEM<br>Stop building generic shit. Start building what converts.</h2>
+                
+                <div class="features">
+                    <div class="feature">
+                        <h3>⚡ Phase 1: OVERNIGHT MVP FRAMEWORK</h3>
+                        <p><strong>7-Day Brutal Validation Methodology:</strong></p>
+                        <ul class="brutal-list">
+                            <li>Customer interview frameworks that reveal brutal market truth</li>
+                            <li>MVP definition that focuses on what actually converts</li>
+                            <li>Launch strategy that eliminates analysis paralysis</li>
+                            <li>Feedback loops that prevent building shit nobody wants</li>
+                            <li>Systematic approach based on $100k+ proven methodology</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature">
+                        <h3>🏢 Phase 2: STUDIO.DOJJJO.COM</h3>
+                        <p><strong>AI Creative Studio for Systematic Execution:</strong></p>
+                        <ul class="brutal-list">
+                            <li>Expert Claude, Figma, Webflow implementation</li>
+                            <li>Product design that converts visitors to customers</li>
+                            <li>Consulting and outsourcing with martial arts discipline</li>
+                            <li>Management and growth optimization through proven frameworks</li>
+                            <li>Current clients: Guy, Audrey, Johnny - real case studies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature">
+                        <h3>🥋 Phase 3: JJJ.DOJJJO.COM + STORE</h3>
+                        <p><strong>Martial Arts Discipline + Digital Nomad Lifestyle:</strong></p>
+                        <ul class="brutal-list">
+                            <li>$2,500/month private Judo + Brazilian Jiujitsu coaching</li>
+                            <li>Morning sessions at BFL (Mon/Wed/Fri 7:15am)</li>
+                            <li>Mental discipline training for business execution</li>
+                            <li>EDC products for 23kg suitcase + carry-on lifestyle</li>
+                            <li>Hemp wear, gadgets, lifewear curated from nomad experience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+S
+            </div>
+        </section>
