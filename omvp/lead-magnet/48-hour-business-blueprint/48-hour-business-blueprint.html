@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,120 +7,31 @@
     <meta name="description" content="The exact 48-hour blueprint to launch profitable businesses. 7-phase systematic approach. Follow exactly or join the 90% failure rate.">
     
     <!-- Design System -->
-    <link rel="stylesheet" href="./production/assets/css/design-system.css">
+    <link rel="stylesheet" href="../../../../assets/css/brutal-design-system.css">
     
     <!-- Custom Onboarding Styles -->
     <style>
         /* ====================================
-           ONBOARDING SPECIFIC STYLES
+           BLUEPRINT SPECIFIC STYLES
            ==================================== */
         
-        .onboarding-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: var(--spacing-xl);
-        }
+        /* Hero section now uses hero-standard class from main design system */
         
-        /* Hero Section */
-        .onboarding-hero {
-            background: linear-gradient(135deg, var(--template-primary) 0%, var(--template-secondary) 100%);
-            color: var(--ios-white);
-            padding: var(--spacing-6xl) var(--spacing-xl);
-            border-radius: var(--radius-xl);
-            text-align: center;
-            margin-bottom: var(--spacing-4xl);
-            position: relative;
-            overflow: hidden;
-        }
+        /* Progress overview now uses features grid from main design system */
         
-        .onboarding-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            pointer-events: none;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-title {
-            font-size: clamp(var(--text-title-1), 5vw, 48px);
-            font-weight: var(--font-weight-black);
-            line-height: 1.1;
-            margin-bottom: var(--spacing-lg);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .hero-subtitle {
-            font-size: var(--text-title-3);
-            font-weight: var(--font-weight-medium);
-            opacity: 0.9;
-            margin-bottom: var(--spacing-xl);
-        }
-        
-        .brutal-reality {
-            background: rgba(0, 0, 0, 0.3);
-            padding: var(--spacing-xl);
-            border-radius: var(--radius-lg);
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--spacing-xl);
-        }
-        
-        /* Progress Overview */
-        .progress-overview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-4xl);
-        }
-        
-        .progress-stat {
-            background: var(--bg-elevated);
-            padding: var(--spacing-xl);
-            border-radius: var(--radius-xl);
-            text-align: center;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--ios-shadow-sm);
-            transition: all var(--transition-normal);
-        }
-        
-        .progress-stat:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--ios-shadow-md);
-        }
-        
-        .stat-value {
-            font-size: var(--text-large-title);
-            font-weight: var(--font-weight-black);
-            color: var(--template-primary);
-            display: block;
-            margin-bottom: var(--spacing-xs);
-        }
-        
-        .stat-label {
-            font-size: var(--text-subhead);
-            color: var(--text-secondary);
-            font-weight: var(--font-weight-medium);
-        }
-        
-        /* Phase Container */
+        /* Phase Container - using standard card styling */
         .phase-container {
             margin-bottom: var(--spacing-4xl);
         }
         
         .phase-header {
-            background: var(--bg-elevated);
-            padding: var(--spacing-xl);
-            border-radius: var(--radius-xl);
+            background: var(--bg-primary);
+            padding: var(--spacing-lg);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
             cursor: pointer;
             transition: all var(--transition-normal);
-            border: 1px solid var(--border-color);
+            box-shadow: var(--brutal-shadow);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -128,15 +39,14 @@
         }
         
         .phase-header:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--ios-shadow-md);
-            border-color: var(--template-primary);
+            transform: translateY(-4px) translateX(-4px);
+            box-shadow: var(--brutal-shadow-hover);
         }
         
         .phase-header.active {
-            background: var(--template-primary);
-            color: var(--ios-white);
-            border-color: var(--template-primary);
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+            border-color: var(--brutal-red);
         }
         
         .phase-info h3 {
@@ -159,10 +69,11 @@
         
         .phase-content {
             display: none;
-            background: var(--bg-elevated);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-xl);
-            padding: var(--spacing-xl);
+            background: var(--bg-secondary);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--brutal-shadow);
             animation: slideDown var(--transition-normal) ease-out;
         }
         
@@ -189,22 +100,23 @@
         }
         
         .step-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-xl);
+            background: var(--bg-primary);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--brutal-shadow);
             transition: all var(--transition-normal);
             position: relative;
         }
         
         .step-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--ios-shadow-md);
+            transform: translateY(-4px) translateX(-4px);
+            box-shadow: var(--brutal-shadow-hover);
         }
         
         .step-card.completed {
-            border-color: var(--template-success);
-            background: color-mix(in srgb, var(--template-success) 5%, var(--bg-secondary));
+            border-color: var(--success-green);
+            background: var(--bg-secondary);
         }
         
         .step-header {
@@ -217,19 +129,21 @@
         .step-number {
             width: 40px;
             height: 40px;
-            background: var(--template-primary);
-            color: var(--ios-white);
-            border-radius: var(--radius-full);
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+            border-radius: var(--border-radius);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: var(--font-weight-bold);
-            font-size: var(--text-callout);
+            font-size: 1rem;
             flex-shrink: 0;
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
         }
         
         .step-card.completed .step-number {
-            background: var(--template-success);
+            background: var(--success-green);
         }
         
         .step-info h4 {
@@ -266,27 +180,28 @@
         }
         
         .brutal-checklist li:hover {
-            background: color-mix(in srgb, var(--template-primary) 5%, transparent);
-            border-radius: var(--radius-sm);
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: var(--border-radius);
         }
         
         .checkbox {
             width: 20px;
             height: 20px;
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-xs);
+            border: 2px solid var(--brutal-black);
+            border-radius: var(--border-radius);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all var(--transition-fast);
             flex-shrink: 0;
             margin-top: 2px;
+            box-shadow: var(--brutal-shadow);
         }
         
         .brutal-checklist li.completed .checkbox {
-            background: var(--template-success);
-            border-color: var(--template-success);
-            color: var(--ios-white);
+            background: var(--success-green);
+            border-color: var(--success-green);
+            color: var(--brutal-white);
         }
         
         .brutal-checklist li.completed {
@@ -302,21 +217,23 @@
         
         /* Brutal Truth Boxes */
         .brutal-truth {
-            background: var(--template-danger);
-            color: var(--ios-white);
+            background: var(--danger-red);
+            color: var(--brutal-white);
             padding: var(--spacing-lg);
-            border-radius: var(--radius-lg);
+            border-radius: var(--border-radius);
             margin: var(--spacing-lg) 0;
             font-weight: var(--font-weight-semibold);
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
         }
         
         .brutal-truth.warning {
-            background: var(--template-warning);
-            color: var(--ios-black);
+            background: var(--warning-yellow);
+            color: var(--brutal-black);
         }
         
         .brutal-truth.success {
-            background: var(--template-success);
+            background: var(--success-green);
         }
         
         /* Action Buttons */
@@ -329,11 +246,12 @@
         
         /* Overall Progress */
         .overall-progress {
-            background: var(--bg-elevated);
-            padding: var(--spacing-xl);
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--border-color);
-            margin-bottom: var(--spacing-4xl);
+            background: var(--bg-secondary);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+            margin-bottom: var(--spacing-2xl);
             text-align: center;
         }
         
@@ -345,20 +263,21 @@
         }
         
         .progress-bar-container {
-            background: var(--bg-tertiary);
+            background: var(--brutal-gray);
             height: 24px;
-            border-radius: var(--radius-full);
+            border-radius: var(--border-radius);
             overflow: hidden;
             margin-bottom: var(--spacing-lg);
             position: relative;
+            border: var(--brutal-border);
         }
         
         .progress-bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--template-primary), var(--template-secondary));
+            background: linear-gradient(90deg, var(--brutal-red), var(--brutal-orange));
             width: 0%;
             transition: width 0.8s ease-out;
-            border-radius: var(--radius-full);
+            border-radius: var(--border-radius);
         }
         
         .progress-text {
@@ -374,14 +293,6 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
-            .onboarding-container {
-                padding: var(--spacing-lg);
-            }
-            
-            .progress-overview {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .phase-header {
                 flex-direction: column;
                 text-align: center;
@@ -401,50 +312,62 @@
     </style>
 </head>
 <body>
-    <div class="onboarding-container">
-        <!-- Hero Section -->
-        <div class="onboarding-hero">
-            <div class="hero-content">
-                <h1 class="hero-title">⚡ 48-Hour Business Blueprint</h1>
-                <p class="hero-subtitle">Launch Profitable Businesses in 48 Hours</p>
-                <div class="brutal-reality">
-                    <strong>BRUTAL REALITY:</strong> 90% of business ideas fail because founders build what they want, not what customers will pay for. 
-                    This blueprint eliminates that risk. Follow exactly and you'll have a validated business foundation in 48 hours or less.
+    <!-- Hero Section -->
+    <section class="hero-standard">
+        <div class="hero-standard-content">
+            <h1>⚡ 48-Hour Business Blueprint</h1>
+            <p class="subtitle">Launch Profitable Businesses in 48 Hours</p>
+            <div class="social-proof">
+                <strong>BRUTAL REALITY:</strong> 90% of business ideas fail because founders build what they want, not what customers will pay for. 
+                This blueprint eliminates that risk. Follow exactly and you'll have a validated business foundation in 48 hours or less.
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="features">
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 20px;">📊</div>
+                    <h3>Tasks Complete</h3>
+                    <p style="font-size: 2rem; font-weight: var(--font-weight-black); color: var(--brutal-red); text-align: center;" id="totalTasks">0/48</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 20px;">⏱️</div>
+                    <h3>Hours Used</h3>
+                    <p style="font-size: 2rem; font-weight: var(--font-weight-black); color: var(--brutal-red); text-align: center;" id="totalTime">0/48h</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 20px;">🎯</div>
+                    <h3>Phases Done</h3>
+                    <p style="font-size: 2rem; font-weight: var(--font-weight-black); color: var(--brutal-red); text-align: center;" id="phasesComplete">0/7</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 20px;">🚀</div>
+                    <h3>Validation Rate</h3>
+                    <p style="font-size: 2rem; font-weight: var(--font-weight-black); color: var(--brutal-red); text-align: center;" id="successRate">0%</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Progress Overview -->
-        <div class="progress-overview">
-            <div class="progress-stat">
-                <span class="stat-value" id="totalTasks">0/48</span>
-                <span class="stat-label">Tasks Complete</span>
-            </div>
-            <div class="progress-stat">
-                <span class="stat-value" id="totalTime">0/48h</span>
-                <span class="stat-label">Hours Used</span>
-            </div>
-            <div class="progress-stat">
-                <span class="stat-value" id="phasesComplete">0/7</span>
-                <span class="stat-label">Phases Done</span>
-            </div>
-            <div class="progress-stat">
-                <span class="stat-value" id="successRate">0%</span>
-                <span class="stat-label">Validation Rate</span>
-            </div>
-        </div>
-
-        <!-- Overall Progress Bar -->
-        <div class="overall-progress">
+    <!-- Overall Progress Bar -->
+    <section class="section">
+        <div class="container">
+            <div class="overall-progress">
             <h2 class="progress-title">🔥 Your Progress</h2>
             <div class="progress-bar-container">
                 <div class="progress-bar-fill" id="overallProgressBar"></div>
                 <div class="progress-text" id="progressText">Ready to Start</div>
             </div>
         </div>
+    </section>
 
-        <!-- Phase 1: Strategic Foundation -->
-        <div class="phase-container">
+    <!-- Phase 1: Strategic Foundation -->
+    <section class="section">
+        <div class="container">
+            <div class="phase-container">
             <div class="phase-header" onclick="togglePhase('phase1')">
                 <div class="phase-info">
                     <h3>🎯 Phase 1: Strategic Foundation</h3>
@@ -862,26 +785,27 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
 
-        <!-- Completion Celebration -->
-        <div class="completion-celebration" id="completionCelebration" style="display: none;">
-            <div class="card">
-                <div style="text-align: center; padding: var(--spacing-xl);">
-                    <h2 style="font-size: var(--text-large-title); color: var(--template-success); margin-bottom: var(--spacing-lg);">
-                        🚀 48-Hour Blueprint Complete!
-                    </h2>
-                    <p style="font-size: var(--text-title-3); margin-bottom: var(--spacing-xl);">
-                        You've completed the brutal 7-phase validation system. Most people quit at Phase 2. You're ready to launch a profitable business.
-                    </p>
-                    <div class="action-buttons" style="justify-content: center;">
-                        <button class="btn btn-primary btn-lg" onclick="bookConsultation()">📞 Book Success Call</button>
-                        <button class="btn btn-secondary btn-lg" onclick="shareSuccess()">📱 Share Success</button>
+            <!-- Completion Celebration -->
+            <div class="completion-celebration" id="completionCelebration" style="display: none;">
+                <div class="card">
+                    <div style="text-align: center; padding: var(--spacing-xl);">
+                        <h2 style="font-size: var(--text-large-title); color: var(--template-success); margin-bottom: var(--spacing-lg);">
+                            🚀 48-Hour Blueprint Complete!
+                        </h2>
+                        <p style="font-size: var(--text-title-3); margin-bottom: var(--spacing-xl);">
+                            You've completed the brutal 7-phase validation system. Most people quit at Phase 2. You're ready to launch a profitable business.
+                        </p>
+                        <div class="action-buttons" style="justify-content: center;">
+                            <button class="btn btn-primary btn-lg" onclick="bookConsultation()">📞 Book Success Call</button>
+                            <button class="btn btn-secondary btn-lg" onclick="shareSuccess()">📱 Share Success</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <script>
         // ====================================
@@ -1104,24 +1028,7 @@
             updateProgressDisplay();
         });
 
-        // Dark mode support
-        function initializeTheme() {
-            const savedTheme = localStorage.getItem('preferred-theme');
-            const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            const theme = savedTheme || systemPreference;
-            
-            document.documentElement.setAttribute('data-theme', theme);
-        }
-
-        // Initialize theme on load
-        initializeTheme();
-
-        // Listen for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-            if (!localStorage.getItem('preferred-theme')) {
-                document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-            }
-        });
+        // Blueprint functionality complete
     </script>
 </body>
 </html>
