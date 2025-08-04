@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Design Philosophy**: iOS-inspired design system with customizable brand variables
 - **Revenue Model**: $15K/month hybrid (70% service delivery $10K + 30% personal OMVP $5K)
 - **Service Offering**: $5K OMVP Complete - Single focused service delivery
-- **Status**: ✅ Template system ready with service blueprint and delivery framework
+- **Status**: ✅ S-tier UI enhancement complete - Email-style sophisticated components implemented across design system
 
 ## 🚀 Common Development Commands
 
@@ -22,7 +22,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Open files directly in browser for testing
 
 # PERSONAL BRAND SYSTEM
-open index.html                    # Primary personal landing page
+open dojjjo-landing.html           # Primary personal landing page (S-tier UI)
 open dashboard/DOJJJO-Dashboard.html  # Portfolio case study & analytics
 
 # LEAD MAGNETS (Dual Purpose: Conversion + Portfolio)
@@ -70,7 +70,7 @@ html5validator --root . --match="*.html"
 ```
 dojjjo/ (Hybrid Business Model)
 ├── 🎯 PERSONAL BRAND SYSTEM/
-│   ├── index.html                 # Primary personal landing page
+│   ├── dojjjo-landing.html        # Primary personal landing page (S-tier UI)
 │   ├── 48-hour-business-blueprint.md  # Core lead magnet
 │   ├── studio/lead-magnet-diagnosis/   # Secondary assessment tool
 │   └── email template/            # 5-part personal nurture sequence
@@ -81,11 +81,11 @@ dojjjo/ (Hybrid Business Model)
 │   ├── studio/lead-magnet-omvp-mdgen/ # Automated client onboarding
 │   └── studio/lead-magnet-*/      # Portfolio showcase tools
 ├── 🛠️ TEMPLATE INFRASTRUCTURE/
-│   ├── assets/css/design-system.css   # iOS-inspired template framework
+│   ├── assets/css/brutal-design-system.css # Email-style sophisticated components
 │   ├── assets/js/core.js              # Universal functionality
 │   ├── dashboard/DOJJJO-Dashboard.html # Analytics & portfolio case study
 │   ├── flowcharts/                    # Process visualization
-│   └── thank-you-*.html               # Confirmation page templates
+│   └── success.html                   # Enhanced confirmation page template
 └── 📚 DOCUMENTATION/
     ├── CLAUDE.md                  # This file
     ├── ORGANIZATION-GUIDE.md      # Hybrid model structure guide
@@ -108,23 +108,29 @@ dojjjo/ (Hybrid Business Model)
 - **Visual Style**: Native iOS aesthetics with conversion-focused elements
 - **Dark Mode**: Automatic theme switching based on system preference
 
-### Key CSS Classes
+### Key Design Components
 ```css
-/* iOS Button System */
-.btn-primary    # Primary brand CTA with iOS styling
-.btn-secondary  # Secondary actions with iOS borders
-.btn-ghost      # Transparent buttons with hover states
+/* Email-Style Step System */
+.step-container    # Container for step-based content
+.step-item         # Individual step with icon and content
+.step-icon         # Circular numbered/icon step indicator
 
-/* iOS Layout Components */
-.container      # Responsive container with iOS spacing
-.hero          # Gradient hero with iOS visual effects
-.card          # iOS-style cards with native shadows
-.list          # iOS list components with separators
+/* Enhanced Card Variants */
+.card-insight      # Key insight highlighting
+.card-warning      # Warning/urgency messaging
+.card-success      # Success/completion states
+.card-code         # Code/prompt display blocks
 
-/* iOS Typography Scale */
-.text-large-title, h1   # 34px iOS large title
-.text-title-1, h2       # 28px iOS title 1
-.text-body, p           # 17px iOS body text
+/* Sophisticated Badge System */
+.badge-accent      # Primary accent badges
+.badge-day         # Day/time-specific badges
+.badge-success     # Success state badges
+
+/* Email-Quality Content Blocks */
+.framework-section # Structured framework content
+.assignment-box    # Action assignment blocks
+.quote-block       # Testimonial/quote styling
+.timeline-content  # Sequential timeline layouts
 ```
 
 ## ⚙️ JavaScript Architecture
@@ -185,12 +191,14 @@ dojjjo/ (Hybrid Business Model)
 - **Secondary Revenue**: Personal OMVP services ($5K/month, 30% of total)
 - **Target Market**: Entrepreneurs needing systematic business transformation
 - **Service Delivery**: 7-day client template transformation with quality gates
+- **Template System**: S-tier UI components enabling premium client delivery
 - **Success Metrics**: 90%+ client satisfaction, 50%+ template efficiency vs custom builds
 
 ### Business Evolution Story
 - **Credibility Foundation**: 15 years experience + 5 documented failures + 1 exit
 - **Transformation Journey**: From $560/month BJJ coaching to $15K/month hybrid business
 - **Template Innovation**: Personal brand success becomes systematic client delivery framework
+- **UI Excellence**: S-tier design system with email-quality components for premium positioning
 - **Philosophy**: Brutal honesty + martial arts discipline + systematic template execution
 - **Scaling Vision**: Team-delivered consistent results with minimal founder dependency
 - **Location Freedom**: Bangkok-based with global template delivery capability
