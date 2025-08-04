@@ -412,7 +412,9 @@ a:hover {
     font-weight: var(--font-weight-black);
     line-height: 1.1;
     margin-bottom: var(--spacing-lg);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 
+        2px 2px 0px var(--brutal-black),
+        4px 4px 8px rgba(0, 0, 0, 0.3);
     color: var(--brutal-white);
 }
 
@@ -425,6 +427,9 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     color: var(--brutal-white);
+    text-shadow: 
+        1px 1px 0px var(--brutal-black),
+        2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-standard .social-proof {
@@ -921,11 +926,11 @@ a:hover {
 
 .pricing-card {
     background: var(--bg-primary);
-    padding: 50px 40px;
+    padding: var(--spacing-2xl) var(--spacing-xl);
     border: var(--brutal-border);
     border-radius: var(--border-radius);
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto var(--spacing-xl) auto;
     box-shadow: var(--brutal-shadow);
     position: relative;
     text-align: center;
@@ -951,7 +956,62 @@ a:hover {
     font-size: 3rem;
     font-weight: var(--font-weight-bold);
     color: var(--text-primary);
-    margin: 20px 0;
+    margin: var(--spacing-lg) 0;
+}
+
+.pricing-card h3 {
+    margin: var(--spacing-md) 0;
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.pricing-card .framework-section {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.pricing-card .email-signup {
+    margin: var(--spacing-lg) 0;
+}
+
+.pricing-card > div[style*="margin-bottom: 30px"] {
+    margin-bottom: var(--spacing-lg) !important;
+}
+
+/* Email-style assignment block for pricing cards */
+.assignment-box {
+    background: var(--warning-yellow);
+    padding: var(--spacing-lg);
+    border: var(--brutal-border);
+    margin: var(--spacing-lg) 0;
+    box-shadow: var(--brutal-shadow);
+}
+
+.assignment-box h4 {
+    color: var(--brutal-black);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.assignment-box .email-signup {
+    margin: var(--spacing-md) 0;
+}
+
+/* Warning box for pricing urgency */
+.warning-box {
+    background: #FFF5F5;
+    border: 3px solid var(--brutal-red);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    box-shadow: var(--brutal-shadow);
+}
+
+.warning-box h4 {
+    color: var(--brutal-red);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
 }
 
 .includes {
