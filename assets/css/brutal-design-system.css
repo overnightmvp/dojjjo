@@ -926,11 +926,11 @@ a:hover {
 
 .pricing-card {
     background: var(--bg-primary);
-    padding: var(--spacing-2xl) var(--spacing-xl);
+    padding: 40px 30px;
     border: var(--brutal-border);
     border-radius: var(--border-radius);
     max-width: 500px;
-    margin: 0 auto var(--spacing-xl) auto;
+    margin: 0 auto 30px auto;
     box-shadow: var(--brutal-shadow);
     position: relative;
     text-align: center;
@@ -956,61 +956,72 @@ a:hover {
     font-size: 3rem;
     font-weight: var(--font-weight-bold);
     color: var(--text-primary);
-    margin: var(--spacing-lg) 0;
+    margin: 20px 0;
 }
 
 .pricing-card h3 {
-    margin: var(--spacing-md) 0;
+    margin: 20px 0;
     font-size: 1.5rem;
     font-weight: var(--font-weight-bold);
 }
 
 .pricing-card .framework-section {
-    margin-top: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
+    margin: 25px 0;
 }
 
-.pricing-card .email-signup {
-    margin: var(--spacing-lg) 0;
+.pricing-card .key-insight {
+    margin: 25px 0;
+    padding: 25px;
+    background: var(--success-green);
+    border: var(--brutal-border);
+    box-shadow: var(--brutal-shadow);
 }
 
-.pricing-card > div[style*="margin-bottom: 30px"] {
-    margin-bottom: var(--spacing-lg) !important;
+.pricing-card .key-insight h4 {
+    font-size: 1.3rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 10px;
+    color: var(--brutal-white);
+}
+
+.pricing-card .key-insight p {
+    color: var(--brutal-white);
+    margin: 0;
 }
 
 /* Email-style assignment block for pricing cards */
 .assignment-box {
     background: var(--warning-yellow);
-    padding: var(--spacing-lg);
+    padding: 20px;
     border: var(--brutal-border);
-    margin: var(--spacing-lg) 0;
+    margin: 20px 0;
     box-shadow: var(--brutal-shadow);
 }
 
 .assignment-box h4 {
     color: var(--brutal-black);
     font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 15px;
     text-align: center;
 }
 
 .assignment-box .email-signup {
-    margin: var(--spacing-md) 0;
+    margin: 15px 0;
 }
 
 /* Warning box for pricing urgency */
 .warning-box {
     background: #FFF5F5;
     border: 3px solid var(--brutal-red);
-    padding: var(--spacing-lg);
-    margin: var(--spacing-lg) 0;
+    padding: 20px;
+    margin: 20px 0;
     box-shadow: var(--brutal-shadow);
 }
 
 .warning-box h4 {
     color: var(--brutal-red);
     font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 10px;
     text-align: center;
 }
 
