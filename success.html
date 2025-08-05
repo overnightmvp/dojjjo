@@ -8,83 +8,141 @@
     <link rel="stylesheet" href="assets/css/brutal-design-system.css">
 </head>
 <body>
-    <main class="container" style="text-align: center; padding: var(--spacing-2xl) var(--spacing-md);">
-        <div class="content-container">
-            <!-- Success Hero -->
-            <section class="hero-standard">
-                <div class="hero-standard-content">
-                    <div style="font-size: 4rem; margin-bottom: var(--spacing-md);">⚡</div>
-                    <h1>PROVEN SYSTEM DELIVERED!</h1>
-                    <p class="subtitle">You now have the battle-tested blueprint that saves entrepreneurs months of reinventing what already works.</p>
-                </div>
-            </section>
-
-            <!-- Next Steps -->
-            <div class="success-timeline">
-                <h2>Don't Just Read It - USE IT!</h2>
-                <div class="timeline-content">
-                    <div class="timeline-item">
-                        <strong>⚡ Right Now:</strong> Access your proven blueprint below
-                    </div>
-                    <div class="timeline-item">
-                        <strong>📧 Email #1 (2 minutes):</strong> Implementation checklist + quick start guide
-                    </div>
-                    <div class="timeline-item">
-                        <strong>🎯 Email #2 (24 hours):</strong> Case study: How others used this exact system
-                    </div>
-                    <div class="timeline-item">
-                        <strong>🚀 Email #3 (48 hours):</strong> Troubleshooting guide + acceleration options
-                    </div>
-                </div>
+    <!-- Email-Style Success Container -->
+    <div class="email-container" style="max-width: 600px; margin: 40px auto; background: var(--bg-primary); border: 4px solid var(--brutal-black); box-shadow: 8px 8px 0px var(--brutal-black);">
+        
+        <!-- Header Section -->
+        <div class="header" style="background: linear-gradient(135deg, var(--brutal-red) 0%, var(--brutal-orange) 100%); padding: 40px 30px; text-align: center; border-bottom: 4px solid var(--brutal-black);">
+            <div style="font-size: 3rem; margin-bottom: 10px;">⚡</div>
+            <h1 style="font-size: 2rem; font-weight: 800; color: var(--brutal-white); margin-bottom: 10px; text-shadow: 2px 2px 0px rgba(0,0,0,0.3);">
+                PROVEN SYSTEM DELIVERED!
+            </h1>
+            <p style="font-size: 1.1rem; color: var(--brutal-white); opacity: 0.95;">
+                You now have the battle-tested blueprint that saves entrepreneurs months of reinventing what already works
+            </p>
+        </div>
+        
+        <!-- Content Section -->
+        <div class="content" style="padding: 40px 30px;">
+            
+            <!-- Key Insight Block -->
+            <div class="key-insight" style="background: var(--success-green); padding: 25px; border: 3px solid var(--brutal-black); margin: 25px 0; box-shadow: 4px 4px 0px var(--brutal-black);">
+                <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;">
+                    ⚡ Don't Just Read It - USE IT!
+                </h3>
+                <p><strong>This proven system saves 100+ entrepreneurs months of reinventing what already works.</strong> Your next 48 hours determine if you join the 10% who execute or the 90% who collect PDFs.</p>
             </div>
 
-            <!-- Social Proof -->
-            <div class="quote-block">
-                <p>
-                    <strong>"This proven system saves 100+ entrepreneurs months of reinventing what already works."</strong>
-                </p>
-                <p class="quote-author">
-                    — Johnny Toshio, 15 years in tech (5 failures + 1 exit = learned what works)
-                </p>
-            </div>
-
-            <!-- Implementation CTAs -->
-            <div style="margin-bottom: var(--spacing-xl);">
-                <div class="cta-urgent">
-                    <h3>⏰ WHILE YOUR COMPETITORS REINVENT, YOU EXECUTE</h3>
-                    <p>The wheel already exists. Start using it in the next 48 hours or watch competitors take your market.</p>
+            <!-- Timeline Steps -->
+            <div class="validation-framework" style="border: 3px solid var(--brutal-black); padding: 25px; margin: 25px 0; background: rgba(239, 68, 68, 0.05);">
+                <h3 style="margin-bottom: 20px;">📧 What Happens Next (Check Your Email)</h3>
+                
+                <div class="framework-step" style="display: flex; align-items: flex-start; margin-bottom: 20px; padding: 15px; background: var(--bg-primary); border: 2px solid var(--brutal-black);">
+                    <div class="step-icon" style="background: var(--success-green); color: var(--brutal-white); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0; border: 2px solid var(--brutal-black); font-size: 1.2rem;">
+                        ⚡
+                    </div>
+                    <div>
+                        <strong>Right Now:</strong> Access your proven blueprint below<br>
+                        <em>Stop reading about success. Start building it.</em>
+                    </div>
                 </div>
                 
-                <a href="omvp/lead-magnet/48-hour-business-blueprint/48-hour-business-blueprint.html" class="btn btn-primary" style="font-size: 1.2rem; padding: var(--spacing-lg) var(--spacing-xl); margin-bottom: var(--spacing-md); display: inline-block;">
-                    🚀 START YOUR INTERACTIVE BLUEPRINT NOW →
+                <div class="framework-step" style="display: flex; align-items: flex-start; margin-bottom: 20px; padding: 15px; background: var(--bg-primary); border: 2px solid var(--brutal-black);">
+                    <div class="step-icon" style="background: var(--brutal-orange); color: var(--brutal-white); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0; border: 2px solid var(--brutal-black); font-size: 1.2rem;">
+                        📧
+                    </div>
+                    <div>
+                        <strong>Email #1 (2 minutes):</strong> Implementation checklist + quick start guide<br>
+                        <em>Everything you need to start executing immediately</em>
+                    </div>
+                </div>
+                
+                <div class="framework-step" style="display: flex; align-items: flex-start; margin-bottom: 20px; padding: 15px; background: var(--bg-primary); border: 2px solid var(--brutal-black);">
+                    <div class="step-icon" style="background: var(--brutal-red); color: var(--brutal-white); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0; border: 2px solid var(--brutal-black); font-size: 1.2rem;">
+                        🎯
+                    </div>
+                    <div>
+                        <strong>Email #2 (24 hours):</strong> Case study: How others used this exact system<br>
+                        <em>Real entrepreneurs, real results, real proof</em>
+                    </div>
+                </div>
+                
+                <div class="framework-step" style="display: flex; align-items: flex-start; margin-bottom: 0; padding: 15px; background: var(--bg-primary); border: 2px solid var(--brutal-black);">
+                    <div class="step-icon" style="background: var(--success-green); color: var(--brutal-white); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 15px; flex-shrink: 0; border: 2px solid var(--brutal-black); font-size: 1.2rem;">
+                        🚀
+                    </div>
+                    <div>
+                        <strong>Email #3 (48 hours):</strong> Troubleshooting guide + acceleration options<br>
+                        <em>Stuck? Here's how to get unstuck fast</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning Box -->
+            <div class="warning-box" style="background: #FFF5F5; border: 3px solid var(--brutal-red); padding: 20px; margin: 20px 0;">
+                <h4 style="color: var(--brutal-red); font-weight: 700; margin-bottom: 10px;">
+                    ⏰ WHILE YOUR COMPETITORS REINVENT, YOU EXECUTE
+                </h4>
+                <p>The wheel already exists. Start using it in the next 48 hours or watch competitors take your market.</p>
+            </div>
+
+            <!-- Assignment Box -->
+            <div style="background: var(--brutal-orange); padding: 20px; border: 3px solid var(--brutal-black); margin: 20px 0;">
+                <h4 style="margin-bottom: 15px;">🚀 Your Assignment (Do This NOW):</h4>
+                <ol style="padding-left: 20px;">
+                    <li style="margin-bottom: 10px;"><strong>Click the interactive blueprint below</strong> - start your systematic execution</li>
+                    <li style="margin-bottom: 10px;"><strong>Download the MD file</strong> - use with AI tools for project management</li>
+                    <li style="margin-bottom: 10px;"><strong>Check your email</strong> - implementation guide arriving in 2 minutes</li>
+                </ol>
+                <p style="margin-top: 15px; font-weight: 600;">⏱️ Time required: Next 48 hours (or stay broke)</p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="omvp/lead-magnet/48-hour-business-blueprint/48-hour-business-blueprint.html" class="btn" style="display: inline-block; padding: 18px 36px; font-size: 1.125rem; font-weight: 700; text-decoration: none; border: 3px solid var(--brutal-black); box-shadow: 6px 6px 0px var(--brutal-black); margin: 10px; text-align: center; background-color: var(--brutal-red); color: var(--brutal-white);">
+                    🚀 START YOUR INTERACTIVE BLUEPRINT NOW
                 </a>
                 
                 <br>
                 
-                <a href="omvp/lead-magnet/48-hour-business-blueprint/48-hour-business-blueprint.md" class="btn" style="background: var(--brutal-white); color: var(--brutal-black); font-size: 1rem; padding: var(--spacing-md) var(--spacing-lg); display: inline-block;">
+                <a href="omvp/lead-magnet/48-hour-business-blueprint/48-hour-business-blueprint.md" class="btn" style="display: inline-block; padding: 18px 36px; font-size: 1rem; font-weight: 700; text-decoration: none; border: 3px solid var(--brutal-black); box-shadow: 6px 6px 0px var(--brutal-black); margin: 10px; text-align: center; background: var(--brutal-white); color: var(--brutal-black);">
                     📋 Copy MD File (For AI Tools)
                 </a>
-                
-                <!-- AI Project Management Option -->
-                <div class="card-success">
-                    <h4>🤖 Want AI Project Management Help?</h4>
-                    <p style="margin-bottom: var(--spacing-md); font-size: 0.9rem; color: var(--brutal-gray);">
-                        Copy the MD file above, then use this prompt with any AI (ChatGPT, Claude, etc.):
-                    </p>
-                    <div class="card-code">
-                        act as brutally honest project manager, 1.read my .md file 2.create a simple backlog, help me execute it with agile methodology based on my input,
-                    </div>
-                    <p style="font-size: 0.8rem; color: var(--brutal-gray); font-style: italic;">
-                        (Paste this prompt in any LLM, then paste the MD file content)
-                    </p>
+            </div>
+
+            <!-- AI Helper Section -->
+            <div class="key-insight" style="background: rgba(75, 181, 67, 0.1); padding: 25px; border: 3px solid var(--success-green); margin: 25px 0; box-shadow: 4px 4px 0px var(--success-green);">
+                <h4 style="color: var(--success-green); margin-bottom: 15px;">🤖 Want AI Project Management Help?</h4>
+                <p style="margin-bottom: 15px; font-size: 0.9rem;">
+                    Copy the MD file above, then use this prompt with any AI (ChatGPT, Claude, etc.):
+                </p>
+                <div style="background: var(--brutal-black); color: var(--brutal-white); padding: 15px; border: 2px solid var(--brutal-black); font-family: monospace; font-size: 0.9rem; margin: 15px 0;">
+                    act as brutally honest project manager, 1.read my .md file 2.create a simple backlog, help me execute it with agile methodology based on my input,
                 </div>
-                
-                <p style="margin-top: var(--spacing-md); color: var(--brutal-gray); font-size: 0.9rem;">
-                    <strong>Implementation support:</strong> Check your email for quick start guide. Can't find it? Check spam folder.
+                <p style="font-size: 0.8rem; color: var(--brutal-gray); font-style: italic;">
+                    (Paste this prompt in any LLM, then paste the MD file content)
                 </p>
             </div>
+
+            <!-- Quote Block -->
+            <div style="border: 2px solid var(--success-green); padding: 20px; margin: 25px 0; background: rgba(75, 181, 67, 0.05);">
+                <h4 style="color: var(--success-green); margin-bottom: 10px;">💸 Brutal Truth from Johnny:</h4>
+                <p><em>"This proven system saves 100+ entrepreneurs months of reinventing what already works. 15 years in tech (5 failures + 1 exit = learned what works). Stop collecting PDFs. Start executing."</em></p>
+            </div>
+
+            <!-- Support Info -->
+            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(239, 68, 68, 0.05); border: 2px solid var(--brutal-black);">
+                <p><strong>Implementation support:</strong> Check your email for quick start guide.</p>
+                <p style="font-size: 0.9rem; color: var(--brutal-gray); margin-top: 10px;">Can't find it? Check spam folder. Questions? Bangkok-based founder personally reads every email.</p>
+            </div>
         </div>
-    </main>
+        
+        <!-- Footer -->
+        <div style="background: var(--brutal-black); color: var(--brutal-white); padding: 30px; text-align: center; font-size: 0.9rem;">
+            <p><strong>🥋 DOJJJO Framework Delivery - Success Page</strong></p>
+            <p>Real systematic execution from $560/month to business building</p>
+        </div>
+    </div>
 
     <script src="assets/js/core.js"></script>
     <script>

@@ -3,258 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assessment Complete! Your Results - DOJJJO</title>
-    <link rel="stylesheet" href="../../../../assets/css/omvp-design-system.css">
-    <meta name="description" content="Your business diagnosis is complete! Check your personalized action plan and next steps.">
+    <title>Blueprint Readiness: Your 48-Hour Execution Path - DOJJJO</title>
+    <link rel="stylesheet" href="../../../../assets/css/brutal-design-system.css">
+    <meta name="description" content="Your 48-hour blueprint readiness assessment is complete! See your systematic execution path and next steps.">
     
     <!-- Prevent indexing -->
     <meta name="robots" content="noindex, nofollow">
     
     <style>
+        /* Email-Style Blueprint Results Page */
         body {
-            background: linear-gradient(135deg, var(--template-primary) 0%, var(--template-accent) 100%);
-            color: var(--gemini-white);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .results-container {
-            max-width: 700px;
-            padding: var(--spacing-3xl);
-            text-align: center;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            border: 3px solid var(--gemini-charcoal);
-            border-radius: var(--radius-md);
-            box-shadow: 4px 4px 0px var(--gemini-charcoal);
-            margin: var(--spacing-xl);
-        }
-        
-        .diagnosis-icon {
-            font-size: 4rem;
-            color: var(--template-primary);
-            margin-bottom: var(--spacing-lg);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        .results-title {
-            font-size: 2.5rem;
-            font-weight: var(--font-weight-black);
-            color: var(--template-primary);
-            margin-bottom: var(--spacing-lg);
-            text-transform: uppercase;
-            text-shadow: 2px 2px 0px var(--template-accent);
-        }
-        
-        .results-message {
-            font-size: 1.25rem;
-            margin-bottom: var(--spacing-2xl);
+            font-family: var(--font-primary);
             line-height: 1.6;
-            color: var(--text-secondary);
+            color: var(--text-primary);
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
         }
         
-        .diagnosis-results {
-            background: var(--gemini-charcoal);
-            color: var(--gemini-white);
-            padding: var(--spacing-xl);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--spacing-2xl);
-            text-align: left;
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            border: 4px solid var(--brutal-black);
+            box-shadow: 8px 8px 0px var(--brutal-black);
         }
         
-        .diagnosis-results h3 {
-            color: var(--template-accent);
-            font-weight: var(--font-weight-black);
-            text-transform: uppercase;
-            margin-bottom: var(--spacing-md);
+        .header {
+            background: linear-gradient(135deg, var(--brutal-red) 0%, var(--brutal-orange) 100%);
+            padding: 40px 30px;
             text-align: center;
+            border-bottom: 4px solid var(--brutal-black);
         }
         
-        .weakness-item {
-            background: rgba(239, 68, 68, 0.1);
-            border-left: 4px solid var(--template-primary);
-            padding: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--brutal-white);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
         }
         
-        .weakness-title {
-            color: var(--template-primary);
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--spacing-sm);
+        .header p {
+            font-size: 1.1rem;
+            color: var(--brutal-white);
+            opacity: 0.95;
         }
         
-        .action-plan {
-            background: var(--template-success);
-            color: var(--gemini-white);
-            padding: var(--spacing-xl);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--spacing-2xl);
+        .content {
+            padding: 40px 30px;
         }
         
-        .action-plan h3 {
-            color: var(--gemini-white);
-            font-weight: var(--font-weight-black);
-            text-transform: uppercase;
-            margin-bottom: var(--spacing-md);
+        .readiness-badge {
+            background: var(--brutal-orange);
+            color: var(--brutal-black);
+            padding: 8px 16px;
+            font-weight: 700;
+            border: 2px solid var(--brutal-black);
+            display: inline-block;
+            margin-bottom: 20px;
         }
         
-        .action-steps {
-            list-style: none;
-            text-align: left;
+        .key-insight {
+            background: var(--success-green);
+            padding: 25px;
+            border: 3px solid var(--brutal-black);
+            margin: 25px 0;
+            box-shadow: 4px 4px 0px var(--brutal-black);
         }
         
-        .action-steps li {
-            padding: var(--spacing-sm) 0;
-            position: relative;
-            padding-left: var(--spacing-lg);
+        .key-insight h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
         
-        .action-steps li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--gemini-white);
-            font-weight: var(--font-weight-black);
-            background: var(--gemini-charcoal);
+        .blueprint-gaps {
+            border: 3px solid var(--brutal-black);
+            padding: 25px;
+            margin: 25px 0;
+            background: #f9f9f9;
+        }
+        
+        .gap-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--bg-primary);
+            border: 2px solid var(--brutal-black);
+        }
+        
+        .phase-icon {
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            border: 2px solid var(--brutal-black);
+            font-size: 1.2rem;
         }
         
-        .cta-section {
-            margin-top: var(--spacing-2xl);
+        .gap-missing {
+            background: var(--brutal-red);
+        }
+        
+        .gap-weak {
+            background: var(--brutal-orange);
+        }
+        
+        .gap-ready {
+            background: var(--success-green);
+        }
+        
+        .warning-box {
+            background: #FFF5F5;
+            border: 3px solid var(--brutal-red);
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box h4 {
+            color: var(--brutal-red);
+            font-weight: 700;
+            margin-bottom: 10px;
         }
         
         .btn {
             display: inline-block;
-            padding: var(--spacing-md) var(--spacing-xl);
-            background: var(--template-primary);
-            color: var(--gemini-white);
+            padding: 18px 36px;
+            font-size: 1.125rem;
+            font-weight: 700;
             text-decoration: none;
-            font-weight: var(--font-weight-semibold);
-            text-transform: uppercase;
-            border: 3px solid var(--gemini-charcoal);
-            border-radius: var(--radius-md);
-            box-shadow: 4px 4px 0px var(--gemini-charcoal);
-            transition: all var(--transition-fast);
-            margin: var(--spacing-sm);
+            border: 3px solid var(--brutal-black);
+            box-shadow: 6px 6px 0px var(--brutal-black);
+            margin: 10px;
+            text-align: center;
         }
         
-        .btn:hover {
-            background: var(--template-accent);
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px var(--gemini-charcoal);
+        .btn-primary {
+            background-color: var(--brutal-red);
+            color: var(--brutal-white);
         }
         
         .btn-secondary {
-            background: var(--gemini-white);
-            color: var(--gemini-charcoal);
+            background: var(--brutal-white);
+            color: var(--brutal-black);
         }
         
-        .urgency-section {
-            background: var(--template-warning);
-            color: var(--gemini-charcoal);
-            padding: var(--spacing-lg);
-            border-radius: var(--radius-md);
-            margin-top: var(--spacing-xl);
-            border: 3px solid var(--gemini-charcoal);
-        }
-        
-        .social-proof {
-            margin-top: var(--spacing-2xl);
-            font-style: italic;
-            opacity: 0.8;
+        .footer {
+            background: var(--brutal-black);
+            color: var(--brutal-white);
+            padding: 30px;
+            text-align: center;
             font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 10px;
+                border: 2px solid var(--brutal-black);
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .gap-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .phase-icon {
+                margin: 0 auto 15px auto;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="results-container">
-        <div class="diagnosis-icon">🎯</div>
+    <!-- Email-Style Blueprint Results Container -->
+    <div class="email-container">
         
-        <h1 class="results-title">Diagnosis Complete!</h1>
-        
-        <div class="results-message">
-            <p><strong>Your brutal business assessment results are ready.</strong></p>
-            <p>Based on your answers, here's what's holding you back:</p>
+        <!-- Header Section -->
+        <div class="header">
+            <div style="font-size: 3rem; margin-bottom: 10px;">⚡</div>
+            <h1>Blueprint Readiness Assessment Complete!</h1>
+            <p>Your systematic execution path to 48-hour business validation is ready</p>
         </div>
         
-        <!-- Dynamic Results Section -->
-        <div class="diagnosis-results" id="diagnosisResults">
-            <h3>🚨 Critical Weaknesses Identified</h3>
-            <div class="weakness-item">
-                <div class="weakness-title">Validation Gap</div>
-                <p>You're building without confirming market demand first. 90% of startups fail because of this.</p>
+        <!-- Content Section -->
+        <div class="content">
+            <div class="readiness-badge">🎯 BLUEPRINT READINESS SCORE</div>
+            
+            <div class="key-insight">
+                <h3>⚡ Your 48-Hour Execution Readiness</h3>
+                <p><strong>Based on your assessment, you're missing 3 critical phases</strong> of the systematic 48-hour blueprint. Each missing phase increases your failure risk by 30%. Here's your personalized execution path:</p>
             </div>
-            <div class="weakness-item">
-                <div class="weakness-title">Revenue Model Confusion</div>
-                <p>Your monetization strategy lacks clarity and focus.</p>
+
+            <!-- Blueprint Gap Analysis -->
+            <div class="blueprint-gaps">
+                <h3 style="margin-bottom: 20px;">🥋 Your 48-Hour Blueprint Gap Analysis</h3>
+                
+                <div class="gap-step">
+                    <div class="phase-icon gap-missing">1</div>
+                    <div>
+                        <strong>Phase 1: Strategic Foundation - MISSING</strong><br>
+                        You're building without systematic validation. The 48-hour blueprint starts with brutal market validation to eliminate 90% failure rate.
+                        <br><em>Gap: No systematic customer validation process</em>
+                    </div>
+                </div>
+                
+                <div class="gap-step">
+                    <div class="phase-icon gap-weak">2</div>
+                    <div>
+                        <strong>Phase 2: Customer Validation - WEAK</strong><br>
+                        Your customer research approach lacks the systematic methodology to guarantee market demand before building.
+                        <br><em>Gap: Random customer research vs. systematic validation framework</em>
+                    </div>
+                </div>
+                
+                <div class="gap-step">
+                    <div class="phase-icon gap-missing">3</div>
+                    <div>
+                        <strong>Phase 3: MVP Definition - MISSING</strong><br>
+                        Without systematic scope definition, you'll build features customers don't want. 48-hour framework eliminates feature creep.
+                        <br><em>Gap: No systematic minimum viable product scoping methodology</em>
+                    </div>
+                </div>
+                
+                <div class="gap-step">
+                    <div class="phase-icon gap-ready">4</div>
+                    <div>
+                        <strong>Phase 4: 48-Hour Execution - READY</strong><br>
+                        You have execution capability but need systematic framework to avoid wasting effort on wrong priorities.
+                        <br><em>Strength: Execution mindset present</em>
+                    </div>
+                </div>
             </div>
-            <div class="weakness-item">
-                <div class="weakness-title">Resource Optimization</div>
-                <p>You're spreading efforts too thin instead of laser-focusing on one winning approach.</p>
+
+            <div class="warning-box">
+                <h4>⏰ Systematic vs. Random Approach</h4>
+                <p><strong>Random approach: 90% failure rate, 6+ months wasted.</strong> Systematic 48-hour blueprint: 85% validation rate, 48-hour market proof. Every day you wait, competitors execute systematically.</p>
+            </div>
+
+            <!-- Systematic Solution -->
+            <div style="background: var(--brutal-orange); padding: 20px; border: 3px solid var(--brutal-black); margin: 20px 0;">
+                <h4 style="margin-bottom: 15px;">🚀 Your Systematic Execution Path:</h4>
+                <ol style="padding-left: 20px;">
+                    <li style="margin-bottom: 10px;"><strong>Access interactive 48-hour blueprint</strong> - systematic execution of all 7 phases</li>
+                    <li style="margin-bottom: 10px;"><strong>Complete missing validation phases</strong> - eliminate your 3 critical gaps</li>
+                    <li style="margin-bottom: 10px;"><strong>Execute systematically in 48 hours</strong> - proven framework vs. random experimentation</li>
+                </ol>
+                <p style="margin-top: 15px; font-weight: 600;">⏱️ Systematic execution time: 48 hours (vs. 6+ months random approach)</p>
+            </div>
+
+            <!-- Primary CTA -->
+            <div style="text-align: center; margin: 30px 0;">
+                <p style="margin-bottom: 20px; font-weight: 700; font-size: 1.1rem;">Ready to execute systematically instead of randomly?</p>
+                <a href="48-hour-business-blueprint.html" class="btn btn-primary">
+                    🚀 START YOUR 48-HOUR SYSTEMATIC EXECUTION
+                </a>
+                
+                <br>
+                
+                <a href="48-hour-business-blueprint.md" class="btn btn-secondary">
+                    📋 Download Blueprint Framework (MD File)
+                </a>
+            </div>
+
+            <!-- System Preview -->
+            <div class="key-insight" style="background: rgba(75, 181, 67, 0.1); border-color: var(--success-green); box-shadow: 4px 4px 0px var(--success-green);">
+                <h4 style="color: var(--success-green); margin-bottom: 15px;">🎯 What You Get: Interactive Blueprint System</h4>
+                <p style="margin-bottom: 15px;">
+                    <strong>48-hour systematic execution framework:</strong> 7 phases, 48 tasks, interactive progress tracking, automatic validation gates. No more random experimentation.
+                </p>
+                <p style="font-size: 0.9rem; font-style: italic;">
+                    Used by 100+ entrepreneurs to validate business ideas in 48 hours instead of 6+ months.
+                </p>
+            </div>
+
+            <!-- Brutal Truth -->
+            <div style="border: 2px solid var(--brutal-red); padding: 20px; margin: 25px 0; background: rgba(239, 68, 68, 0.05);">
+                <h4 style="color: var(--brutal-red); margin-bottom: 10px;">💸 Brutal Truth About Random vs. Systematic:</h4>
+                <p><em>"90% fail because they build randomly. 10% succeed because they execute systematically. The 48-hour blueprint is the systematic approach that saves months of random experimentation. Your choice: join the 90% or the 10%."</em></p>
+                <p style="margin-top: 15px; font-size: 0.9rem;"><strong>— Johnny Toshio, 5 failed startups + 1 systematic exit</strong></p>
+            </div>
+
+            <!-- Support Info -->
+            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(239, 68, 68, 0.05); border: 2px solid var(--brutal-black);">
+                <p><strong>Systematic execution support:</strong> Interactive blueprint with progress tracking</p>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Questions about systematic vs. random approach? Bangkok-based founder personally responds to every email.</p>
             </div>
         </div>
         
-        <div class="action-plan">
-            <h3>💡 Your Personalized Action Plan</h3>
-            <ol class="action-steps">
-                <li>Download the 48-Hour Business Blueprint to validate your idea systematically</li>
-                <li>Focus on ONE core problem and ONE target customer segment</li>
-                <li>Build a minimum viable product in 48 hours, not 48 weeks</li>
-                <li>Test demand before building features</li>
-                <li>Book a discovery call to accelerate implementation</li>
-            </ol>
-        </div>
-        
-        <div class="urgency-section">
-            <h3>⏰ Time is Your Enemy</h3>
-            <p><strong>Every day you wait, competitors are moving.</strong> The window for your idea might be closing. Take action NOW.</p>
-        </div>
-        
-        <div class="cta-section">
-            <p style="margin-bottom: var(--spacing-lg); font-weight: var(--font-weight-semibold); font-size: 1.1rem;">Ready to fix these issues in 48 hours?</p>
-            <a href="https://cal.com/johnnytoshio/omvp-discovery" target="_blank" class="btn">📞 Book Strategy Call ($5K Solution)</a>
-            <a href="48-hour-business-blueprint.md" class="btn btn-secondary">📋 Get Free Blueprint First</a>
-        </div>
-        
-        <div class="social-proof">
-            <p>"The diagnosis was brutally honest but exactly what I needed. Fixed my biggest weakness in the strategy call." - Mike R., E-commerce Founder</p>
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>🥋 48-Hour Blueprint Readiness Assessment - DOJJJO</strong></p>
+            <p>Systematic business validation in 48 hours, not 6+ months</p>
         </div>
     </div>
 
-    <!-- Email Automation & Analytics -->
+    <!-- Enhanced Analytics & Tracking -->
     <script>
-        // Track assessment completion
+        // Track blueprint readiness assessment completion
         if (typeof gtag !== 'undefined') {
             gtag('event', 'conversion', {
-                'send_to': 'G-L99CMW68TS/assessment_complete'
+                'send_to': 'G-L99CMW68TS/blueprint_readiness_complete'
             });
         }
         
-        // ConvertKit/Mailchimp Integration Point
-        // Tag user as "assessment_completed" for targeted follow-up
-        console.log('Assessment Completed: Business Diagnosis');
+        // Enhanced tracking for blueprint engagement
+        console.log('Blueprint Readiness Assessment Complete: Systematic Execution Path Generated');
         
-        // Dynamic results based on URL parameters (optional)
+        // Track systematic vs random messaging exposure
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                'custom_parameter': 'systematic_vs_random_messaging'
+            });
+        }
+        
+        // Dynamic results based on assessment score
         const urlParams = new URLSearchParams(window.location.search);
-        const score = urlParams.get('score');
+        const readinessScore = urlParams.get('score');
         
-        if (score) {
-            // Customize results based on assessment score
-            console.log('Assessment Score:', score);
+        if (readinessScore) {
+            console.log('Blueprint Readiness Score:', readinessScore);
+            // Could customize gap analysis based on specific assessment results
         }
     </script>
 </body>
