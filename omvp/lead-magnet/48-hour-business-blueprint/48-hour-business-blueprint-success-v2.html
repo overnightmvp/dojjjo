@@ -779,12 +779,17 @@
                     📥 Download Your Personalized Blueprint
                 </button>
                 
+                <button class="btn btn-secondary" onclick="resetWorksheet()" style="background: var(--brutal-gray); color: var(--brutal-white); margin-top: 10px;">
+                    🔄 Start Over (Reset All Data)
+                </button>
+                
                 <div style="margin-top: 30px; padding: 20px; background: rgba(239, 68, 68, 0.05); border: 2px solid var(--brutal-black);">
                     <h4>What You Get:</h4>
                     <ul style="text-align: left; display: inline-block;">
                         <li>Complete 48-hour execution timeline with your specific data</li>
                         <li>All 7 phases filled out with your answers</li>
                         <li>Daily accountability tracker with your metrics</li>
+                        <li>Personalized AI prompts using your business details</li>
                         <li>Ready-to-execute markdown file</li>
                     </ul>
                 </div>
@@ -1342,6 +1347,15 @@ But if you're ready to do it yourself, stop reading and start executing. Hour 1 
                 saveCurrentPhaseData();
             }
         }, 30000); // Save every 30 seconds
+        
+        // Reset worksheet functionality
+        function resetWorksheet() {
+            if (confirm('Are you sure you want to reset all data? This cannot be undone.')) {
+                localStorage.removeItem('blueprintWorksheet');
+                worksheetData = {};
+                location.reload();
+            }
+        }
         
     </script>
 </body>
