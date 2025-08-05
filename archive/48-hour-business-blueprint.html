@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ 48-Hour Business Blueprint | Validated Launch System</title>
+    <meta name="description" content="The exact 48-hour blueprint to launch profitable businesses. 7-phase systematic approach. Follow exactly or join the 90% failure rate.">
+    
+    <!-- Design System -->
+    <link rel="stylesheet" href="../../../../assets/css/brutal-design-system.css">
+    
+    <!-- Custom Onboarding Styles -->
+    <style>
+        /* ====================================
+           BLUEPRINT SPECIFIC STYLES
+           ==================================== */
+        
+        /* Hero section now uses hero-standard class from main design system */
+        
+        /* Progress overview now uses features grid from main design system */
+        
+        /* Phase Container - using standard card styling */
+        .phase-container {
+            margin-bottom: var(--spacing-4xl);
+        }
+        
+        .phase-header {
+            background: var(--bg-primary);
+            padding: var(--spacing-lg);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: var(--brutal-shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .phase-header:hover {
+            transform: translateY(-4px) translateX(-4px);
+            box-shadow: var(--brutal-shadow-hover);
+        }
+        
+        .phase-header.active {
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+            border-color: var(--brutal-red);
+        }
+        
+        .phase-header.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: var(--brutal-gray);
+            color: var(--text-secondary);
+        }
+        
+        .phase-header.locked:hover {
+            transform: none;
+            box-shadow: var(--brutal-shadow);
+        }
+        
+        .phase-info h3 {
+            font-size: var(--text-title-2);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .phase-meta {
+            font-size: var(--text-subhead);
+            opacity: 0.8;
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .phase-toggle {
+            font-size: var(--text-title-2);
+            font-weight: var(--font-weight-bold);
+            transition: transform var(--transition-fast);
+        }
+        
+        .phase-content {
+            display: none;
+            background: var(--bg-secondary);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--brutal-shadow);
+            animation: slideDown var(--transition-normal) ease-out;
+        }
+        
+        .phase-content.active {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Step Cards */
+        .steps-grid {
+            display: grid;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .step-card {
+            background: var(--bg-primary);
+            border: var(--brutal-border);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            box-shadow: var(--brutal-shadow);
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-4px) translateX(-4px);
+            box-shadow: var(--brutal-shadow-hover);
+        }
+        
+        .step-card.completed {
+            border-color: var(--success-green);
+            background: var(--bg-secondary);
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            font-size: 1rem;
+            flex-shrink: 0;
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+        }
+        
+        .step-card.completed .step-number {
+            background: var(--success-green);
+        }
+        
+        .step-info h4 {
+            font-size: var(--text-title-3);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+        
+        .step-time {
+            font-size: var(--text-subhead);
+            color: var(--text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+        
+        /* Checklist */
+        .brutal-checklist {
+            list-style: none;
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .brutal-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) 0;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border-bottom: 1px solid var(--separator-color);
+        }
+        
+        .brutal-checklist li:last-child {
+            border-bottom: none;
+        }
+        
+        .brutal-checklist li:hover {
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: var(--border-radius);
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--brutal-black);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+            flex-shrink: 0;
+            margin-top: 2px;
+            box-shadow: var(--brutal-shadow);
+        }
+        
+        .brutal-checklist li.completed .checkbox {
+            background: var(--success-green);
+            border-color: var(--success-green);
+            color: var(--brutal-white);
+        }
+        
+        .brutal-checklist li.completed {
+            opacity: 0.7;
+            text-decoration: line-through;
+        }
+        
+        .task-text {
+            font-size: var(--text-body);
+            font-weight: var(--font-weight-medium);
+            line-height: 1.4;
+        }
+        
+        /* Brutal Truth Boxes */
+        .brutal-truth {
+            background: var(--danger-red);
+            color: var(--brutal-white);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            font-weight: var(--font-weight-semibold);
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+        }
+        
+        .brutal-truth.warning {
+            background: var(--warning-yellow);
+            color: var(--brutal-black);
+        }
+        
+        .brutal-truth.success {
+            background: var(--success-green);
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+        
+        /* Overall Progress */
+        .overall-progress {
+            background: var(--bg-secondary);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border: var(--brutal-border);
+            box-shadow: var(--brutal-shadow);
+            margin-bottom: var(--spacing-2xl);
+            text-align: center;
+        }
+        
+        .progress-title {
+            font-size: var(--text-title-2);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+        
+        .progress-bar-container {
+            background: var(--brutal-gray);
+            height: 24px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            border: var(--brutal-border);
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--brutal-red), var(--brutal-orange));
+            width: 0%;
+            transition: width 0.8s ease-out;
+            border-radius: var(--border-radius);
+        }
+        
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--text-footnote);
+            color: var(--text-primary);
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .phase-header {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--spacing-sm);
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .step-header {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-standard">
+        <div class="hero-standard-content">
+            <h1>⚡ 48-Hour Business Blueprint</h1>
+            <p class="subtitle">Launch Profitable Businesses in 48 Hours</p>
+            <div class="social-proof">
+                <strong>BRUTAL REALITY:</strong> 90% of business ideas fail because founders build what they want, not what customers will pay for. 
+                This blueprint eliminates that risk. Follow exactly and you'll have a validated business foundation in 48 hours or less.
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="features">
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 20px;">📊</div>
+                    <h3>Tasks Complete</h3>
+                    <p style="font-size: 2rem; font-weight: var(--font-weight-black); color: var(--brutal-red); text-align: center;" id="totalTasks">0/48</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 20px;">⏱️</div>
+                    <h3>Hours Used</h3>
+                    <p style="font-size: 2rem; font-weight: var(--font-weight-black); color: var(--brutal-red); text-align: center;" id="totalTime">0/48h</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 20px;">🎯</div>
+                    <h3>Phases Done</h3>
+                    <p style="font-size: 2rem; font-weight: var(--font-weight-black); color: var(--brutal-red); text-align: center;" id="phasesComplete">0/7</p>
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; margin-bottom: 20px;">🚀</div>
+                    <h3>Validation Rate</h3>
+                    <p style="font-size: 2rem; font-weight: var(--font-weight-black); color: var(--brutal-red); text-align: center;" id="successRate">0%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overall Progress Bar -->
+    <section class="section">
+        <div class="container">
+            <div class="overall-progress">
+            <h2 class="progress-title">🔥 Your Progress</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="overallProgressBar"></div>
+                <div class="progress-text" id="progressText">Ready to Start</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 1: Strategic Foundation -->
+    <section class="section">
+        <div class="container">
+            <div class="phase-container">
+            <div class="phase-header" onclick="togglePhase('phase1')">
+                <div class="phase-info">
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 5px;">Phase 1 of 7</div>
+                    <h3>🎯 Phase 1: Strategic Foundation</h3>
+                    <div class="phase-meta">Define your business core | 4 hours</div>
+                </div>
+                <div class="phase-toggle" id="toggle-phase1">+</div>
+            </div>
+            <div class="phase-content" id="phase1">
+                <div class="brutal-truth">
+                    <strong>FOUNDATION RULE:</strong> Get this wrong and everything else fails. Be brutally specific.
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card" data-step="1-1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <h4>Core Business Definition</h4>
+                                <div class="step-time">⏱️ 2 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="product-sentence"><div class="checkbox">✓</div><div class="task-text">Write your product/service in one sentence</div></li>
+                            <li data-task="target-customer"><div class="checkbox">✓</div><div class="task-text">Define exact target customer (age, income, problem)</div></li>
+                            <li data-task="specific-problem"><div class="checkbox">✓</div><div class="task-text">Identify specific problem they're already trying to solve</div></li>
+                            <li data-task="current-solution"><div class="checkbox">✓</div><div class="task-text">Research how they currently solve this problem</div></li>
+                            <li data-task="competitive-advantage"><div class="checkbox">✓</div><div class="task-text">Define why they'll choose you over current solution</div></li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card" data-step="1-2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <h4>Revenue Validation</h4>
+                                <div class="step-time">⏱️ 1 hour</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="pricing-tiers"><div class="checkbox">✓</div><div class="task-text">Set minimum, target, and premium prices</div></li>
+                            <li data-task="customer-math"><div class="checkbox">✓</div><div class="task-text">Calculate customers needed for $10K/month</div></li>
+                            <li data-task="reality-check"><div class="checkbox">✓</div><div class="task-text">Brutal truth: Can you reach those numbers in 90 days?</div></li>
+                        </ul>
+                        <div class="brutal-truth warning">
+                            <strong>MATH CHECK:</strong> If you need 1000+ customers at your minimum price, your price is too low or market too small.
+                        </div>
+                    </div>
+
+                    <div class="step-card" data-step="1-3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-info">
+                                <h4>Delivery Capability</h4>
+                                <div class="step-time">⏱️ 1 hour</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="can-deliver"><div class="checkbox">✓</div><div class="task-text">Confirm you can deliver this service/product right now</div></li>
+                            <li data-task="learning-needs"><div class="checkbox">✓</div><div class="task-text">List what you need to learn/acquire to deliver</div></li>
+                            <li data-task="delivery-time"><div class="checkbox">✓</div><div class="task-text">Calculate hours needed per customer delivery</div></li>
+                            <li data-task="scaling-potential"><div class="checkbox">✓</div><div class="task-text">Determine if you can scale without personal involvement</div></li>
+                        </ul>
+                        <div class="brutal-truth">
+                            <strong>DELIVERY REALITY:</strong> If you can't deliver personally right now, stop here. Master delivery before automating.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase Completion Button -->
+                <div class="phase-completion" id="phase1-completion" style="margin-top: 30px; text-align: center; display: none;">
+                    <button class="btn btn-primary btn-lg" onclick="completePhase(1)" style="padding: 15px 30px; font-size: 1.1rem;">
+                        ✅ Complete Phase 1 & Continue to Customer Validation →
+                    </button>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">
+                        All foundation tasks complete. Ready for Phase 2.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 2: Customer Validation -->
+        <div class="phase-container">
+            <div class="phase-header" onclick="togglePhase('phase2')">
+                <div class="phase-info">
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 5px;">Phase 2 of 7</div>
+                    <h3>🗣️ Phase 2: Customer Validation</h3>
+                    <div class="phase-meta">Talk to real humans | 8 hours</div>
+                </div>
+                <div class="phase-toggle" id="toggle-phase2">+</div>
+            </div>
+            <div class="phase-content" id="phase2">
+                <div class="brutal-truth">
+                    <strong>VALIDATION RULE:</strong> Most ideas are shit. Prove yours isn't before wasting time building.
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card" data-step="2-1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <h4>Customer Research</h4>
+                                <div class="step-time">⏱️ 4 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="find-10-customers"><div class="checkbox">✓</div><div class="task-text">Find 10 people who have this exact problem</div></li>
+                            <li data-task="collect-contacts"><div class="checkbox">✓</div><div class="task-text">Get their names, contacts, and rate problem severity (1-10)</div></li>
+                            <li data-task="organize-research"><div class="checkbox">✓</div><div class="task-text">Organize research data for systematic validation</div></li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card" data-step="2-2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <h4>The Validation Questions</h4>
+                                <div class="step-time">⏱️ 4 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="current-solution"><div class="checkbox">✓</div><div class="task-text">Ask: "How are you currently handling [specific problem]?"</div></li>
+                            <li data-task="cost-impact"><div class="checkbox">✓</div><div class="task-text">Ask: "How much time/money does this problem cost you monthly?"</div></li>
+                            <li data-task="pain-points"><div class="checkbox">✓</div><div class="task-text">Ask: "What's the worst part about your current solution?"</div></li>
+                            <li data-task="price-interest"><div class="checkbox">✓</div><div class="task-text">Ask: "If I could solve this for $X, would you be interested?"</div></li>
+                            <li data-task="immediate-buy"><div class="checkbox">✓</div><div class="task-text">Ask: "Would you pay me $X right now for a solution in 7 days?"</div></li>
+                            <li data-task="validation-results"><div class="checkbox">✓</div><div class="task-text">Count results: 6/10 yes to question 4 = proceed</div></li>
+                        </ul>
+                        <div class="brutal-truth warning">
+                            <strong>GO/NO-GO:</strong> If less than 6/10 said yes to question 4, your price is too high or the problem isn't painful enough. Pivot now.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase Completion Button -->
+                <div class="phase-completion" id="phase2-completion" style="margin-top: 30px; text-align: center; display: none;">
+                    <button class="btn btn-primary btn-lg" onclick="completePhase(2)" style="padding: 15px 30px; font-size: 1.1rem;">
+                        ✅ Complete Phase 2 & Continue to MVP Definition →
+                    </button>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">
+                        Customer validation complete. Ready for Phase 3.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 3: MVP Definition -->
+        <div class="phase-container">
+            <div class="phase-header" onclick="togglePhase('phase3')">
+                <div class="phase-info">
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 5px;">Phase 3 of 7</div>
+                    <h3>📋 Phase 3: MVP Definition</h3>
+                    <div class="phase-meta">Minimum viable product scope | 4 hours</div>
+                </div>
+                <div class="phase-toggle" id="toggle-phase3">+</div>
+            </div>
+            <div class="phase-content" id="phase3">
+                <div class="brutal-truth">
+                    <strong>MVP RULE:</strong> Build the smallest possible thing that solves the core problem. Nothing else matters.
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card" data-step="3-1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <h4>Minimum Viable Product Scope</h4>
+                                <div class="step-time">⏱️ 2 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="mvp-definition"><div class="checkbox">✓</div><div class="task-text">Define the absolute minimum version that solves the core problem</div></li>
+                            <li data-task="feature-temptation"><div class="checkbox">✓</div><div class="task-text">List features you're tempted to add but customers didn't mention</div></li>
+                            <li data-task="delete-features"><div class="checkbox">✓</div><div class="task-text">BRUTAL RULE: Delete everything customers didn't ask for</div></li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card" data-step="3-2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <h4>Delivery Method</h4>
+                                <div class="step-time">⏱️ 2 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="delivery-choice"><div class="checkbox">✓</div><div class="task-text">Choose delivery method: 1-on-1, group, digital, physical, software, or service</div></li>
+                            <li data-task="delivery-reasoning"><div class="checkbox">✓</div><div class="task-text">Document why you chose this delivery method</div></li>
+                            <li data-task="manual-first"><div class="checkbox">✓</div><div class="task-text">Confirm you can deliver the first version manually before automating</div></li>
+                        </ul>
+                        <div class="brutal-truth warning">
+                            <strong>DELIVERY FIRST:</strong> Always deliver manually before automating. Automation without validation is waste.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase Completion Button -->
+                <div class="phase-completion" id="phase3-completion" style="margin-top: 30px; text-align: center; display: none;">
+                    <button class="btn btn-primary btn-lg" onclick="completePhase(3)" style="padding: 15px 30px; font-size: 1.1rem;">
+                        ✅ Complete Phase 3 & Continue to 48-Hour Execution →
+                    </button>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">
+                        MVP definition complete. Ready for Phase 4.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 4: 48-Hour Execution -->
+        <div class="phase-container">
+            <div class="phase-header" onclick="togglePhase('phase4')">
+                <div class="phase-info">
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 5px;">Phase 4 of 7</div>
+                    <h3>🚀 Phase 4: 48-Hour Execution</h3>
+                    <div class="phase-meta">Rapid launch timeline | 32 hours</div>
+                </div>
+                <div class="phase-toggle" id="toggle-phase4">+</div>
+            </div>
+            <div class="phase-content" id="phase4">
+                <div class="brutal-truth">
+                    <strong>EXECUTION RULE:</strong> Perfect plans executed slowly lose to good plans executed fast. Start now.
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card" data-step="4-1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <h4>Foundation (Hours 1-8)</h4>
+                                <div class="step-time">⏱️ 8 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="payment-setup"><div class="checkbox">✓</div><div class="task-text">Set up basic payment processing (Stripe/PayPal)</div></li>
+                            <li data-task="simple-landing"><div class="checkbox">✓</div><div class="task-text">Create simple landing page with your value proposition</div></li>
+                            <li data-task="email-sequence"><div class="checkbox">✓</div><div class="task-text">Write 3-email follow-up sequence</div></li>
+                            <li data-task="analytics-tracking"><div class="checkbox">✓</div><div class="task-text">Set up basic analytics tracking</div></li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card" data-step="4-2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <h4>Content Creation (Hours 9-16)</h4>
+                                <div class="step-time">⏱️ 8 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="core-offer"><div class="checkbox">✓</div><div class="task-text">Create your core offer (outline/framework)</div></li>
+                            <li data-task="sales-copy"><div class="checkbox">✓</div><div class="task-text">Write sales copy for landing page</div></li>
+                            <li data-task="explainer-video"><div class="checkbox">✓</div><div class="task-text">Record 5-minute explainer video</div></li>
+                            <li data-task="social-accounts"><div class="checkbox">✓</div><div class="task-text">Set up social media accounts if needed</div></li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card" data-step="4-3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-info">
+                                <h4>Customer Acquisition (Hours 17-24)</h4>
+                                <div class="step-time">⏱️ 8 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="reach-prospects"><div class="checkbox">✓</div><div class="task-text">Reach out to your 10 validated prospects</div></li>
+                            <li data-task="community-posts"><div class="checkbox">✓</div><div class="task-text">Post in 3 relevant online communities</div></li>
+                            <li data-task="personal-messages"><div class="checkbox">✓</div><div class="task-text">Send personal messages to 20 potential customers</div></li>
+                            <li data-task="friend-shares"><div class="checkbox">✓</div><div class="task-text">Ask 5 friends to share your offer</div></li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card" data-step="4-4">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <div class="step-info">
+                                <h4>Launch & Monitor (Hours 25-32)</h4>
+                                <div class="step-time">⏱️ 8 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="test-flows"><div class="checkbox">✓</div><div class="task-text">Test all payment flows</div></li>
+                            <li data-task="fix-issues"><div class="checkbox">✓</div><div class="task-text">Fix any technical issues</div></li>
+                            <li data-task="respond-feedback"><div class="checkbox">✓</div><div class="task-text">Respond to questions/feedback</div></li>
+                            <li data-task="update-copy"><div class="checkbox">✓</div><div class="task-text">Update copy based on initial responses</div></li>
+                            <li data-task="official-launch"><div class="checkbox">✓</div><div class="task-text">Announce official launch</div></li>
+                            <li data-task="monitor-conversion"><div class="checkbox">✓</div><div class="task-text">Monitor conversion rates</div></li>
+                            <li data-task="customer-response"><div class="checkbox">✓</div><div class="task-text">Respond to customers immediately</div></li>
+                            <li data-task="document-lessons"><div class="checkbox">✓</div><div class="task-text">Document lessons learned</div></li>
+                        </ul>
+                        <div class="brutal-truth success">
+                            <strong>48-HOUR SUCCESS:</strong> If you get your first customer within 48 hours, you have product-market fit. Scale now.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase Completion Button -->
+                <div class="phase-completion" id="phase4-completion" style="margin-top: 30px; text-align: center; display: none;">
+                    <button class="btn btn-primary btn-lg" onclick="completePhase(4)" style="padding: 15px 30px; font-size: 1.1rem;">
+                        ✅ Complete Phase 4 & Continue to Scaling Framework →
+                    </button>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">
+                        48-hour execution complete. Ready for Phase 5.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 5: Scaling Framework -->
+        <div class="phase-container">
+            <div class="phase-header" onclick="togglePhase('phase5')">
+                <div class="phase-info">
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 5px;">Phase 5 of 7</div>
+                    <h3>📈 Phase 5: Scaling Framework</h3>
+                    <div class="phase-meta">Week 2-4 growth plan | 4 hours</div>
+                </div>
+                <div class="phase-toggle" id="toggle-phase5">+</div>
+            </div>
+            <div class="phase-content" id="phase5">
+                <div class="brutal-truth">
+                    <strong>SCALING RULE:</strong> Don't scale a broken system. Perfect delivery before automating.
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card" data-step="5-1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <h4>Customer Acquisition Channels</h4>
+                                <div class="step-time">⏱️ 2 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="channel-1"><div class="checkbox">✓</div><div class="task-text">Define Channel 1 with expected customers/week</div></li>
+                            <li data-task="channel-2"><div class="checkbox">✓</div><div class="task-text">Define Channel 2 with expected customers/week</div></li>
+                            <li data-task="channel-3"><div class="checkbox">✓</div><div class="task-text">Define Channel 3 with expected customers/week</div></li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card" data-step="5-2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <h4>Revenue Scaling Path</h4>
+                                <div class="step-time">⏱️ 2 hours</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="month-1-goal"><div class="checkbox">✓</div><div class="task-text">Set Month 1 revenue goal and requirements</div></li>
+                            <li data-task="month-3-goal"><div class="checkbox">✓</div><div class="task-text">Set Month 3 revenue goal and requirements</div></li>
+                            <li data-task="month-6-goal"><div class="checkbox">✓</div><div class="task-text">Set Month 6 revenue goal and requirements</div></li>
+                            <li data-task="automation-plan"><div class="checkbox">✓</div><div class="task-text">Plan what to automate first while maintaining quality</div></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Phase Completion Button -->
+                <div class="phase-completion" id="phase5-completion" style="margin-top: 30px; text-align: center; display: none;">
+                    <button class="btn btn-primary btn-lg" onclick="completePhase(5)" style="padding: 15px 30px; font-size: 1.1rem;">
+                        ✅ Complete Phase 5 & Continue to Risk Mitigation →
+                    </button>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">
+                        Scaling framework complete. Ready for Phase 6.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 6: Risk Mitigation -->
+        <div class="phase-container">
+            <div class="phase-header" onclick="togglePhase('phase6')">
+                <div class="phase-info">
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 5px;">Phase 6 of 7</div>
+                    <h3>⚠️ Phase 6: Risk Mitigation</h3>
+                    <div class="phase-meta">Failure point analysis | 2 hours</div>
+                </div>
+                <div class="phase-toggle" id="toggle-phase6">+</div>
+            </div>
+            <div class="phase-content" id="phase6">
+                <div class="brutal-truth">
+                    <strong>RISK RULE:</strong> Most businesses fail in the first 30 days. Plan for problems before they kill you.
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card" data-step="6-1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <h4>Failure Point Analysis</h4>
+                                <div class="step-time">⏱️ 1 hour</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="biggest-risk"><div class="checkbox">✓</div><div class="task-text">Identify what's most likely to kill this business in 30 days</div></li>
+                            <li data-task="risk-mitigation"><div class="checkbox">✓</div><div class="task-text">Plan how to prevent/mitigate this risk</div></li>
+                            <li data-task="backup-plan"><div class="checkbox">✓</div><div class="task-text">Create backup plan if this doesn't work</div></li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card" data-step="6-2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <h4>Resource Requirements</h4>
+                                <div class="step-time">⏱️ 1 hour</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="time-commitment"><div class="checkbox">✓</div><div class="task-text">Calculate time commitment: Week 1, Weeks 2-4, Months 2-3</div></li>
+                            <li data-task="financial-investment"><div class="checkbox">✓</div><div class="task-text">Calculate financial needs: Immediate, First month, First quarter</div></li>
+                            <li data-task="skill-gaps"><div class="checkbox">✓</div><div class="task-text">List skills to develop or outsource</div></li>
+                        </ul>
+                        <div class="brutal-truth warning">
+                            <strong>RESOURCE REALITY:</strong> If you don't have the time or money required, don't start. Fix your situation first.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase Completion Button -->
+                <div class="phase-completion" id="phase6-completion" style="margin-top: 30px; text-align: center; display: none;">
+                    <button class="btn btn-primary btn-lg" onclick="completePhase(6)" style="padding: 15px 30px; font-size: 1.1rem;">
+                        ✅ Complete Phase 6 & Continue to Go/No-Go Decision →
+                    </button>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">
+                        Risk mitigation complete. Ready for Phase 7.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 7: Go/No-Go Decision -->
+        <div class="phase-container">
+            <div class="phase-header" onclick="togglePhase('phase7')">
+                <div class="phase-info">
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 5px;">Phase 7 of 7</div>
+                    <h3>✅ Phase 7: Go/No-Go Decision</h3>
+                    <div class="phase-meta">Final validation checklist | 2 hours</div>
+                </div>
+                <div class="phase-toggle" id="toggle-phase7">+</div>
+            </div>
+            <div class="phase-content" id="phase7">
+                <div class="brutal-truth">
+                    <strong>DECISION RULE:</strong> Be brutally honest. A no-go decision now saves months of wasted effort.
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card" data-step="7-1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <h4>Final Validation Checklist</h4>
+                                <div class="step-time">⏱️ 1 hour</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="buying-interest"><div class="checkbox">✓</div><div class="task-text">At least 6/10 prospects showed buying interest</div></li>
+                            <li data-task="can-deliver-now"><div class="checkbox">✓</div><div class="task-text">You can deliver the service/product right now</div></li>
+                            <li data-task="acquisition-plan"><div class="checkbox">✓</div><div class="task-text">You have a clear customer acquisition plan</div></li>
+                            <li data-task="math-works"><div class="checkbox">✓</div><div class="task-text">The math works (customers × price = target revenue)</div></li>
+                            <li data-task="time-commitment"><div class="checkbox">✓</div><div class="task-text">You're committed to working the required hours</div></li>
+                            <li data-task="financial-runway"><div class="checkbox">✓</div><div class="task-text">You have the financial runway to invest</div></li>
+                            <li data-task="market-timing"><div class="checkbox">✓</div><div class="task-text">The market timing feels right</div></li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card" data-step="7-2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <h4>The Brutal Decision</h4>
+                                <div class="step-time">⏱️ 1 hour</div>
+                            </div>
+                        </div>
+                        <ul class="brutal-checklist">
+                            <li data-task="launch-decision"><div class="checkbox">✓</div><div class="task-text">Based on this blueprint, should you launch this business? YES/NO</div></li>
+                            <li data-task="launch-date"><div class="checkbox">✓</div><div class="task-text">If YES: Set your launch date and commit</div></li>
+                            <li data-task="no-go-reason"><div class="checkbox">✓</div><div class="task-text">If NO: Document the main reason and what needs to change</div></li>
+                        </ul>
+                        <div class="brutal-truth success">
+                            <strong>COMMITMENT:</strong> If you checked all 7 boxes above, you're ready. Set your launch date and start Hour 1 now.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Phase Completion Button -->
+                <div class="phase-completion" id="phase7-completion" style="margin-top: 30px; text-align: center; display: none;">
+                    <button class="btn btn-primary btn-lg" onclick="completePhase(7)" style="padding: 15px 30px; font-size: 1.1rem;">
+                        🏆 Complete Final Phase & Get Your Blueprint →
+                    </button>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-secondary);">
+                        All 7 phases complete. Ready for your personalized blueprint.
+                    </p>
+                </div>
+            </div>
+            </div>
+
+            <!-- Completion Celebration -->
+            <div class="completion-celebration" id="completionCelebration" style="display: none;">
+                <div class="card">
+                    <div style="text-align: center; padding: var(--spacing-xl);">
+                        <h2 style="font-size: var(--text-large-title); color: var(--template-success); margin-bottom: var(--spacing-lg);">
+                            🚀 48-Hour Blueprint Complete!
+                        </h2>
+                        <p style="font-size: var(--text-title-3); margin-bottom: var(--spacing-xl);">
+                            You've completed the brutal 7-phase validation system. Most people quit at Phase 2. You're ready to launch a profitable business.
+                        </p>
+                        <div class="action-buttons" style="justify-content: center;">
+                            <button class="btn btn-primary btn-lg" onclick="bookConsultation()">📞 Book Success Call</button>
+                            <button class="btn btn-secondary btn-lg" onclick="shareSuccess()">📱 Share Success</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ====================================
+        // ONBOARDING FUNCTIONALITY
+        // ====================================
+        
+        // Initialize onboarding state
+        let onboardingData = {
+            completedTasks: new Set(),
+            phaseProgress: {
+                phase1: 0,
+                phase2: 0,
+                phase3: 0,
+                phase4: 0,
+                phase5: 0,
+                phase6: 0,
+                phase7: 0
+            },
+            completedPhases: new Set(),
+            currentPhase: 1,
+            totalTasks: 48,
+            startTime: Date.now()
+        };
+
+        // Load saved progress
+        function loadProgress() {
+            const saved = localStorage.getItem('omvpOnboardingProgress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                onboardingData.completedTasks = new Set(data.completedTasks);
+                onboardingData.phaseProgress = data.phaseProgress || onboardingData.phaseProgress;
+                onboardingData.completedPhases = new Set(data.completedPhases || []);
+                onboardingData.currentPhase = data.currentPhase || 1;
+                onboardingData.startTime = data.startTime || Date.now();
+                
+                // Restore UI state
+                updateProgressDisplay();
+                restoreCheckboxStates();
+                updatePhaseUnlockState();
+                checkPhaseCompletion();
+            }
+        }
+
+        // Save progress
+        function saveProgress() {
+            const dataToSave = {
+                ...onboardingData,
+                completedTasks: Array.from(onboardingData.completedTasks),
+                completedPhases: Array.from(onboardingData.completedPhases)
+            };
+            localStorage.setItem('omvpOnboardingProgress', JSON.stringify(dataToSave));
+        }
+
+        // Toggle phase visibility
+        function togglePhase(phaseId) {
+            const phaseNumber = parseInt(phaseId.replace('phase', ''));
+            
+            // Check if phase is unlocked
+            if (!isPhaseUnlocked(phaseNumber)) {
+                alert(`Please complete Phase ${phaseNumber - 1} first before accessing Phase ${phaseNumber}.`);
+                return;
+            }
+            
+            const content = document.getElementById(phaseId);
+            const toggle = document.getElementById(`toggle-${phaseId}`);
+            const header = content.previousElementSibling;
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                toggle.textContent = '+';
+                header.classList.remove('active');
+            } else {
+                // Close all other phases
+                document.querySelectorAll('.phase-content.active').forEach(activeContent => {
+                    activeContent.classList.remove('active');
+                    activeContent.previousElementSibling.classList.remove('active');
+                    const activeToggle = document.getElementById(`toggle-${activeContent.id}`);
+                    if (activeToggle) activeToggle.textContent = '+';
+                });
+                
+                // Open clicked phase
+                content.classList.add('active');
+                toggle.textContent = '−';
+                header.classList.add('active');
+                
+                // Update current phase
+                onboardingData.currentPhase = phaseNumber;
+                saveProgress();
+            }
+        }
+        
+        // Check if phase is unlocked
+        function isPhaseUnlocked(phaseNumber) {
+            if (phaseNumber === 1) return true;
+            return onboardingData.completedPhases.has(phaseNumber - 1);
+        }
+        
+        // Complete phase and unlock next
+        function completePhase(phaseNumber) {
+            // Mark phase as completed
+            onboardingData.completedPhases.add(phaseNumber);
+            
+            // Hide completion button for this phase
+            document.getElementById(`phase${phaseNumber}-completion`).style.display = 'none';
+            
+            // Close current phase
+            const currentPhaseContent = document.getElementById(`phase${phaseNumber}`);
+            const currentPhaseToggle = document.getElementById(`toggle-phase${phaseNumber}`);
+            const currentPhaseHeader = currentPhaseContent.previousElementSibling;
+            
+            currentPhaseContent.classList.remove('active');
+            currentPhaseToggle.textContent = '+';
+            currentPhaseHeader.classList.remove('active');
+            
+            // Update phase styling to show completion
+            currentPhaseHeader.style.background = 'var(--success-green)';
+            currentPhaseHeader.style.color = 'var(--brutal-white)';
+            
+            // Open next phase or show completion
+            if (phaseNumber < 7) {
+                const nextPhaseNumber = phaseNumber + 1;
+                updatePhaseUnlockState();
+                
+                // Auto-open next phase
+                setTimeout(() => {
+                    togglePhase(`phase${nextPhaseNumber}`);
+                    
+                    // Scroll to next phase
+                    document.getElementById(`phase${nextPhaseNumber}`).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300);
+            } else {
+                // All phases complete - show final completion
+                showCompletion();
+            }
+            
+            saveProgress();
+        }
+
+        // Handle task completion
+        function toggleTask(taskId) {
+            const taskElement = document.querySelector(`[data-task="${taskId}"]`);
+            
+            if (onboardingData.completedTasks.has(taskId)) {
+                onboardingData.completedTasks.delete(taskId);
+                taskElement.classList.remove('completed');
+            } else {
+                onboardingData.completedTasks.add(taskId);
+                taskElement.classList.add('completed');
+            }
+            
+            updateProgressDisplay();
+            checkPhaseCompletion();
+            saveProgress();
+        }
+        
+        // Check if current phase is complete and show completion button
+        function checkPhaseCompletion() {
+            for (let phaseNum = 1; phaseNum <= 7; phaseNum++) {
+                const phaseTasks = getPhaseTaskIds(phaseNum);
+                const completedInPhase = phaseTasks.filter(taskId => 
+                    onboardingData.completedTasks.has(taskId)
+                ).length;
+                
+                const completionButton = document.getElementById(`phase${phaseNum}-completion`);
+                if (completionButton) {
+                    if (completedInPhase === phaseTasks.length && phaseTasks.length > 0) {
+                        completionButton.style.display = 'block';
+                    } else {
+                        completionButton.style.display = 'none';
+                    }
+                }
+            }
+        }
+        
+        // Get task IDs for a specific phase
+        function getPhaseTaskIds(phaseNumber) {
+            const phaseContent = document.getElementById(`phase${phaseNumber}`);
+            if (!phaseContent) return [];
+            
+            const tasks = phaseContent.querySelectorAll('[data-task]');
+            return Array.from(tasks).map(task => task.dataset.task);
+        }
+        
+        // Update phase unlock states
+        function updatePhaseUnlockState() {
+            for (let phaseNum = 1; phaseNum <= 7; phaseNum++) {
+                const phaseHeader = document.querySelector(`[onclick="togglePhase('phase${phaseNum}')"]`);
+                if (phaseHeader) {
+                    if (isPhaseUnlocked(phaseNum)) {
+                        phaseHeader.style.opacity = '1';
+                        phaseHeader.style.cursor = 'pointer';
+                        phaseHeader.classList.remove('locked');
+                    } else {
+                        phaseHeader.style.opacity = '0.5';
+                        phaseHeader.style.cursor = 'not-allowed';
+                        phaseHeader.classList.add('locked');
+                    }
+                    
+                    // Mark completed phases with green
+                    if (onboardingData.completedPhases.has(phaseNum)) {
+                        phaseHeader.style.background = 'var(--success-green)';
+                        phaseHeader.style.color = 'var(--brutal-white)';
+                    }
+                }
+            }
+        }
+
+        // Update progress display
+        function updateProgressDisplay() {
+            const completed = onboardingData.completedTasks.size;
+            const total = onboardingData.totalTasks;
+            const percentage = Math.round((completed / total) * 100);
+            
+            // Update stats
+            document.getElementById('totalTasks').textContent = `${completed}/${total}`;
+            const hoursSpent = Math.round((Date.now() - onboardingData.startTime) / (1000 * 60 * 60));
+            document.getElementById('totalTime').textContent = `${hoursSpent}/48h`;
+            document.getElementById('successRate').textContent = `${Math.min(percentage, 85)}%`;
+            
+            // Count completed phases
+            let phasesComplete = 0;
+            Object.values(onboardingData.phaseProgress).forEach(progress => {
+                if (progress === 100) phasesComplete++;
+            });
+            document.getElementById('phasesComplete').textContent = `${phasesComplete}/7`;
+            
+            // Update progress bar
+            const progressBar = document.getElementById('overallProgressBar');
+            const progressText = document.getElementById('progressText');
+            
+            progressBar.style.width = `${percentage}%`;
+            
+            if (percentage === 0) {
+                progressText.textContent = 'Ready to Start';
+            } else if (percentage < 15) {
+                progressText.textContent = 'Strategic Foundation';
+            } else if (percentage < 30) {
+                progressText.textContent = 'Customer Validation';
+            } else if (percentage < 45) {
+                progressText.textContent = 'MVP Definition';
+            } else if (percentage < 70) {
+                progressText.textContent = '48-Hour Execution';
+            } else if (percentage < 85) {
+                progressText.textContent = 'Scaling Framework';
+            } else if (percentage < 95) {
+                progressText.textContent = 'Risk Mitigation';
+            } else if (percentage < 100) {
+                progressText.textContent = 'Go/No-Go Decision';
+            } else {
+                progressText.textContent = '48-Hour Blueprint Complete!';
+                showCompletion();
+            }
+            
+            // Update step card completion
+            updateStepCards();
+        }
+
+        // Update step card completion status
+        function updateStepCards() {
+            document.querySelectorAll('.step-card').forEach(card => {
+                const tasks = card.querySelectorAll('[data-task]');
+                const completedTasks = Array.from(tasks).filter(task => 
+                    onboardingData.completedTasks.has(task.dataset.task)
+                );
+                
+                if (completedTasks.length === tasks.length && tasks.length > 0) {
+                    card.classList.add('completed');
+                } else {
+                    card.classList.remove('completed');
+                }
+            });
+        }
+
+        // Restore checkbox states
+        function restoreCheckboxStates() {
+            onboardingData.completedTasks.forEach(taskId => {
+                const taskElement = document.querySelector(`[data-task="${taskId}"]`);
+                if (taskElement) {
+                    taskElement.classList.add('completed');
+                }
+            });
+        }
+
+        // Show completion celebration
+        function showCompletion() {
+            document.getElementById('completionCelebration').style.display = 'block';
+            
+            // Add confetti effect (simple version)
+            setTimeout(() => {
+                const celebration = document.getElementById('completionCelebration');
+                celebration.style.animation = 'bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            }, 100);
+        }
+
+        // Action handlers
+        function startServices() {
+            alert('Opening service setup guide...');
+        }
+
+        function downloadGuide(type) {
+            alert(`Downloading ${type} guide...`);
+        }
+
+        function bookConsultation() {
+            alert('Redirecting to booking calendar...');
+        }
+
+        function shareSuccess() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'I completed the 48-Hour Business Blueprint!',
+                    text: 'Just finished the brutal 7-phase business validation system. Ready to launch a profitable business in 48 hours!',
+                    url: window.location.href
+                });
+            } else {
+                alert('Sharing functionality would be implemented here');
+            }
+        }
+
+        // Initialize onboarding
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved progress
+            loadProgress();
+            
+            // Add click handlers to checklist items
+            document.querySelectorAll('.brutal-checklist li').forEach(item => {
+                item.addEventListener('click', function() {
+                    const taskId = this.dataset.task;
+                    if (taskId) {
+                        toggleTask(taskId);
+                    }
+                });
+            });
+            
+            // Initialize phase unlock states
+            updatePhaseUnlockState();
+            
+            // Auto-expand current phase (or phase 1 if new user)
+            const currentPhase = onboardingData.currentPhase || 1;
+            togglePhase(`phase${currentPhase}`);
+            
+            // Update progress display and check completions
+            updateProgressDisplay();
+            checkPhaseCompletion();
+        });
+
+        // Blueprint functionality complete
+    </script>
+</body>
+</html>
