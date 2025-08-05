@@ -1,5 +1,16 @@
 
+.index.html
+- check for button size consistency
+- <!-- Final CTA Section --> heading text white
+- make white headings have black shadows and black headings primary color shadow
+- add OMVP upsell, focus the offer on having this same system replicated for their business in 48 hours. 1 landing page + lead capture form + upsell page + 5 emails + interactive lead-magnet checklist + data tracking .2 ctas 1.@omvp.html 2. (fear based coutdown: you could have your business online by current time + 48 hour dynamic)
+- rename this file to 48-hour-business-blueprint-landing.html and move it to /lead-magnets/48-hour-business-blueprint
 
+/framework
+- match global branding but keep page minimalistic 
+- add <!-- Methodology Section --> and <!-- Final CTA Section --> to bottom of pages.
+- optimize footer nav butons
+---
 <brandStory>>
 - My johnny toshio, seasoned product designer creator of the overnight MVP framework. CEO of DOJJJO.
 
@@ -153,11 +164,12 @@ CAREER OVERVIEW
 🇧🇷 15 / Founder/ Product Owner @RTY.solutions
 🇧🇷 13 / I started as a Freelancer Web Designer
 trust me on this one.
+
 A single landing page,
 a handful automations &
 A simple process.
 
-That will take you from 0 to  your 1st sale.
+That will take you from 0 to your 1st sale.
 ‍
 this is the secret to get started.
 
