@@ -9,7 +9,7 @@
    ==================================== */
 
 :root {
-    /* Brutal Brand Identity - DOJJJO */
+    /* TEMPLATE: Brand Identity - Customize these colors for each project */
     --brutal-red: #ef4444;
     --brutal-orange: #f97316;
     --brutal-black: #111827;
@@ -19,7 +19,13 @@
     --warning-yellow: #fbbf24;
     --danger-red: #dc2626;
     
-    /* Legacy support */
+    /* TEMPLATE: Template variables for easy customization */
+    --template-primary: var(--brutal-red);
+    --template-secondary: var(--brutal-orange);
+    --template-accent: var(--brutal-black);
+    --template-success: var(--success-green);
+    
+    /* Legacy support - remove in future versions */
     --brand-primary: var(--brutal-red);
     --primary-black: var(--brutal-black);
     --clean-white: var(--brutal-white);
@@ -112,7 +118,8 @@ h1 {
     line-height: 1.1;
     color: var(--text-primary);
     margin-bottom: 1rem;
-    text-shadow: var(--brutal-shadow-text);
+    /* TEMPLATE: Enhanced text shadows - 2px solid + 4px blur for impact */
+    text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: -0.02em;
 }
@@ -124,7 +131,8 @@ h2 {
     line-height: 1.2;
     margin-bottom: 0.875rem;
     color: var(--text-primary);
-    text-shadow: var(--brutal-shadow-text);
+    /* TEMPLATE: Enhanced text shadows for h2 */
+    text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: -0.01em;
 }
@@ -136,8 +144,25 @@ h3 {
     line-height: 1.2;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
-    text-shadow: 1px 1px 0px var(--brutal-black);
+    /* TEMPLATE: Enhanced text shadows for h3 */
+    text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
+}
+
+/* TEMPLATE: Dynamic heading shadows based on color context */
+/* White headings get black shadows */
+.hero h1, .hero h2, .hero h3,
+h1[style*="color: var(--brutal-white)"],
+h2[style*="color: var(--brutal-white)"],
+h3[style*="color: var(--brutal-white)"] {
+    text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark headings get red accent shadows */
+h1:not(.hero):not([style*="color: var(--brutal-white)"]),
+h2:not(.hero):not([style*="color: var(--brutal-white)"]),
+h3:not(.hero):not([style*="color: var(--brutal-white)"]) {
+    text-shadow: 2px 2px 0px var(--template-primary), 4px 4px 8px rgba(239, 68, 68, 0.3);
 }
 
 p {
@@ -176,16 +201,17 @@ a:hover {
 }
 
 /* ====================================
-   BUTTON SYSTEM
+   BUTTON SYSTEM - TEMPLATE READY
    ==================================== */
 
+/* TEMPLATE: Base button - customize via --template-* variables */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 18px 36px;
+    padding: 16px 32px; /* Default medium size */
     font-family: var(--font-primary);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: var(--font-weight-brutal);
     text-decoration: none;
     border: var(--brutal-border);
@@ -197,6 +223,25 @@ a:hover {
     letter-spacing: 0.05em;
     box-shadow: var(--brutal-shadow);
     position: relative;
+}
+
+/* TEMPLATE: Standardized button sizes */
+.btn-lg {
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-brutal);
+}
+
+.btn-md {
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: var(--font-weight-brutal);
+}
+
+.btn-sm {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
 }
 
 .btn-primary {

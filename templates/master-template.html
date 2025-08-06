@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- TEMPLATE: Update title and description for each page -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PAGE_TITLE}} | DOJJJO</title>
+    <meta name="description" content="{{PAGE_DESCRIPTION}}">
+    
+    <!-- TEMPLATE: Open Graph Meta Tags - Customize for each page -->
+    <meta property="og:title" content="{{PAGE_TITLE}} | DOJJJO">
+    <meta property="og:description" content="{{PAGE_DESCRIPTION}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{PAGE_URL}}">
+    
+    <!-- TEMPLATE: Add noindex for private pages like worksheets -->
+    <!-- <meta name="robots" content="noindex, nofollow"> -->
+    
+    <!-- Analytics & Tracking - STANDARDIZED -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-57CDVXRW');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L99CMW68TS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-L99CMW68TS');
+    </script>
+    
+    <!-- Hotjar Tracking Code -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6476354,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    
+    <!-- TEMPLATE: Shared Resources - Consistent path resolution -->
+    <link rel="stylesheet" href="{{BASE_PATH}}assets/css/brutal-design-system.css">
+    <script src="{{BASE_PATH}}assets/js/brand-config.js"></script>
+    <script src="{{BASE_PATH}}assets/js/core.js"></script>
+    
+    <!-- TEMPLATE: Page-specific styles go here -->
+    <style>
+        /* Page-specific overrides and customizations */
+        {{PAGE_STYLES}}
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57CDVXRW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- TEMPLATE: Accessibility skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- TEMPLATE: Main content area -->
+    <main id="main-content">
+        {{PAGE_CONTENT}}
+    </main>
+    
+    <!-- TEMPLATE: Page-specific scripts go here -->
+    <script>
+        {{PAGE_SCRIPTS}}
+    </script>
+</body>
+</html>

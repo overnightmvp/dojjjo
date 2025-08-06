@@ -164,11 +164,105 @@
             transition: width 0.5s ease;
         }
         
+        /* Footer Navigation */
+        .footer-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--brutal-white);
+            border-top: 3px solid var(--brutal-black);
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .footer-nav-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .nav-info strong {
+            color: var(--brutal-red);
+            font-size: 0.9rem;
+        }
+        
+        .nav-info span {
+            color: var(--brutal-black);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .footer-tabs {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .footer-tab {
+            padding: 8px 12px;
+            background: var(--brutal-white);
+            border: 2px solid var(--brutal-black);
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .footer-tab:hover {
+            background: #f3f4f6;
+        }
+        
+        .footer-tab.active {
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+        }
+        
+        /* Add bottom padding to container to prevent footer overlap */
+        .container {
+            padding-bottom: 100px;
+        }
+        
         @media (max-width: 768px) {
             .tabs { flex-wrap: wrap; }
             .tab { min-width: 80px; font-size: 0.8rem; padding: 10px 5px; }
             .header h1 { font-size: 2rem; }
             .day-meta { flex-direction: column; gap: 10px; }
+            
+            .footer-nav-content {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 15px;
+            }
+            
+            .nav-info {
+                text-align: center;
+                gap: 2px;
+            }
+            
+            .footer-tabs {
+                gap: 3px;
+            }
+            
+            .footer-tab {
+                padding: 6px 8px;
+                font-size: 0.7rem;
+                min-width: 40px;
+            }
+            
+            .container {
+                padding-bottom: 120px;
+            }
         }
     </style>
 </head>
@@ -485,6 +579,26 @@
                 <strong>PIVOT:</strong> Poor metrics → New customer segment or problem
             </div>
         </div>
+        
+        <!-- Footer Navigation -->
+        <div class="footer-nav">
+            <div class="footer-nav-content">
+                <div class="nav-info">
+                    <strong>7-Day MVP Validation Progress</strong>
+                    <span id="footerProgress">0/176 tasks completed</span>
+                </div>
+                <div class="footer-tabs">
+                    <button class="footer-tab active" onclick="showDay(0)">Day 0</button>
+                    <button class="footer-tab" onclick="showDay(1)">Day 1</button>
+                    <button class="footer-tab" onclick="showDay(2)">Day 2</button>
+                    <button class="footer-tab" onclick="showDay(3)">Day 3</button>
+                    <button class="footer-tab" onclick="showDay(4)">Day 4</button>
+                    <button class="footer-tab" onclick="showDay(5)">Day 5</button>
+                    <button class="footer-tab" onclick="showDay(6)">Day 6</button>
+                    <button class="footer-tab" onclick="showDay(7)">Day 7</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -503,14 +617,15 @@
                 content.classList.remove('active');
             });
             
-            // Hide all tabs
-            document.querySelectorAll('.tab').forEach(tab => {
+            // Hide all tabs (top and footer)
+            document.querySelectorAll('.tab, .footer-tab').forEach(tab => {
                 tab.classList.remove('active');
             });
             
             // Show selected content and tab
             document.getElementById(`day${dayNum}`).classList.add('active');
             document.querySelectorAll('.tab')[dayNum].classList.add('active');
+            document.querySelectorAll('.footer-tab')[dayNum].classList.add('active');
         }
         
         function toggleTask(element) {
