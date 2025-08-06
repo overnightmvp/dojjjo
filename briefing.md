@@ -1,20 +1,133 @@
 
+------>TODO<------->
+
+- fix this 
+/
+- dojjjo-landing.html - verify if same as 48-hour-blueprint-landing. remove dojjjo landing.
+- index.html - create page based on template.
+    - <index.html> 
+>> use sales-hub.html as a template
+
+Simple can be powerful.
+‍You don't need a million-dollar marketing campaign to succeed.
+
+A single landing page, a handful of emails and a simple system to generate leads and streamline delivery.
+
+‍Clarity is king.
+Before you build anything, you need a crystal-clear understanding of your product, your audience, and your goals.
+
+CTA to (48-hour-blueprint)
+
+‍Processes are the engine.
+Automation, templates, and well-defined systems are the secret sauce of sustainable growth.
+
+CTA to (OMVP)
+
+
+>> insert Detailed User Flow with Touchpoints section from master-plan-flowchart.html, i want to vizualise this flowchart on LandingPage, add lead magnet call /studio/workshop-generating-flowchart-in-5-minutes or /studio/workshop-vizualising-processes-with-ai
+
+>> insert Conversion Funnel with Metrics section from customer-journey-flowchart.html, i want to vizualise this flowchart on LandingPage, add lead magnet call /studio/workshop-conversion-funnels or /tools/social-media-automation
+
+>> insert relevant content from Dashboard.html.
+
+
+>> create a final CTA section to all lead-magnet items.
+
+</index.html>
+
+- move all non system md files to /md-files
+- move DOJJJO-TRANSFORMATION-BACKLOG.html and DOJJJO-TRANSFORMATION-BACKLOG.md to /backlog
+- move success.html to /omvp/lead-magnet/48-hour-business-blueprint
+
+/omvp
+- rename dashboard.html to omvp-dashboard.html 
+- rename omvp.html to index.html
+    - add link to omvp-dashboard on footer
+- delete design-system.html
+- move /omvp/lead-magnet/48-hour-business-blueprint to root folder  
+
+- omvp-dashboard.html 
+    - match global branding but keep page minimalistic 
+    - add <!-- Methodology Section --> and <!-- Final CTA Section --> to bottom of pages.
+    - optimize footer nav butons
+- move designsystem.html to /design-system, rename to index.html
+    - match global branding but keep page minimalistic 
+    - add <!-- Methodology Section --> and <!-- Final CTA Section --> to bottom of pages.
+    - optimize footer nav butons
+
+CHECK LEAD MAGNET FLOW MD GEN ETCo
+
+
+
+act as brutally honest s-tier ux designer, copywritter and CRO specialist. analyse my funnel idea against the real project and check for inconsistencies, lack of clarity. missing assets and find areas for improvement. dont add unnecessary complexity, optimise for conversion.
+
+this is my vision: 
+
+index.html - dojjjo landing page. AI design studio
+    CTA to: 48-hour-blueprint-landing.html -> (offer creation) (ideal for people starting something, is this idea worth solving ?)⚡ STOP TRYING TO REINVENT THE WHEEL USE THE PROVEN BLUEPRINT THAT WORKS
+    CTA to: omvp-landing.html ->(ideal for people that want to optimise, how do i make money with my website?) (online business infrastructure)(omvp framework DFY and DIY, 1)⚡ 1 LANDING PAGE, 1 UPSELL PAGE A HANDFULL OF EMAILS IN 48 HOURS.
+    CTA to: dojjjo-transformation backlog -> (showcase my design skills ) ⚡ BEHIND THE SCENES FOR MY DESIGN PROCESS.
+    
+
+
+
+/framework
+- match global branding but keep page minimalistic 
+- add <!-- Methodology Section --> and <!-- Final CTA Section --> to bottom of pages.
+- optimize footer nav butons
+
+<toshioj>
+
+create a folder /toshioj, create a index.html with a slight visual update: neo brutalist asian style.
+
+<pagecontent> 
+My johnny toshio, seasoned product designer creator of the overnight MVP framework. CEO of DOJJJO amd aspiring black belt.
+
+15 year in tech, 5 failed startups, 1 successful exit.
+
+link to >dojjjo-landing - Dojjjo is an umbrella brand to help me organise and monetise my AI design practice and personal branding.
+
+link to >  does your idea have revenue potential
+
+
+-> add to dojjjo landing where the name come from ? i choose the name because ressembles the japanese word Dojo, "traning ground", im heavily influence by Judo philosophy and use brutal honesty often. triple jjj choice: pattern interruption, judo jiu jistu acronym, .com availability.
+
+
+
+
+Instagram: 
+/overnight.mvp - overnight mvp IG page
+
+X
+/overnight_mvp - 
+
+
+/dojjjo - AI creative studio - AI driven product design.  
+/dojjjo/omvp - overnight MVP product
+        - for startup & 
+        - for local business 
+        
+        ) transformation, consulting, outsourcing, management and growth. (current clients: Guy, Audrey, Johnny). 15 year in tech, 5 failed startups, 1 successful exit. (expert knowledge claude, figma, webflow)
+
+</toshioj>
+
+
+
+
+------>DONE<------->
+<48-hour-checklist>
 .index.html
 - check for button size consistency
 - <!-- Final CTA Section --> heading text white
 - make white headings have black shadows and black headings primary color shadow
 - add OMVP upsell, focus the offer on having this same system replicated for their business in 48 hours. 1 landing page + lead capture form + upsell page + 5 emails + interactive lead-magnet checklist + data tracking .2 ctas 1.@omvp.html 2. (fear based coutdown: you could have your business online by current time + 48 hour dynamic)
 - rename this file to 48-hour-business-blueprint-landing.html and move it to /lead-magnets/48-hour-business-blueprint
-
-/framework
-- match global branding but keep page minimalistic 
-- add <!-- Methodology Section --> and <!-- Final CTA Section --> to bottom of pages.
-- optimize footer nav butons
+<48-hour-checklist>
 ---
 <brandStory>>
 - My johnny toshio, seasoned product designer creator of the overnight MVP framework. CEO of DOJJJO.
 
-- Current system: Dojjjo is an umbrella brand to help me organise and monetise my solo design practice and personal branding.
+- Current system: Dojjjo is an umbrella brand to help me organise and monetise my AI design practice and personal branding.
 
 i chose the name because ressembles the japanese word Dojo, "traning ground", im heavily influence by Judo philosophy and use brutal honesty often.
 
@@ -35,34 +148,6 @@ X
         - for local business 
         
         ) transformation, consulting, outsourcing, management and growth. (current clients: Guy, Audrey, Johnny). 15 year in tech, 5 failed startups, 1 successful exit. (expert knowledge claude, figma, webflow)
-
-<studioLandingpage>
->> use sales-hub.html as a template
-
-Simple can be powerful.
-‍You don't need a million-dollar marketing campaign to succeed.
-
-A single landing page, a handful of emails and a simple system to generate leads and fulfill the service.
-
-‍Clarity is king.
-Before you build anything, you need a crystal-clear understanding of your product, your audience, and your goals.
-
-My #1 Worksheet will help you achieve that clarity. (lead magnet)
-
-‍Processes are the engine.
-Automation, templates, and well-defined systems are the secret sauce of sustainable growth.
-
->> insert Detailed User Flow with Touchpoints section from master-plan-flowchart.html, i want to vizualise this flowchart on LandingPage, add lead magnet call /studio/workshop-generating-flowchart-in-5-minutes or /studio/workshop-vizualising-processes-with-ai
-
->> insert Conversion Funnel with Metrics section from customer-journey-flowchart.html, i want to vizualise this flowchart on LandingPage, add lead magnet call /studio/workshop-conversion-funnels or /tools/social-media-automation
-
->> insert DOJJJO-Dashboard.html content.
-
->> insert /lead-magnet-omvp + /lead-magnet-omvp-mdgen section
-
->> create a carroussel with cta-cards that lead to all lead-magnet items.
-
-</studioLandingpage>
 
 
 - portfolio: 
@@ -163,6 +248,8 @@ CAREER OVERVIEW
 🇦🇺 20 / Product Designer @ClaimApp
 🇧🇷 15 / Founder/ Product Owner @RTY.solutions
 🇧🇷 13 / I started as a Freelancer Web Designer
+
+
 trust me on this one.
 
 A single landing page,

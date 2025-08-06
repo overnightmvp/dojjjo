@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnny Toshio | Product Designer & Aspiring Black Belt</title>
+    <meta name="description" content="Johnny Toshio - Seasoned product designer, creator of the Overnight MVP framework, CEO of DOJJJO and aspiring black belt. 15 years in tech, 5 failed startups, 1 successful exit.">
+    
+    <!-- Shared Resources -->
+    <link rel="stylesheet" href="../assets/css/brutal-design-system.css">
+    <script src="../assets/js/brand-config.js"></script>
+    <script src="../assets/js/core.js"></script>
+    
+    <style>
+        /* Neo-Brutalist Asian Style Customization */
+        :root {
+            --asian-red: #DC143C;
+            --asian-gold: #FFD700;
+            --asian-black: #1C1C1C;
+            --asian-white: #FAFAFA;
+            --asian-gray: #808080;
+        }
+        
+        body {
+            background: var(--asian-white);
+            color: var(--asian-black);
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .hero-personal {
+            background: linear-gradient(135deg, var(--asian-red), var(--asian-black));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-personal::before {
+            content: "道場";
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.05);
+            z-index: 1;
+            font-family: 'Hiragino Kaku Gothic Pro', 'Yu Gothic', sans-serif;
+        }
+        
+        .hero-content-personal {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            max-width: 800px;
+            padding: var(--spacing-2xl);
+        }
+        
+        .hero-content-personal h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--asian-white);
+            margin-bottom: var(--spacing-lg);
+            text-shadow: 4px 4px 0px var(--asian-black), 8px 8px 16px rgba(0, 0, 0, 0.5);
+            line-height: 1.1;
+        }
+        
+        .hero-content-personal .subtitle {
+            font-size: 1.5rem;
+            color: var(--asian-gold);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xl);
+            text-shadow: 2px 2px 0px var(--asian-black);
+        }
+        
+        .hero-content-personal .description {
+            font-size: 1.2rem;
+            color: var(--asian-white);
+            margin-bottom: var(--spacing-2xl);
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .card-asian {
+            background: var(--asian-white);
+            border: 4px solid var(--asian-black);
+            box-shadow: 8px 8px 0px var(--asian-black);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+        }
+        
+        .card-asian::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--asian-red), var(--asian-gold));
+            z-index: -1;
+            border-radius: 4px;
+        }
+        
+        .journey-section {
+            background: var(--asian-black);
+            color: var(--asian-white);
+            padding: var(--spacing-3xl);
+        }
+        
+        .journey-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: rgba(220, 20, 60, 0.1);
+            border-left: 4px solid var(--asian-red);
+        }
+        
+        .journey-year {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--asian-gold);
+            margin-right: var(--spacing-lg);
+            min-width: 80px;
+        }
+        
+        .links-section {
+            background: var(--asian-white);
+            padding: var(--spacing-3xl);
+        }
+        
+        .link-card {
+            background: var(--asian-black);
+            color: var(--asian-white);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            border: 3px solid var(--asian-red);
+            box-shadow: 6px 6px 0px var(--asian-red);
+            transition: all 0.2s ease;
+        }
+        
+        .link-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px var(--asian-red);
+        }
+        
+        .btn-asian {
+            background: var(--asian-red);
+            color: var(--asian-white);
+            border: 3px solid var(--asian-black);
+            padding: 15px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 4px 4px 0px var(--asian-black);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-asian:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--asian-black);
+        }
+        
+        .dojo-philosophy {
+            background: linear-gradient(135deg, var(--asian-gold), var(--asian-red));
+            color: var(--asian-black);
+            padding: var(--spacing-2xl);
+            margin: var(--spacing-xl) 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .dojo-philosophy::before {
+            content: "武";
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 3rem;
+            font-weight: 900;
+            opacity: 0.3;
+            font-family: 'Hiragino Kaku Gothic Pro', 'Yu Gothic', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-personal">
+        <div class="hero-content-personal">
+            <div style="font-size: 5rem; margin-bottom: var(--spacing-lg);">🥋</div>
+            <h1>Johnny Toshio</h1>
+            <p class="subtitle">Product Designer • OMVP Creator • Aspiring Black Belt</p>
+            <p class="description">
+                Seasoned product designer, creator of the Overnight MVP framework, CEO of DOJJJO.<br>
+                <strong>15 years in tech • 5 failed startups • 1 successful exit</strong>
+            </p>
+            <a href="../index.html" class="btn-asian">
+                🎯 Enter DOJJJO
+            </a>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--spacing-2xl); color: var(--asian-gold); font-size: 2.5rem;">
+                道路 The Journey
+            </h2>
+            
+            <div class="journey-item">
+                <div class="journey-year">🌏 24</div>
+                <div>
+                    <strong>Head of Design @toshioj.studio & Athlete @BangkokJiuJitsu</strong><br>
+                    Building $15K/month systems from Thailand using martial arts discipline
+                </div>
+            </div>
+            
+            <div class="journey-item">
+                <div class="journey-year">🇩🇰 23</div>
+                <div>
+                    <strong>Product Specialist - CPO @Tripdoodler</strong><br>
+                    Leading product strategy for travel technology
+                </div>
+            </div>
+            
+            <div class="journey-item">
+                <div class="journey-year">🇦🇺 21</div>
+                <div>
+                    <strong>Business Analyst and Product Designer @SwaggieCo</strong><br>
+                    Australian market penetration and product optimization
+                </div>
+            </div>
+            
+            <div class="journey-item">
+                <div class="journey-year">🇦🇺 20</div>
+                <div>
+                    <strong>Product Designer @ClaimApp</strong><br>
+                    Insurance technology and user experience design
+                </div>
+            </div>
+            
+            <div class="journey-item">
+                <div class="journey-year">🇧🇷 15</div>
+                <div>
+                    <strong>Founder/ Product Owner @RTY.solutions</strong><br>
+                    First successful exit - learned what actually works
+                </div>
+            </div>
+            
+            <div class="journey-item">
+                <div class="journey-year">🇧🇷 13</div>
+                <div>
+                    <strong>Started as Freelancer Web Designer</strong><br>
+                    The beginning - learning through 5 failures and brutal honesty
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section style="background: var(--asian-white); padding: var(--spacing-3xl);">
+        <div class="container">
+            <div class="dojo-philosophy">
+                <h3 style="font-size: 2rem; margin-bottom: var(--spacing-lg);">🥋 Why DOJJJO?</h3>
+                <p style="font-size: 1.2rem; line-height: 1.6;">
+                    I chose the name because it resembles the Japanese word <strong>"Dojo"</strong> - "training ground".<br>
+                    I'm heavily influenced by Judo philosophy and use brutal honesty often.<br><br>
+                    <strong>Triple JJJ choice:</strong> Pattern interruption + Judo Jiu Jitsu acronym + .com availability
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Links Section -->
+    <section class="links-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--spacing-2xl); color: var(--asian-black); font-size: 2.5rem;">
+                🔗 Digital Presence
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl);">
+                <div class="link-card">
+                    <h3 style="color: var(--asian-gold); margin-bottom: var(--spacing-md);">🎯 DOJJJO - AI Creative Studio</h3>
+                    <p>AI-driven product design. Transformation, consulting, outsourcing, management and growth.</p>
+                    <a href="../index.html" class="btn-asian" style="margin-top: var(--spacing-md);">
+                        Enter DOJJJO
+                    </a>
+                </div>
+                
+                <div class="link-card">
+                    <h3 style="color: var(--asian-gold); margin-bottom: var(--spacing-md);">⚡ Overnight MVP</h3>
+                    <p>For startups & local businesses. Complete business validation and launch framework.</p>
+                    <a href="../omvp/index.html" class="btn-asian" style="margin-top: var(--spacing-md);">
+                        Get OMVP
+                    </a>
+                </div>
+                
+                <div class="link-card">
+                    <h3 style="color: var(--asian-gold); margin-bottom: var(--spacing-md);">📋 Revenue Potential</h3>
+                    <p>Does your idea have revenue potential? Start with the 48-hour business blueprint.</p>
+                    <a href="../omvp/lead-magnet/48-hour-business-blueprint/48-hour-business-blueprint.html" class="btn-asian" style="margin-top: var(--spacing-md);">
+                        Check Potential
+                    </a>
+                </div>
+                
+                <div class="link-card">
+                    <h3 style="color: var(--asian-gold); margin-bottom: var(--spacing-md);">📱 Social Media</h3>
+                    <div style="margin-top: var(--spacing-md);">
+                        <p><strong>Instagram:</strong> @overnight.mvp - Overnight MVP page</p>
+                        <p><strong>X (Twitter):</strong> @overnight_mvp - Business insights</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section style="background: var(--asian-black); color: var(--asian-white); padding: var(--spacing-3xl);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--spacing-2xl); color: var(--asian-gold); font-size: 2.5rem;">
+                🏆 Portfolio
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg);">
+                <div style="background: rgba(220, 20, 60, 0.1); padding: var(--spacing-lg); border: 2px solid var(--asian-red);">
+                    <h4 style="color: var(--asian-gold);">Overnight MVP (OMVP)</h4>
+                    <p>Complete business validation framework</p>
+                </div>
+                
+                <div style="background: rgba(220, 20, 60, 0.1); padding: var(--spacing-lg); border: 2px solid var(--asian-red);">
+                    <h4 style="color: var(--asian-gold);">Ramin Razy</h4>
+                    <p>Personal brand transformation</p>
+                </div>
+                
+                <div style="background: rgba(220, 20, 60, 0.1); padding: var(--spacing-lg); border: 2px solid var(--asian-red);">
+                    <h4 style="color: var(--asian-gold);">DOJJJO System</h4>
+                    <p>Template-driven client delivery</p>
+                </div>
+                
+                <div style="background: rgba(220, 20, 60, 0.1); padding: var(--spacing-lg); border: 2px solid var(--asian-red);">
+                    <h4 style="color: var(--asian-gold);">TSJ Studio</h4>
+                    <p>Webflow development projects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--asian-white); color: var(--asian-black); padding: var(--spacing-2xl); text-align: center; border-top: 4px solid var(--asian-red);">
+        <div class="container">
+            <p style="margin-bottom: var(--spacing-md);">
+                <strong>🥋 Johnny Toshio</strong><br>
+                Product Designer • OMVP Creator • Aspiring Black Belt
+            </p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">
+                From broke to Bangkok: Building systems that convert through martial arts discipline • 2025
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
