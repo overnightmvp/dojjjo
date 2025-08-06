@@ -3,25 +3,24 @@
 
 const BREVO_CONFIG = {
     // Your Brevo API key (get from https://app.brevo.com/settings/keys/api)
-    // Use brevo-config-private.js for your actual API key (copy from template)
-    API_KEY: window.BREVO_PRIVATE?.API_KEY || 'YOUR_BREVO_API_KEY',
+    API_KEY: 'YOUR_BREVO_API_KEY',
     
     // API endpoints
     CONTACTS_URL: 'https://api.brevo.com/v3/contacts',
     TRANSACTIONAL_URL: 'https://api.brevo.com/v3/smtp/email',
     
-    // List IDs for different funnels - override in private config if needed
-    LISTS: window.BREVO_PRIVATE?.LISTS || {
-        WORKSHEET_SUBSCRIBERS: 8,    // 48-hour worksheet subscribers
-        OMVP_HIGH_INTENT: 9,         // High-value OMVP submissions  
-        GENERAL_LEADS: 10            // General newsletter/updates
+    // List IDs for different funnels
+    LISTS: {
+        WORKSHEET_SUBSCRIBERS: 1,    // 48-hour worksheet subscribers
+        OMVP_HIGH_INTENT: 2,        // High-value OMVP submissions
+        GENERAL_LEADS: 3             // General newsletter/updates
     },
     
-    // Email template IDs for transactional emails - override in private config if needed
-    TEMPLATES: window.BREVO_PRIVATE?.TEMPLATES || {
-        WORKSHEET_DELIVERY: 42,      // Email with worksheet download/access
-        OMVP_SUBMISSION_CONFIRM: 43, // OMVP submission confirmation
-        HANDOFF_CALL_SCHEDULED: 37   // Using existing template for now
+    // Email template IDs for transactional emails
+    TEMPLATES: {
+        WORKSHEET_DELIVERY: 1,       // Email with worksheet download/access
+        OMVP_SUBMISSION_CONFIRM: 2,  // OMVP submission confirmation
+        HANDOFF_CALL_SCHEDULED: 3    // Handoff call scheduling confirmation
     },
     
     // Default contact attributes
@@ -34,19 +33,6 @@ const BREVO_CONFIG = {
 
 // Helper function to send contact to Brevo
 async function sendToBrevo(email, attributes = {}, listIds = []) {
-    // Check if API key is configured
-    if (!BREVO_CONFIG.API_KEY || BREVO_CONFIG.API_KEY === 'YOUR_BREVO_API_KEY') {
-        console.warn('Brevo API key not configured. Skipping email integration.');
-        // Store locally for development/testing
-        localStorage.setItem('brevo_contact_' + Date.now(), JSON.stringify({
-            email,
-            attributes,
-            listIds,
-            timestamp: new Date().toISOString()
-        }));
-        return { success: true, status: 'local_storage', development: true };
-    }
-
     const contactData = {
         email: email,
         attributes: {
@@ -83,19 +69,6 @@ async function sendToBrevo(email, attributes = {}, listIds = []) {
 
 // Helper function to send transactional email
 async function sendBrevoEmail(email, templateId, params = {}) {
-    // Check if API key is configured
-    if (!BREVO_CONFIG.API_KEY || BREVO_CONFIG.API_KEY === 'YOUR_BREVO_API_KEY') {
-        console.warn('Brevo API key not configured. Skipping transactional email.');
-        // Store locally for development/testing
-        localStorage.setItem('brevo_email_' + Date.now(), JSON.stringify({
-            email,
-            templateId,
-            params,
-            timestamp: new Date().toISOString()
-        }));
-        return { success: true, status: 'local_storage', development: true };
-    }
-
     const emailData = {
         to: [{ email: email }],
         templateId: templateId,

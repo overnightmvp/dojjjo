@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Worksheet. Get Your Overnight MVP Started.</title>
+    <meta name="description" content="Submit your completed worksheet and get your 15-minute handoff call scheduled. No time wasted on formalities—just a brutal, strategic review.">
+    <link rel="stylesheet" href="../assets/css/brutal-design-system.css">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-57CDVXRW');</script>
+    
+    <script src="../assets/js/core.js"></script>
+    <script src="../assets/js/brevo-config.js"></script>
+    <script src="../assets/js/analytics-enhanced.js"></script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/gtm.ns.html?id=GTM-57CDVXRW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Hero Section -->
+    <section class="hero-standard">
+        <div class="container">
+            <div class="hero-content">
+                <div style="font-size: 4rem; margin-bottom: var(--spacing-lg);">📋</div>
+                <h1 style="color: var(--brutal-white); text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);">
+                    Submit Your Worksheet.<br>
+                    <span style="color: var(--brutal-orange);">Get Your Overnight MVP Started.</span>
+                </h1>
+                <p class="hero-subtitle" style="color: var(--brutal-white); text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);">
+                    This is a handoff, not a discovery call. You've done the heavy lifting of the DOJJJO Framework. Now it's time for me to take your insights and build your business system.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructions Section -->
+    <section style="padding: var(--spacing-section) 0; background: var(--brutal-red); color: var(--brutal-white);">
+        <div class="container">
+            <div class="card" style="background: var(--brutal-red); border-color: var(--brutal-white); color: var(--brutal-white);">
+                <h2 style="color: var(--brutal-white); text-align: center; margin-bottom: 1.5rem;">SUBMIT YOUR WORK. EARN THE CALL.</h2>
+                <p style="color: var(--brutal-white); text-align: center; font-size: 1.1rem;">
+                    This is not a discovery call. It's a handoff. You've completed the DOJJJO Framework. Now, prove your commitment and give me the data.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section style="padding: var(--spacing-section) 0; background: var(--bg-primary);">
+        <div class="container">
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                
+                <!-- Step 1 -->
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="color: var(--brutal-red); margin-bottom: 1rem;">Step 1: Your Deliverable.</h3>
+                    <p style="margin-bottom: 1.5rem;">Upload the .md file generated from your completed 48-Hour Worksheet.</p>
+                    
+                    <div style="border: 2px dashed var(--brutal-gray); padding: 2rem; text-align: center; border-radius: 8px; margin-bottom: 1rem;">
+                        <input type="file" id="worksheetFile" accept=".md" style="display: none;" onchange="handleFileUpload(this)">
+                        <button onclick="document.getElementById('worksheetFile').click()" class="btn btn-md" style="background: var(--brutal-orange); color: var(--brutal-white);">
+                            📁 UPLOAD WORKSHEET FILE
+                        </button>
+                        <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                            Only .md files accepted
+                        </p>
+                        <div id="fileStatus" style="margin-top: 1rem; display: none;">
+                            <div style="color: var(--success-green); font-weight: bold;">✅ File uploaded successfully!</div>
+                            <div id="fileName" style="color: var(--text-secondary); font-size: 0.9rem;"></div>
+                        </div>
+                    </div>
+                    
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                        Don't have the .md file? <a href="../48-hour-worksheet/worksheet.html" style="color: var(--brutal-red);">Complete the worksheet first</a>.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <form id="submitForm" onsubmit="handleSubmit(event)">
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="color: var(--brutal-red); margin-bottom: 1rem;">Step 2: The Final Questions.</h3>
+                        <p style="margin-bottom: 1.5rem;">Answer these final questions to confirm we're aligned on execution.</p>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <label for="breakingPoint" style="font-weight: 700; margin-bottom: 0.5rem; display: block;">What's the one thing that will make or break this project?</label>
+                            <textarea id="breakingPoint" name="breakingPoint" required class="input-field" style="width: 100%; min-height: 80px; padding: 12px; border: 2px solid var(--brutal-black); border-radius: 4px;" placeholder="Be specific about your biggest concern..."></textarea>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <label for="competitors" style="font-weight: 700; margin-bottom: 0.5rem; display: block;">Who are the 3-5 competitors we should reverse engineer?</label>
+                            <textarea id="competitors" name="competitors" required class="input-field" style="width: 100%; min-height: 80px; padding: 12px; border: 2px solid var(--brutal-black); border-radius: 4px;" placeholder="Include URLs and what specifically you want to copy from each..."></textarea>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <label for="contactInfo" style="font-weight: 700; margin-bottom: 0.5rem; display: block;">Best way to reach you for the handoff call:</label>
+                            <input type="text" id="contactInfo" name="contactInfo" required class="input-field" style="width: 100%; padding: 12px; border: 2px solid var(--brutal-black); border-radius: 4px;" placeholder="Email and phone number">
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <label for="timeline" style="font-weight: 700; margin-bottom: 0.5rem; display: block;">Preferred timeline for your 15-minute handoff call:</label>
+                            <select id="timeline" name="timeline" required class="input-field" style="width: 100%; padding: 12px; border: 2px solid var(--brutal-black); border-radius: 4px;">
+                                <option value="">Select timeline...</option>
+                                <option value="today">Today (within 4 hours)</option>
+                                <option value="tomorrow">Tomorrow</option>
+                                <option value="this-week">This week</option>
+                                <option value="next-week">Next week</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="color: var(--brutal-red); margin-bottom: 1rem;">Step 3: Submit & Schedule</h3>
+                        <p style="margin-bottom: 1.5rem;">After you submit, you'll receive an immediate email with next steps and calendar link for your handoff call.</p>
+                        
+                        <div style="background: var(--brutal-black); color: var(--brutal-white); padding: 2rem; border-radius: 8px; margin-bottom: 2rem; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+                            <h4 style="color: var(--brutal-white); margin-bottom: 1rem;">Investment: $5,000</h4>
+                            <p style="color: var(--brutal-white); font-size: 0.9rem;">
+                                Payment processed after our handoff call confirms project alignment
+                            </p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-lg" style="background: var(--brutal-red); color: var(--brutal-white);" id="submitBtn">
+                                🚀 SUBMIT MY WORKSHEET & SCHEDULE CALL
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--brutal-black); color: var(--brutal-white); padding: var(--spacing-xl); text-align: center;">
+        <div class="container">
+            <p style="margin-bottom: var(--spacing-md);">
+                <strong>Johnny Toshio - Overnight MVP Submission</strong><br>
+                Your commitment to execution starts here
+            </p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">
+                48-hour business systems that work • 2025
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        let uploadedFile = null;
+        
+        function handleFileUpload(input) {
+            const file = input.files[0];
+            if (file && file.name.endsWith('.md')) {
+                uploadedFile = file;
+                document.getElementById('fileStatus').style.display = 'block';
+                document.getElementById('fileName').textContent = file.name;
+                
+                // Track file upload with enhanced analytics
+                trackFormInteraction('omvp_submission', 'file_uploaded', 'worksheet_md');
+                trackEngagement('file_upload_success', 'omvp_form');
+                
+                // Track high intent behavior
+                trackConversion('worksheet_file_uploaded', 100, {
+                    file_name: file.name,
+                    file_size: file.size,
+                    intent_level: 'high'
+                });
+            } else {
+                trackError('validation', 'Invalid file type uploaded', {
+                    source: 'omvp_submission_form',
+                    attempted_file: file ? file.name : 'no_file'
+                });
+                
+                alert('Please upload a valid .md file');
+                input.value = '';
+            }
+        }
+        
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            if (!uploadedFile) {
+                alert('Please upload your worksheet file first');
+                return;
+            }
+            
+            const formData = new FormData(event.target);
+            const submitData = {
+                file: uploadedFile,
+                breakingPoint: formData.get('breakingPoint'),
+                competitors: formData.get('competitors'),
+                contactInfo: formData.get('contactInfo'),
+                timeline: formData.get('timeline'),
+                timestamp: new Date().toISOString()
+            };
+            
+            // Disable submit button
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SUBMITTING...';
+            
+            // Track high-value submission with enhanced analytics
+            trackConversion('omvp_submission', ANALYTICS_CONFIG.EVENT_VALUES.OMVP_SUBMISSION, {
+                timeline: submitData.timeline,
+                has_file: !!uploadedFile,
+                submission_source: 'worksheet_completion'
+            });
+            
+            trackFunnelProgression(ANALYTICS_CONFIG.FUNNEL_STAGES.OMVP_SUBMIT, {
+                breaking_point_length: submitData.breakingPoint.length,
+                competitors_count: submitData.competitors.split('\n').length,
+                timeline: submitData.timeline
+            });
+            
+            // Extract email from contact info
+            const contactInfo = submitData.contactInfo;
+            const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/;
+            const emailMatch = contactInfo.match(emailRegex);
+            const email = emailMatch ? emailMatch[0] : null;
+            
+            if (email) {
+                // Send high-intent lead to Brevo using helper function
+                const brevoResult = await sendToBrevo(email, {
+                    SOURCE: 'omvp_submission_form',
+                    FUNNEL_STAGE: 'high_intent_submission',
+                    BREAKING_POINT: submitData.breakingPoint.substring(0, 200),
+                    COMPETITORS: submitData.competitors.substring(0, 200),
+                    TIMELINE: submitData.timeline,
+                    VALUE: '5000'
+                }, [BREVO_CONFIG.LISTS.OMVP_HIGH_INTENT]);
+                
+                if (brevoResult.success) {
+                    console.log('High-intent lead sent to Brevo successfully');
+                    
+                    // Send confirmation email with next steps
+                    await sendBrevoEmail(email, BREVO_CONFIG.TEMPLATES.OMVP_SUBMISSION_CONFIRM, {
+                        BREAKING_POINT: submitData.breakingPoint,
+                        COMPETITORS: submitData.competitors,
+                        TIMELINE: submitData.timeline,
+                        CONTACT_INFO: submitData.contactInfo
+                    });
+                }
+            }
+            
+            // Store submission data locally
+            localStorage.setItem('omvpSubmissionData', JSON.stringify(submitData));
+            
+            // Redirect to success page
+            setTimeout(() => {
+                window.location.href = './success.html';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

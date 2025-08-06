@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your 48-Hour Worksheet Has Arrived. Let's Get to Work.</title>
+    <meta name="description" content="Your 48-hour business validation worksheet is ready. Start executing now.">
+    <link rel="stylesheet" href="../assets/css/brutal-design-system.css">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-57CDVXRW');</script>
+    
+    <script src="../assets/js/core.js"></script>
+    
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/gtm.ns.html?id=GTM-57CDVXRW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Hero Section -->
+    <section class="hero-standard">
+        <div class="container">
+            <div class="hero-content">
+                <div style="font-size: 4rem; margin-bottom: var(--spacing-lg);">⚡</div>
+                <h1 style="color: var(--brutal-white); text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);">
+                    Your 48-Hour Worksheet Has Arrived.<br>
+                    <span style="color: var(--brutal-orange);">Let's Get to Work.</span>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reality Check -->
+    <section style="padding: var(--spacing-section) 0; background: var(--brutal-red); color: var(--brutal-white);">
+        <div class="container">
+            <div class="card" style="background: var(--brutal-red); border-color: var(--brutal-white); color: var(--brutal-white);">
+                <h2 style="color: var(--brutal-white); margin-bottom: 1.5rem; text-align: center;">⚡ A Quick Reality Check:</h2>
+                <p style="color: var(--brutal-white); margin-bottom: 1rem;">You're one of two types of entrepreneurs.</p>
+                
+                <ol style="color: var(--brutal-white); margin: 1.5rem 0; padding-left: 1.5rem;">
+                    <li style="margin-bottom: 1rem;"><strong>The one who downloads free stuff, reads it, and does nothing.</strong></li>
+                    <li><strong>The one who is ready to execute, regardless of how brutal the truth is.</strong></li>
+                </ol>
+                
+                <p style="color: var(--brutal-white); margin-bottom: 1rem;">
+                    This Worksheet is for the second type. Don't just read it. Use it. It's a proven system that saved me from my 6th startup failure, and now it's yours.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next 3 Minutes -->
+    <section style="padding: var(--spacing-section) 0; background: var(--bg-primary);">
+        <div class="container">
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <h2 style="color: var(--brutal-red); margin-bottom: 2rem; text-align: center;">Your Next 3 Minutes:</h2>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">1. Go check your inbox.</h3>
+                    <p style="margin-bottom: 1rem;">
+                        I've sent you the full Worksheet, an implementation checklist, and a quick-start guide. If it's not there, check your spam folder.
+                    </p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">2. Start the interactive Worksheet now.</h3>
+                    <p style="margin-bottom: 1rem;">
+                        This isn't a PDF you can ignore. It's a structured system. The clock starts now.
+                    </p>
+                    <div style="text-align: center;">
+                        <a href="./worksheet.html" class="btn btn-lg" style="background: var(--brutal-red); color: var(--brutal-white); text-decoration: none;">
+                            🚀 START YOUR INTERACTIVE WORKSHEET
+                        </a>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--text-primary); margin-bottom: 1rem;">3. Want to use AI to manage the process?</h3>
+                    <p style="margin-bottom: 1rem;">
+                        I've included a markdown file with the Worksheet. Copy and paste it into any AI tool (like ChatGPT) with this prompt: act as a brutally honest project manager...
+                    </p>
+                    <div style="text-align: center;">
+                        <button onclick="copyMDFile()" class="btn btn-md" style="background: var(--brutal-orange); color: var(--brutal-white);">
+                            📋 COPY MD FILE FOR AI TOOLS
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Timer Display -->
+                <div id="timerDisplay" style="background: var(--brutal-black); color: var(--brutal-white); padding: 1.5rem; text-align: center; border-radius: 8px; margin: 2rem 0; border: 3px solid var(--brutal-red); box-shadow: 4px 4px 0px var(--brutal-black);">
+                    <h3 style="color: var(--brutal-orange); margin-bottom: 1rem; text-shadow: 2px 2px 0px rgba(0,0,0,0.5);">⏰ 48-HOUR CHALLENGE ACTIVE</h3>
+                    <div id="countdown" style="font-size: 1.8rem; font-weight: bold; color: var(--brutal-white);"></div>
+                    <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">Timer synced across all tabs - your progress auto-saves</p>
+                    <div style="margin-top: 10px; padding: 10px; background: rgba(239, 68, 68, 0.1); border-radius: 4px;">
+                        <div style="font-size: 0.8rem; opacity: 0.9;">💡 Pro Tip: Complete the worksheet within 48 hours for maximum momentum</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skip the Work Section -->
+    <section style="padding: var(--spacing-section) 0; background: var(--brutal-black); color: var(--brutal-white);">
+        <div class="container">
+            <div class="card" style="max-width: 800px; margin: 0 auto; background: var(--brutal-black); border-color: var(--brutal-white);">
+                <h2 style="color: var(--brutal-white); margin-bottom: 1.5rem; text-align: center;">Want to Skip the Work?</h2>
+                <p style="color: var(--brutal-white); margin-bottom: 1rem; text-align: center; font-size: 1.1rem;">
+                    The Worksheet is the roadmap. My Done-For-You Service is the car.
+                </p>
+                
+                <p style="color: var(--brutal-white); margin-bottom: 2rem;">
+                    If you don't have the time, the discipline, or the desire to execute the Worksheet yourself, I will personally build your entire business system in 48 hours. You get a landing page, email capture, and a full nurture sequence, all built on my proven framework.
+                </p>
+                
+                <p style="color: var(--brutal-white); margin-bottom: 2rem;">
+                    You can spend 48 hours working through the Worksheet, or you can spend a few minutes now to have a complete business system delivered to you by tomorrow.
+                </p>
+                
+                <div style="text-align: center;">
+                    <a href="../omvp/index.html" class="btn btn-lg" style="background: var(--brutal-orange); color: var(--brutal-white); text-decoration: none;">
+                        🚀 GET MY BUSINESS LIVE IN 48 HOURS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize timer on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTimer();
+            setInterval(updateTimer, 1000); // Update every second
+        });
+
+        function updateTimer() {
+            const startTime = localStorage.getItem('worksheetStartTime');
+            if (!startTime) {
+                // Start timer if not already started
+                const now = Date.now();
+                localStorage.setItem('worksheetStartTime', now.toString());
+                return;
+            }
+
+            const elapsed = Date.now() - parseInt(startTime);
+            const remaining = (48 * 60 * 60 * 1000) - elapsed; // 48 hours in milliseconds
+            const countdownElement = document.getElementById('countdown');
+            const timerDisplay = document.getElementById('timerDisplay');
+
+            if (remaining <= 0) {
+                countdownElement.innerHTML = "⏰ <span style='color: var(--brutal-red); font-size: 2rem;'>TIME'S UP!</span><br><span style='font-size: 1rem;'>Your competitors are already launching</span>";
+                if (timerDisplay) {
+                    timerDisplay.style.borderColor = 'var(--brutal-red)';
+                    timerDisplay.style.backgroundColor = 'var(--brutal-red)';
+                    timerDisplay.style.animation = 'shake 1s infinite';
+                }
+                return;
+            }
+
+            const hours = Math.floor(remaining / (1000 * 60 * 60));
+            const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+            // Calculate progress percentage
+            const totalDuration = 48 * 60 * 60 * 1000;
+            const progressPercent = ((totalDuration - remaining) / totalDuration) * 100;
+            
+            let urgencyMessage = '';
+            if (hours < 6) {
+                urgencyMessage = '<br><span style="color: var(--brutal-red); font-size: 0.9rem; font-weight: 700;">⚠️ URGENT: Less than 6 hours left!</span>';
+                if (timerDisplay) {
+                    timerDisplay.style.animation = 'pulse 2s infinite';
+                    timerDisplay.style.borderColor = 'var(--brutal-red)';
+                }
+            } else if (hours < 12) {
+                urgencyMessage = '<br><span style="color: var(--brutal-orange); font-size: 0.9rem;">⚡ Under 12 hours - time to focus!</span>';
+            } else if (hours < 24) {
+                urgencyMessage = '<br><span style="color: var(--brutal-orange); font-size: 0.9rem;">📈 Over halfway through - keep going!</span>';
+            }
+
+            countdownElement.innerHTML = `<span style='color: var(--brutal-orange);'>${hours}h ${minutes}m ${seconds}s</span><br><span style='font-size: 1rem;'>remaining to complete</span>${urgencyMessage}`;
+            
+            // Store progress for analytics
+            localStorage.setItem('worksheetProgress', progressPercent.toString());
+        }
+
+        function copyMDFile() {
+            const mdContent = `# 48-HOUR BUSINESS BLUEPRINT
+*Your personalized worksheet*
+
+## PROMPT FOR AI ASSISTANCE:
+Act as a brutally honest project manager. Help me complete this 48-hour business validation worksheet. Be direct, ask tough questions, and don't let me make excuses. Challenge my assumptions and force me to validate everything with real customers.
+
+## THE WORKSHEET:
+[Worksheet content would be here]
+
+Ready to work with AI? Paste this into ChatGPT or any AI tool.`;
+
+            navigator.clipboard.writeText(mdContent).then(function() {
+                alert('Markdown file copied to clipboard! Now paste it into your AI tool.');
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+                alert('Copy failed. Please copy the text manually.');
+            });
+
+            // Track event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'md_file_copy', {
+                    'event_category': 'engagement',
+                    'event_label': 'success_page'
+                });
+            }
+        }
+    </script>
+</body>
+</html>
