@@ -5,33 +5,65 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Redirect rules
+# Clean URL routing for new funnel structure
+# 48-hour-worksheet clean URLs
 [[redirects]]
-  from = "/omvp/*"
-  to = "/omvp/:splat"
+  from = "/48-hour-worksheet"
+  to = "/48-hour-worksheet/index.html"
   status = 200
 
+[[redirects]]
+  from = "/48-hour-worksheet/success"
+  to = "/48-hour-worksheet/success.html"
+  status = 200
+
+[[redirects]]
+  from = "/48-hour-worksheet/worksheet"
+  to = "/48-hour-worksheet/worksheet.html"
+  status = 200
+
+# OMVP service clean URLs
+[[redirects]]
+  from = "/omvp"
+  to = "/omvp/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/omvp/submit"
+  to = "/omvp/submit.html"
+  status = 200
+
+[[redirects]]
+  from = "/omvp/success"
+  to = "/omvp/success.html"
+  status = 200
+
+[[redirects]]
+  from = "/omvp/upsell"
+  to = "/omvp/upsell.html"
+  status = 200
+
+# Legacy redirects for old structure
 [[redirects]]
   from = "/lead-magnet/*"
-  to = "/omvp/lead-magnet/:splat"
-  status = 200
+  to = "/48-hour-worksheet/:splat"
+  status = 301
 
-# Main landing page redirect (exact match)
+[[redirects]]
+  from = "/dojjjo-landing.html"
+  to = "/index.html"
+  status = 301
+
+# Main landing page (now using index.html)
 [[redirects]]
   from = "/"
-  to = "/dojjjo-landing.html"
-  status = 301
-
-# Index redirect (if someone hits index.html directly)
-[[redirects]]
-  from = "/index.html"
-  to = "/dojjjo-landing.html"
-  status = 301
+  to = "/index.html"
+  status = 200
 
 # Fallback for any other 404s (must be last)
 [[redirects]]
   from = "/*"
-  to = "/dojjjo-landing.html"
+  to = "/index.html"
   status = 404
 
 # Headers for security and performance

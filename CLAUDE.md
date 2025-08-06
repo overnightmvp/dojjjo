@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Design Philosophy**: iOS-inspired design system with customizable brand variables
 - **Revenue Model**: $15K/month hybrid (70% service delivery $10K + 30% personal OMVP $5K)
 - **Service Offering**: $5K OMVP Complete - Single focused service delivery
-- **Status**: ✅ Interactive Methodology Complete - Interactive worksheets + Completion optimization + High-converting sales moments + Professional template system with comprehensive methodology documentation
+- **Status**: ✅ Brutal Consultant Funnel Complete - Production-ready email automation + conversion tracking + 48-hour timer psychology + clean URL structure + comprehensive analytics
 
 ## 🚀 Common Development Commands
 
@@ -21,31 +21,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # No build system - static HTML/CSS/JS template system
 # Open files directly in browser for testing
 
-# PERSONAL BRAND SYSTEM
-open dojjjo-landing.html           # Primary personal landing page (S-tier UI)
-open dashboard/DOJJJO-Dashboard.html  # Portfolio case study & analytics
+# BRUTAL CONSULTANT FUNNEL (Production System)
+open "48-hour-worksheet/index.html"     # Email capture landing with timer psychology
+open "48-hour-worksheet/success.html"   # Worksheet delivery + urgency messaging
+open "48-hour-worksheet/worksheet.html" # Interactive business validation system
+open "omvp/index.html"                  # $5K service landing page
+open "omvp/submit.html"                 # High-intent submission form with file upload
+open "omvp/success.html"                # Confirmation + next steps
 
-# LEAD MAGNETS (Interactive systems with completion optimization)
-open "omvp/lead-magnet/48-hour-business-blueprint/48-hour-business-blueprint.html"  # Interactive worksheet system
-open "omvp/lead-magnet/48-hour-business-blueprint/48-hour-business-blueprint-success.html"  # Completion optimization
-open "omvp/lead-magnet/48-hour-business-blueprint/48-hour-business-blueprint-landing.html"  # Fear-based countdown landing
-# Original markdown blueprint: 48-hour-business-blueprint.md
+# EMAIL AUTOMATION SYSTEM
+open "48-hour-worksheet/delivery/"      # 5 worksheet nurture emails
+open "omvp/delivery/"                   # 6 OMVP high-intent emails
 
-# EMAIL TEMPLATES (Personal nurture sequence)
-open "email template/01-welcome.html"
-open "email template/02-foundation.html"
-open "email template/03-customer-research.html"
+# ANALYTICS & CONFIGURATION
+open "assets/js/brevo-config.js"        # Email automation configuration
+open "assets/js/analytics-enhanced.js"  # Conversion tracking system
+open "BREVO-SETUP-GUIDE.md"            # Email automation setup guide
+open "ANALYTICS-SETUP-GUIDE.md"        # Analytics configuration guide
 
-# SERVICE DELIVERY SYSTEM
-# Service blueprints are markdown: OMVP-SERVICE-BLUEPRINT.md, OMVP-DELIVERY-CHECKLIST.md
-
-# TEMPLATE DEVELOPMENT WORKSPACE
-open "lead-magnet/staging/00-client/OMVP-TPO-test/html/index.html"  # Template development
-open "lead-magnet/staging/00-client/WIAD-Ramin/ramin-razy-website.html"  # Client example
-
-# PORTFOLIO SHOWCASE (Lead magnet demonstrations)
-open "lead-magnet/staging/lead-magnet-mvp-validation-checklist/landing-page.html"
-# Additional portfolio pieces in lead-magnet/staging/lead-magnet-*/
+# LEGACY PERSONAL BRAND SYSTEM (Archive)
+open "dojjjo-landing.html"              # Original personal landing (archived)
+open "omvp/lead-magnet/48-hour-business-blueprint/" # Legacy interactive system
 ```
 
 ### Project Organization
