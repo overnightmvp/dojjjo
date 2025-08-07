@@ -1,43 +1,18 @@
 
------->TODO<------->
+# 🎯 ACTIVE TASKS
 
-- fix this 
-/
-- dojjjo-landing.html - verify if same as 48-hour-blueprint-landing. remove dojjjo landing.
-- index.html - create page based on template.
-    - <index.html> 
->> use sales-hub.html as a template
+## 🔥 HIGH PRIORITY
+- [ ] **Landing Page Optimization** - Audit dojjjo-landing.html vs 48-hour-blueprint-landing for duplicates
+- [ ] **Index.html Rebuild** - Create main landing using template approach with flowchart integration
+- [ ] **Funnel Analysis** - UX audit of complete conversion flow for inconsistencies
 
-Simple can be powerful.
-‍You don't need a million-dollar marketing campaign to succeed.
+## 📋 MEDIUM PRIORITY  
+- [ ] **File Organization** - Complete strategic docs reorganization
+- [ ] **Content Integration** - Insert Dashboard.html relevant content into main landing
+- [ ] **Lead Magnet Hub** - Create final CTA section aggregating all lead magnets
 
-A single landing page, a handful of emails and a simple system to generate leads and streamline delivery.
-
-‍Clarity is king.
-Before you build anything, you need a crystal-clear understanding of your product, your audience, and your goals.
-
-CTA to (48-hour-blueprint)
-
-‍Processes are the engine.
-Automation, templates, and well-defined systems are the secret sauce of sustainable growth.
-
-CTA to (OMVP)
-
-
->> insert Detailed User Flow with Touchpoints section from master-plan-flowchart.html, i want to vizualise this flowchart on LandingPage, add lead magnet call /studio/workshop-generating-flowchart-in-5-minutes or /studio/workshop-vizualising-processes-with-ai
-
->> insert Conversion Funnel with Metrics section from customer-journey-flowchart.html, i want to vizualise this flowchart on LandingPage, add lead magnet call /studio/workshop-conversion-funnels or /tools/social-media-automation
-
->> insert relevant content from Dashboard.html.
-
-
->> create a final CTA section to all lead-magnet items.
-
-</index.html>
-
-- move all non system md files to /md-files
-- move DOJJJO-TRANSFORMATION-BACKLOG.html and DOJJJO-TRANSFORMATION-BACKLOG.md to /backlog
-- move success.html to /omvp/lead-magnet/48-hour-business-blueprint
+## 💡 FUTURE SPRINT
+- [ ] **Template Service** - Implement client delivery system using OMVP methodology
 
 /omvp
 - rename dashboard.html to omvp-dashboard.html 

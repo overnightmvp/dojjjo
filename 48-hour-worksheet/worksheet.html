@@ -267,10 +267,19 @@
         }
         
         .completion-section .card-insight {
+            background: var(--brutal-black) !important;
+            color: var(--brutal-white) !important;
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
             border: 2px solid var(--brutal-black);
+        }
+        
+        .completion-section .card-insight h3,
+        .completion-section .card-insight p,
+        .completion-section .card-insight strong,
+        .completion-section .card-insight span {
+            color: var(--brutal-white) !important;
         }
         
         .completion-section .omvp-upsell {
@@ -282,10 +291,26 @@
         }
         
         .completion-section .path-card {
+            background: var(--bg-secondary) !important;
+            color: var(--text-primary) !important;
             padding: 20px;
             border: 2px solid var(--brutal-black);
             border-radius: 8px;
             margin: 10px 0;
+        }
+        
+        .completion-section .path-card h4,
+        .completion-section .path-card p {
+            color: var(--text-primary) !important;
+        }
+        
+        /* Ensure all text in completion section is visible */
+        .completion-section div[style*="background: var(--brutal-black)"] {
+            color: var(--brutal-white) !important;
+        }
+        
+        .completion-section div[style*="background: var(--brutal-black)"] * {
+            color: var(--brutal-white) !important;
         }
         
         .download-button {
@@ -306,11 +331,19 @@
         }
         
         .footer {
-            background: var(--brutal-black);
-            color: var(--brutal-white);
+            background: var(--brutal-black) !important;
+            color: var(--brutal-white) !important;
             padding: 30px;
             text-align: center;
             font-size: 0.9rem;
+        }
+        
+        .footer p {
+            color: var(--brutal-white) !important;
+        }
+        
+        .footer strong {
+            color: var(--brutal-white) !important;
         }
         
         /* Revenue Quick Start Styles */
@@ -1154,7 +1187,7 @@
 
     <script>
         // Worksheet Logic
-        let currentPhase = 1;
+        let currentPhase = 0; // 0 = Revenue Quick Start, 1-7 = Actual phases
         const totalPhases = 7;
         let worksheetData = {};
         
@@ -1235,8 +1268,9 @@
         }
         
         function showFullBlueprint() {
-            // Hide quick start, show full blueprint
+            // Hide quick start, show Phase 1
             document.getElementById('revenueQuickStart').style.display = 'none';
+            currentPhase = 1; // Set to Phase 1
             document.getElementById('phase1').style.display = 'block';
             document.getElementById('phase1').classList.add('active');
             
@@ -1255,6 +1289,7 @@
             }
             
             updateProgress();
+            updateNavigationButtons();
         }
         
         function skipToRevenue() {
@@ -1291,18 +1326,21 @@
             document.getElementById('progressFill').style.width = progress + '%';
             
             const phaseNames = [
-                'Strategic Foundation',
-                'Customer Validation', 
-                'MVP Definition',
-                'Rapid Execution Plan',
-                'Scaling Framework',
-                'Risk Mitigation',
-                'Go/No-Go Decision'
+                'Revenue Quick Start',  // Phase 0
+                'Strategic Foundation', // Phase 1
+                'Customer Validation',  // Phase 2
+                'MVP Definition',       // Phase 3
+                'Rapid Execution Plan', // Phase 4
+                'Scaling Framework',    // Phase 5
+                'Risk Mitigation',      // Phase 6
+                'Go/No-Go Decision'     // Phase 7
             ];
             
-            if (currentPhase <= totalPhases) {
+            if (currentPhase === 0) {
+                document.getElementById('progressText').textContent = 'Revenue Quick Start: Validate your pricing first';
+            } else if (currentPhase <= totalPhases) {
                 document.getElementById('progressText').textContent = 
-                    `Phase ${currentPhase} of ${totalPhases}: ${phaseNames[currentPhase - 1]}`;
+                    `Phase ${currentPhase} of ${totalPhases}: ${phaseNames[currentPhase]}`;
             } else {
                 document.getElementById('progressText').textContent = 'Blueprint Complete!';
             }
@@ -1316,34 +1354,47 @@
             
             saveCurrentPhaseData();
             
-            if (currentPhase < totalPhases) {
-                // Move to next phase
+            if (currentPhase === 0) {
+                // Moving from Revenue Quick Start to Phase 1
+                document.getElementById('revenueQuickStart').style.display = 'none';
+                currentPhase = 1;
+                document.getElementById(`phase${currentPhase}`).style.display = 'block';
+                document.getElementById(`phase${currentPhase}`).classList.add('active');
+                updateProgress();
+                updateNavigationButtons();
+            } else if (currentPhase < totalPhases) {
+                // Move to next phase (1-6 → 2-7)
                 document.getElementById(`phase${currentPhase}`).classList.remove('active');
                 currentPhase++;
                 document.getElementById(`phase${currentPhase}`).classList.add('active');
                 updateProgress();
                 updateNavigationButtons();
             } else if (currentPhase === totalPhases) {
-                // Complete the blueprint
+                // Complete the blueprint (Phase 7 → Completion)
                 document.getElementById(`phase${currentPhase}`).classList.remove('active');
                 showCompletion();
             }
         }
         
         function previousPhase() {
-            if (currentPhase > 1) {
+            if (currentPhase > 0) {
                 // Hide current phase or completion
-                if (currentPhase <= totalPhases) {
+                if (currentPhase <= totalPhases && currentPhase > 0) {
                     document.getElementById(`phase${currentPhase}`).classList.remove('active');
-                } else {
+                } else if (currentPhase > totalPhases) {
                     document.getElementById('completionSection').classList.remove('active');
                     document.querySelector('.navigation-buttons').style.display = 'flex';
                 }
                 
                 currentPhase--;
                 
-                // Show previous phase
-                document.getElementById(`phase${currentPhase}`).classList.add('active');
+                if (currentPhase === 0) {
+                    // Show Revenue Quick Start
+                    document.getElementById('revenueQuickStart').style.display = 'block';
+                } else {
+                    // Show previous phase
+                    document.getElementById(`phase${currentPhase}`).classList.add('active');
+                }
                 
                 updateProgress();
                 updateNavigationButtons();
@@ -1351,7 +1402,7 @@
         }
         
         function updateNavigationButtons() {
-            document.getElementById('prevBtn').disabled = currentPhase === 1;
+            document.getElementById('prevBtn').disabled = currentPhase === 0;
             
             const nextBtn = document.getElementById('nextBtn');
             if (currentPhase === totalPhases) {

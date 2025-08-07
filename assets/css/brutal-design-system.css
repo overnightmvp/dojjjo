@@ -66,6 +66,10 @@
     --spacing-xl: 48px;
     --spacing-2xl: 64px;
     
+    /* TEMPLATE: Section spacing for consistent layouts */
+    --spacing-section: 80px; /* Standard section padding top/bottom */
+    --spacing-section-sm: 60px; /* Smaller section padding for mobile */
+    
     /* Brutal Visual Effects */
     --brutal-shadow: 4px 4px 0px var(--brutal-black);
     --brutal-shadow-hover: 6px 6px 0px var(--brutal-black);
@@ -149,20 +153,38 @@ h3 {
     text-transform: uppercase;
 }
 
-/* TEMPLATE: Dynamic heading shadows based on color context */
-/* White headings get black shadows */
+/* TEMPLATE: Dynamic heading shadows based on color context - Enhanced */
+/* White headings get black shadows with better contrast */
 .hero h1, .hero h2, .hero h3,
+.hero-standard h1, .hero-standard h2, .hero-standard h3,
 h1[style*="color: var(--brutal-white)"],
 h2[style*="color: var(--brutal-white)"],
-h3[style*="color: var(--brutal-white)"] {
-    text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);
+h3[style*="color: var(--brutal-white)"],
+.card-dark h1, .card-dark h2, .card-dark h3 {
+    text-shadow: 
+        1px 1px 0px var(--brutal-black),
+        2px 2px 0px var(--brutal-black), 
+        3px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Dark headings get red accent shadows */
-h1:not(.hero):not([style*="color: var(--brutal-white)"]),
-h2:not(.hero):not([style*="color: var(--brutal-white)"]),
-h3:not(.hero):not([style*="color: var(--brutal-white)"]) {
-    text-shadow: 2px 2px 0px var(--template-primary), 4px 4px 8px rgba(239, 68, 68, 0.3);
+/* Dark headings get red accent shadows with better legibility */
+h1:not(.hero):not(.hero-standard):not(.card-dark):not([style*="color: var(--brutal-white)"]),
+h2:not(.hero):not(.hero-standard):not(.card-dark):not([style*="color: var(--brutal-white)"]),
+h3:not(.hero):not(.hero-standard):not(.card-dark):not([style*="color: var(--brutal-white)"]) {
+    text-shadow: 
+        1px 1px 0px var(--template-primary), 
+        2px 2px 4px rgba(239, 68, 68, 0.4);
+}
+
+/* Ensure text in dark sections is always readable */
+[style*="background: var(--brutal-black)"] h1,
+[style*="background: var(--brutal-black)"] h2,
+[style*="background: var(--brutal-black)"] h3 {
+    color: var(--brutal-white) !important;
+    text-shadow: 
+        1px 1px 0px var(--brutal-black),
+        2px 2px 0px var(--brutal-black), 
+        3px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 p {
@@ -310,11 +332,40 @@ a:hover {
     padding: var(--spacing-lg);
     box-shadow: var(--brutal-shadow);
     transition: all var(--transition-normal);
+    color: var(--text-primary); /* Ensure text color is always defined */
 }
 
 .card:hover {
     transform: translateY(-4px) translateX(-4px);
     box-shadow: var(--brutal-shadow-hover);
+}
+
+/* TEMPLATE: Card variants for different background contexts */
+.card-dark {
+    background: var(--brutal-black) !important;
+    color: var(--brutal-white) !important;
+    border-color: var(--brutal-white);
+}
+
+.card-dark h1,
+.card-dark h2,
+.card-dark h3,
+.card-dark p,
+.card-dark span,
+.card-dark div {
+    color: var(--brutal-white) !important;
+}
+
+/* Fix for sections with dark backgrounds */
+[style*="background: var(--brutal-black)"] {
+    color: var(--brutal-white);
+}
+
+[style*="background: var(--brutal-black)"] h1,
+[style*="background: var(--brutal-black)"] h2,
+[style*="background: var(--brutal-black)"] h3,
+[style*="background: var(--brutal-black)"] p {
+    color: var(--brutal-white);
 }
 
 /* ====================================
@@ -498,6 +549,12 @@ a:hover {
     
     .hero-standard .subtitle {
         font-size: 1.1rem;
+    }
+    
+    /* TEMPLATE: Responsive section spacing */
+    .section, 
+    section[style*="padding: var(--spacing-section)"] {
+        padding: var(--spacing-section-sm) 0;
     }
 }
 

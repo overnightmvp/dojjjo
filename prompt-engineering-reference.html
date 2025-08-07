@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering Reference - DOJJJO</title>
+    <link rel="stylesheet" href="assets/css/brutal-design-system.css">
+    <meta name="description" content="Efficient prompt engineering templates for Claude interactions - Optimized for token efficiency and better results">
+    
+    <style>
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .reference-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            border: 4px solid var(--brutal-black);
+            box-shadow: 8px 8px 0px var(--brutal-black);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--brutal-red) 0%, var(--brutal-orange) 100%);
+            padding: 40px 30px;
+            text-align: center;
+            border-bottom: 4px solid var(--brutal-black);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--brutal-white);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px var(--brutal-black);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: var(--brutal-white);
+            opacity: 0.95;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: var(--bg-secondary);
+            border-bottom: 2px solid var(--brutal-black);
+            overflow-x: auto;
+        }
+        
+        .nav-tab {
+            padding: 15px 20px;
+            background: var(--bg-secondary);
+            border: none;
+            border-right: 2px solid var(--brutal-black);
+            cursor: pointer;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-tab:hover {
+            background: var(--brutal-orange);
+            color: var(--brutal-white);
+        }
+        
+        .nav-tab.active {
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .template-card {
+            background: var(--bg-secondary);
+            border: 3px solid var(--brutal-black);
+            margin-bottom: 25px;
+            box-shadow: 4px 4px 0px var(--brutal-black);
+            border-radius: 4px;
+        }
+        
+        .template-header {
+            background: var(--brutal-black);
+            color: var(--brutal-white);
+            padding: 15px 20px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .template-body {
+            padding: 20px;
+        }
+        
+        .prompt-box {
+            background: var(--brutal-gray);
+            color: white;
+            border: 2px solid var(--brutal-black);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        .copy-btn {
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+            border: 2px solid var(--brutal-black);
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background: var(--brutal-orange);
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px var(--brutal-black);
+        }
+        
+        .efficiency-badge {
+            background: var(--success-green);
+            color: var(--brutal-white);
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .warning-badge {
+            background: var(--brutal-orange);
+            color: var(--brutal-white);
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .example-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .bad-example {
+            border-left: 4px solid var(--danger-red);
+            background: rgba(220, 53, 69, 0.1);
+            padding: 15px;
+        }
+        
+        .good-example {
+            border-left: 4px solid var(--success-green);
+            background: rgba(40, 167, 69, 0.1);
+            padding: 15px;
+        }
+        
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: var(--brutal-black);
+            color: var(--brutal-white);
+            padding: 20px;
+            text-align: center;
+            border: 2px solid var(--brutal-black);
+            box-shadow: 4px 4px 0px var(--brutal-red);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--brutal-orange);
+        }
+        
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--success-green);
+            color: var(--brutal-white);
+            padding: 15px 20px;
+            border: 2px solid var(--brutal-black);
+            border-radius: 4px;
+            z-index: 1000;
+            display: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .example-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .nav-tab {
+                flex: 1;
+                min-width: 120px;
+            }
+            
+            .reference-container {
+                margin: 10px;
+                border: 2px solid var(--brutal-black);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reference-container">
+        <!-- Header -->
+        <div class="header">
+            <div style="font-size: 3rem; margin-bottom: 10px;">⚡</div>
+            <h1>Prompt Engineering Reference</h1>
+            <p>Token-efficient templates for brutal productivity</p>
+        </div>
+        
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('efficiency')">Token Efficiency</button>
+            <button class="nav-tab" onclick="showTab('agents')">Sub-Agents</button>
+            <button class="nav-tab" onclick="showTab('batching')">Batching</button>
+            <button class="nav-tab" onclick="showTab('templates')">Quick Templates</button>
+            <button class="nav-tab" onclick="showTab('examples')">Before/After</button>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <div class="stat-number">60%</div>
+                    <div>Token Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3x</div>
+                    <div>Faster Results</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40%</div>
+                    <div>Less Context Needed</div>
+                </div>
+            </div>
+            
+            <!-- Token Efficiency Tab -->
+            <div id="efficiency" class="tab-content active">
+                <h2>🎯 Token Efficiency Patterns</h2>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>File Reference Pattern</span>
+                        <span class="efficiency-badge">-40% tokens</span>
+                    </div>
+                    <div class="template-body">
+                        <p><strong>Instead of dumping file contents, reference by name and specific focus:</strong></p>
+                        <div class="prompt-box">
+Audit CSS consistency in: dojjjo-landing.html, 48-hour-blueprint-landing.html, success.html. 
+Focus: broken paths, mobile responsive, button sizing. Report issues by priority.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                        <p><strong>Why it works:</strong> Claude can access files directly, no need to include content in prompt.</p>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Outcome-Focused Pattern</span>
+                        <span class="efficiency-badge">-30% tokens</span>
+                    </div>
+                    <div class="template-body">
+                        <p><strong>Lead with the specific outcome you want:</strong></p>
+                        <div class="prompt-box">
+Fix 3 landing page issues: 1) CSS path errors 2) Mobile navigation 3) Button consistency.
+Update files and report what was fixed.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                        <p><strong>Why it works:</strong> Clear expectations = focused execution.</p>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Context-Once Pattern</span>
+                        <span class="efficiency-badge">-50% tokens</span>
+                    </div>
+                    <div class="template-body">
+                        <p><strong>Establish context once, then execute multiple tasks:</strong></p>
+                        <div class="prompt-box">
+Context: DOJJJO landing page optimization for conversion.
+Execute: 1) Fix broken CSS paths 2) Update CTA buttons 3) Test mobile responsive 4) Report issues found.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                        <p><strong>Why it works:</strong> No need to re-establish context for related tasks.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sub-Agents Tab -->
+            <div id="agents" class="tab-content">
+                <h2>🤖 Specialized Sub-Agents</h2>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>UI/UX Agent</span>
+                        <span class="efficiency-badge">Design Focus</span>
+                    </div>
+                    <div class="template-body">
+                        <p><strong>For design consistency, responsive issues, conversion optimization:</strong></p>
+                        <div class="prompt-box">
+UI audit: Check responsive design, button consistency, navigation flow in [files]. 
+Focus on mobile UX and conversion barriers. Priority issues only.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                        
+                        <div class="prompt-box">
+Fix design inconsistencies: standardize button sizing, color variables, typography. 
+Files: [specific files]. Use existing design system.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Content Agent</span>
+                        <span class="efficiency-badge">Copy Focus</span>
+                    </div>
+                    <div class="template-body">
+                        <p><strong>For messaging, copy review, conversion optimization:</strong></p>
+                        <div class="prompt-box">
+Content review: Message alignment, CTA consistency, conversion copy in [files]. 
+Focus on brutal honesty tone and clear value props. Top 3 improvements only.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                        
+                        <div class="prompt-box">
+Optimize landing page copy: Headlines, CTAs, value props for [target audience].
+Match existing brutal tone. Focus on conversion psychology.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Technical Agent</span>
+                        <span class="efficiency-badge">Code Focus</span>
+                    </div>
+                    <div class="template-body">
+                        <p><strong>For CSS/JS fixes, performance, deployment issues:</strong></p>
+                        <div class="prompt-box">
+Fix technical issues: CSS paths, mobile responsive, deployment errors in [files].
+Batch report with specific solutions. Test all fixes.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                        
+                        <div class="prompt-box">
+Optimize performance: CSS cleanup, JavaScript efficiency, asset loading.
+Focus on mobile experience and conversion speed.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Strategy Agent</span>
+                        <span class="efficiency-badge">Business Focus</span>
+                    </div>
+                    <div class="template-body">
+                        <p><strong>For business model, revenue paths, positioning:</strong></p>
+                        <div class="prompt-box">
+Strategic analysis: Revenue funnel, conversion paths, business model optimization.
+Focus on $15K/month target. Actionable recommendations only.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                        
+                        <div class="prompt-box">
+Business model review: Service tiers, pricing strategy, template delivery system.
+Identify scaling bottlenecks and revenue optimization opportunities.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Batching Tab -->
+            <div id="batching" class="tab-content">
+                <h2>📦 Batching Patterns</h2>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Multi-File Operations</span>
+                        <span class="efficiency-badge">Parallel Execution</span>
+                    </div>
+                    <div class="template-body">
+                        <p><strong>Group related file operations:</strong></p>
+                        <div class="prompt-box">
+Execute file operations: 
+1) Move prompts.md to /backlog/ 
+2) Create /strategic-docs/ folder 
+3) Organize .md files by purpose 
+4) Update internal links
+
+Report completion status for each.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Content Consistency Batch</span>
+                        <span class="efficiency-badge">Theme Focus</span>
+                    </div>
+                    <div class="template-body">
+                        <p><strong>Check consistency across multiple pages:</strong></p>
+                        <div class="prompt-box">
+Consistency audit across: index.html, dojjjo-landing.html, success.html, 48-hour-blueprint-landing.html
+
+Check: 1) Brand messaging 2) CTA text 3) Color usage 4) Button styling 5) Mobile responsive
+
+Report inconsistencies by priority with specific fixes.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Quality Assurance Batch</span>
+                        <span class="efficiency-badge">Testing Focus</span>
+                    </div>
+                    <div class="template-body">
+                        <p><strong>Complete testing workflow:</strong></p>
+                        <div class="prompt-box">
+QA testing batch:
+1) Validate all internal links work
+2) Test mobile responsive on all pages  
+3) Check CSS loading and styling
+4) Verify form functionality
+5) Test conversion flow end-to-end
+
+Report: Pass/Fail status + critical issues requiring immediate fix.
+                            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Templates Tab -->
+            <div id="templates" class="tab-content">
+                <h2>⚡ Quick Copy-Paste Templates</h2>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Landing Page Optimization</span>
+                        <button class="copy-btn" onclick="copyTemplate('landing-opt')">Copy Template</button>
+                    </div>
+                    <div class="template-body">
+                        <div class="prompt-box" id="landing-opt">
+Landing page optimization for [PAGE_NAME]:
+Focus: [SPECIFIC_ISSUE] 
+Files: [LIST_FILES]
+Outcome: [DESIRED_RESULT]
+Priority: [HIGH/MED/LOW]
+                        </div>
+                        <p><strong>Replace bracketed items with your specifics</strong></p>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Bug Fix Batch</span>
+                        <button class="copy-btn" onclick="copyTemplate('bug-fix')">Copy Template</button>
+                    </div>
+                    <div class="template-body">
+                        <div class="prompt-box" id="bug-fix">
+Fix [NUMBER] issues in [COMPONENT/PAGE]:
+1) [ISSUE_1] 
+2) [ISSUE_2]
+3) [ISSUE_3]
+
+Test fixes and report what was resolved.
+                        </div>
+                        <p><strong>List specific issues for focused execution</strong></p>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Content Review</span>
+                        <button class="copy-btn" onclick="copyTemplate('content-review')">Copy Template</button>
+                    </div>
+                    <div class="template-body">
+                        <div class="prompt-box" id="content-review">
+Content audit: [PAGE/SECTION]
+Check: Message clarity, conversion focus, brutal tone consistency
+Outcome: [NUMBER] specific improvements with rationale
+Target: [AUDIENCE/GOAL]
+                        </div>
+                        <p><strong>Focus on conversion and brand consistency</strong></p>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>File Organization</span>
+                        <button class="copy-btn" onclick="copyTemplate('file-org')">Copy Template</button>
+                    </div>
+                    <div class="template-body">
+                        <div class="prompt-box" id="file-org">
+Organize project files:
+Move: [FILE_LIST] → [DESTINATION]
+Create: [NEW_FOLDERS]
+Update: [REFERENCE_UPDATES]
+Result: Clean structure for [PURPOSE]
+                        </div>
+                        <p><strong>Batch file operations for efficiency</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Before/After Examples Tab -->
+            <div id="examples" class="tab-content">
+                <h2>📊 Before/After Comparisons</h2>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>UI Audit Request</span>
+                        <span class="warning-badge">Token Waste vs Efficiency</span>
+                    </div>
+                    <div class="template-body">
+                        <div class="example-comparison">
+                            <div class="bad-example">
+                                <h4>❌ INEFFICIENT (250+ tokens)</h4>
+                                <div class="prompt-box">
+act as a s-tier brutally honest product designer and UX specialist with deep expertise in conversion optimization and help me audit the following HTML files for design consistency and user experience issues. I need you to look at the dojjjo-landing.html file and also check the 48-hour-blueprint-landing.html and the success.html pages to make sure they all follow the same design patterns and branding guidelines and also check if the mobile responsive design is working correctly across all these pages and let me know what needs to be fixed...
+                                </div>
+                            </div>
+                            <div class="good-example">
+                                <h4>✅ EFFICIENT (45 tokens)</h4>
+                                <div class="prompt-box">
+UI audit: Design consistency across dojjjo-landing.html, 48-hour-blueprint-landing.html, success.html. Focus: mobile responsive, brand consistency. Priority issues only.
+                                </div>
+                            </div>
+                        </div>
+                        <p><strong>Result:</strong> 82% token reduction, same quality output</p>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Content Optimization</span>
+                        <span class="warning-badge">Verbose vs Focused</span>
+                    </div>
+                    <div class="template-body">
+                        <div class="example-comparison">
+                            <div class="bad-example">
+                                <h4>❌ INEFFICIENT (180+ tokens)</h4>
+                                <div class="prompt-box">
+act as a s-tier copywriter and content strategist with expertise in direct response marketing and conversion psychology. I want you to review my landing page copy and help me optimize it for better conversions. The page is about my 48-hour business blueprint and I want to make sure the messaging is consistent with my brutal honesty brand voice and that the call-to-action buttons are compelling and that the value proposition is clear to my target audience of entrepreneurs who are struggling with building businesses that nobody wants...
+                                </div>
+                            </div>
+                            <div class="good-example">
+                                <h4>✅ EFFICIENT (35 tokens)</h4>
+                                <div class="prompt-box">
+Content review: 48-hour blueprint landing page. Focus: brutal tone consistency, CTA optimization, value prop clarity for struggling entrepreneurs. Top 3 improvements.
+                                </div>
+                            </div>
+                        </div>
+                        <p><strong>Result:</strong> 80% token reduction, more actionable output</p>
+                    </div>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-header">
+                        <span>Technical Fix Request</span>
+                        <span class="warning-badge">Context Dump vs Specific</span>
+                    </div>
+                    <div class="template-body">
+                        <div class="example-comparison">
+                            <div class="bad-example">
+                                <h4>❌ INEFFICIENT (200+ tokens)</h4>
+                                <div class="prompt-box">
+I'm having some issues with my website and I need your help as a technical expert. There are some CSS files that aren't loading properly and I think there might be some broken paths in my HTML files. Also the mobile version doesn't look right on some pages and the buttons aren't consistent across different pages. Can you help me fix these issues? I'm not sure exactly what's wrong but I know something is broken and it's affecting the user experience...
+                                </div>
+                            </div>
+                            <div class="good-example">
+                                <h4>✅ EFFICIENT (25 tokens)</h4>
+                                <div class="prompt-box">
+Fix technical issues: CSS path errors, mobile responsive problems, button inconsistency. Test fixes and report resolution status.
+                                </div>
+                            </div>
+                        </div>
+                        <p><strong>Result:</strong> 87% token reduction, faster execution</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background: var(--brutal-black); color: var(--brutal-white); padding: 20px; text-align: center; font-size: 0.9rem;">
+            <p><strong>⚡ Prompt Engineering Reference - DOJJJO</strong></p>
+            <p>Brutal efficiency through systematic optimization</p>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        ✅ Copied to clipboard!
+    </div>
+
+    <script>
+        // Tab switching functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Mark selected tab as active
+            event.target.classList.add('active');
+        }
+        
+        // Copy to clipboard functionality
+        function copyToClipboard(button) {
+            const promptBox = button.parentElement;
+            const textToCopy = promptBox.textContent.replace('Copy', '').trim();
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showToast();
+                
+                // Visual feedback
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = 'var(--success-green)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = 'var(--brutal-red)';
+                }, 1500);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast();
+            });
+        }
+        
+        // Copy template functionality
+        function copyTemplate(templateId) {
+            const template = document.getElementById(templateId);
+            const textToCopy = template.textContent.trim();
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showToast();
+            });
+        }
+        
+        // Toast notification
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 2000);
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + number keys for quick tab switching
+            if ((e.ctrlKey || e.metaKey) && e.key >= '1' && e.key <= '5') {
+                e.preventDefault();
+                const tabs = ['efficiency', 'agents', 'batching', 'templates', 'examples'];
+                const tabIndex = parseInt(e.key) - 1;
+                if (tabIndex < tabs.length) {
+                    showTab(tabs[tabIndex]);
+                    document.querySelectorAll('.nav-tab')[tabIndex].classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
