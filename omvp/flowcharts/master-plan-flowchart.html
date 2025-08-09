@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOJJJO Master Plan Flowchart - Interactive Template System</title>
     <link rel="stylesheet" href="../../assets/css/brutal-design-system.css">
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
     <style>
         body {
             background: var(--bg-primary);
@@ -64,13 +64,15 @@
         }
         
         .mermaid {
-            background: var(--text-primary);
+            background: #ffffff;
             padding: var(--spacing-xl);
             border-radius: var(--border-radius);
-            border: var(--brutal-border);
-            box-shadow: var(--brutal-shadow);
+            border: 3px solid #111827;
+            box-shadow: 6px 6px 0px #111827;
             margin: var(--spacing-xl) 0;
             overflow-x: auto;
+            text-align: center;
+            min-height: 400px;
         }
         
         .transformation-alert {
@@ -428,14 +430,22 @@
         </section>
     </div>
 
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    <script>
         mermaid.initialize({ 
             startOnLoad: true, 
             theme: 'base',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'cardinal'
+            },
+            gantt: {
+                useMaxWidth: true,
+                bottomPadding: 10
+            },
             themeVariables: {
                 primaryColor: '#ef4444',
-                primaryTextColor: '#111827',
+                primaryTextColor: '#ffffff',
                 primaryBorderColor: '#111827',
                 lineColor: '#374151',
                 secondaryColor: '#f97316',
@@ -443,6 +453,12 @@
                 background: '#ffffff',
                 mainBkg: '#ffffff',
                 secondaryBkg: '#f9fafb',
+                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontSize: '14px',
+                nodeBorder: '#111827',
+                clusterBkg: '#f9fafb',
+                clusterBorder: '#374151',
+                edgeLabelBackground: '#ffffff',
                 gridColor: '#e5e7eb',
                 cScale0: '#ff6b6b',
                 cScale1: '#4ecdc4',
