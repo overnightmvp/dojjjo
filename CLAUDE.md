@@ -17,25 +17,63 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Local Development
 ```bash
-# No build system - open files directly in browser
+# No build system - static HTML/CSS/JS files open directly in browser
+
+# PROJECT MANAGEMENT (Start here)
+open "cpo-dashboard.html"               # CPO Dashboard - unified project control
+
+# MAIN PRODUCTION PAGES
 open "index.html"                       # Main personal brand landing
-open "48-hour-worksheet/index.html"     # Lead capture funnel
+open "48-hour-worksheet/index.html"     # Lead capture funnel with timer psychology
 open "omvp/index.html"                  # $5K OMVP service landing
 
-# Project management
-open "cpo-dashboard.html"               # Unified project control dashboard
+# SERVICE DELIVERY SYSTEM
+open "omvp/submit.html"                 # High-intent form + file upload
+open "omvp/success.html"                # Confirmation + next steps
+open "omvp-delivery-dashboard.html"     # Client project dashboard
 
-# Email automation testing (requires Brevo setup)
-# See BREVO-SETUP-GUIDE.md for configuration
+# EMAIL AUTOMATION SYSTEM
+open "email-template-viewer.html"       # Copy templates to Brevo
+open "48-hour-worksheet/delivery/"      # 5 worksheet nurture emails
+open "omvp/delivery/"                   # 6 OMVP high-intent emails
+
+# STRATEGY & DOCUMENTATION (25+ files)
+open "omvp/strategy/"                   # All consolidated strategy documents
+open "omvp/strategy/OMVP-master-plan.md" # Business evolution roadmap
+open "omvp/strategy/prompts.md"         # Complete methodology prompts
+
+# DESIGN SYSTEM
+open "design-system/index.html"         # Design system documentation
 ```
 
-### File Organization
+### Quality Assurance
 ```bash
 # HTML validation (if html5validator available)
 html5validator --root . --match="*.html"
 
-# Check deployment readiness
-./organize-project.sh  # If available for file organization
+# Check file organization
+ls -la omvp/strategy/                   # Verify all strategy docs consolidated
+ls -la assets/css/                      # Verify design system integrity
+
+# Test email integration
+open "assets/js/brevo-config.js"        # Check Brevo configuration
+# See BREVO-SETUP-GUIDE.md for testing procedures
+
+# Test analytics
+open "assets/js/analytics-enhanced.js"  # Check GA4 tracking setup
+# See ANALYTICS-SETUP-GUIDE.md for verification
+```
+
+### Deployment Commands
+```bash
+# Git status and deployment readiness
+git status                              # Check for uncommitted changes
+git add .                               # Stage changes
+git commit -m "Description"             # Commit with meaningful message
+git push origin main                    # Deploy to Netlify (auto-deployment)
+
+# Netlify deployment verification (via netlify.toml)
+# No build process - static site deploys directly from root
 ```
 
 ## 🏗️ Repository Architecture
@@ -148,13 +186,30 @@ SF Pro Display/Text system fonts         /* iOS typography scale */
 
 ## 📋 Pre-Deployment Protocol
 
-Before every deployment, execute as S-tier product owner:
+Before every deployment (git push), execute as S-tier product owner:
 
-1. **Update `omvp/strategy/prompts.md`**: Document all prompts in customer journey style
-2. **Update `omvp/strategy/OMVP-master-plan.md`**: If changes affect strategic direction
-3. **Update flowcharts**: If changes impact customer journey or system architecture
-4. **Update `cpo-dashboard.html`**: Reflect any new metrics or service accounts
-5. **Quality Gates**: Ensure alignment with hybrid business model and $15K/month targets
+1. **Update `omvp/strategy/prompts.md`**: Document all prompts in customer journey style with complete methodology
+2. **Update `omvp/strategy/OMVP-master-plan.md`**: If changes affect strategic direction or business model  
+3. **Update `omvp/flowcharts/`**: If changes impact customer journey or system architecture
+4. **Update `cpo-dashboard.html`**: Reflect any new metrics or service accounts added
+5. **Quality Gates**: Ensure all updates align with hybrid business model and $15K/month targets
+
+### Pre-Deployment Checklist
+```bash
+# Verify core functionality
+open "index.html"                       # Test main landing page
+open "48-hour-worksheet/index.html"     # Test lead capture funnel
+open "omvp/index.html"                  # Test service landing page
+open "cpo-dashboard.html"               # Verify dashboard links work
+
+# Check strategy documentation integrity
+ls omvp/strategy/ | wc -l              # Should show 25+ strategy files
+grep -r "TODO\|FIXME" omvp/strategy/   # Check for incomplete documentation
+
+# Verify deployment readiness
+git status                              # Check uncommitted changes
+html5validator --root . --match="*.html" # Validate HTML (if available)
+```
 
 This ensures complete methodology documentation for template replication and team scaling.
 
@@ -174,3 +229,25 @@ This ensures complete methodology documentation for template replication and tea
 - High-intent behavior validation through worksheet file uploads
 - Integration with OMVP submission flow for $5K service qualification
 - Error handling and fallback tracking for conversion optimization
+
+### Extended Strategy Documentation
+- **Primary CLAUDE.md**: This file - main project guidance
+- **Extended CLAUDE.md**: `/omvp/strategy/CLAUDE.md` - detailed client delivery guidance
+- **Complete Strategy Suite**: 25+ files in `/omvp/strategy/` covering all aspects
+- **Methodology Prompts**: `/omvp/strategy/prompts.md` - complete LLM prompt engineering
+
+### Testing & Validation Commands
+```bash
+# Test critical user journeys
+open "index.html"                       # Main landing → worksheet funnel
+open "48-hour-worksheet/worksheet.html" # Worksheet completion flow
+open "omvp/submit.html"                 # High-intent service submission
+
+# Validate email automation
+open "email-template-viewer.html"       # Email template preview system
+open "assets/js/brevo-config.js"        # Email integration configuration
+
+# Check analytics implementation
+open "assets/js/analytics-enhanced.js"  # GA4 conversion tracking
+# Expected events: email_captured ($50), worksheet_completed ($200), omvp_submitted ($5000)
+```

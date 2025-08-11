@@ -67,3 +67,8 @@ personal/
 client-data/
 financial/
 contracts/
+
+# Private Configuration Files
+assets/js/brevo-config-private.js
+*-private.js
+*.private.js

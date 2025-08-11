@@ -3,21 +3,22 @@
 
 const BREVO_CONFIG = {
     // Your Brevo API key (get from https://app.brevo.com/settings/keys/api)
-    API_KEY: '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',
+    // Use brevo-config-private.js for your actual API key (copy from template)
+    API_KEY: window.BREVO_PRIVATE?.API_KEY || 'YOUR_BREVO_API_KEY',
     
     // API endpoints
     CONTACTS_URL: 'https://api.brevo.com/v3/contacts',
     TRANSACTIONAL_URL: 'https://api.brevo.com/v3/smtp/email',
     
-    // List IDs for different funnels (LIVE PRODUCTION VALUES)
-    LISTS: {
+    // List IDs for different funnels - override in private config if needed
+    LISTS: window.BREVO_PRIVATE?.LISTS || {
         WORKSHEET_SUBSCRIBERS: 8,    // 48-hour worksheet subscribers
         OMVP_HIGH_INTENT: 9,         // High-value OMVP submissions  
         GENERAL_LEADS: 10            // General newsletter/updates
     },
     
-    // Email template IDs for transactional emails (LIVE PRODUCTION VALUES)
-    TEMPLATES: {
+    // Email template IDs for transactional emails - override in private config if needed
+    TEMPLATES: window.BREVO_PRIVATE?.TEMPLATES || {
         WORKSHEET_DELIVERY: 42,      // Email with worksheet download/access
         OMVP_SUBMISSION_CONFIRM: 43, // OMVP submission confirmation
         HANDOFF_CALL_SCHEDULED: 37   // Using existing template for now

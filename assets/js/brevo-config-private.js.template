@@ -1,0 +1,21 @@
+// Private Brevo Configuration Template
+// Copy this file to 'brevo-config-private.js' and add your real API key
+// The private file will be git-ignored for security
+
+window.BREVO_PRIVATE = {
+    // Replace with your actual Brevo API key from https://app.brevo.com/settings/keys/api
+    API_KEY: 'YOUR_ACTUAL_BREVO_API_KEY_HERE',
+    
+    // Optional: Override any other sensitive config values
+    // LISTS: {
+    //     WORKSHEET_SUBSCRIBERS: 123,
+    //     OMVP_HIGH_INTENT: 456,
+    //     GENERAL_LEADS: 789
+    // },
+    // 
+    // TEMPLATES: {
+    //     WORKSHEET_DELIVERY: 42,
+    //     OMVP_SUBMISSION_CONFIRM: 43,
+    //     HANDOFF_CALL_SCHEDULED: 37
+    // }
+};
