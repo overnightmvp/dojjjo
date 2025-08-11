@@ -165,25 +165,7 @@
             transform: scale(1.1);
         }
         
-        .theme-toggle {
-            position: fixed;
-            top: var(--spacing-xl);
-            left: var(--spacing-xl);
-            z-index: 1001;
-            background: var(--bg-elevated);
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            padding: var(--spacing-md);
-            border-radius: var(--radius-full);
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: var(--ios-shadow-md);
-            transition: all var(--transition-fast);
-        }
-        
-        .theme-toggle:hover {
-            transform: scale(1.05);
-        }
+        /* Theme toggle removed for conversion optimization */
         
         .template-selector {
             display: grid;
@@ -227,8 +209,7 @@
     </style>
 </head>
 <body>
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">🌓</button>
+    <!-- Theme toggle removed for conversion focus -->
     
     <!-- Customization Toggle -->
     <button class="customization-toggle" onclick="toggleCustomization()" title="Customize Template">⚙️</button>
@@ -464,7 +445,7 @@
                     <p><strong>1. Customize Brand Colors:</strong> Update the <code>--template-primary</code>, <code>--template-secondary</code>, and <code>--template-accent</code> CSS variables in the design system.</p>
                     <p><strong>2. Apply Components:</strong> Use the pre-built components (buttons, cards, forms) in your HTML with consistent iOS styling.</p>
                     <p><strong>3. Follow Typography:</strong> Use the iOS typography classes (.text-large-title, .text-body, etc.) for consistent text hierarchy.</p>
-                    <p><strong>4. Dark Mode Support:</strong> The system automatically supports dark mode based on user preference or manual toggle.</p>
+                    <p><strong>4. Conversion Optimized:</strong> Single light theme ensures consistent brand experience and eliminates user confusion.</p>
                 </div>
             </div>
         </section>
@@ -501,16 +482,7 @@
     
     <script>
         // Theme Management
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        }
-        
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
+        // Theme toggle removed for conversion optimization
         
         // Customization Panel
         function toggleCustomization() {

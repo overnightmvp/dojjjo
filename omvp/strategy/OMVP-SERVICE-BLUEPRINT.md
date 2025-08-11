@@ -7,7 +7,8 @@
 
 **Service Name**: OMVP (Overnight MVP) System Delivery  
 **Delivery Model**: Template-driven transformation using DOJJJO framework  
-**Service Offering**: $5K OMVP Complete - Single focused service  
+**Service Offering**: $5K OMVP Complete - Single focused service (no tiers)
+**Revenue Target**: $15K/month (3 clients × $5K)
 **Target Outcome**: Transform generic systems into brutal, conversion-optimized MVPs  
 
 ---
@@ -18,17 +19,22 @@
 ```
 DOJJJO-PROJECT/
 ├── assets/                     # iOS-inspired design system
-│   ├── css/design-system.css   # Customizable brand variables
+│   ├── css/brutal-design-system.css   # Customizable brand variables
 │   └── js/core.js              # Template functionality
-├── studio/setup/               # Generated client files
+├── omvp/strategy/              # All strategy documents (consolidated)
+│   ├── OMVP-SERVICE-BLUEPRINT.md      # This file
+│   ├── OMVP-DELIVERY-CHECKLIST.md     # Execution guide
+│   └── [25+ other strategy files]     # Complete documentation
+├── omvp/lead-magnet/staging/setup/    # Generated client files
 │   ├── TRANSFORMATION_BRIEF.md
 │   ├── SUCCESS_METRICS.md
 │   ├── BRUTAL_METHODOLOGY.md
 │   ├── TECHNICAL_REQUIREMENTS.md
 │   ├── EXECUTION_PROMPTS.md
 │   └── VALIDATION_CHECKLIST.md
-└── studio/lead-magnet-omvp-mdgen/  # File generation system
-    └── onboarding.html         # Client onboarding interface
+├── omvp/lead-magnet/staging/lead-magnet-omvp-mdgen/  # File generation system
+│   └── lead-magnet-omvp-mdgen.html   # Client onboarding interface
+└── cpo-dashboard.html          # Unified project management
 ```
 
 ### Template Customization Variables
@@ -51,7 +57,7 @@ DOJJJO-PROJECT/
 
 #### Process Flow:
 1. **Client Onboarding Session** (1 hour)
-   - Use `studio/lead-magnet-omvp-mdgen/onboarding.html`
+   - Use `omvp/lead-magnet/staging/lead-magnet-omvp-mdgen/lead-magnet-omvp-mdgen.html`
    - Collect system analysis data
    - Define transformation requirements
 
@@ -224,9 +230,10 @@ Phase 2D: Brand Consistency Check (4 hours)
 ## 🔧 **TOOLS & RESOURCES**
 
 ### **Template Generation**
-- `studio/lead-magnet-omvp-mdgen/onboarding.html` - Client onboarding system
-- Auto-generated setup files in `studio/setup/`
-- Customizable design system in `assets/`
+- `omvp/lead-magnet/staging/lead-magnet-omvp-mdgen/lead-magnet-omvp-mdgen.html` - Client onboarding system
+- Auto-generated setup files in `omvp/lead-magnet/staging/setup/`
+- Customizable design system in `assets/css/brutal-design-system.css`
+- CPO dashboard for unified project management
 
 ### **Execution Environment**
 - Claude Code for prompt execution
@@ -260,28 +267,25 @@ Phase 2D: Brand Consistency Check (4 hours)
 
 ---
 
-## 🎯 **SERVICE TIER DIFFERENTIATION**
+## 🎯 **SERVICE OFFERING DETAILS**
 
-### **$2.5K STARTER TIER**
-- Core template system transformation
-- Basic brutal design system implementation
-- Standard conversion psychology elements
-- Essential functionality preservation
-- Basic documentation package
+### **$5K OMVP COMPLETE** (Single Focused Service)
+- **Full template system transformation** using DOJJJO framework
+- **Complete brutal design system** implementation with iOS aesthetics
+- **Advanced conversion psychology** implementation (fear, urgency, social proof)
+- **7-day systematic delivery** with quality gates at each phase
+- **Complete A/B testing setup** for ongoing optimization
+- **Comprehensive validation process** ensuring 100% functionality preservation
+- **Extended documentation package** including all methodology and processes
+- **30-day support period** for optimization and troubleshooting
+- **CPO dashboard integration** for project management and tracking
 
-### **$5K COMPLETE TIER**
-- Full template system + custom adaptations
-- Advanced conversion psychology implementation
-- Complete A/B testing setup
-- Comprehensive validation process
-- Extended documentation + 30-day support
-
-### **$10K PREMIUM TIER**
-- Complete transformation + optimization
-- Custom methodology development
-- Advanced analytics implementation
-- Ongoing optimization consulting
-- 90-day support + performance monitoring
+**Why Single Service Focus:**
+- Eliminates decision paralysis for clients
+- Ensures consistent quality delivery
+- Simplifies sales and delivery process
+- Enables systematic scaling and team training
+- Maximizes value delivery at optimal price point
 
 ---
 

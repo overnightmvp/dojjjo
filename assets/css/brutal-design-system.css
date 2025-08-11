@@ -84,7 +84,6 @@
     --transition-slow: 0.5s ease;
 }
 
-/* Dark theme removed for design consistency and simplicity */
 
 /* ====================================
    RESET & BASE STYLES
@@ -122,7 +121,7 @@ h1 {
     line-height: 1.1;
     color: var(--text-primary);
     margin-bottom: 1rem;
-    /* TEMPLATE: Enhanced text shadows - 2px solid + 4px blur for impact */
+    /* CRO-OPTIMIZED: Standardized text shadow for maximum readability */
     text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: -0.02em;
@@ -135,7 +134,7 @@ h2 {
     line-height: 1.2;
     margin-bottom: 0.875rem;
     color: var(--text-primary);
-    /* TEMPLATE: Enhanced text shadows for h2 */
+    /* CRO-OPTIMIZED: Standardized text shadow for maximum readability */
     text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: -0.01em;
@@ -148,43 +147,28 @@ h3 {
     line-height: 1.2;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
-    /* TEMPLATE: Enhanced text shadows for h3 */
+    /* CRO-OPTIMIZED: Standardized text shadow for maximum readability */
     text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
 }
 
-/* TEMPLATE: Dynamic heading shadows based on color context - Enhanced */
-/* White headings get black shadows with better contrast */
+/* CRO-OPTIMIZED: Simplified heading shadows for conversion focus */
+/* White headings get enhanced black shadows for maximum contrast */
 .hero h1, .hero h2, .hero h3,
 .hero-standard h1, .hero-standard h2, .hero-standard h3,
 h1[style*="color: var(--brutal-white)"],
 h2[style*="color: var(--brutal-white)"],
 h3[style*="color: var(--brutal-white)"],
-.card-dark h1, .card-dark h2, .card-dark h3 {
-    text-shadow: 
-        1px 1px 0px var(--brutal-black),
-        2px 2px 0px var(--brutal-black), 
-        3px 3px 6px rgba(0, 0, 0, 0.5);
+/* card-dark removed - using inline styles for conversion optimization */ .removed-card-dark h1, .removed-card-dark h2, .removed-card-dark h3 {
+    text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Dark headings get red accent shadows with better legibility */
-h1:not(.hero):not(.hero-standard):not(.card-dark):not([style*="color: var(--brutal-white)"]),
-h2:not(.hero):not(.hero-standard):not(.card-dark):not([style*="color: var(--brutal-white)"]),
-h3:not(.hero):not(.hero-standard):not(.card-dark):not([style*="color: var(--brutal-white)"]) {
-    text-shadow: 
-        1px 1px 0px var(--template-primary), 
-        2px 2px 4px rgba(239, 68, 68, 0.4);
-}
-
-/* Ensure text in dark sections is always readable */
+/* Black backgrounds ensure white text readability */
 [style*="background: var(--brutal-black)"] h1,
 [style*="background: var(--brutal-black)"] h2,
 [style*="background: var(--brutal-black)"] h3 {
     color: var(--brutal-white) !important;
-    text-shadow: 
-        1px 1px 0px var(--brutal-black),
-        2px 2px 0px var(--brutal-black), 
-        3px 3px 6px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 0px var(--brutal-black), 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 p {
@@ -247,23 +231,26 @@ a:hover {
     position: relative;
 }
 
-/* TEMPLATE: Standardized button sizes */
+/* CRO-OPTIMIZED: Standardized button sizes for maximum conversion */
 .btn-lg {
     padding: 20px 40px;
     font-size: 1.2rem;
     font-weight: var(--font-weight-brutal);
+    min-height: 44px; /* Mobile tap target optimization */
 }
 
 .btn-md {
     padding: 16px 32px;
     font-size: 1rem;
     font-weight: var(--font-weight-brutal);
+    min-height: 44px; /* Mobile tap target optimization */
 }
 
 .btn-sm {
     padding: 12px 24px;
     font-size: 0.9rem;
     font-weight: var(--font-weight-bold);
+    min-height: 44px; /* Mobile tap target optimization */
 }
 
 .btn-primary {
@@ -315,7 +302,8 @@ a:hover {
 }
 
 .form-input:focus {
-    outline: none;
+    outline: 3px solid var(--brutal-red); /* CRO-OPTIMIZED: Enhanced accessibility focus */
+    outline-offset: 2px;
     border-color: var(--brutal-red);
     box-shadow: var(--brutal-shadow-hover);
     transform: translateY(-1px) translateX(-1px);
@@ -340,21 +328,8 @@ a:hover {
     box-shadow: var(--brutal-shadow-hover);
 }
 
-/* TEMPLATE: Card variants for different background contexts */
-.card-dark {
-    background: var(--brutal-black) !important;
-    color: var(--brutal-white) !important;
-    border-color: var(--brutal-white);
-}
-
-.card-dark h1,
-.card-dark h2,
-.card-dark h3,
-.card-dark p,
-.card-dark span,
-.card-dark div {
-    color: var(--brutal-white) !important;
-}
+/* Card variants removed - using inline styling for conversion optimization */
+/* .card-dark eliminated to prevent theme confusion during client delivery */
 
 /* Fix for sections with dark backgrounds */
 [style*="background: var(--brutal-black)"] {

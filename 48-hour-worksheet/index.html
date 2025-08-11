@@ -85,7 +85,7 @@
     <!-- The Ultimate Choice -->
     <section style="padding: var(--spacing-section) 0; background: var(--brutal-black); color: var(--brutal-white);">
         <div class="container">
-            <div class="card card-dark" style="max-width: 800px; margin: 0 auto;">
+            <div class="card" style="max-width: 800px; margin: 0 auto; background: var(--brutal-black); color: var(--brutal-white); border-color: var(--brutal-white);">
                 <h2 style="margin-bottom: 1.5rem; text-align: center;">The Ultimate Choice:</h2>
                 <p style="font-size: 1.1rem; margin-bottom: 2rem;">
                     You now have two options.
@@ -187,9 +187,11 @@
             if (startTime) {
                 // User has already started - show timer and change button
                 document.getElementById('returningUserTimer').style.display = 'block';
-                const startBtn = document.getElementById('startBtn');
-                startBtn.textContent = '🔄 CONTINUE WORKSHEET';
-                startBtn.style.background = 'var(--brutal-orange)';
+                const startBtn = document.getElementById('emailSubmitBtn');
+                if (startBtn) {
+                    startBtn.textContent = '🔄 CONTINUE WORKSHEET';
+                    startBtn.style.background = 'var(--brutal-orange)';
+                }
                 updateLandingTimer();
             }
         }

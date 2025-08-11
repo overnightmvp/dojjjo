@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template Viewer - DOJJJO Brevo Integration</title>
+    <style>
+        :root {
+            --brutal-red: #ef4444;
+            --brutal-orange: #f97316;
+            --brutal-black: #111827;
+            --brutal-white: #FFFFFF;
+            --brutal-blue: #3b82f6;
+            --brutal-green: #10b981;
+            --brutal-purple: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--brutal-black);
+            background: #f9fafb;
+        }
+
+        .header {
+            background: var(--brutal-black);
+            color: var(--brutal-white);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--brutal-red);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 0px var(--brutal-red);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .template-nav {
+            background: var(--brutal-white);
+            border: 3px solid var(--brutal-black);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 4px 4px 0px var(--brutal-black);
+        }
+
+        .nav-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--brutal-black);
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .nav-button {
+            background: var(--brutal-white);
+            border: 2px solid var(--brutal-black);
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--brutal-black);
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s;
+            border-radius: 4px;
+        }
+
+        .nav-button:hover {
+            background: var(--brutal-black);
+            color: var(--brutal-white);
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px var(--brutal-red);
+        }
+
+        .nav-button.worksheet {
+            border-color: var(--brutal-red);
+        }
+
+        .nav-button.worksheet:hover {
+            background: var(--brutal-red);
+        }
+
+        .nav-button.omvp {
+            border-color: var(--brutal-blue);
+        }
+
+        .nav-button.omvp:hover {
+            background: var(--brutal-blue);
+        }
+
+        .template-section {
+            background: var(--brutal-white);
+            border: 3px solid var(--brutal-black);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 4px 4px 0px var(--brutal-black);
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 1.5rem;
+            color: var(--brutal-white);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .worksheet-header {
+            background: var(--brutal-red);
+        }
+
+        .omvp-header {
+            background: var(--brutal-blue);
+        }
+
+        .template-card {
+            border-bottom: 2px solid var(--brutal-black);
+            padding: 1.5rem;
+        }
+
+        .template-card:last-child {
+            border-bottom: none;
+        }
+
+        .template-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--brutal-black);
+            margin-bottom: 1rem;
+        }
+
+        .template-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border: 2px solid var(--brutal-black);
+            border-radius: 4px;
+        }
+
+        .meta-item {
+            padding: 0.5rem;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: var(--brutal-black);
+            margin-bottom: 0.25rem;
+        }
+
+        .meta-value {
+            color: var(--brutal-black);
+            word-break: break-word;
+        }
+
+        .template-code {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 6px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--brutal-green);
+            color: var(--brutal-white);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .copy-button:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .copy-button.copied {
+            background: var(--brutal-purple);
+        }
+
+        .variable-highlight {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        .instructions {
+            background: var(--brutal-orange);
+            color: var(--brutal-white);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer {
+            background: var(--brutal-black);
+            color: var(--brutal-white);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .template-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .template-code {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📧 Email Template Viewer</h1>
+        <p>Copy-paste ready Gmail-compatible templates for Brevo</p>
+    </div>
+
+    <div class="container">
+        <div class="template-nav">
+            <div class="nav-title">🚀 Quick Navigation</div>
+            <div class="nav-grid">
+                <a href="#w01" class="nav-button worksheet">W01 - Worksheet Delivery</a>
+                <a href="#w02" class="nav-button worksheet">W02 - The Why</a>
+                <a href="#w03" class="nav-button worksheet">W03 - The How</a>
+                <a href="#w04" class="nav-button worksheet">W04 - The Offer</a>
+                <a href="#w05" class="nav-button worksheet">W05 - Final Push</a>
+                <a href="#o01" class="nav-button omvp">O01 - Welcome</a>
+                <a href="#o02" class="nav-button omvp">O02 - Onboarding</a>
+                <a href="#o03" class="nav-button omvp">O03 - Week 1 Report</a>
+                <a href="#o04" class="nav-button omvp">O04 - Week 2 Report</a>
+                <a href="#o05" class="nav-button omvp">O05 - Completion</a>
+                <a href="#o06" class="nav-button omvp">O06 - Referral</a>
+            </div>
+        </div>
+
+        <!-- WORKSHEET SERIES (W01-W05) -->
+        <div class="template-section">
+            <div class="section-header worksheet-header">
+                📝 48-Hour Worksheet Series (W01-W05) - Lead Generation Funnel
+            </div>
+
+            <!-- W01 - Worksheet Delivery -->
+            <div class="template-card" id="w01">
+                <div class="template-title">W01 - Worksheet Delivery ⚡</div>
+                <div class="template-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Subject Line:</div>
+                        <div class="meta-value">Your 48-Hour Worksheet Has Arrived ⚡</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Preview Text:</div>
+                        <div class="meta-value">The clock starts now. Your first test.</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">From Email:</div>
+                        <div class="meta-value">dojjjo &lt;overnightmvp@gmail.com&gt;</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Variables:</div>
+                        <div class="meta-value">{{params.WORKSHEET_URL}}</div>
+                    </div>
+                </div>
+                <div class="instructions">
+                    💼 Brevo Setup: Create new transactional template → Copy HTML below → Set variables → Test send
+                </div>
+                <div class="template-code">
+                    <button class="copy-button" onclick="copyToClipboard('w01-code')">Copy HTML</button>
+                    <div id="w01-code"><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your 48-Hour Worksheet Has Arrived</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; background-color: #f9fafb;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <!-- Main Container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #FFFFFF; border: 3px solid #111827; max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: #ef4444; padding: 30px 20px; text-align: center; border-bottom: 3px solid #111827;">
+                            <div style="font-size: 40px; margin-bottom: 10px; color: #FFFFFF;">⚡</div>
+                            <h1 style="color: #FFFFFF; font-size: 28px; font-weight: 800; margin: 0; font-family: Arial, Helvetica, sans-serif;">
+                                Your 48-Hour Worksheet Has Arrived.<br>The Clock Starts Now.
+                            </h1>
+                        </td>
+                    </tr>
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 30px; color: #111827; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                            <p><strong>Hey,</strong></p>
+                            
+                            <p>I'm not going to waste your time. You downloaded the 48-Hour Business Worksheet because you're tired of talking and you're ready to execute.</p>
+                            
+                            <p>This isn't some PDF to collect dust. This is a roadmap designed for speed, not procrastination.</p>
+                            
+                            <!-- Brutal Truth Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f97316; color: #111827; padding: 20px; border: 2px solid #111827; font-weight: 700; font-family: Arial, Helvetica, sans-serif;">
+                                        <strong>The clock is ticking. Your next 48 hours will determine if you join the 10% who execute or the 90% who fail.</strong>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p><strong>Here's your first assignment:</strong></p>
+                            <p><strong>Set a 48-hour timer:</strong> That's your deadline.</p>
+                            <p>This is your first test. Don't fail it.</p>
+                            
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="<span class="variable-highlight">{{params.WORKSHEET_URL}}</span>" style="background: #ef4444; color: #FFFFFF !important; padding: 15px 30px; text-decoration: none; font-weight: 700; border: 3px solid #111827; display: inline-block; font-family: Arial, Helvetica, sans-serif;">
+                                            🚀 START YOUR 48-HOUR WORKSHEET
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <div style="font-weight: 700; color: #ef4444; margin-top: 30px; font-family: Arial, Helvetica, sans-serif;">
+                                Talk soon,<br><br>
+                                Johnny Toshio
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: #111827; color: #FFFFFF; padding: 20px; text-align: center; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                            <p style="margin: 0;"><strong>Johnny Toshio - DOJJJO Framework</strong><br>
+                            Brutal business validation in 48 hours</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html></div>
+                </div>
+            </div>
+
+            <!-- W02 - The Why -->
+            <div class="template-card" id="w02">
+                <div class="template-title">W02 - The Why 💔</div>
+                <div class="template-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Subject Line:</div>
+                        <div class="meta-value">I've Been There. And It Sucks.</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Preview Text:</div>
+                        <div class="meta-value">5 failures taught me what you need to know</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">From Email:</div>
+                        <div class="meta-value">dojjjo &lt;overnightmvp@gmail.com&gt;</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Variables:</div>
+                        <div class="meta-value">{{params.WORKSHEET_URL}}</div>
+                    </div>
+                </div>
+                <div class="instructions">
+                    💼 Brevo Setup: Create new transactional template → Copy HTML below → Set variables → Test send
+                </div>
+                <div class="template-code">
+                    <button class="copy-button" onclick="copyToClipboard('w02-code')">Copy HTML</button>
+                    <div id="w02-code"><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I've Been There. And It Sucks.</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; background-color: #f9fafb;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <!-- Main Container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #FFFFFF; border: 3px solid #111827; max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: #ef4444; padding: 30px 20px; text-align: center; border-bottom: 3px solid #111827;">
+                            <div style="font-size: 40px; margin-bottom: 10px; color: #FFFFFF;">💔</div>
+                            <h1 style="color: #FFFFFF; font-size: 28px; font-weight: 800; margin: 0; font-family: Arial, Helvetica, sans-serif;">
+                                I've Been There.<br>And It Sucks.
+                            </h1>
+                        </td>
+                    </tr>
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 30px; color: #111827; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                            <p><strong>Hey,</strong></p>
+                            
+                            <p>I know the brutal truth you're facing.</p>
+                            
+                            <!-- Story Section -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f8fafc; border-left: 5px solid #ef4444; padding: 20px; font-style: italic; font-family: Arial, Helvetica, sans-serif;">
+                                        For years, I was that entrepreneur with a "revolutionary" idea. I spent months building from scratch, convinced my unique vision was going to change the world. It was a lie. The only thing I changed was the size of my bank account—it went down.
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p>That's what I call <strong>"innovation theater."</strong> You're so busy putting on a show of being unique and original that you forget the audience doesn't care about your performance. They only care if your solution solves their problem.</p>
+                            
+                            <!-- Brutal Truth Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f97316; color: #111827; padding: 20px; border: 2px solid #111827; font-weight: 700; font-family: Arial, Helvetica, sans-serif;">
+                                        <strong>5 failed startups taught me this:</strong> The market doesn't care about your genius. It only cares about its problems.
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p>That's why I created the 48-Hour Worksheet. It's the system I wish I had when I was reinventing the wheel. It cuts through the noise and forces you to focus on the one thing that matters: <strong>market validation.</strong></p>
+                            
+                            <p>Don't let your ego cost you months of work and thousands of dollars. Trust the system.</p>
+                            
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="<span class="variable-highlight">{{params.WORKSHEET_URL}}</span>" style="background: #ef4444; color: #FFFFFF !important; padding: 15px 30px; text-decoration: none; font-weight: 700; border: 3px solid #111827; display: inline-block; font-family: Arial, Helvetica, sans-serif;">
+                                            🎯 CONTINUE YOUR WORKSHEET
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <div style="font-weight: 700; color: #ef4444; margin-top: 30px; font-family: Arial, Helvetica, sans-serif;">
+                                Talk soon,<br><br>
+                                Johnny Toshio
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: #111827; color: #FFFFFF; padding: 20px; text-align: center; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                            <p style="margin: 0;"><strong>Johnny Toshio - DOJJJO Framework</strong><br>
+                            15 years, 5 failures, 1 exit. I learned so you don't have to.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html></div>
+                </div>
+            </div>
+
+            <!-- W03 - The How -->
+            <div class="template-card" id="w03">
+                <div class="template-title">W03 - The How ❓</div>
+                <div class="template-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Subject Line:</div>
+                        <div class="meta-value">The One Question That Saves You 6 Months</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Preview Text:</div>
+                        <div class="meta-value">Stop asking opinions. Start asking money questions.</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">From Email:</div>
+                        <div class="meta-value">dojjjo &lt;overnightmvp@gmail.com&gt;</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Variables:</div>
+                        <div class="meta-value">{{params.WORKSHEET_URL}}</div>
+                    </div>
+                </div>
+                <div class="instructions">
+                    💼 Brevo Setup: Create new transactional template → Copy HTML below → Set variables → Test send
+                </div>
+                <div class="template-code">
+                    <button class="copy-button" onclick="copyToClipboard('w03-code')">Copy HTML</button>
+                    <div id="w03-code"><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The One Question That Saves You 6 Months</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; background-color: #f9fafb;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <!-- Main Container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #FFFFFF; border: 3px solid #111827; max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: #ef4444; padding: 30px 20px; text-align: center; border-bottom: 3px solid #111827;">
+                            <div style="font-size: 40px; margin-bottom: 10px; color: #FFFFFF;">❓</div>
+                            <h1 style="color: #FFFFFF; font-size: 28px; font-weight: 800; margin: 0; font-family: Arial, Helvetica, sans-serif;">
+                                The One Question That<br>Saves You 6 Months
+                            </h1>
+                        </td>
+                    </tr>
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 30px; color: #111827; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                            <p><strong>Hey,</strong></p>
+                            
+                            <p>How's the Worksheet going?</p>
+                            
+                            <p>If you're stuck on the first step, you're not alone. The most challenging part is often the simplest: asking the right questions.</p>
+                            
+                            <!-- Wrong Question -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 15px 0;">
+                                <tr>
+                                    <td style="background: #fef2f2; border-left: 5px solid #ef4444; padding: 15px; color: #ef4444; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+                                        ❌ WRONG QUESTION: "Do you like my idea?"
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Right Question -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 15px 0;">
+                                <tr>
+                                    <td style="background: #f0fdf4; border-left: 5px solid #10b981; padding: 15px; color: #065f46; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+                                        ✅ RIGHT QUESTION: "Would you pay for a solution to this problem?"
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Question Highlight Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 25px 0;">
+                                <tr>
+                                    <td style="background: #111827; color: #FFFFFF; padding: 25px; text-align: center; border: 3px solid #ef4444; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="font-size: 24px; margin-bottom: 10px;">💰</div>
+                                        <h2 style="color: #FFFFFF; margin-bottom: 15px; font-family: Arial, Helvetica, sans-serif;">The Only Question That Matters:</h2>
+                                        <p style="font-size: 19px; margin: 0; color: #f97316; font-family: Arial, Helvetica, sans-serif;">
+                                            "Would you pay for a solution to this problem?"
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p>This is the core of the Worksheet. It forces you to get the honest, brutal feedback you need from real customers. It's the only way to know for sure if you're building something people want.</p>
+                            
+                            <!-- Brutal Truth Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f97316; color: #111827; padding: 20px; border: 2px solid #111827; font-weight: 700; font-family: Arial, Helvetica, sans-serif;">
+                                        <strong>Stop guessing.</strong> The system is designed to give you clarity, not more confusion.
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p>Most people ask opinion questions. Smart entrepreneurs ask money questions. The Worksheet teaches you the difference.</p>
+                            
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="<span class="variable-highlight">{{params.WORKSHEET_URL}}</span>" style="background: #ef4444; color: #FFFFFF !important; padding: 15px 30px; text-decoration: none; font-weight: 700; border: 3px solid #111827; display: inline-block; font-family: Arial, Helvetica, sans-serif;">
+                                            🚀 CONTINUE THE WORKSHEET HERE
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <div style="font-weight: 700; color: #ef4444; margin-top: 30px; font-family: Arial, Helvetica, sans-serif;">
+                                Talk soon,<br><br>
+                                Johnny Toshio
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: #111827; color: #FFFFFF; padding: 20px; text-align: center; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                            <p style="margin: 0;"><strong>Johnny Toshio - DOJJJO Framework</strong><br>
+                            Teaching you to ask the questions that actually matter</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html></div>
+                </div>
+            </div>
+
+            <!-- W04 - The Offer -->
+            <div class="template-card" id="w04">
+                <div class="template-title">W04 - The Offer 🚀</div>
+                <div class="template-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Subject Line:</div>
+                        <div class="meta-value">Ready to Skip the Work? Get an Overnight MVP.</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Preview Text:</div>
+                        <div class="meta-value">Two choices: Do it yourself or get my help</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">From Email:</div>
+                        <div class="meta-value">dojjjo &lt;overnightmvp@gmail.com&gt;</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Variables:</div>
+                        <div class="meta-value">{{params.OMVP_URL}}</div>
+                    </div>
+                </div>
+                <div class="instructions">
+                    💼 Brevo Setup: Create new transactional template → Copy HTML below → Set variables → Test send
+                </div>
+                <div class="template-code">
+                    <button class="copy-button" onclick="copyToClipboard('w04-code')">Copy HTML</button>
+                    <div id="w04-code"><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ready to Skip the Work? Get an Overnight MVP.</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; background-color: #f9fafb;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <!-- Main Container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #FFFFFF; border: 3px solid #111827; max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: #ef4444; padding: 30px 20px; text-align: center; border-bottom: 3px solid #111827;">
+                            <div style="font-size: 40px; margin-bottom: 10px; color: #FFFFFF;">🚀</div>
+                            <h1 style="color: #FFFFFF; font-size: 28px; font-weight: 800; margin: 0; font-family: Arial, Helvetica, sans-serif;">
+                                Ready to Skip the Work?<br>Get an Overnight MVP.
+                            </h1>
+                        </td>
+                    </tr>
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 30px; color: #111827; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                            <p><strong>Hey,</strong></p>
+                            
+                            <p>You've made it through the hardest part: starting.</p>
+                            
+                            <p><strong>Now you have a choice.</strong></p>
+                            
+                            <!-- Choice Section 1 -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="border: 3px solid #ef4444; padding: 20px; font-family: Arial, Helvetica, sans-serif;">
+                                        <p><strong>Option 1:</strong> You can spend the next 48 hours executing the Worksheet yourself. It's a proven system that will work, but it requires your full focus and discipline.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Choice Section 2 -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="border: 3px solid #ef4444; padding: 20px; font-family: Arial, Helvetica, sans-serif;">
+                                        <p><strong>Option 2:</strong> You can save your time and energy and get my help.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Offer Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 25px 0;">
+                                <tr>
+                                    <td style="background: #111827; color: #FFFFFF; padding: 30px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="font-size: 40px; margin-bottom: 15px;">⚡</div>
+                                        <h2 style="color: #FFFFFF; margin-bottom: 15px; font-family: Arial, Helvetica, sans-serif;">My Overnight MVP Service</h2>
+                                        <p style="margin-bottom: 20px;">I will take the Worksheet, apply it to your business, and deliver a live, converting business system in 48 hours.</p>
+                                        
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                            <tr>
+                                                <td style="background: rgba(255,255,255,0.1); padding: 20px; font-family: Arial, Helvetica, sans-serif;">
+                                                    <h3 style="color: #f97316; margin-bottom: 15px; font-family: Arial, Helvetica, sans-serif;">What You Get:</h3>
+                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                                        <tr><td style="padding: 5px 0; font-family: Arial, Helvetica, sans-serif;">• Custom landing page</td></tr>
+                                                        <tr><td style="padding: 5px 0; font-family: Arial, Helvetica, sans-serif;">• Lead capture system</td></tr>
+                                                        <tr><td style="padding: 5px 0; font-family: Arial, Helvetica, sans-serif;">• 5-part email sequence</td></tr>
+                                                        <tr><td style="padding: 5px 0; font-family: Arial, Helvetica, sans-serif;">• Complete analytics setup</td></tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        
+                                        <div style="background: #ef4444; color: #FFFFFF; padding: 10px 20px; font-weight: bold; font-size: 19px; display: inline-block; margin: 10px 0;">$5,000</div>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Brutal Truth Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f97316; color: #111827; padding: 20px; border: 2px solid #111827; font-weight: 700; font-family: Arial, Helvetica, sans-serif;">
+                                        <strong>This is the ultimate shortcut for entrepreneurs who are serious about results but short on time.</strong>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p>If you're ready to get your business live without doing any of the work, click below.</p>
+                            
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="<span class="variable-highlight">{{params.OMVP_URL}}</span>" style="background: #ef4444; color: #FFFFFF !important; padding: 15px 30px; text-decoration: none; font-weight: 700; border: 3px solid #111827; display: inline-block; font-family: Arial, Helvetica, sans-serif;">
+                                            🔥 GET MY OVERNIGHT MVP
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p style="text-align: center; color: #6b7280; font-size: 14px;">
+                                Or continue with the free worksheet if you prefer to do it yourself.
+                            </p>
+                            
+                            <div style="font-weight: 700; color: #ef4444; margin-top: 30px; font-family: Arial, Helvetica, sans-serif;">
+                                Talk soon,<br><br>
+                                Johnny Toshio
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: #111827; color: #FFFFFF; padding: 20px; text-align: center; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                            <p style="margin: 0;"><strong>Johnny Toshio - DOJJJO Framework</strong><br>
+                            Skip the work. Get the results.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html></div>
+                </div>
+            </div>
+
+            <!-- W05 - Final Push -->
+            <div class="template-card" id="w05">
+                <div class="template-title">W05 - Final Push ⚠️</div>
+                <div class="template-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Subject Line:</div>
+                        <div class="meta-value">Your Competitors Aren't Waiting</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Preview Text:</div>
+                        <div class="meta-value">This is your last email from me. Choose now.</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">From Email:</div>
+                        <div class="meta-value">dojjjo &lt;overnightmvp@gmail.com&gt;</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Variables:</div>
+                        <div class="meta-value">{{params.OMVP_SUBMIT_URL}}</div>
+                    </div>
+                </div>
+                <div class="instructions">
+                    💼 Brevo Setup: Create new transactional template → Copy HTML below → Set variables → Test send
+                </div>
+                <div class="template-code">
+                    <button class="copy-button" onclick="copyToClipboard('w05-code')">Copy HTML</button>
+                    <div id="w05-code"><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Competitors Aren't Waiting</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; background-color: #f9fafb;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <!-- Main Container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #FFFFFF; border: 3px solid #111827; max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: #111827; padding: 30px 20px; text-align: center; border-bottom: 3px solid #ef4444;">
+                            <div style="font-size: 40px; margin-bottom: 10px; color: #ef4444;">⚠️</div>
+                            <h1 style="color: #ef4444; font-size: 28px; font-weight: 800; margin: 0; font-family: Arial, Helvetica, sans-serif;">
+                                Your Competitors<br>Aren't Waiting
+                            </h1>
+                        </td>
+                    </tr>
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 30px; color: #111827; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                            <p><strong>Hey,</strong></p>
+                            
+                            <p>I'm not going to sugarcoat this.</p>
+                            
+                            <!-- Competitor Warning -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f97316; color: #111827; padding: 20px; text-align: center; font-weight: bold; border: 3px solid #111827; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="font-size: 24px; margin-bottom: 10px;">🏃‍♂️💨</div>
+                                        <strong>Your competitors are not waiting for you to finish the worksheet.</strong>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Urgency Section -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 25px 0;">
+                                <tr>
+                                    <td style="background: #fef2f2; border: 3px solid #ef4444; padding: 25px; font-family: Arial, Helvetica, sans-serif;">
+                                        <p style="color: #ef4444; font-weight: bold; margin-bottom: 15px;">
+                                            While you're still planning, they are:
+                                        </p>
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                            <tr><td style="color: #ef4444; font-weight: 600; margin-bottom: 8px; padding: 4px 0;">✅ Launching their products</td></tr>
+                                            <tr><td style="color: #ef4444; font-weight: 600; margin-bottom: 8px; padding: 4px 0;">✅ Getting customers</td></tr>
+                                            <tr><td style="color: #ef4444; font-weight: 600; margin-bottom: 8px; padding: 4px 0;">✅ Taking market share</td></tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Brutal Truth Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 25px 0;">
+                                <tr>
+                                    <td style="background: #ef4444; color: #FFFFFF; padding: 25px; border: 2px solid #111827; font-weight: 700; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="font-size: 19px; margin-bottom: 15px;">⏰</div>
+                                        <strong>The cost of inaction is not just lost time—it's a lost opportunity.</strong>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p>My Overnight MVP is the fastest way to market, period. This is the difference between planning and executing. This is the difference between a side project and a real business.</p>
+                            
+                            <!-- Final Choice -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 25px 0;">
+                                <tr>
+                                    <td style="background: #111827; color: #FFFFFF; padding: 30px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="font-size: 40px; margin-bottom: 15px;">🚨</div>
+                                        <h2 style="color: #FFFFFF; margin-bottom: 15px; font-family: Arial, Helvetica, sans-serif;">Final Decision Time</h2>
+                                        <p style="margin-bottom: 20px;">If you've completed the worksheet and you're ready to make a serious move, submit your answers below to get started.</p>
+                                        <p style="color: #f97316; font-weight: bold;">Don't wait.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 25px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="<span class="variable-highlight">{{params.OMVP_SUBMIT_URL}}</span>" style="background: #ef4444; color: #FFFFFF !important; padding: 20px 35px; text-decoration: none; font-weight: 700; border: 3px solid #111827; display: inline-block; font-size: 18px; font-family: Arial, Helvetica, sans-serif;">
+                                            🔥 SUBMIT YOUR WORKSHEET AND SCHEDULE YOUR CALL
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p style="text-align: center; font-weight: bold; color: #ef4444;">
+                                This is your last email from me about the free worksheet.<br>
+                                After this, you're on your own.
+                            </p>
+                            
+                            <div style="font-weight: 700; color: #ef4444; margin-top: 30px; font-family: Arial, Helvetica, sans-serif;">
+                                Talk soon,<br><br>
+                                Johnny Toshio
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: #111827; color: #FFFFFF; padding: 20px; text-align: center; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                            <p style="margin: 0;"><strong>Johnny Toshio - DOJJJO Framework</strong><br>
+                            Your competitors won't wait. Why should you?</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OMVP SERIES (O01-O06) -->
+        <div class="template-section">
+            <div class="section-header omvp-header">
+                🚀 OMVP Delivery Series (O01-O06) - $5K Service Client Journey
+            </div>
+
+            <!-- O01 - Welcome -->
+            <div class="template-card" id="o01">
+                <div class="template-title">O01 - Welcome 🚀</div>
+                <div class="template-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Subject Line:</div>
+                        <div class="meta-value">Welcome to Your Overnight MVP Journey 🚀</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Preview Text:</div>
+                        <div class="meta-value">Your 48-hour business transformation starts now</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">From Email:</div>
+                        <div class="meta-value">dojjjo &lt;overnightmvp@gmail.com&gt;</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Variables:</div>
+                        <div class="meta-value">{{params.DASHBOARD_URL}}</div>
+                    </div>
+                </div>
+                <div class="instructions">
+                    💼 Brevo Setup: Create new transactional template → Copy HTML below → Set variables → Test send
+                </div>
+                <div class="template-code">
+                    <button class="copy-button" onclick="copyToClipboard('o01-code')">Copy HTML</button>
+                    <div id="o01-code"><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Your Overnight MVP Journey</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; background-color: #f9fafb;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <!-- Main Container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #FFFFFF; border: 3px solid #111827; max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: #3b82f6; padding: 30px 20px; text-align: center; border-bottom: 3px solid #111827;">
+                            <div style="font-size: 40px; margin-bottom: 10px; color: #FFFFFF;">🚀</div>
+                            <h1 style="color: #FFFFFF; font-size: 28px; font-weight: 800; margin: 0; font-family: Arial, Helvetica, sans-serif;">
+                                Welcome to Your Overnight MVP Journey
+                            </h1>
+                            <p style="margin: 10px 0 0 0; color: #FFFFFF; opacity: 0.95;">Your 48-hour business transformation starts now</p>
+                        </td>
+                    </tr>
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 30px; color: #111827; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                            <p style="font-size: 18px;"><strong>Congratulations.</strong> You've made the decision that separates action-takers from dreamers.</p>
+                            
+                            <!-- Content Section -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td style="padding: 25px; background: rgba(59, 130, 246, 0.05); border: 2px solid #111827; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="color: #3b82f6; font-weight: 700; font-size: 18px; margin-bottom: 15px;">🎯 What Happens Next (The Next 48 Hours)</div>
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                            <tr><td style="padding: 4px 0;"><strong>Hour 1-4:</strong> I analyze your worksheet and create your custom project blueprint</td></tr>
+                                            <tr><td style="padding: 4px 0;"><strong>Hour 5-24:</strong> Landing page development and initial system setup</td></tr>
+                                            <tr><td style="padding: 4px 0;"><strong>Hour 25-40:</strong> Email sequences, analytics, and conversion optimization</td></tr>
+                                            <tr><td style="padding: 4px 0;"><strong>Hour 41-48:</strong> Testing, final optimization, and delivery preparation</td></tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Highlight Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f97316; color: #FFFFFF; padding: 20px; border: 3px solid #111827; text-align: center; font-weight: 700; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="font-size: 24px; margin-bottom: 10px;">⚡</div>
+                                        <div>You'll receive your first progress update within 4 hours</div>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Dashboard Section -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td style="padding: 25px; background: rgba(59, 130, 246, 0.05); border: 2px solid #111827; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="color: #3b82f6; font-weight: 700; font-size: 18px; margin-bottom: 15px;">📋 Your Project Dashboard</div>
+                                        <p>I've set up a private project dashboard where you can track progress in real-time:</p>
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                            <tr><td style="padding: 4px 0;">• Live preview links as I build</td></tr>
+                                            <tr><td style="padding: 4px 0;">• Progress updates every 8 hours</td></tr>
+                                            <tr><td style="padding: 4px 0;">• Direct communication channel</td></tr>
+                                            <tr><td style="padding: 4px 0;">• All deliverables and credentials</td></tr>
+                                        </table>
+                                        <!-- CTA Button -->
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                            <tr>
+                                                <td align="center">
+                                                    <a href="<span class="variable-highlight">{{params.DASHBOARD_URL}}</span>" style="background: #3b82f6; color: #FFFFFF !important; padding: 15px 30px; text-decoration: none; font-weight: 700; border: 3px solid #111827; display: inline-block; font-family: Arial, Helvetica, sans-serif;">
+                                                        ACCESS YOUR PROJECT DASHBOARD
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- What I Need Section -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td style="padding: 25px; background: rgba(59, 130, 246, 0.05); border: 2px solid #111827; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="color: #3b82f6; font-weight: 700; font-size: 18px; margin-bottom: 15px;">⚠️ What I Need From You</div>
+                                        <p><strong>Nothing.</strong></p>
+                                        <p>I have your worksheet. I have your requirements. I have your timeline.</p>
+                                        <p>Your job now is to stay out of my way and let me work. I'll update you every 8 hours with progress.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Emergency Contact -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td style="background: #111827; color: #FFFFFF; padding: 25px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+                                        <h3 style="color: #f97316; margin-bottom: 15px; font-family: Arial, Helvetica, sans-serif;">Emergency Contact</h3>
+                                        <p>If you have an urgent question or change request:</p>
+                                        <p style="font-weight: 700;">johnny@dojjjo.com</p>
+                                        <p style="font-size: 14px;">Response time: Under 2 hours during build phase</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Expectations Section -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td style="padding: 25px; background: rgba(59, 130, 246, 0.05); border: 2px solid #111827; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="color: #3b82f6; font-weight: 700; font-size: 18px; margin-bottom: 15px;">🎯 What You Can Expect</div>
+                                        <p><strong>Speed:</strong> Your system will be live in 48 hours, not 48 days.</p>
+                                        <p><strong>Quality:</strong> Battle-tested frameworks, not experimental ideas.</p>
+                                        <p><strong>Results:</strong> A business system that converts, not just looks good.</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: #111827; color: #FFFFFF; padding: 20px; text-align: center; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                            <p style="margin: 0;"><strong>Johnny Toshio - Overnight MVP</strong><br>
+                            48-hour business systems that work</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html></div>
+                </div>
+            </div>
+
+            <!-- O02-O06 templates would continue here with similar structure -->
+            <div class="template-card" style="text-align: center; padding: 3rem;">
+                <div style="font-size: 1.5rem; color: var(--brutal-blue); margin-bottom: 1rem;">📋 Templates O02-O06</div>
+                <p style="color: var(--brutal-black); margin-bottom: 2rem;">
+                    Templates O02 (Onboarding) through O06 (Referral) follow the same Gmail-compatible table structure.<br>
+                    Each template is available in the complete BREVO-TEMPLATES.md file in your strategy folder.
+                </p>
+                <a href="/omvp/strategy/BREVO-TEMPLATES.md" style="background: var(--brutal-blue); color: var(--brutal-white); padding: 1rem 2rem; text-decoration: none; font-weight: 700; border: 3px solid var(--brutal-black); display: inline-block; border-radius: 4px;">
+                    📁 VIEW ALL TEMPLATES IN BREVO-TEMPLATES.md
+                </a>
+            </div>
+        </div>
+
+        <!-- Quick Setup Guide -->
+        <div class="template-section">
+            <div class="section-header" style="background: var(--brutal-green);">
+                ⚡ Quick Brevo Setup Process
+            </div>
+            <div class="template-card">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h3 style="color: var(--brutal-green); margin-bottom: 1rem;">1. Create Templates</h3>
+                        <ol style="padding-left: 1.5rem;">
+                            <li>Log into Brevo dashboard</li>
+                            <li>Go to Campaigns → Templates</li>
+                            <li>Click "Create Template"</li>
+                            <li>Choose "Code your own"</li>
+                            <li>Copy HTML from above</li>
+                            <li>Set template variables</li>
+                            <li>Save and test</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--brutal-green); margin-bottom: 1rem;">2. Set Up Automation</h3>
+                        <ol style="padding-left: 1.5rem;">
+                            <li>Create contact lists</li>
+                            <li>Set up automation workflows</li>
+                            <li>Connect templates to triggers</li>
+                            <li>Configure timing delays</li>
+                            <li>Test email sequences</li>
+                            <li>Monitor analytics</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>DOJJJO Email Template Viewer</strong><br>
+        Gmail-compatible templates for maximum deliverability and engagement</p>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                const button = element.parentNode.querySelector('.copy-button');
+                const originalText = button.textContent;
+                button.textContent = 'Copied! ✅';
+                button.classList.add('copied');
+                
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy: ', err);
+                alert('Copy failed. Please select the text manually.');
+            });
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

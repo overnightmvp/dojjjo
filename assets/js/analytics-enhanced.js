@@ -10,11 +10,26 @@ const ANALYTICS_CONFIG = {
         OMVP_SUBMIT: 'omvp_submitted'
     },
     
-    // Conversion values
+    // Conversion values (legacy alias)
     VALUES: {
         EMAIL_CAPTURE: 50,
         WORKSHEET_COMPLETE: 200,
         OMVP_SUBMISSION: 5000
+    },
+    
+    // Event values (new naming)
+    EVENT_VALUES: {
+        EMAIL_CAPTURE: 50,
+        WORKSHEET_COMPLETE: 200,
+        OMVP_SUBMISSION: 5000
+    },
+    
+    // Funnel stages
+    FUNNEL_STAGES: {
+        EMAIL_CAPTURE: 'email_captured',
+        WORKSHEET_START: 'worksheet_started',
+        WORKSHEET_COMPLETE: 'worksheet_completed',
+        OMVP_SUBMISSION: 'omvp_submitted'
     }
 };
 
@@ -79,9 +94,48 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Analytics initialized - streamlined tracking ready');
 });
 
+// Additional tracking functions for comprehensive analytics
+function trackEngagement(action, source = 'unknown', customData = {}) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'engagement', {
+            event_category: 'User Interaction',
+            engagement_action: action,
+            engagement_source: source,
+            ...customData
+        });
+    }
+    console.log('Engagement tracked:', action, 'from:', source);
+}
+
+function trackConversion(eventName, value = 0, customData = {}) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+            event_category: 'conversion',
+            value: value,
+            currency: 'USD',
+            ...customData
+        });
+    }
+    console.log('Conversion tracked:', eventName, 'Value: $' + value);
+}
+
+function trackFunnelProgression(stage, customData = {}) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'funnel_progression', {
+            event_category: 'Funnel',
+            funnel_stage: stage,
+            ...customData
+        });
+    }
+    console.log('Funnel progression tracked:', stage);
+}
+
 // Make core functions available globally
 window.trackEmailCapture = trackEmailCapture;
 window.trackWorksheetComplete = trackWorksheetComplete;
 window.trackOMVPSubmission = trackOMVPSubmission;
 window.trackPageView = trackPageView;
+window.trackEngagement = trackEngagement;
+window.trackConversion = trackConversion;
+window.trackFunnelProgression = trackFunnelProgression;
 window.ANALYTICS_CONFIG = ANALYTICS_CONFIG;

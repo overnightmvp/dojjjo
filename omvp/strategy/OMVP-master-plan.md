@@ -5,7 +5,7 @@
 **System**: DOJJJO Hybrid Business Model - Personal Brand + Template Service Delivery  
 **Current Status**: Evolved from personal brand to dual-revenue template-driven service business
 **Goal**: Systematic approach for service delivery scaling with personal brand credibility
-**Revenue Target**: $560/month BJJ coaching → $15K/month hybrid model (70% service delivery, 30% personal)
+**Revenue Target**: $560/month BJJ coaching → $15K/month hybrid model (3 clients × $5K OMVP Complete)
 **Current Status**: ✅ Template Standardization Complete - Consolidated design system + 500+ lines CSS optimization + Professional template architecture + LLM-friendly client customization + Production-ready hybrid business model with systematic template delivery capability
 
 ---
@@ -338,10 +338,9 @@ OMVP Service Delivery Framework:
     └── 30-day support activation
 ```
 
-### **Service Tier Implementation**
-- **$2.5K Starter**: Core template transformation with basic conversion elements
-- **$5K Complete**: Full transformation + A/B testing + extended support  
-- **$10K Premium**: Complete system + custom methodology + 90-day optimization
+### **Service Focus - Single Offering**
+- **$5K OMVP Complete**: Full transformation + A/B testing + extended support + 30-day optimization
+- **Why Single Service**: Eliminates decision paralysis, ensures consistent quality delivery, simplifies sales process
 
 ### **Template Reusability Matrix**
 ```
@@ -365,7 +364,7 @@ Template Components:
 ### **Revenue Transformation Pathway**
 - **Current State**: Personal brand project with scattered focus
 - **Hybrid Evolution**: Personal brand credibility + Template service delivery
-- **Target Revenue**: $15K/month (70% service delivery, 30% personal OMVP)
+- **Target Revenue**: $15K/month (3 clients × $5K OMVP Complete)
 - **Scaling Mechanism**: Template-driven process enables team hiring and multiple concurrent clients
 
 ### **Service Delivery KPIs**
@@ -483,7 +482,7 @@ Template Components:
 - **Primary Goal**: Full team scaling with quality assurance systems
 - **Target**: 8+ concurrent clients with minimal founder dependency
 - **Success Criteria**: Team-delivered results match founder quality
-- **Revenue**: $30K+/month with multiple revenue streams and team efficiency
+- **Revenue**: $20K+/month with team scaling and concurrent client delivery
 
 ### **Hybrid Model Success Framework**
 - **Personal Brand**: Builds credibility and attracts service delivery clients
@@ -543,10 +542,10 @@ Template Components:
 **Template-Ready Components:**
 ```
 DOJJJO Template System (S-Tier UI Enhanced):
-├── assets/css/brutal-design-system.css # Email-style sophisticated components + psychological triggers
-│   ├── --template-primary: #FF3B30    # Client brand color 1
-│   ├── --template-secondary: #FF9500  # Client brand color 2  
-│   ├── --template-accent: #007AFF     # Client accent color
+├── assets/css/brutal-design-system.css # iOS-inspired design system + psychological triggers
+│   ├── --template-primary: #007AFF    # iOS system blue (customizable)
+│   ├── --template-secondary: #FF3B30  # iOS system red (customizable)  
+│   ├── --template-accent: #FF9500     # iOS system orange (customizable)
 │   ├── .btn-lg / .btn-md              # Professional button sizing system
 │   └── Enhanced text shadows          # Psychological typography impact
 ├── assets/js/core.js               # Universal functionality (theme, forms, mobile, countdown timers)

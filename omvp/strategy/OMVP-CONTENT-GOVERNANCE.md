@@ -1,16 +1,17 @@
 # DOJJJO CONTENT GOVERNANCE
 
 ## 🎯 **SINGLE SOURCE OF TRUTH**
-- **Production**: `/production/` - Live content, deploy-ready
-- **Staging**: `/staging/` - Development only, testing new features
-- **NEVER duplicate content** between staging and production
+- **Strategy Documentation**: `/omvp/strategy/` - All 25+ strategy files consolidated
+- **Live System**: Root level HTML files - Production-ready content
+- **CPO Dashboard**: `/cpo-dashboard.html` - Unified project management
+- **NEVER duplicate content** - Single source, multiple references
 
 ## 📋 **CONSISTENCY REQUIREMENTS**
 
 ### **Pricing Standards**
-- Primary Service: **$5K OMVP Complete**
+- Primary Service: **$5K OMVP Complete** (single focused offering)
 - Revenue Target: **$15K/month** (3 clients × $5K)
-- Service Tiers: $2.5K Starter | $5K Complete | $10K Premium
+- No service tiers - focused execution over complexity
 
 ### **Messaging Standards**
 - Personal Brand: "From $560/month to $15K/month"
@@ -19,10 +20,10 @@
 - Method Claims: "$100K+ methodology" (refers to total client value generated)
 
 ### **Customer Journey Flow**
-1. **Landing Page**: `production/index.html`
+1. **Landing Page**: `index.html` (personal brand) or `omvp/index.html` (service)
 2. **Primary CTA**: Download 48-Hour Blueprint
 3. **Secondary CTA**: Book Discovery Call (Cal.com)
-4. **Email Sequence**: 5-part nurture (01-05 templates)
+4. **Email Sequence**: 5-part nurture (`omvp/email template/01-05-*.html`)
 5. **Conversion**: $5K OMVP Complete service
 
 ## ⚡ **DEPLOYMENT CHECKLIST**
@@ -34,11 +35,13 @@
 - [ ] Validate customer journey flow integrity
 
 ### **Content Update Process**
-1. **Always update production/** files directly
-2. **Test all internal links** after changes
-3. **Verify email sequence** numbering and content
-4. **Check flowcharts** for revenue consistency
-5. **Validate CTAs** point to correct destinations
+1. **Update strategy docs** in `/omvp/strategy/` for planning changes
+2. **Update live HTML files** at root level for production changes
+3. **Test all internal links** after changes
+4. **Verify email sequence** numbering and content
+5. **Update CPO dashboard** if new metrics or accounts added
+6. **Check flowcharts** for revenue consistency
+7. **Validate CTAs** point to correct destinations
 
 ### **Post-Deployment Validation**
 - [ ] All links functional
@@ -55,11 +58,12 @@
 - ❌ Modify email sequence without testing flow
 
 ## ✅ **AGILE BEST PRACTICES**
-- Single source of truth (production/)
+- Single source of truth (`/omvp/strategy/` for docs, root level for live content)
 - Clear acceptance criteria for changes
 - Content consistency validation
 - Systematic deployment process
 - Post-change testing requirements
+- CPO dashboard for unified project management
 
 ---
 

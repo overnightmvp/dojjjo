@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOJJJO CPO Dashboard - Project Knowledge Management</title>
+    <meta name="description" content="Personal project management dashboard for DOJJJO OMVP service delivery platform">
+    <link rel="stylesheet" href="assets/css/brutal-design-system.css">
+    
+    <style>
+        /* CPO Dashboard specific styles */
+        :root {
+            --cpo-primary: #FF3B30;    /* iOS Red */
+            --cpo-secondary: #FF9500;  /* iOS Orange */
+            --cpo-accent: #007AFF;     /* iOS Blue */
+            --cpo-success: #34C759;    /* iOS Green */
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, var(--cpo-primary) 0%, var(--cpo-secondary) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .dashboard-header::before {
+            content: '🎯';
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+        
+        .dashboard-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dashboard-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .status-bar {
+            background: var(--cpo-success);
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-weight: 600;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .dashboard-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #e5e5e7;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1d1d1f;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .file-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .file-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f5f5f7;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .file-item:last-child {
+            border-bottom: none;
+        }
+        
+        .file-icon {
+            font-size: 1.2rem;
+        }
+        
+        .file-link {
+            color: var(--cpo-accent);
+            text-decoration: none;
+            font-weight: 500;
+            flex-grow: 1;
+        }
+        
+        .file-link:hover {
+            text-decoration: underline;
+        }
+        
+        .file-description {
+            font-size: 0.9rem;
+            color: #86868b;
+            margin-top: 0.25rem;
+        }
+        
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .action-button {
+            display: block;
+            padding: 1rem;
+            background: var(--cpo-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .action-button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        .action-button.secondary {
+            background: var(--cpo-secondary);
+        }
+        
+        .action-button.secondary:hover {
+            background: #e8440e;
+        }
+        
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .metric-card {
+            background: #f5f5f7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--cpo-primary);
+        }
+        
+        .metric-label {
+            font-size: 0.9rem;
+            color: #86868b;
+            margin-top: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-title {
+                font-size: 2rem;
+            }
+            
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Dark theme removed for conversion optimization */
+    </style>
+</head>
+<body>
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="container">
+            <h1 class="dashboard-title">DOJJJO CPO Dashboard</h1>
+            <p class="dashboard-subtitle">Personal Project Management - OMVP Service Delivery Platform</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- System Status -->
+        <div class="status-bar">
+            ✅ All MD Files Consolidated - OMVP Strategy Documents Ready
+        </div>
+        
+        <!-- Project Metrics -->
+        <section class="dashboard-section">
+            <h2 class="section-title">📊 Project Health</h2>
+            <div class="metrics-row">
+                <div class="metric-card">
+                    <div class="metric-value">8</div>
+                    <div class="metric-label">Core OMVP Docs</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">25+</div>
+                    <div class="metric-label">Total Strategy Files</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">$15K</div>
+                    <div class="metric-label">Monthly Target</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">$5K</div>
+                    <div class="metric-label">Service Price</div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="section-grid">
+            <!-- Core Business Documents -->
+            <section class="dashboard-section">
+                <h2 class="section-title">🎯 Core Business Docs (OMVP-)</h2>
+                <ul class="file-list">
+                    <li class="file-item">
+                        <span class="file-icon">🏗️</span>
+                        <div>
+                            <a href="omvp/strategy/OMVP-SERVICE-BLUEPRINT.md" class="file-link">Service Blueprint</a>
+                            <div class="file-description">Complete client delivery framework</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">✅</span>
+                        <div>
+                            <a href="omvp/strategy/OMVP-DELIVERY-CHECKLIST.md" class="file-link">Delivery Checklist</a>
+                            <div class="file-description">Operational execution guide</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">🛤️</span>
+                        <div>
+                            <a href="omvp/strategy/OMVP-CUSTOMER-JOURNEY-OPTIMIZED.md" class="file-link">Customer Journey</a>
+                            <div class="file-description">5-stage funnel architecture</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">📋</span>
+                        <div>
+                            <a href="omvp/strategy/OMVP-CONTENT-GOVERNANCE.md" class="file-link">Content Governance</a>
+                            <div class="file-description">Single source of truth rules</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">⏱️</span>
+                        <div>
+                            <a href="omvp/strategy/OMVP-48-hour-business-blueprint.md" class="file-link">48-Hour Blueprint</a>
+                            <div class="file-description">Primary lead magnet framework</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">🗂️</span>
+                        <div>
+                            <a href="omvp/strategy/OMVP-ORGANIZATION-GUIDE.md" class="file-link">Organization Guide</a>
+                            <div class="file-description">File structure and workflows</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">📊</span>
+                        <div>
+                            <a href="omvp/strategy/OMVP-backlog.md" class="file-link">Strategic Backlog</a>
+                            <div class="file-description">Priority tasks and optimizations</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">🗺️</span>
+                        <div>
+                            <a href="omvp/strategy/OMVP-master-plan.md" class="file-link">Master Plan</a>
+                            <div class="file-description">Business evolution roadmap</div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- Service Accounts Hub -->
+            <section class="dashboard-section">
+                <h2 class="section-title">🔗 Service Accounts Hub</h2>
+                <div class="quick-actions">
+                    <a href="https://github.com/overnightmvp/dojjjo" class="action-button" target="_blank">
+                        GitHub Repository
+                    </a>
+                    <a href="https://claude.ai/chat" class="action-button" target="_blank">
+                        Claude Sessions
+                    </a>
+                    <a href="https://gemini.google.com" class="action-button" target="_blank">
+                        Gemini AI
+                    </a>
+                    <a href="https://gmail.com" class="action-button secondary" target="_blank">
+                        Gmail Account
+                    </a>
+                    <a href="https://my.brevo.com" class="action-button secondary" target="_blank">
+                        Brevo Dashboard
+                    </a>
+                    <a href="https://app.netlify.com" class="action-button secondary" target="_blank">
+                        Netlify Deploy
+                    </a>
+                    <a href="https://analytics.google.com" class="action-button" target="_blank">
+                        Google Analytics
+                    </a>
+                    <a href="https://calendly.com" class="action-button" target="_blank">
+                        Calendly Admin
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Support Documentation -->
+            <section class="dashboard-section">
+                <h2 class="section-title">📚 Support Documentation</h2>
+                <ul class="file-list">
+                    <li class="file-item">
+                        <span class="file-icon">🤖</span>
+                        <div>
+                            <a href="omvp/strategy/CLAUDE.md" class="file-link">Claude Instructions</a>
+                            <div class="file-description">AI development guidelines</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">📧</span>
+                        <div>
+                            <a href="omvp/strategy/BREVO-TEMPLATES.md" class="file-link">Email Templates</a>
+                            <div class="file-description">Brevo automation setup</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">🚀</span>
+                        <div>
+                            <a href="omvp/strategy/DEPLOYMENT-CHECKLIST.md" class="file-link">Deployment Guide</a>
+                            <div class="file-description">Go-live checklist</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">💡</span>
+                        <div>
+                            <a href="omvp/strategy/prompts.md" class="file-link">Prompt Library</a>
+                            <div class="file-description">Complete transformation journey</div>
+                        </div>
+                    </li>
+                    <li class="file-item">
+                        <span class="file-icon">📖</span>
+                        <div>
+                            <a href="omvp/strategy/README.md" class="file-link">Project Overview</a>
+                            <div class="file-description">System architecture summary</div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- Quick Navigation -->
+            <section class="dashboard-section">
+                <h2 class="section-title">⚡ Quick Navigation</h2>
+                <div class="quick-actions">
+                    <a href="index.html" class="action-button">
+                        Main Landing Page
+                    </a>
+                    <a href="design-system/index.html" class="action-button">
+                        Design System
+                    </a>
+                    <a href="omvp/index.html" class="action-button secondary">
+                        OMVP Service Page
+                    </a>
+                    <a href="omvp/flowcharts/customer-journey-flowchart.html" class="action-button secondary">
+                        Customer Journey Map
+                    </a>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Development Progress -->
+        <section class="dashboard-section">
+            <h2 class="section-title">🔄 Development Progress</h2>
+            <div class="metrics-row">
+                <div class="metric-card">
+                    <div class="metric-value">✅</div>
+                    <div class="metric-label">Files Consolidated</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">✅</div>
+                    <div class="metric-label">OMVP- Prefixed</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">✅</div>
+                    <div class="metric-label">Dashboard Ready</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">🎯</div>
+                    <div class="metric-label">Service Active</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer style="background: #f5f5f7; padding: 2rem; text-align: center; margin-top: 4rem; color: #86868b;">
+        <p>DOJJJO CPO Dashboard • Johnny Toshio • Bangkok, Thailand</p>
+        <p>OMVP Service Delivery Platform Management</p>
+    </footer>
+    
+    <script>
+        // Dark theme detection removed for conversion optimization
+        
+        // Add click tracking for service accounts
+        document.querySelectorAll('.action-button').forEach(button => {
+            button.addEventListener('click', function() {
+                console.log('Service accessed:', this.textContent);
+            });
+        });
+        
+        // Auto-refresh page every 30 minutes to keep dashboard current
+        setTimeout(() => {
+            location.reload();
+        }, 30 * 60 * 1000);
+    </script>
+</body>
+</html>

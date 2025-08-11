@@ -8,7 +8,7 @@ let CONFIG = {};
 
 // Application state
 let currentLanguage = localStorage.getItem('preferred-language') || 'global';
-let currentTheme = localStorage.getItem('preferred-theme') || 'light';
+// Theme management removed for brutal simplicity and conversion focus
 
 /**
  * ====================================
@@ -23,9 +23,8 @@ let currentTheme = localStorage.getItem('preferred-theme') || 'light';
 function initializeDOJJJO(config) {
     CONFIG = config;
     
-    // Set initial theme and language
+    // Set initial language only (theme removed for simplicity)
     document.documentElement.setAttribute('data-language', currentLanguage);
-    document.documentElement.setAttribute('data-theme', currentTheme);
     
     // Initialize components
     switchLanguage(currentLanguage);
@@ -132,29 +131,10 @@ function updateMetaTags(lang) {
 
 /**
  * ====================================
- * THEME MANAGEMENT
+ * THEME MANAGEMENT REMOVED
+ * Eliminated for brutal simplicity and conversion focus
  * ====================================
  */
-
-/**
- * Toggle between light and dark themes
- */
-function toggleTheme() {
-    try {
-        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        localStorage.setItem('preferred-theme', currentTheme);
-        
-        // Track theme change
-        trackEvent('theme_switch', {
-            'event_category': 'User Interface',
-            'event_label': `Theme switched to ${currentTheme}`
-        });
-        
-    } catch (error) {
-        console.error('Error switching theme:', error);
-    }
-}
 
 /**
  * ====================================
@@ -409,11 +389,7 @@ function addEventListeners() {
  */
 function initializeDOJJJO(config = {}) {
     try {
-        // Initialize theme from localStorage or system preference
-        const savedTheme = localStorage.getItem('dojjjo-theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        }
+        // Theme management removed for conversion optimization
         
         // Initialize language from localStorage
         const savedLanguage = localStorage.getItem('preferred-language');
@@ -456,6 +432,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Make functions available globally for HTML onclick handlers
 window.switchLanguage = switchLanguage;
-window.toggleTheme = toggleTheme;
+// toggleTheme removed for conversion optimization
 window.revealEmailForm = revealEmailForm;
 window.handleEmailReveal = handleEmailReveal;

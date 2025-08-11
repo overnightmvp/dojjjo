@@ -43,12 +43,12 @@
 
 ### STAGE 4: CONVERSION (Service Sale)
 
-**Single Service Offer:** 48-Hour OMVP Complete - $5,000
-- Strategy call (15 questions)
-- AI documentation
-- Landing page + emails
-- Payment integration
-- 7-day support
+**Single Service Offer:** $5K OMVP Complete
+- 7-day systematic delivery using DOJJJO framework template
+- Complete brutal design system implementation
+- Advanced conversion psychology integration
+- A/B testing setup + 30-day support
+- CPO dashboard integration for project management
 
 **CTAs:**
 - Primary: Book Discovery Call (Cal.com)
@@ -58,10 +58,11 @@
 
 ### STAGE 5: DELIVERY & RETENTION
 
-**48-Hour Implementation:**
-- Day 1: Discovery call + documentation
-- Day 2: Design + development + launch
-- Days 3-7: Support + optimization
+**7-Day Systematic Implementation:**
+- Day 1: Discovery & analysis (4 hours)
+- Days 2-4: System transformation (12-16 hours)
+- Day 5: Validation & optimization (6-8 hours)
+- Days 6-7: Delivery & handoff (4-6 hours)
 
 **Follow-up:**
 - Testimonial request
@@ -100,10 +101,10 @@
 - Overall funnel conversion (target: 1%+)
 
 ### Revenue Targets
-- $5K average deal size
-- 4 clients/month minimum
-- $20K/month revenue target
-- 30% profit margins
+- $5K average deal size (single service focus)
+- 3 clients/month target
+- $15K/month revenue target
+- Focus on quality delivery over volume
 
 ---
 
@@ -119,11 +120,16 @@
 ### File Structure
 ```
 /
-├── index.html (PRIMARY LANDING)
-├── 48-hour-business-blueprint.md (LEAD MAGNET 1)
-├── studio/lead-magnet-diagnosis/ (LEAD MAGNET 2)
-├── email template/ (EMAIL SEQUENCES)
-└── assets/ (DESIGN SYSTEM)
+├── index.html (PRIMARY PERSONAL BRAND LANDING)
+├── omvp/index.html (SERVICE LANDING PAGE)
+├── cpo-dashboard.html (PROJECT MANAGEMENT)
+├── omvp/strategy/ (ALL STRATEGY DOCS - 25+ FILES)
+│   ├── OMVP-SERVICE-BLUEPRINT.md
+│   ├── OMVP-48-hour-business-blueprint.md (LEAD MAGNET)
+│   └── [other OMVP- prefixed core docs]
+├── omvp/lead-magnet/staging/diagnosis/ (SECONDARY LEAD MAGNET)
+├── omvp/email template/ (EMAIL SEQUENCES)
+└── assets/css/brutal-design-system.css (DESIGN SYSTEM)
 ```
 
 ---

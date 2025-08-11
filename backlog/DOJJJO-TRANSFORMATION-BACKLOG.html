@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,14 +27,7 @@
             --deep-shadow: 8px 8px 0px var(--brutal-black);
         }
 
-        [data-theme="dark"] {
-            --bg-primary: #0f0f0f;
-            --bg-secondary: #1f1f1f;
-            --text-primary: #ffffff;
-            --text-secondary: #b0b0b0;
-            --brutal-shadow: 4px 4px 0px #ffffff;
-            --deep-shadow: 8px 8px 0px #ffffff;
-        }
+        /* Dark theme removed for conversion optimization */
 
         * {
             margin: 0;
@@ -528,7 +521,7 @@
     <div class="container">
         <!-- Controls -->
         <div class="controls">
-            <button class="control-button active" onclick="toggleTheme()">🌓 Theme</button>
+            <!-- Theme toggle removed for conversion optimization -->
             <button class="control-button" onclick="expandAll()">📂 Expand All</button>
             <button class="control-button" onclick="collapseAll()">📁 Collapse All</button>
             <button class="control-button" onclick="filterByPriority('critical')">🔥 Critical</button>
@@ -1497,13 +1490,7 @@ create a service-blueprint for the delivery of the OMVP offer.</div>
     </div>
 
     <script>
-        // Theme Toggle
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('preferred-theme', newTheme);
-        }
+        /* Theme toggle function removed for conversion optimization */
 
         // Stage Toggle (updated from Sprint)
         function toggleSprint(stageId) {
@@ -1544,9 +1531,7 @@ create a service-blueprint for the delivery of the OMVP offer.</div>
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            // Load saved theme
-            const savedTheme = localStorage.getItem('preferred-theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
+            // Theme loading removed for conversion optimization
             
             // Update progress numbers based on completion status
             updateProgress();

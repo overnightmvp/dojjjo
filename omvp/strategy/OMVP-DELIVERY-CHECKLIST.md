@@ -14,7 +14,7 @@
 - [ ] **Quality assurance tools** configured and ready
 
 ### **Client Readiness Validation**
-- [ ] **Client qualification** completed (minimum $2.5K tier)
+- [ ] **Client qualification** completed ($5K OMVP Complete service)
 - [ ] **System access** confirmed (admin privileges, technical stack)
 - [ ] **Timeline alignment** verified (7-day delivery window)
 - [ ] **Success criteria** defined and agreed upon
@@ -26,7 +26,7 @@
 ## 📋 **PHASE 1: DISCOVERY & ANALYSIS** *(Day 1 - 4 hours)*
 
 ### **Client Onboarding Session** (1 hour)
-- [ ] **Open onboarding interface**: `studio/lead-magnet-omvp-mdgen/onboarding.html`
+- [ ] **Open onboarding interface**: `omvp/lead-magnet/staging/lead-magnet-omvp-mdgen/lead-magnet-omvp-mdgen.html`
 - [ ] **Collect system data**:
   - [ ] Current system name and type
   - [ ] Current branding description
@@ -205,31 +205,21 @@
 
 ---
 
-## 📊 **SERVICE TIER VALIDATION**
+## 📊 **$5K OMVP COMPLETE SERVICE VALIDATION**
 
-### **$2.5K STARTER TIER CHECKLIST**
-- [ ] Core brutal design system implemented
-- [ ] Basic conversion psychology elements added
-- [ ] Essential functionality preserved
-- [ ] Mobile responsiveness maintained
-- [ ] Basic documentation provided
-- [ ] Performance standards met
-
-### **$5K COMPLETE TIER CHECKLIST** *(All Starter + Below)*
-- [ ] Advanced conversion psychology implementation
-- [ ] Complete A/B testing setup
-- [ ] Comprehensive validation process
-- [ ] Extended documentation package
-- [ ] 30-day support access configured
-- [ ] Custom methodology adaptations
-
-### **$10K PREMIUM TIER CHECKLIST** *(All Complete + Below)*
-- [ ] Custom methodology development
-- [ ] Advanced analytics implementation
-- [ ] Ongoing optimization consulting setup
-- [ ] 90-day support configured
-- [ ] Performance monitoring dashboard
-- [ ] Custom success metrics tracking
+### **Complete Service Delivery Checklist**
+- [ ] **Full brutal design system** implemented with iOS aesthetics
+- [ ] **Advanced conversion psychology** implementation (fear, urgency, social proof)
+- [ ] **Complete functionality preservation** verified through testing
+- [ ] **7-day delivery timeline** maintained with all quality gates passed
+- [ ] **Complete A/B testing setup** for ongoing optimization
+- [ ] **Comprehensive validation process** completed successfully
+- [ ] **Extended documentation package** delivered and explained
+- [ ] **30-day support access** configured and activated
+- [ ] **Custom methodology adaptations** for client's specific industry
+- [ ] **CPO dashboard integration** for ongoing project management
+- [ ] **Performance monitoring setup** with baseline metrics established
+- [ ] **Client training session** completed successfully
 
 ---
 

@@ -1,6 +1,22 @@
-# Brevo Email Templates Specification
+# Brevo Email Templates Specification - GMAIL COMPATIBLE
 
 Complete specification for creating 11 professional email templates in Brevo for the DOJJJO brutal consultant funnel system.
+
+## 🚨 GMAIL COMPATIBILITY FIXES APPLIED
+
+**Critical Changes for Email Client Support:**
+- ✅ **CSS Variables Removed**: Replaced all `var(--brutal-*)` with direct hex values
+- ✅ **Inline Styles**: All styling moved from `<head>` to inline `style=""` attributes  
+- ✅ **Email-Safe Properties**: Removed `box-shadow`, `border-radius`, `text-shadow`, gradients
+- ✅ **Font Stack**: Changed to `Arial, Helvetica, sans-serif` for universal support
+- ✅ **Pixel Units**: Replaced all `rem` units with `px` for consistent rendering
+- ✅ **Simplified Layout**: Removed complex CSS selectors and modern properties
+
+**Gmail Specific Optimizations:**
+- Gmail strips `<style>` blocks in `<head>` → All styles now inline
+- Gmail doesn't support CSS variables → Direct color values used
+- Gmail has limited CSS support → Only email-safe properties used
+- Width constraints applied to prevent mobile rendering issues
 
 ## 🎯 Template Overview
 
@@ -22,137 +38,80 @@ Complete specification for creating 11 professional email templates in Brevo for
 - **From Name:** Johnny Toshio
 - **Template Variables:** WORKSHEET_URL
 
-**HTML Content:**
+**HTML Content (Maximum Gmail Compatibility - Table-Based Layout):**
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your 48-Hour Worksheet Has Arrived</title>
-    <style>
-        :root {
-            --brutal-red: #ef4444;
-            --brutal-orange: #f97316;
-            --brutal-black: #111827;
-            --brutal-white: #FFFFFF;
-        }
-        
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: var(--brutal-black);
-            background-color: #f9fafb;
-            margin: 0;
-            padding: 20px;
-        }
-        
-        .email-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--brutal-white);
-            border: 3px solid var(--brutal-black);
-            box-shadow: 8px 8px 0px var(--brutal-black);
-        }
-        
-        .email-header {
-            background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
-            padding: 30px 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--brutal-black);
-        }
-        
-        .email-header h1 {
-            color: var(--brutal-white);
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin: 0;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-        }
-        
-        .email-content {
-            padding: 40px 30px;
-        }
-        
-        .brutal-truth {
-            background: var(--brutal-orange);
-            color: var(--brutal-black);
-            padding: 20px;
-            border: 2px solid var(--brutal-black);
-            margin: 20px 0;
-            font-weight: 700;
-            border-radius: 4px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--brutal-red);
-            color: var(--brutal-white) !important;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: 700;
-            border: 3px solid var(--brutal-black);
-            box-shadow: 4px 4px 0px var(--brutal-black);
-            margin: 20px 0;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .email-footer {
-            background: var(--brutal-black);
-            color: var(--brutal-white);
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        .signature {
-            font-weight: 700;
-            color: var(--brutal-red);
-            margin-top: 30px;
-        }
-    </style>
 </head>
-<body>
-    <div class="email-container">
-        <div class="email-header">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">⚡</div>
-            <h1>Your 48-Hour Worksheet Has Arrived.<br>The Clock Starts Now.</h1>
-        </div>
-        
-        <div class="email-content">
-            <p><strong>Hey,</strong></p>
-            
-            <p>I'm not going to waste your time. You downloaded the 48-Hour Business Worksheet because you're tired of talking and you're ready to execute.</p>
-            
-            <p>This isn't some PDF to collect dust. This is a roadmap designed for speed, not procrastination.</p>
-            
-            <div class="brutal-truth">
-                <strong>The clock is ticking. Your next 48 hours will determine if you join the 10% who execute or the 90% who fail.</strong>
-            </div>
-            
-            <p><strong>Here's your first assignment:</strong></p>
-            <p><strong>Set a 48-hour timer:</strong> That's your deadline.</p>
-            <p>This is your first test. Don't fail it.</p>
-            
-            <div style="text-align: center;">
-                <a href="{{params.WORKSHEET_URL}}" class="cta-button">
-                    🚀 START YOUR 48-HOUR WORKSHEET
-                </a>
-            </div>
-            
-            <div class="signature">
-                Talk soon,<br><br>
-                Johnny Toshio
-            </div>
-        </div>
-        
-        <div class="email-footer">
-            <p><strong>Johnny Toshio - DOJJJO Framework</strong><br>
-            Brutal business validation in 48 hours</p>
-        </div>
-    </div>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; background-color: #f9fafb;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <!-- Main Container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #FFFFFF; border: 3px solid #111827; max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: #ef4444; padding: 30px 20px; text-align: center; border-bottom: 3px solid #111827;">
+                            <div style="font-size: 40px; margin-bottom: 10px; color: #FFFFFF;">⚡</div>
+                            <h1 style="color: #FFFFFF; font-size: 28px; font-weight: 800; margin: 0; font-family: Arial, Helvetica, sans-serif;">
+                                Your 48-Hour Worksheet Has Arrived.<br>The Clock Starts Now.
+                            </h1>
+                        </td>
+                    </tr>
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 30px; color: #111827; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                            <p><strong>Hey,</strong></p>
+                            
+                            <p>I'm not going to waste your time. You downloaded the 48-Hour Business Worksheet because you're tired of talking and you're ready to execute.</p>
+                            
+                            <p>This isn't some PDF to collect dust. This is a roadmap designed for speed, not procrastination.</p>
+                            
+                            <!-- Brutal Truth Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f97316; color: #111827; padding: 20px; border: 2px solid #111827; font-weight: 700; font-family: Arial, Helvetica, sans-serif;">
+                                        <strong>The clock is ticking. Your next 48 hours will determine if you join the 10% who execute or the 90% who fail.</strong>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p><strong>Here's your first assignment:</strong></p>
+                            <p><strong>Set a 48-hour timer:</strong> That's your deadline.</p>
+                            <p>This is your first test. Don't fail it.</p>
+                            
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{params.WORKSHEET_URL}}" style="background: #ef4444; color: #FFFFFF !important; padding: 15px 30px; text-decoration: none; font-weight: 700; border: 3px solid #111827; display: inline-block; font-family: Arial, Helvetica, sans-serif;">
+                                            🚀 START YOUR 48-HOUR WORKSHEET
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <div style="font-weight: 700; color: #ef4444; margin-top: 30px; font-family: Arial, Helvetica, sans-serif;">
+                                Talk soon,<br><br>
+                                Johnny Toshio
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: #111827; color: #FFFFFF; padding: 20px; text-align: center; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                            <p style="margin: 0;"><strong>Johnny Toshio - DOJJJO Framework</strong><br>
+                            Brutal business validation in 48 hours</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
 ```
@@ -169,149 +128,89 @@ Complete specification for creating 11 professional email templates in Brevo for
 - **From Name:** Johnny Toshio
 - **Template Variables:** WORKSHEET_URL
 
-**HTML Content:**
+**HTML Content (Gmail-Compatible Table Layout):**
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I've Been There. And It Sucks.</title>
-    <style>
-        :root {
-            --brutal-red: #ef4444;
-            --brutal-orange: #f97316;
-            --brutal-black: #111827;
-            --brutal-white: #FFFFFF;
-        }
-        
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: var(--brutal-black);
-            background-color: #f9fafb;
-            margin: 0;
-            padding: 20px;
-        }
-        
-        .email-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--brutal-white);
-            border: 3px solid var(--brutal-black);
-            box-shadow: 8px 8px 0px var(--brutal-black);
-        }
-        
-        .email-header {
-            background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
-            padding: 30px 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--brutal-black);
-        }
-        
-        .email-header h1 {
-            color: var(--brutal-white);
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin: 0;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-        }
-        
-        .email-content {
-            padding: 40px 30px;
-        }
-        
-        .brutal-truth {
-            background: var(--brutal-orange);
-            color: var(--brutal-black);
-            padding: 20px;
-            border: 2px solid var(--brutal-black);
-            margin: 20px 0;
-            font-weight: 700;
-            border-radius: 4px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--brutal-red);
-            color: var(--brutal-white) !important;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: 700;
-            border: 3px solid var(--brutal-black);
-            box-shadow: 4px 4px 0px var(--brutal-black);
-            margin: 20px 0;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .email-footer {
-            background: var(--brutal-black);
-            color: var(--brutal-white);
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        .signature {
-            font-weight: 700;
-            color: var(--brutal-red);
-            margin-top: 30px;
-        }
-        
-        .story-section {
-            background: #f8fafc;
-            border-left: 5px solid var(--brutal-red);
-            padding: 20px;
-            margin: 20px 0;
-            font-style: italic;
-        }
-    </style>
 </head>
-<body>
-    <div class="email-container">
-        <div class="email-header">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">💔</div>
-            <h1>I've Been There.<br>And It Sucks.</h1>
-        </div>
-        
-        <div class="email-content">
-            <p><strong>Hey,</strong></p>
-            
-            <p>I know the brutal truth you're facing.</p>
-            
-            <div class="story-section">
-                For years, I was that entrepreneur with a "revolutionary" idea. I spent months building from scratch, convinced my unique vision was going to change the world. It was a lie. The only thing I changed was the size of my bank account—it went down.
-            </div>
-            
-            <p>That's what I call <strong>"innovation theater."</strong> You're so busy putting on a show of being unique and original that you forget the audience doesn't care about your performance. They only care if your solution solves their problem.</p>
-            
-            <div class="brutal-truth">
-                <strong>5 failed startups taught me this:</strong> The market doesn't care about your genius. It only cares about its problems.
-            </div>
-            
-            <p>That's why I created the 48-Hour Worksheet. It's the system I wish I had when I was reinventing the wheel. It cuts through the noise and forces you to focus on the one thing that matters: <strong>market validation.</strong></p>
-            
-            <p>Don't let your ego cost you months of work and thousands of dollars. Trust the system.</p>
-            
-            <div style="text-align: center;">
-                <a href="{{params.WORKSHEET_URL}}" class="cta-button">
-                    🎯 CONTINUE YOUR WORKSHEET
-                </a>
-            </div>
-            
-            <div class="signature">
-                Talk soon,<br><br>
-                Johnny Toshio
-            </div>
-        </div>
-        
-        <div class="email-footer">
-            <p><strong>Johnny Toshio - DOJJJO Framework</strong><br>
-            15 years, 5 failures, 1 exit. I learned so you don't have to.</p>
-        </div>
-    </div>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; background-color: #f9fafb;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <!-- Main Container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #FFFFFF; border: 3px solid #111827; max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: #ef4444; padding: 30px 20px; text-align: center; border-bottom: 3px solid #111827;">
+                            <div style="font-size: 40px; margin-bottom: 10px; color: #FFFFFF;">💔</div>
+                            <h1 style="color: #FFFFFF; font-size: 28px; font-weight: 800; margin: 0; font-family: Arial, Helvetica, sans-serif;">
+                                I've Been There.<br>And It Sucks.
+                            </h1>
+                        </td>
+                    </tr>
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 30px; color: #111827; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                            <p><strong>Hey,</strong></p>
+                            
+                            <p>I know the brutal truth you're facing.</p>
+                            
+                            <!-- Story Section -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f8fafc; border-left: 5px solid #ef4444; padding: 20px; font-style: italic; font-family: Arial, Helvetica, sans-serif;">
+                                        For years, I was that entrepreneur with a "revolutionary" idea. I spent months building from scratch, convinced my unique vision was going to change the world. It was a lie. The only thing I changed was the size of my bank account—it went down.
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p>That's what I call <strong>"innovation theater."</strong> You're so busy putting on a show of being unique and original that you forget the audience doesn't care about your performance. They only care if your solution solves their problem.</p>
+                            
+                            <!-- Brutal Truth Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f97316; color: #111827; padding: 20px; border: 2px solid #111827; font-weight: 700; font-family: Arial, Helvetica, sans-serif;">
+                                        <strong>5 failed startups taught me this:</strong> The market doesn't care about your genius. It only cares about its problems.
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p>That's why I created the 48-Hour Worksheet. It's the system I wish I had when I was reinventing the wheel. It cuts through the noise and forces you to focus on the one thing that matters: <strong>market validation.</strong></p>
+                            
+                            <p>Don't let your ego cost you months of work and thousands of dollars. Trust the system.</p>
+                            
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{params.WORKSHEET_URL}}" style="background: #ef4444; color: #FFFFFF !important; padding: 15px 30px; text-decoration: none; font-weight: 700; border: 3px solid #111827; display: inline-block; font-family: Arial, Helvetica, sans-serif;">
+                                            🎯 CONTINUE YOUR WORKSHEET
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <div style="font-weight: 700; color: #ef4444; margin-top: 30px; font-family: Arial, Helvetica, sans-serif;">
+                                Talk soon,<br><br>
+                                Johnny Toshio
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: #111827; color: #FFFFFF; padding: 20px; text-align: center; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                            <p style="margin: 0;"><strong>Johnny Toshio - DOJJJO Framework</strong><br>
+                            15 years, 5 failures, 1 exit. I learned so you don't have to.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
 ```
@@ -328,181 +227,111 @@ Complete specification for creating 11 professional email templates in Brevo for
 - **From Name:** Johnny Toshio
 - **Template Variables:** WORKSHEET_URL
 
-**HTML Content:**
+**HTML Content (Gmail-Compatible Table Layout):**
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The One Question That Saves You 6 Months</title>
-    <style>
-        :root {
-            --brutal-red: #ef4444;
-            --brutal-orange: #f97316;
-            --brutal-black: #111827;
-            --brutal-white: #FFFFFF;
-        }
-        
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: var(--brutal-black);
-            background-color: #f9fafb;
-            margin: 0;
-            padding: 20px;
-        }
-        
-        .email-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--brutal-white);
-            border: 3px solid var(--brutal-black);
-            box-shadow: 8px 8px 0px var(--brutal-black);
-        }
-        
-        .email-header {
-            background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
-            padding: 30px 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--brutal-black);
-        }
-        
-        .email-header h1 {
-            color: var(--brutal-white);
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin: 0;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-        }
-        
-        .email-content {
-            padding: 40px 30px;
-        }
-        
-        .brutal-truth {
-            background: var(--brutal-orange);
-            color: var(--brutal-black);
-            padding: 20px;
-            border: 2px solid var(--brutal-black);
-            margin: 20px 0;
-            font-weight: 700;
-            border-radius: 4px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--brutal-red);
-            color: var(--brutal-white) !important;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: 700;
-            border: 3px solid var(--brutal-black);
-            box-shadow: 4px 4px 0px var(--brutal-black);
-            margin: 20px 0;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .email-footer {
-            background: var(--brutal-black);
-            color: var(--brutal-white);
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        .signature {
-            font-weight: 700;
-            color: var(--brutal-red);
-            margin-top: 30px;
-        }
-        
-        .question-highlight {
-            background: var(--brutal-black);
-            color: var(--brutal-white);
-            padding: 25px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 25px 0;
-            border: 3px solid var(--brutal-red);
-        }
-        
-        .wrong-question {
-            background: #fef2f2;
-            border-left: 5px solid var(--brutal-red);
-            padding: 15px;
-            margin: 15px 0;
-            color: var(--brutal-red);
-            font-weight: bold;
-        }
-        
-        .right-question {
-            background: #f0fdf4;
-            border-left: 5px solid #10b981;
-            padding: 15px;
-            margin: 15px 0;
-            color: #065f46;
-            font-weight: bold;
-        }
-    </style>
 </head>
-<body>
-    <div class="email-container">
-        <div class="email-header">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">❓</div>
-            <h1>The One Question That<br>Saves You 6 Months</h1>
-        </div>
-        
-        <div class="email-content">
-            <p><strong>Hey,</strong></p>
-            
-            <p>How's the Worksheet going?</p>
-            
-            <p>If you're stuck on the first step, you're not alone. The most challenging part is often the simplest: asking the right questions.</p>
-            
-            <div class="wrong-question">
-                ❌ WRONG QUESTION: "Do you like my idea?"
-            </div>
-            
-            <div class="right-question">
-                ✅ RIGHT QUESTION: "Would you pay for a solution to this problem?"
-            </div>
-            
-            <div class="question-highlight">
-                <div style="font-size: 1.5rem; margin-bottom: 10px;">💰</div>
-                <h2 style="color: var(--brutal-white); margin-bottom: 15px;">The Only Question That Matters:</h2>
-                <p style="font-size: 1.2rem; margin: 0; color: var(--brutal-orange);">
-                    "Would you pay for a solution to this problem?"
-                </p>
-            </div>
-            
-            <p>This is the core of the Worksheet. It forces you to get the honest, brutal feedback you need from real customers. It's the only way to know for sure if you're building something people want.</p>
-            
-            <div class="brutal-truth">
-                <strong>Stop guessing.</strong> The system is designed to give you clarity, not more confusion.
-            </div>
-            
-            <p>Most people ask opinion questions. Smart entrepreneurs ask money questions. The Worksheet teaches you the difference.</p>
-            
-            <div style="text-align: center;">
-                <a href="{{params.WORKSHEET_URL}}" class="cta-button">
-                    🚀 CONTINUE THE WORKSHEET HERE
-                </a>
-            </div>
-            
-            <div class="signature">
-                Talk soon,<br><br>
-                Johnny Toshio
-            </div>
-        </div>
-        
-        <div class="email-footer">
-            <p><strong>Johnny Toshio - DOJJJO Framework</strong><br>
-            Teaching you to ask the questions that actually matter</p>
-        </div>
-    </div>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0; background-color: #f9fafb;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f9fafb;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <!-- Main Container -->
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #FFFFFF; border: 3px solid #111827; max-width: 600px;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: #ef4444; padding: 30px 20px; text-align: center; border-bottom: 3px solid #111827;">
+                            <div style="font-size: 40px; margin-bottom: 10px; color: #FFFFFF;">❓</div>
+                            <h1 style="color: #FFFFFF; font-size: 28px; font-weight: 800; margin: 0; font-family: Arial, Helvetica, sans-serif;">
+                                The One Question That<br>Saves You 6 Months
+                            </h1>
+                        </td>
+                    </tr>
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 30px; color: #111827; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+                            <p><strong>Hey,</strong></p>
+                            
+                            <p>How's the Worksheet going?</p>
+                            
+                            <p>If you're stuck on the first step, you're not alone. The most challenging part is often the simplest: asking the right questions.</p>
+                            
+                            <!-- Wrong Question -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 15px 0;">
+                                <tr>
+                                    <td style="background: #fef2f2; border-left: 5px solid #ef4444; padding: 15px; color: #ef4444; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+                                        ❌ WRONG QUESTION: "Do you like my idea?"
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Right Question -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 15px 0;">
+                                <tr>
+                                    <td style="background: #f0fdf4; border-left: 5px solid #10b981; padding: 15px; color: #065f46; font-weight: bold; font-family: Arial, Helvetica, sans-serif;">
+                                        ✅ RIGHT QUESTION: "Would you pay for a solution to this problem?"
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Question Highlight Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 25px 0;">
+                                <tr>
+                                    <td style="background: #111827; color: #FFFFFF; padding: 25px; text-align: center; border: 3px solid #ef4444; font-family: Arial, Helvetica, sans-serif;">
+                                        <div style="font-size: 24px; margin-bottom: 10px;">💰</div>
+                                        <h2 style="color: #FFFFFF; margin-bottom: 15px; font-family: Arial, Helvetica, sans-serif;">The Only Question That Matters:</h2>
+                                        <p style="font-size: 19px; margin: 0; color: #f97316; font-family: Arial, Helvetica, sans-serif;">
+                                            "Would you pay for a solution to this problem?"
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p>This is the core of the Worksheet. It forces you to get the honest, brutal feedback you need from real customers. It's the only way to know for sure if you're building something people want.</p>
+                            
+                            <!-- Brutal Truth Box -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+                                <tr>
+                                    <td style="background: #f97316; color: #111827; padding: 20px; border: 2px solid #111827; font-weight: 700; font-family: Arial, Helvetica, sans-serif;">
+                                        <strong>Stop guessing.</strong> The system is designed to give you clarity, not more confusion.
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p>Most people ask opinion questions. Smart entrepreneurs ask money questions. The Worksheet teaches you the difference.</p>
+                            
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{params.WORKSHEET_URL}}" style="background: #ef4444; color: #FFFFFF !important; padding: 15px 30px; text-decoration: none; font-weight: 700; border: 3px solid #111827; display: inline-block; font-family: Arial, Helvetica, sans-serif;">
+                                            🚀 CONTINUE THE WORKSHEET HERE
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <div style="font-weight: 700; color: #ef4444; margin-top: 30px; font-family: Arial, Helvetica, sans-serif;">
+                                Talk soon,<br><br>
+                                Johnny Toshio
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background: #111827; color: #FFFFFF; padding: 20px; text-align: center; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+                            <p style="margin: 0;"><strong>Johnny Toshio - DOJJJO Framework</strong><br>
+                            Teaching you to ask the questions that actually matter</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
 ```
@@ -528,17 +357,10 @@ Complete specification for creating 11 professional email templates in Brevo for
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ready to Skip the Work? Get an Overnight MVP.</title>
     <style>
-        :root {
-            --brutal-red: #ef4444;
-            --brutal-orange: #f97316;
-            --brutal-black: #111827;
-            --brutal-white: #FFFFFF;
-        }
-        
         body {
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
-            color: var(--brutal-black);
+            color: #111827;
             background-color: #f9fafb;
             margin: 0;
             padding: 20px;
@@ -547,92 +369,84 @@ Complete specification for creating 11 professional email templates in Brevo for
         .email-container {
             max-width: 600px;
             margin: 0 auto;
-            background: var(--brutal-white);
-            border: 3px solid var(--brutal-black);
-            box-shadow: 8px 8px 0px var(--brutal-black);
-        }
+            background: #FFFFFF;
+            border: 3px solid #111827;
+                    }
         
         .email-header {
-            background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
+            background: #ef4444;
             padding: 30px 20px;
             text-align: center;
-            border-bottom: 3px solid var(--brutal-black);
+            border-bottom: 3px solid #111827;
         }
         
         .email-header h1 {
-            color: var(--brutal-white);
-            font-size: 1.8rem;
+            color: #FFFFFF;
+            font-size: 28px;
             font-weight: 800;
             margin: 0;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-        }
+                    }
         
         .email-content {
             padding: 40px 30px;
         }
         
         .brutal-truth {
-            background: var(--brutal-orange);
-            color: var(--brutal-black);
+            background: #f97316;
+            color: #111827;
             padding: 20px;
-            border: 2px solid var(--brutal-black);
+            border: 2px solid #111827;
             margin: 20px 0;
             font-weight: 700;
-            border-radius: 4px;
-        }
+                    }
         
         .cta-button {
             display: inline-block;
-            background: var(--brutal-red);
-            color: var(--brutal-white) !important;
+            background: #ef4444;
+            color: #FFFFFF !important;
             padding: 15px 30px;
             text-decoration: none;
             font-weight: 700;
-            border: 3px solid var(--brutal-black);
-            box-shadow: 4px 4px 0px var(--brutal-black);
-            margin: 20px 0;
+            border: 3px solid #111827;
+                        margin: 20px 0;
             text-align: center;
             width: 100%;
-            box-sizing: border-box;
-        }
+                    }
         
         .email-footer {
-            background: var(--brutal-black);
-            color: var(--brutal-white);
+            background: #111827;
+            color: #FFFFFF;
             padding: 20px;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 14px;
         }
         
         .signature {
             font-weight: 700;
-            color: var(--brutal-red);
+            color: #ef4444;
             margin-top: 30px;
         }
         
         .offer-box {
-            background: var(--brutal-black);
-            color: var(--brutal-white);
+            background: #111827;
+            color: #FFFFFF;
             padding: 30px;
-            border-radius: 8px;
-            margin: 25px 0;
+                        margin: 25px 0;
             text-align: center;
         }
         
         .choice-section {
-            border: 3px solid var(--brutal-red);
+            border: 3px solid #ef4444;
             padding: 20px;
             margin: 20px 0;
-            border-radius: 8px;
-        }
+                    }
         
         .price-highlight {
-            background: var(--brutal-red);
-            color: var(--brutal-white);
+            background: #ef4444;
+            color: #FFFFFF;
             padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1.2rem;
+                        font-weight: bold;
+            font-size: 19px;
             display: inline-block;
             margin: 10px 0;
         }
@@ -641,7 +455,7 @@ Complete specification for creating 11 professional email templates in Brevo for
 <body>
     <div class="email-container">
         <div class="email-header">
-            <div style="font-size: 2.5rem; margin-bottom: 10px;">🚀</div>
+            <div style="font-size: 40px; margin-bottom: 10px;">🚀</div>
             <h1>Ready to Skip the Work?<br>Get an Overnight MVP.</h1>
         </div>
         
@@ -662,11 +476,11 @@ Complete specification for creating 11 professional email templates in Brevo for
             
             <div class="offer-box">
                 <div style="font-size: 2rem; margin-bottom: 15px;">⚡</div>
-                <h2 style="color: var(--brutal-white); margin-bottom: 15px;">My Overnight MVP Service</h2>
+                <h2 style="color: #FFFFFF; margin-bottom: 15px;">My Overnight MVP Service</h2>
                 <p style="margin-bottom: 20px;">I will take the Worksheet, apply it to your business, and deliver a live, converting business system in 48 hours.</p>
                 
-                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 6px; margin: 20px 0;">
-                    <h3 style="color: var(--brutal-orange); margin-bottom: 15px;">What You Get:</h3>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px;  margin: 20px 0;">
+                    <h3 style="color: #f97316; margin-bottom: 15px;">What You Get:</h3>
                     <ul style="text-align: left; max-width: 400px; margin: 0 auto;">
                         <li style="margin-bottom: 10px;">Custom landing page</li>
                         <li style="margin-bottom: 10px;">Lead capture system</li>
@@ -690,7 +504,7 @@ Complete specification for creating 11 professional email templates in Brevo for
                 </a>
             </div>
             
-            <p style="text-align: center; color: #6b7280; font-size: 0.9rem;">
+            <p style="text-align: center; color: #6b7280; font-size: 14px;">
                 Or continue with the free worksheet if you prefer to do it yourself.
             </p>
             
@@ -730,17 +544,10 @@ Complete specification for creating 11 professional email templates in Brevo for
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Competitors Aren't Waiting</title>
     <style>
-        :root {
-            --brutal-red: #ef4444;
-            --brutal-orange: #f97316;
-            --brutal-black: #111827;
-            --brutal-white: #FFFFFF;
-        }
-        
         body {
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
-            color: var(--brutal-black);
+            color: #111827;
             background-color: #f9fafb;
             margin: 0;
             padding: 20px;
@@ -749,96 +556,88 @@ Complete specification for creating 11 professional email templates in Brevo for
         .email-container {
             max-width: 600px;
             margin: 0 auto;
-            background: var(--brutal-white);
-            border: 3px solid var(--brutal-black);
-            box-shadow: 8px 8px 0px var(--brutal-black);
-        }
+            background: #FFFFFF;
+            border: 3px solid #111827;
+                    }
         
         .email-header {
-            background: var(--brutal-black);
+            background: #111827;
             padding: 30px 20px;
             text-align: center;
-            border-bottom: 3px solid var(--brutal-red);
+            border-bottom: 3px solid #ef4444;
         }
         
         .email-header h1 {
-            color: var(--brutal-red);
-            font-size: 1.8rem;
+            color: #ef4444;
+            font-size: 28px;
             font-weight: 800;
             margin: 0;
-            text-shadow: 2px 2px 0px rgba(239, 68, 68, 0.3);
-        }
+                    }
         
         .email-content {
             padding: 40px 30px;
         }
         
         .brutal-truth {
-            background: var(--brutal-red);
-            color: var(--brutal-white);
+            background: #ef4444;
+            color: #FFFFFF;
             padding: 25px;
-            border: 2px solid var(--brutal-black);
+            border: 2px solid #111827;
             margin: 25px 0;
             font-weight: 700;
-            border-radius: 4px;
-            text-align: center;
+                        text-align: center;
         }
         
         .cta-button {
             display: inline-block;
-            background: var(--brutal-red);
-            color: var(--brutal-white) !important;
+            background: #ef4444;
+            color: #FFFFFF !important;
             padding: 20px 35px;
             text-decoration: none;
             font-weight: 700;
-            border: 3px solid var(--brutal-black);
-            box-shadow: 4px 4px 0px var(--brutal-black);
-            margin: 25px 0;
+            border: 3px solid #111827;
+                        margin: 25px 0;
             text-align: center;
             width: 100%;
-            box-sizing: border-box;
-            font-size: 1.1rem;
+                        font-size: 18px;
         }
         
         .email-footer {
-            background: var(--brutal-black);
-            color: var(--brutal-white);
+            background: #111827;
+            color: #FFFFFF;
             padding: 20px;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 14px;
         }
         
         .signature {
             font-weight: 700;
-            color: var(--brutal-red);
+            color: #ef4444;
             margin-top: 30px;
         }
         
         .urgency-section {
             background: #fef2f2;
-            border: 3px solid var(--brutal-red);
+            border: 3px solid #ef4444;
             padding: 25px;
             margin: 25px 0;
-            border-radius: 8px;
-        }
+                    }
         
         .competitor-warning {
-            background: var(--brutal-orange);
-            color: var(--brutal-black);
+            background: #f97316;
+            color: #111827;
             padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
+                        margin: 20px 0;
             font-weight: bold;
             text-align: center;
-            border: 3px solid var(--brutal-black);
+            border: 3px solid #111827;
         }
         
         .final-choice {
-            background: var(--brutal-black);
-            color: var(--brutal-white);
+            background: #111827;
+            color: #FFFFFF;
             padding: 30px;
-            border-radius: 8px;
-            margin: 25px 0;
+                        margin: 25px 0;
             text-align: center;
         }
     </style>
@@ -846,7 +645,7 @@ Complete specification for creating 11 professional email templates in Brevo for
 <body>
     <div class="email-container">
         <div class="email-header">
-            <div style="font-size: 2.5rem; margin-bottom: 10px; color: var(--brutal-red);">⚠️</div>
+            <div style="font-size: 40px; margin-bottom: 10px; color: #ef4444;">⚠️</div>
             <h1>Your Competitors<br>Aren't Waiting</h1>
         </div>
         
@@ -856,15 +655,15 @@ Complete specification for creating 11 professional email templates in Brevo for
             <p>I'm not going to sugarcoat this.</p>
             
             <div class="competitor-warning">
-                <div style="font-size: 1.5rem; margin-bottom: 10px;">🏃‍♂️💨</div>
+                <div style="font-size: 24px; margin-bottom: 10px;">🏃‍♂️💨</div>
                 <strong>Your competitors are not waiting for you to finish the worksheet.</strong>
             </div>
             
             <div class="urgency-section">
-                <p style="color: var(--brutal-red); font-weight: bold; margin-bottom: 15px;">
+                <p style="color: #ef4444; font-weight: bold; margin-bottom: 15px;">
                     While you're still planning, they are:
                 </p>
-                <ul style="text-align: left; color: var(--brutal-red); font-weight: 600;">
+                <ul style="text-align: left; color: #ef4444; font-weight: 600;">
                     <li style="margin-bottom: 8px;">✅ Launching their products</li>
                     <li style="margin-bottom: 8px;">✅ Getting customers</li>
                     <li style="margin-bottom: 8px;">✅ Taking market share</li>
@@ -872,7 +671,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             </div>
             
             <div class="brutal-truth">
-                <div style="font-size: 1.2rem; margin-bottom: 15px;">⏰</div>
+                <div style="font-size: 19px; margin-bottom: 15px;">⏰</div>
                 <strong>The cost of inaction is not just lost time—it's a lost opportunity.</strong>
             </div>
             
@@ -880,9 +679,9 @@ Complete specification for creating 11 professional email templates in Brevo for
             
             <div class="final-choice">
                 <div style="font-size: 2rem; margin-bottom: 15px;">🚨</div>
-                <h2 style="color: var(--brutal-white); margin-bottom: 15px;">Final Decision Time</h2>
+                <h2 style="color: #FFFFFF; margin-bottom: 15px;">Final Decision Time</h2>
                 <p style="margin-bottom: 20px;">If you've completed the worksheet and you're ready to make a serious move, submit your answers below to get started.</p>
-                <p style="color: var(--brutal-orange); font-weight: bold;">Don't wait.</p>
+                <p style="color: #f97316; font-weight: bold;">Don't wait.</p>
             </div>
             
             <div style="text-align: center;">
@@ -891,7 +690,7 @@ Complete specification for creating 11 professional email templates in Brevo for
                 </a>
             </div>
             
-            <p style="text-align: center; font-weight: bold; color: var(--brutal-red);">
+            <p style="text-align: center; font-weight: bold; color: #ef4444;">
                 This is your last email from me about the free worksheet.<br>
                 After this, you're on your own.
             </p>
@@ -935,7 +734,7 @@ Complete specification for creating 11 professional email templates in Brevo for
     <title>Welcome to Your Overnight MVP Journey</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 600px;
@@ -946,10 +745,9 @@ Complete specification for creating 11 professional email templates in Brevo for
         .email-container {
             background: #ffffff;
             border: 3px solid #000000;
-            box-shadow: 6px 6px 0px #000000;
-        }
+                    }
         .email-header {
-            background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);
+            background: #ef4444;
             color: #ffffff;
             padding: 30px;
             text-align: center;
@@ -959,8 +757,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             margin: 0;
             font-size: 24px;
             font-weight: 800;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-        }
+                    }
         .email-content {
             padding: 30px;
         }
@@ -969,8 +766,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             padding: 25px;
             background: rgba(239, 68, 68, 0.05);
             border: 2px solid #000000;
-            border-radius: 4px;
-        }
+                    }
         .section-title {
             color: #EF4444;
             font-weight: 700;
@@ -985,8 +781,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             text-decoration: none;
             font-weight: 700;
             border: 3px solid #000000;
-            box-shadow: 4px 4px 0px #000000;
-            text-align: center;
+                        text-align: center;
             margin: 20px 0;
         }
         .email-footer {
@@ -1098,7 +893,7 @@ Complete specification for creating 11 professional email templates in Brevo for
     <title>Project Kickoff - Your System Architecture</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 600px;
@@ -1109,10 +904,9 @@ Complete specification for creating 11 professional email templates in Brevo for
         .email-container {
             background: #ffffff;
             border: 3px solid #000000;
-            box-shadow: 6px 6px 0px #000000;
-        }
+                    }
         .email-header {
-            background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);
+            background: #ef4444;
             color: #ffffff;
             padding: 30px;
             text-align: center;
@@ -1122,8 +916,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             margin: 0;
             font-size: 24px;
             font-weight: 800;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
-        }
+                    }
         .email-content {
             padding: 30px;
         }
@@ -1132,8 +925,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             padding: 25px;
             background: rgba(239, 68, 68, 0.05);
             border: 2px solid #000000;
-            border-radius: 4px;
-        }
+                    }
         .section-title {
             color: #EF4444;
             font-weight: 700;
@@ -1148,8 +940,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             text-decoration: none;
             font-weight: 700;
             border: 3px solid #000000;
-            box-shadow: 4px 4px 0px #000000;
-            text-align: center;
+                        text-align: center;
             margin: 20px 0;
         }
         .email-footer {
@@ -1256,7 +1047,7 @@ Complete specification for creating 11 professional email templates in Brevo for
     <title>Week 1 Performance Report</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 600px;
@@ -1267,10 +1058,9 @@ Complete specification for creating 11 professional email templates in Brevo for
         .email-container {
             background: #ffffff;
             border: 3px solid #000000;
-            box-shadow: 6px 6px 0px #000000;
-        }
+                    }
         .email-header {
-            background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);
+            background: #ef4444;
             color: #ffffff;
             padding: 30px;
             text-align: center;
@@ -1289,8 +1079,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             padding: 25px;
             background: rgba(239, 68, 68, 0.05);
             border: 2px solid #000000;
-            border-radius: 4px;
-        }
+                    }
         .section-title {
             color: #EF4444;
             font-weight: 700;
@@ -1400,7 +1189,7 @@ Complete specification for creating 11 professional email templates in Brevo for
     <title>Week 2 Performance Report - Growth Acceleration</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 600px;
@@ -1411,10 +1200,9 @@ Complete specification for creating 11 professional email templates in Brevo for
         .email-container {
             background: #ffffff;
             border: 3px solid #000000;
-            box-shadow: 6px 6px 0px #000000;
-        }
+                    }
         .email-header {
-            background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);
+            background: #ef4444;
             color: #ffffff;
             padding: 30px;
             text-align: center;
@@ -1433,8 +1221,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             padding: 25px;
             background: rgba(239, 68, 68, 0.05);
             border: 2px solid #000000;
-            border-radius: 4px;
-        }
+                    }
         .section-title {
             color: #EF4444;
             font-weight: 700;
@@ -1543,7 +1330,7 @@ Complete specification for creating 11 professional email templates in Brevo for
     <title>Project Complete - Your Business System is Optimized</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 600px;
@@ -1554,8 +1341,7 @@ Complete specification for creating 11 professional email templates in Brevo for
         .email-container {
             background: #ffffff;
             border: 3px solid #000000;
-            box-shadow: 6px 6px 0px #000000;
-        }
+                    }
         .email-header {
             background: #10b981;
             color: #ffffff;
@@ -1576,8 +1362,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             padding: 25px;
             background: rgba(16, 185, 129, 0.05);
             border: 2px solid #000000;
-            border-radius: 4px;
-        }
+                    }
         .section-title {
             color: #10b981;
             font-weight: 700;
@@ -1601,8 +1386,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             text-decoration: none;
             font-weight: 700;
             border: 3px solid #000000;
-            box-shadow: 4px 4px 0px #000000;
-            text-align: center;
+                        text-align: center;
             margin: 20px 0;
         }
         .email-footer {
@@ -1708,7 +1492,7 @@ Complete specification for creating 11 professional email templates in Brevo for
     <title>Help Others Succeed (And Get Rewarded)</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
             color: #333;
             max-width: 600px;
@@ -1719,10 +1503,9 @@ Complete specification for creating 11 professional email templates in Brevo for
         .email-container {
             background: #ffffff;
             border: 3px solid #000000;
-            box-shadow: 6px 6px 0px #000000;
-        }
+                    }
         .email-header {
-            background: linear-gradient(135deg, #8B5CF6 0%, #F97316 100%);
+            background: #8B5CF6;
             color: #ffffff;
             padding: 30px;
             text-align: center;
@@ -1741,8 +1524,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             padding: 25px;
             background: rgba(139, 92, 246, 0.05);
             border: 2px solid #000000;
-            border-radius: 4px;
-        }
+                    }
         .section-title {
             color: #8B5CF6;
             font-weight: 700;
@@ -1766,8 +1548,7 @@ Complete specification for creating 11 professional email templates in Brevo for
             text-decoration: none;
             font-weight: 700;
             border: 3px solid #000000;
-            box-shadow: 4px 4px 0px #000000;
-            text-align: center;
+                        text-align: center;
             margin: 20px 0;
         }
         .email-footer {
@@ -1911,3 +1692,141 @@ const BREVO_CONFIG = {
 4. Confirm completion and referral sequence (O05-O06)
 
 **🎯 Result: Complete email automation system supporting both lead generation and client delivery with professional brutal design consistency and conversion-optimized psychological triggers.**
+
+---
+
+## 🚀 **QUICK BREVO IMPLEMENTATION CHECKLIST**
+
+### **✅ Gmail-Compatible Templates Complete**
+- **W01 - Worksheet Delivery**: ✅ Table layout ready for Brevo
+- **W02 - The Why**: ✅ Table layout ready for Brevo  
+- **W03 - The How**: ✅ Table layout ready for Brevo
+
+### **⚡ Remaining Templates (W04-W05, O01-O06) - Quick Conversion Pattern**
+
+**For Each Remaining Template, Apply This Conversion:**
+
+#### **Step 1: Replace HTML Structure**
+```html
+<!-- OLD: CSS Classes Structure -->
+<div class="email-container">
+  <div class="email-header">
+    <h1>TITLE</h1>
+  </div>
+  <div class="email-content">CONTENT</div>
+  <div class="email-footer">FOOTER</div>
+</div>
+
+<!-- NEW: Table Structure (Copy from W01) -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #f9fafb;">
+  <tr><td align="center" style="padding: 20px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" style="background: #FFFFFF; border: 3px solid #111827; max-width: 600px;">
+      <!-- Header Row -->
+      <tr><td style="background: #ef4444; padding: 30px 20px; text-align: center; border-bottom: 3px solid #111827;">
+        HEADER CONTENT HERE
+      </td></tr>
+      <!-- Content Row -->
+      <tr><td style="padding: 40px 30px; color: #111827; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+        MAIN CONTENT HERE
+      </td></tr>
+      <!-- Footer Row -->
+      <tr><td style="background: #111827; color: #FFFFFF; padding: 20px; text-align: center; font-size: 14px; font-family: Arial, Helvetica, sans-serif;">
+        FOOTER CONTENT HERE
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+```
+
+#### **Step 2: Convert Special Sections**
+
+**Brutal Truth Box:**
+```html
+<!-- OLD -->
+<div class="brutal-truth">MESSAGE</div>
+
+<!-- NEW -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 20px 0;">
+  <tr><td style="background: #f97316; color: #111827; padding: 20px; border: 2px solid #111827; font-weight: 700; font-family: Arial, Helvetica, sans-serif;">
+    MESSAGE
+  </td></tr>
+</table>
+```
+
+**CTA Button:**
+```html
+<!-- OLD -->
+<a href="{{params.URL}}" class="cta-button">TEXT</a>
+
+<!-- NEW -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 30px 0;">
+  <tr><td align="center">
+    <a href="{{params.URL}}" style="background: #ef4444; color: #FFFFFF !important; padding: 15px 30px; text-decoration: none; font-weight: 700; border: 3px solid #111827; display: inline-block; font-family: Arial, Helvetica, sans-serif;">
+      TEXT
+    </a>
+  </td></tr>
+</table>
+```
+
+**Highlight Boxes:**
+```html
+<!-- OLD -->
+<div class="offer-box">CONTENT</div>
+
+<!-- NEW -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 25px 0;">
+  <tr><td style="background: #111827; color: #FFFFFF; padding: 30px; text-align: center; font-family: Arial, Helvetica, sans-serif;">
+    CONTENT
+  </td></tr>
+</table>
+```
+
+#### **Step 3: Template-Specific Updates Needed**
+
+**W04 - The Offer:**
+- Convert `.offer-box` → black background table
+- Convert `.choice-section` → bordered table  
+- Convert `.price-highlight` → orange background inline element
+- Update CTA to use `{{params.OMVP_URL}}`
+
+**W05 - Final Push:**
+- Header uses black background (not red): `background: #111827`
+- Convert `.competitor-warning` → orange background table
+- Convert `.urgency-section` → light red background table
+- Convert `.final-choice` → black background table
+- Update CTA to use `{{params.OMVP_SUBMIT_URL}}`
+
+**O01-O06 OMVP Templates:**
+- All use red header: `background: #ef4444`
+- Convert `.content-section` → light background table
+- Convert `.highlight-box` → orange background table
+- Convert `.metric-box`, `.growth-box`, `.success-box` → colored background tables
+- Update variable names for each template (see original specs)
+
+#### **Step 4: 5-Minute Brevo Update Process Per Template**
+1. **Copy** table structure from W01
+2. **Update** header emoji and title text
+3. **Replace** content paragraphs with template-specific content
+4. **Convert** special sections using patterns above
+5. **Update** CTA button text and URL variable
+6. **Customize** footer text
+7. **Test** in Brevo preview
+8. **Save** template
+
+### **🔧 Critical Gmail Compatibility Reminders**
+- ❌ **Never use**: `<style>` blocks, CSS classes, CSS variables, `rem` units, `box-shadow`, `border-radius`
+- ✅ **Always use**: Inline styles, `px` units, table layouts, Arial fonts
+- 🎯 **Test with**: Gmail web, Gmail mobile, Outlook, Apple Mail
+
+### **⚡ Template Variable Reference**
+- **W01-W03**: `{{params.WORKSHEET_URL}}`
+- **W04**: `{{params.OMVP_URL}}`  
+- **W05**: `{{params.OMVP_SUBMIT_URL}}`
+- **O01**: `{{params.DASHBOARD_URL}}`
+- **O02**: `{{params.PREVIEW_URL}}`, `{{params.TIMELINE}}`
+- **O03**: `{{params.CONVERSION_RATE}}`, `{{params.TRAFFIC}}`, `{{params.LEADS}}`, `{{params.OPTIMIZATIONS}}`
+- **O04**: `{{params.GROWTH_RATE}}`, `{{params.NEW_CONVERSION_RATE}}`, `{{params.INSIGHTS}}`, `{{params.RECOMMENDATIONS}}`
+- **O05**: `{{params.FINAL_CONVERSION_RATE}}`, `{{params.TOTAL_LEADS}}`, `{{params.DELIVERABLES_URL}}`, `{{params.ROADMAP}}`  
+- **O06**: `{{params.REFERRAL_LINK}}`, `{{params.COMMISSION_RATE}}`
+
+**⏱️ Estimated Time: 45 minutes total for all remaining templates**

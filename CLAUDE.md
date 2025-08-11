@@ -4,223 +4,173 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 🎯 Project Overview
 
-**DOJJJO** is a hybrid business model combining personal brand credibility with template-driven service delivery. The project evolved from scattered personal brand into systematic OMVP template business targeting $15K/month through disciplined execution and scalable client delivery.
+**DOJJJO** is a hybrid business model combining personal brand credibility with template-driven service delivery, targeting $15K/month through systematic OMVP (Overnight MVP) service business.
 
-### Current Structure
-- **Type**: Hybrid business model - Personal brand + Template service delivery system
-- **Stack**: Static HTML + CSS + JavaScript (template-ready, no build system required)
-- **Design Philosophy**: iOS-inspired design system with customizable brand variables
-- **Revenue Model**: $15K/month hybrid (70% service delivery $10K + 30% personal OMVP $5K)
-- **Service Offering**: $5K OMVP Complete - Single focused service delivery
-- **Status**: ✅ Brutal Consultant Funnel Complete - Production-ready email automation + conversion tracking + 48-hour timer psychology + clean URL structure + comprehensive analytics
+### Core Architecture
+- **Type**: Static HTML + CSS + JavaScript (no build system)
+- **Revenue Model**: $15K/month (3 clients × $5K OMVP Complete)  
+- **Service**: Single $5K OMVP Complete offering
+- **Status**: Production-ready brutal consultant funnel with email automation
+- **Design System**: iOS-inspired brutal aesthetics with customizable variables
 
-## 🚀 Common Development Commands
+## 🚀 Development Commands
 
 ### Local Development
 ```bash
-# No build system - static HTML/CSS/JS template system
-# Open files directly in browser for testing
+# No build system - open files directly in browser
+open "index.html"                       # Main personal brand landing
+open "48-hour-worksheet/index.html"     # Lead capture funnel
+open "omvp/index.html"                  # $5K OMVP service landing
 
-# BRUTAL CONSULTANT FUNNEL (Production System)
-open "48-hour-worksheet/index.html"     # Email capture landing with timer psychology
-open "48-hour-worksheet/success.html"   # Worksheet delivery + urgency messaging
-open "48-hour-worksheet/worksheet.html" # Interactive business validation system
-open "omvp/index.html"                  # $5K service landing page
-open "omvp/submit.html"                 # High-intent submission form with file upload
-open "omvp/success.html"                # Confirmation + next steps
+# Project management
+open "cpo-dashboard.html"               # Unified project control dashboard
 
-# EMAIL AUTOMATION SYSTEM
-open "48-hour-worksheet/delivery/"      # 5 worksheet nurture emails
-open "omvp/delivery/"                   # 6 OMVP high-intent emails
-
-# ANALYTICS & CONFIGURATION
-open "assets/js/brevo-config.js"        # Email automation configuration
-open "assets/js/analytics-enhanced.js"  # Conversion tracking system
-open "BREVO-SETUP-GUIDE.md"            # Email automation setup guide
-open "ANALYTICS-SETUP-GUIDE.md"        # Analytics configuration guide
-
-# LEGACY PERSONAL BRAND SYSTEM (Archive)
-open "dojjjo-landing.html"              # Original personal landing (archived)
-open "omvp/lead-magnet/48-hour-business-blueprint/" # Legacy interactive system
+# Email automation testing (requires Brevo setup)
+# See BREVO-SETUP-GUIDE.md for configuration
 ```
 
-### Project Organization
+### File Organization
 ```bash
-# Run organization script to structure files correctly
-./organize-project.sh
-
-# Check current file organization status
-ls -la
-```
-
-### File Validation
-```bash
-# HTML validation (requires html5validator)
+# HTML validation (if html5validator available)
 html5validator --root . --match="*.html"
 
-# CSS validation using online tools or browser dev tools
-# JavaScript validation via browser console
+# Check deployment readiness
+./organize-project.sh  # If available for file organization
 ```
 
 ## 🏗️ Repository Architecture
 
-### Core Structure
+### Primary Structure
 ```
-dojjjo/ (Hybrid Business Model)
-├── 🎯 PERSONAL BRAND SYSTEM/
-│   ├── dojjjo-landing.html        # Primary personal landing page (S-tier UI)
-│   ├── 48-hour-business-blueprint.md  # Core lead magnet
-│   ├── studio/lead-magnet-diagnosis/   # Secondary assessment tool
-│   └── email template/            # 5-part personal nurture sequence
-├── 🏗️ SERVICE DELIVERY SYSTEM/
-│   ├── OMVP-SERVICE-BLUEPRINT.md  # Complete client delivery framework
-│   ├── OMVP-DELIVERY-CHECKLIST.md # Operational execution guide
-│   ├── studio/setup/              # Template generation system
-│   ├── studio/lead-magnet-omvp-mdgen/ # Automated client onboarding
-│   └── studio/lead-magnet-*/      # Portfolio showcase tools
-├── 🛠️ TEMPLATE INFRASTRUCTURE/
-│   ├── assets/css/brutal-design-system.css # Email-style sophisticated components
-│   ├── assets/js/core.js              # Universal functionality
-│   ├── dashboard/DOJJJO-Dashboard.html # Analytics & portfolio case study
-│   ├── flowcharts/                    # Process visualization
-│   └── success.html                   # Enhanced confirmation page template
-└── 📚 DOCUMENTATION/
-    ├── CLAUDE.md                  # This file
-    ├── ORGANIZATION-GUIDE.md      # Hybrid model structure guide
-    └── master-plan.md             # Strategic implementation roadmap
+dojjjo/
+├── 🎯 PERSONAL BRAND FUNNEL/
+│   ├── index.html                      # Main landing page
+│   └── 48-hour-worksheet/              # Email capture + worksheet
+│       ├── index.html                  # Timer psychology landing
+│       ├── success.html                # Delivery + urgency messaging
+│       ├── worksheet.html              # Interactive validation system
+│       └── delivery/                   # 5-email nurture sequence
+├── 💼 SERVICE DELIVERY FUNNEL/
+│   └── omvp/                          # $5K OMVP Complete service
+│       ├── index.html                  # Service landing page
+│       ├── submit.html                 # High-intent form + file upload
+│       ├── success.html                # Confirmation + next steps
+│       └── delivery/                   # 6-email high-intent sequence
+├── 📚 STRATEGY & DOCUMENTATION/
+│   └── omvp/strategy/                  # 25+ consolidated strategy files
+│       ├── OMVP-SERVICE-BLUEPRINT.md   # Client delivery framework
+│       ├── OMVP-DELIVERY-CHECKLIST.md  # Operational execution
+│       ├── CLAUDE.md                   # Extended project guidance
+│       └── [22+ other strategy files]  # Complete methodology
+└── 🛠️ CORE INFRASTRUCTURE/
+    ├── assets/css/brutal-design-system.css # iOS-inspired design system
+    ├── assets/js/core.js               # Universal functionality
+    ├── assets/js/brevo-config.js       # Email automation
+    ├── assets/js/analytics-enhanced.js # Conversion tracking
+    ├── netlify.toml                    # Static site deployment config
+    └── cpo-dashboard.html              # Project management interface
 ```
 
-### Key Patterns
-- **Hybrid Business Model** - Personal brand credibility + Template service delivery
-- **Template-Ready System** - All components customizable for client delivery
-- **Static files only** - No build process, direct browser loading for easy deployment
-- **iOS-Inspired Design** - Professional aesthetics with customizable brand variables
-- **Dual-Purpose Lead Magnets** - Personal conversion + Portfolio showcase for service credibility
-- **Systematic Delivery** - 7-day client template transformation with quality gates
+### Key Architectural Patterns
+- **Hybrid Model**: Personal brand credibility + template service delivery
+- **Static First**: No build process, direct browser loading for easy deployment
+- **Dual-Purpose Lead Magnets**: Personal conversion + portfolio showcase
+- **Template System**: All components customizable for client delivery
+- **Psychology-Driven**: 48-hour urgency timers, brutal honesty messaging
 
-## 🎨 Design System
+## 🎨 Design System Architecture
 
-### Core Identity
-- **Color System**: iOS-inspired with customizable brand variables (`--template-primary`, `--template-secondary`)
-- **Typography**: SF Pro Display/Text system fonts with iOS text scales
-- **Visual Style**: Native iOS aesthetics with conversion-focused elements
-- **Dark Mode**: Automatic theme switching based on system preference
+### Core Design Philosophy
+- **iOS-Inspired**: SF Pro fonts, native color system, layered shadows
+- **Brutal Aesthetics**: Pattern interruption messaging with professional UX
+- **Conversion Focused**: Every element optimized for lead generation
+- **Template Ready**: Customizable brand variables for client delivery
 
-### Key Design Components
+### CSS Architecture (`assets/css/brutal-design-system.css`)
 ```css
-/* Button Size System */
-.btn-lg            # Large buttons (20px 40px padding, 1.2rem font)
-.btn-md            # Medium buttons (16px 32px padding, 1rem font)
-.btn               # Standard button component with brutal aesthetics
+/* Core Identity */
+--template-primary, --template-secondary  /* Customizable brand colors */
+SF Pro Display/Text system fonts         /* iOS typography scale */
 
-/* Enhanced Text Shadow System */
-h1, h2, h3         # Layered text shadows (2px solid + 4px blur)
-/* White headings get black shadows, dark headings get red shadows */
-
-/* Dynamic Components */
-#countdown-timer   # Fear-based countdown timer (48-hour urgency)
-.warning-box       # Time-sensitive urgency messaging
-
-/* Email-Style Step System */
-.step-container    # Container for step-based content
-.step-item         # Individual step with icon and content
-.step-icon         # Circular numbered/icon step indicator
-
-/* Enhanced Card Variants */
-.card-insight      # Key insight highlighting
-.card-warning      # Warning/urgency messaging
-.card-success      # Success/completion states
-.card-code         # Code/prompt display blocks
-
-/* Sophisticated Badge System */
-.badge-accent      # Primary accent badges
-.badge-day         # Day/time-specific badges
-.badge-success     # Success state badges
-
-/* Email-Quality Content Blocks */
-.framework-section # Structured framework content
-.assignment-box    # Action assignment blocks
-.quote-block       # Testimonial/quote styling
-.timeline-content  # Sequential timeline layouts
+/* Key Components */
+.btn-lg, .btn-md, .btn                  /* Button size system */
+#countdown-timer                        /* 48-hour urgency psychology */
+.card-insight, .card-warning            /* Enhanced card variants */
+.step-container, .step-item             /* Email-style step system */
 ```
 
-## ⚙️ JavaScript Architecture
+### JavaScript Architecture
+- **Core Functions** (`assets/js/core.js`): Theme management, form handling, mobile menu
+- **Brand Config** (`assets/js/brand-config.js`): Multi-brand template system
+- **Analytics** (`assets/js/analytics-enhanced.js`): 9-stage funnel tracking with $5000 conversion values
+- **Email Integration** (`assets/js/brevo-config.js`): Segmented list management
 
-### Core Functionality (assets/js/core.js)
-- **Theme Management**: Auto dark mode detection with manual override
-- **Form Handling**: Lead magnet forms with validation
-- **Mobile Menu**: Touch-friendly navigation interactions
-- **Analytics Integration**: Event tracking for conversion optimization
-- **Countdown Timers**: Dynamic 48-hour urgency timers for conversion psychology
-- **No Dependencies**: Pure vanilla JavaScript implementation
+## 📊 Conversion Funnel System
 
-### Brand Configuration (assets/js/brand-config.js)
-- **Multi-brand Support**: Template system for client customization
-- **Color Variables**: iOS system colors with custom brand overrides
-- **Language Switching**: Bilingual content management (archived feature)
-- **Theme Persistence**: localStorage-based preference storage
+### Email Automation (Brevo Integration)
+- **Segmented Lists**: Worksheet leads vs high-intent OMVP leads
+- **Transactional Flow**: Instant delivery + confirmation emails
+- **Nurture Sequences**: 5 worksheet emails + 6 OMVP emails
+- **Configuration**: See `BREVO-SETUP-GUIDE.md`
 
-## 📋 Content Strategy
-
-### Lead Generation Funnel
-- **Primary Lead Magnet**: `48-hour-business-blueprint.md` - Core OMVP methodology
-- **Secondary Assessment**: `studio/lead-magnet-diagnosis/diagnosis.html` - Business validation tool
-- **Email Sequence**: 5-part automation in `email template/01-05-*.html`
-- **Conversion Goal**: Discovery call bookings for $5K-15K OMVP packages
-
-### Content Philosophy
-- **Brutal Honesty**: Direct, no-bullshit communication style
-- **Conversion Focus**: Every element optimized for lead generation
-- **Pattern Interruption**: Visual and psychological elements for attention
-- **Credibility Building**: 15 years experience + failures + 1 exit story
+### Analytics Tracking (GA4)
+- **9-Stage Funnel**: Landing → Email ($50) → Worksheet ($200) → OMVP Submission ($5000)
+- **Enhanced Events**: Form interactions, file uploads, timer engagement
+- **Attribution**: UTM parameters, referrer tracking, user journey mapping
+- **Configuration**: See `ANALYTICS-SETUP-GUIDE.md`
 
 ## 🚨 Development Guidelines
 
 ### File Organization Rules
-**HYBRID MODEL STRUCTURE:**
-- **Personal Brand**: 2 core lead magnets (blueprint + diagnosis) for conversion
-- **Service Portfolio**: All lead magnets serve dual purpose (conversion + client credibility)
-- **Template System**: All components customizable for client delivery
-- **Clear Separation**: Personal brand vs service delivery systems organized distinctly
+**MAINTAIN HYBRID STRUCTURE:**
+- Personal brand: 2 core lead magnets (worksheet + diagnosis) for conversion
+- Service portfolio: All lead magnets serve dual purpose (conversion + credibility)
+- Template system: All components customizable for client delivery
+- Clear separation: Personal brand vs service delivery systems
 
 **DO NOT ADD:**
-- ❌ Additional personal brand landing pages (current one optimized)
-- ❌ Lead magnets without strategic purpose (conversion or portfolio value)
-- ❌ Service complexity that confuses template delivery process
-- ❌ Multi-brand confusion or unnecessary bilingual features
+- Additional personal brand landing pages (current one optimized)
+- Lead magnets without strategic purpose (conversion or portfolio value)
+- Service complexity that confuses template delivery process
+- Multi-brand confusion or unnecessary bilingual features
 
 **FOCUS ON:**
-- ✅ Template system optimization for client delivery
-- ✅ Service delivery process refinement and quality gates
-- ✅ Personal brand conversion optimization for both personal and service leads
-- ✅ Operational excellence enabling team scaling and concurrent client delivery
+- Template system optimization for client delivery
+- Service delivery process refinement and quality gates
+- Personal brand conversion optimization
+- Operational excellence enabling team scaling
 
-## 🎯 Business Context
-
-### Hybrid Revenue Model
-- **Primary Revenue**: $10K/month through OMVP service delivery (70% of total)
-- **Service Offering**: Single $5K OMVP Complete service
-- **Secondary Revenue**: Personal OMVP services ($5K/month, 30% of total)
-- **Target Market**: Entrepreneurs needing systematic business transformation
+### Business Context Requirements
+- **Revenue Target**: $15K/month through 3 clients × $5K OMVP Complete
 - **Service Delivery**: 7-day client template transformation with quality gates
-- **Template System**: S-tier UI components enabling premium client delivery
 - **Success Metrics**: 90%+ client satisfaction, 50%+ template efficiency vs custom builds
+- **Management**: CPO Dashboard for tracking development and service delivery progress
 
-### Business Evolution Story
-- **Credibility Foundation**: 15 years experience + 5 documented failures + 1 exit
-- **Transformation Journey**: From $560/month BJJ coaching to $15K/month hybrid business
-- **Template Innovation**: Personal brand success becomes systematic client delivery framework
-- **UI Excellence**: S-tier design system with email-quality components for premium positioning
-- **Philosophy**: Brutal honesty + martial arts discipline + systematic template execution
-- **Scaling Vision**: Team-delivered consistent results with minimal founder dependency
-- **Location Freedom**: Bangkok-based with global template delivery capability
+## 📋 Pre-Deployment Protocol
 
-## 🚀 Pre-Deployment Protocol
-Before every deployment (git push), act as S-tier product owner and execute:
+Before every deployment, execute as S-tier product owner:
 
-1. **Update @prompts.md**: Document all prompts used in customer journey style with complete methodology
-2. **Update @omvp/strategy/master-plan.md**: If changes affect strategic direction or business model  
-3. **Update @omvp/flowcharts/**: If changes impact customer journey or system architecture
-4. **Quality Gates**: Ensure all updates align with hybrid business model and $15K/month revenue targets
+1. **Update `omvp/strategy/prompts.md`**: Document all prompts in customer journey style
+2. **Update `omvp/strategy/OMVP-master-plan.md`**: If changes affect strategic direction
+3. **Update flowcharts**: If changes impact customer journey or system architecture
+4. **Update `cpo-dashboard.html`**: Reflect any new metrics or service accounts
+5. **Quality Gates**: Ensure alignment with hybrid business model and $15K/month targets
 
 This ensures complete methodology documentation for template replication and team scaling.
+
+## 🔧 Key Integration Points
+
+### CPO Dashboard (`/cpo-dashboard.html`)
+- Unified project control with direct access to all OMVP strategy files
+- One-click service account access (GitHub, Claude, Gmail, Brevo, Analytics, Netlify)
+- Real-time project health metrics and development progress tracking
+
+### Netlify Deployment (`netlify.toml`)
+- Clean URL routing for professional funnel navigation
+- Security headers and performance optimization
+- Static site publishing from root directory
+
+### File Upload System
+- High-intent behavior validation through worksheet file uploads
+- Integration with OMVP submission flow for $5K service qualification
+- Error handling and fallback tracking for conversion optimization
