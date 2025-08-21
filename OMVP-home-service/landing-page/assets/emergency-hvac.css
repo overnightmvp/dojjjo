@@ -1,0 +1,352 @@
+/* Emergency HVAC Landing Page CSS */
+
+/* Variables */
+:root {
+    --emergency-red: #dc2626;
+    --urgent-orange: #ea580c;
+    --trust-green: #059669;
+    --phoenix-blue: #1d4ed8;
+    --warning-yellow: #fbbf24;
+    --text-dark: #111827;
+    --text-light: #374151;
+    --white: #ffffff;
+    --gray-bg: #f9fafb;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Emergency Banner */
+.emergency-banner {
+    background: var(--emergency-red);
+    color: var(--white);
+    text-align: center;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--phoenix-blue) 0%, var(--urgent-orange) 100%);
+    color: var(--white);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.temperature-alert {
+    background: var(--warning-yellow);
+    color: var(--text-dark);
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.7; }
+}
+
+.hero-headline {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.emergency-text {
+    color: var(--emergency-red);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.guarantee {
+    color: var(--warning-yellow);
+    font-size: 2.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.btn-emergency, .btn-form {
+    padding: 18px 32px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-emergency {
+    background: var(--emergency-red);
+    color: var(--white);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-emergency:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+
+.btn-form {
+    background: var(--white);
+    color: var(--phoenix-blue);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-form:hover {
+    background: var(--gray-bg);
+    transform: translateY(-2px);
+}
+
+.trust-signals {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.trust-item {
+    text-align: center;
+    color: var(--white);
+}
+
+.trust-item strong {
+    font-size: 1.5rem;
+    display: block;
+}
+
+/* Form Section */
+.form-section {
+    background: var(--gray-bg);
+    padding: 80px 0;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+}
+
+.form-headline {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--emergency-red);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.emergency-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select {
+    padding: 14px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--phoenix-blue);
+}
+
+.btn-submit {
+    background: var(--trust-green);
+    color: var(--white);
+    padding: 20px 40px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-submit:hover {
+    background: #047857;
+    transform: translateY(-2px);
+}
+
+.form-guarantee {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-top: 20px;
+}
+
+/* Social Proof */
+.social-proof {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.social-proof h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+    color: var(--text-dark);
+}
+
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial {
+    background: var(--gray-bg);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.testimonial .stars {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.testimonial p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.testimonial cite {
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+/* Footer */
+.footer {
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.disclaimer {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-headline {
+        font-size: 2.5rem;
+    }
+    
+    .guarantee {
+        font-size: 1.8rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .trust-signals {
+        gap: 20px;
+    }
+    
+    .testimonials {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-headline {
+        font-size: 2rem;
+    }
+    
+    .form-container {
+        padding: 25px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
