@@ -275,6 +275,37 @@
             opacity: 1;
         }
 
+        .health-status {
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            background: white;
+            min-width: 140px;
+            transition: all 0.2s ease;
+        }
+
+        .health-status:hover {
+            border-color: var(--primary);
+        }
+
+        .health-status:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+        }
+
+        .system-health-summary {
+            margin-top: 15px;
+        }
+
+        .status-ready { border-left-color: var(--success) !important; }
+        .status-warning { border-left-color: var(--warning) !important; }
+        .status-error { border-left-color: var(--danger) !important; }
+        .status-progress { border-left-color: #3b82f6 !important; }
+        .status-critical { border-left-color: #dc2626 !important; background: #fef2f2 !important; }
+
         .last-updated {
             text-align: center;
             font-size: 0.9rem;
@@ -516,23 +547,62 @@
                 <h2>⚠️ System Health Check</h2>
                 <div class="metric">
                     <span>Landing Page</span>
-                    <span class="metric-value">✅ Ready</span>
+                    <select class="health-status" data-system="landingPage" onchange="updateHealthStatus(this)">
+                        <option value="✅ Ready">✅ Ready</option>
+                        <option value="⚠️ Needs Setup">⚠️ Needs Setup</option>
+                        <option value="❌ Not Setup">❌ Not Setup</option>
+                        <option value="🔧 In Progress">🔧 In Progress</option>
+                        <option value="🚨 Critical Issue">🚨 Critical Issue</option>
+                    </select>
                 </div>
                 <div class="metric">
                     <span>Contact Form</span>
-                    <span class="metric-value">⚠️ Needs Setup</span>
+                    <select class="health-status" data-system="contactForm" onchange="updateHealthStatus(this)">
+                        <option value="✅ Ready">✅ Ready</option>
+                        <option value="⚠️ Needs Setup" selected>⚠️ Needs Setup</option>
+                        <option value="❌ Not Setup">❌ Not Setup</option>
+                        <option value="🔧 In Progress">🔧 In Progress</option>
+                        <option value="🚨 Critical Issue">🚨 Critical Issue</option>
+                    </select>
                 </div>
                 <div class="metric">
                     <span>Phone System</span>
-                    <span class="metric-value">⚠️ Needs Setup</span>
+                    <select class="health-status" data-system="phoneSystem" onchange="updateHealthStatus(this)">
+                        <option value="✅ Ready">✅ Ready</option>
+                        <option value="⚠️ Needs Setup" selected>⚠️ Needs Setup</option>
+                        <option value="❌ Not Setup">❌ Not Setup</option>
+                        <option value="🔧 In Progress">🔧 In Progress</option>
+                        <option value="🚨 Critical Issue">🚨 Critical Issue</option>
+                    </select>
                 </div>
                 <div class="metric">
                     <span>Analytics</span>
-                    <span class="metric-value">❌ Not Setup</span>
+                    <select class="health-status" data-system="analytics" onchange="updateHealthStatus(this)">
+                        <option value="✅ Ready">✅ Ready</option>
+                        <option value="⚠️ Needs Setup">⚠️ Needs Setup</option>
+                        <option value="❌ Not Setup" selected>❌ Not Setup</option>
+                        <option value="🔧 In Progress">🔧 In Progress</option>
+                        <option value="🚨 Critical Issue">🚨 Critical Issue</option>
+                    </select>
                 </div>
                 <div class="metric">
                     <span>Facebook Ads</span>
-                    <span class="metric-value">❌ Not Setup</span>
+                    <select class="health-status" data-system="facebookAds" onchange="updateHealthStatus(this)">
+                        <option value="✅ Ready">✅ Ready</option>
+                        <option value="⚠️ Needs Setup">⚠️ Needs Setup</option>
+                        <option value="❌ Not Setup" selected>❌ Not Setup</option>
+                        <option value="🔧 In Progress">🔧 In Progress</option>
+                        <option value="🚨 Critical Issue">🚨 Critical Issue</option>
+                    </select>
+                </div>
+                
+                <div class="system-health-summary" id="healthSummary">
+                    <div style="margin-top: 15px; padding: 12px; background: #f8f9fa; border-radius: 6px; border-left: 4px solid var(--warning);">
+                        <strong>System Status:</strong> <span id="overallStatus">⚠️ Needs Attention</span>
+                        <div style="font-size: 0.9rem; margin-top: 5px; color: #6b7280;">
+                            <span id="statusDetails">3 systems need setup</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -646,6 +716,7 @@
             loadTasks();
             loadMetrics();
             loadNotes();
+            loadSystemHealth();
         }
         
         function loadTasks() {
@@ -933,6 +1004,89 @@
         }
         
         // ====================
+        // SYSTEM HEALTH MANAGEMENT
+        // ====================
+        
+        function loadSystemHealth() {
+            const savedHealth = localStorage.getItem(STORAGE_KEYS.systemHealth || 'omvp-system-health');
+            if (savedHealth) {
+                const healthData = JSON.parse(savedHealth);
+                Object.keys(healthData).forEach(system => {
+                    const dropdown = document.querySelector(`[data-system="${system}"]`);
+                    if (dropdown) {
+                        dropdown.value = healthData[system];
+                    }
+                });
+            }
+            updateSystemHealthSummary();
+        }
+        
+        function updateHealthStatus(dropdown) {
+            const system = dropdown.dataset.system;
+            const status = dropdown.value;
+            
+            // Save to localStorage
+            const savedHealth = JSON.parse(localStorage.getItem('omvp-system-health') || '{}');
+            savedHealth[system] = status;
+            localStorage.setItem('omvp-system-health', JSON.stringify(savedHealth));
+            
+            updateSystemHealthSummary();
+            updateLastUpdated();
+        }
+        
+        function updateSystemHealthSummary() {
+            const healthDropdowns = document.querySelectorAll('.health-status');
+            const summaryDiv = document.getElementById('healthSummary').querySelector('div');
+            const overallStatus = document.getElementById('overallStatus');
+            const statusDetails = document.getElementById('statusDetails');
+            
+            let readyCount = 0;
+            let needsSetupCount = 0;
+            let notSetupCount = 0;
+            let inProgressCount = 0;
+            let criticalCount = 0;
+            
+            healthDropdowns.forEach(dropdown => {
+                const status = dropdown.value;
+                if (status.includes('Ready')) readyCount++;
+                else if (status.includes('Needs Setup')) needsSetupCount++;
+                else if (status.includes('Not Setup')) notSetupCount++;
+                else if (status.includes('In Progress')) inProgressCount++;
+                else if (status.includes('Critical')) criticalCount++;
+            });
+            
+            const total = healthDropdowns.length;
+            
+            // Determine overall status
+            let overallText, statusClass, detailsText;
+            
+            if (criticalCount > 0) {
+                overallText = '🚨 Critical Issues';
+                statusClass = 'status-critical';
+                detailsText = `${criticalCount} critical issue${criticalCount > 1 ? 's' : ''} need immediate attention`;
+            } else if (readyCount === total) {
+                overallText = '✅ All Systems Operational';
+                statusClass = 'status-ready';
+                detailsText = 'All systems are ready and functioning';
+            } else if (inProgressCount > 0) {
+                overallText = '🔧 Setup In Progress';
+                statusClass = 'status-progress';
+                detailsText = `${inProgressCount} system${inProgressCount > 1 ? 's' : ''} being configured`;
+            } else if (needsSetupCount > 0 || notSetupCount > 0) {
+                overallText = '⚠️ Needs Attention';
+                statusClass = 'status-warning';
+                detailsText = `${needsSetupCount + notSetupCount} system${needsSetupCount + notSetupCount > 1 ? 's' : ''} need setup`;
+            }
+            
+            overallStatus.textContent = overallText;
+            statusDetails.textContent = detailsText;
+            
+            // Update summary styling
+            summaryDiv.className = '';
+            summaryDiv.classList.add(statusClass);
+        }
+        
+        // ====================
         // DATA MANAGEMENT
         // ====================
         
@@ -941,6 +1095,7 @@
                 tasks: JSON.parse(localStorage.getItem(STORAGE_KEYS.tasks) || '[]'),
                 metrics: JSON.parse(localStorage.getItem(STORAGE_KEYS.metrics) || '{}'),
                 notes: localStorage.getItem(STORAGE_KEYS.notes) || '',
+                systemHealth: JSON.parse(localStorage.getItem('omvp-system-health') || '{}'),
                 exported: new Date().toISOString(),
                 projectName: 'OMVP Home Services'
             };
@@ -973,6 +1128,9 @@
                         if (projectData.notes) {
                             localStorage.setItem(STORAGE_KEYS.notes, projectData.notes);
                         }
+                        if (projectData.systemHealth) {
+                            localStorage.setItem('omvp-system-health', JSON.stringify(projectData.systemHealth));
+                        }
                         
                         location.reload();
                     }
@@ -988,6 +1146,7 @@
                 Object.values(STORAGE_KEYS).forEach(key => {
                     localStorage.removeItem(key);
                 });
+                localStorage.removeItem('omvp-system-health');
                 location.reload();
             }
         }
@@ -1014,6 +1173,7 @@
         window.exportData = exportData;
         window.importData = importData;
         window.resetData = resetData;
+        window.updateHealthStatus = updateHealthStatus;
     </script>
 </body>
 </html>
