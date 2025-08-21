@@ -100,6 +100,28 @@
         .metric-value {
             font-weight: 700;
             color: var(--primary);
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            min-width: 80px;
+            display: inline-block;
+            transition: all 0.2s ease;
+        }
+
+        .metric-value:hover {
+            background: #f0f9ff;
+            border-color: var(--primary);
+        }
+
+        .metric-value input {
+            border: none;
+            background: transparent;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: inherit;
+            width: 100%;
+            outline: none;
         }
 
         .quick-links {
@@ -141,12 +163,29 @@
         .task-item {
             display: flex;
             align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: move;
+            transition: all 0.2s ease;
+            position: relative;
         }
 
-        .task-item:last-child {
-            border-bottom: none;
+        .task-item:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transform: translateY(-1px);
+        }
+
+        .task-item.dragging {
+            opacity: 0.5;
+            transform: rotate(5deg);
+        }
+
+        .task-item.completed {
+            opacity: 0.6;
+            background: #f8f9fa;
         }
 
         .task-checkbox {
@@ -156,6 +195,26 @@
 
         .task-text {
             flex-grow: 1;
+            margin: 0 12px;
+            cursor: text;
+            min-height: 20px;
+            padding: 4px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .task-text:hover {
+            border-color: var(--border);
+        }
+
+        .task-text:focus {
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .task-text.completed {
+            text-decoration: line-through;
         }
 
         .task-priority {
@@ -175,12 +234,45 @@
 
         .notes-textarea {
             width: 100%;
-            min-height: 100px;
+            min-height: 120px;
             padding: 12px;
             border: 1px solid var(--border);
             border-radius: 6px;
             font-family: inherit;
             resize: vertical;
+            line-height: 1.5;
+        }
+
+        .notes-controls {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .notes-btn {
+            padding: 6px 12px;
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+
+        .notes-btn:hover {
+            background: var(--border);
+        }
+
+        .auto-save-indicator {
+            color: var(--success);
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .auto-save-indicator.show {
+            opacity: 1;
         }
 
         .last-updated {
@@ -190,6 +282,74 @@
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid var(--border);
+        }
+
+        .data-controls {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .data-btn {
+            padding: 8px 16px;
+            margin: 0 4px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .data-btn:hover {
+            background: #b91c1c;
+        }
+
+        .data-btn.secondary {
+            background: var(--border);
+            color: var(--dark);
+        }
+
+        .data-btn.secondary:hover {
+            background: #d1d5db;
+        }
+
+        .add-task-form {
+            display: none;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .add-task-form.show {
+            display: block;
+        }
+
+        .add-task-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .form-row select {
+            padding: 6px 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.8rem;
         }
 
         @media (max-width: 768px) {
@@ -203,6 +363,14 @@
             
             .quick-links {
                 grid-template-columns: 1fr;
+            }
+
+            .notes-controls {
+                justify-content: center;
+            }
+
+            .data-controls {
+                padding: 15px 10px;
             }
         }
     </style>
@@ -244,23 +412,23 @@
                 <h2>🎯 Key Metrics</h2>
                 <div class="metric">
                     <span>Contractors Contacted</span>
-                    <span class="metric-value">0 / 10</span>
+                    <span class="metric-value" data-metric="contractorsContacted" onclick="editMetric(this)">0 / 10</span>
                 </div>
                 <div class="metric">
                     <span>Demo Calls Scheduled</span>
-                    <span class="metric-value">0 / 3</span>
+                    <span class="metric-value" data-metric="demoCalls" onclick="editMetric(this)">0 / 3</span>
                 </div>
                 <div class="metric">
                     <span>Contracts Signed</span>
-                    <span class="metric-value">0 / 1</span>
+                    <span class="metric-value" data-metric="contractsSigned" onclick="editMetric(this)">0 / 1</span>
                 </div>
                 <div class="metric">
                     <span>Leads Generated</span>
-                    <span class="metric-value">0 / 20</span>
+                    <span class="metric-value" data-metric="leadsGenerated" onclick="editMetric(this)">0 / 20</span>
                 </div>
                 <div class="metric">
                     <span>Monthly Revenue</span>
-                    <span class="metric-value">$0 / $7,500</span>
+                    <span class="metric-value" data-metric="monthlyRevenue" onclick="editMetric(this)">$0 / $7,500</span>
                 </div>
             </div>
         </div>
@@ -292,33 +460,56 @@
         <div class="grid">
             <div class="card">
                 <h2>📋 Today's Priority Tasks</h2>
-                <ul class="task-list">
-                    <li class="task-item">
-                        <input type="checkbox" class="task-checkbox" id="task1">
-                        <span class="task-text">Test landing page on mobile device</span>
+                
+                <div class="add-task-form" id="addTaskForm">
+                    <input type="text" class="add-task-input" id="newTaskText" placeholder="Enter new task...">
+                    <div class="form-row">
+                        <select id="newTaskPriority">
+                            <option value="high">High Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="low">Low Priority</option>
+                        </select>
+                        <button class="data-btn" onclick="addTask()">Add Task</button>
+                        <button class="data-btn secondary" onclick="cancelAddTask()">Cancel</button>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 12px; text-align: right;">
+                    <button class="data-btn secondary" onclick="showAddTaskForm()">+ Add Task</button>
+                </div>
+                
+                <div class="task-list" id="taskList">
+                    <div class="task-item" draggable="true" data-priority="high">
+                        <input type="checkbox" class="task-checkbox">
+                        <div class="task-text" contenteditable="true">Test landing page on mobile device</div>
                         <span class="task-priority priority-high">HIGH</span>
-                    </li>
-                    <li class="task-item">
-                        <input type="checkbox" class="task-checkbox" id="task2">
-                        <span class="task-text">Set up Google Voice business number</span>
+                        <button class="data-btn secondary" style="padding: 4px 8px; font-size: 0.7rem; margin-left: 8px;" onclick="deleteTask(this)">×</button>
+                    </div>
+                    <div class="task-item" draggable="true" data-priority="high">
+                        <input type="checkbox" class="task-checkbox">
+                        <div class="task-text" contenteditable="true">Set up Google Voice business number</div>
                         <span class="task-priority priority-high">HIGH</span>
-                    </li>
-                    <li class="task-item">
-                        <input type="checkbox" class="task-checkbox" id="task3">
-                        <span class="task-text">Send first contractor outreach email</span>
+                        <button class="data-btn secondary" style="padding: 4px 8px; font-size: 0.7rem; margin-left: 8px;" onclick="deleteTask(this)">×</button>
+                    </div>
+                    <div class="task-item" draggable="true" data-priority="high">
+                        <input type="checkbox" class="task-checkbox">
+                        <div class="task-text" contenteditable="true">Send first contractor outreach email</div>
                         <span class="task-priority priority-high">HIGH</span>
-                    </li>
-                    <li class="task-item">
-                        <input type="checkbox" class="task-checkbox" id="task4">
-                        <span class="task-text">Create Google Analytics account</span>
+                        <button class="data-btn secondary" style="padding: 4px 8px; font-size: 0.7rem; margin-left: 8px;" onclick="deleteTask(this)">×</button>
+                    </div>
+                    <div class="task-item" draggable="true" data-priority="medium">
+                        <input type="checkbox" class="task-checkbox">
+                        <div class="task-text" contenteditable="true">Create Google Analytics account</div>
                         <span class="task-priority priority-medium">MED</span>
-                    </li>
-                    <li class="task-item">
-                        <input type="checkbox" class="task-checkbox" id="task5">
-                        <span class="task-text">Research Facebook Business Manager setup</span>
+                        <button class="data-btn secondary" style="padding: 4px 8px; font-size: 0.7rem; margin-left: 8px;" onclick="deleteTask(this)">×</button>
+                    </div>
+                    <div class="task-item" draggable="true" data-priority="medium">
+                        <input type="checkbox" class="task-checkbox">
+                        <div class="task-text" contenteditable="true">Research Facebook Business Manager setup</div>
                         <span class="task-priority priority-medium">MED</span>
-                    </li>
-                </ul>
+                        <button class="data-btn secondary" style="padding: 4px 8px; font-size: 0.7rem; margin-left: 8px;" onclick="deleteTask(this)">×</button>
+                    </div>
+                </div>
             </div>
 
             <div class="card">
@@ -374,70 +565,455 @@
 
             <div class="card notes-section">
                 <h2>📝 Quick Notes & Decisions</h2>
+                
+                <div class="notes-controls">
+                    <button class="notes-btn" onclick="formatText('bold')"><strong>B</strong></button>
+                    <button class="notes-btn" onclick="formatText('italic')"><em>I</em></button>
+                    <button class="notes-btn" onclick="insertText('• ')">• List</button>
+                    <button class="notes-btn" onclick="insertText('\n---\n')">Divider</button>
+                    <button class="notes-btn" onclick="insertTimestamp()">📅 Date</button>
+                    <button class="notes-btn" onclick="exportNotes()">📤 Export</button>
+                    <span class="auto-save-indicator" id="autoSaveIndicator">✓ Saved</span>
+                </div>
+                
                 <textarea 
                     class="notes-textarea" 
-                    placeholder="Capture quick notes, decisions, and important updates here..."
+                    placeholder="Capture quick notes, decisions, and important updates here...\n\nTips:\n- Use the toolbar for formatting\n- Notes auto-save every 3 seconds\n- Export to backup your notes"
                     id="projectNotes"
                 ></textarea>
+                
                 <small style="color: #6b7280; margin-top: 8px; display: block;">
-                    Notes are saved locally in your browser
+                    Auto-saves every 3 seconds • Stored locally in browser • Use Export for backup
                 </small>
             </div>
         </div>
 
+        <!-- Data Management Controls -->
+        <div class="data-controls">
+            <h3 style="margin-bottom: 15px;">💾 Data Management</h3>
+            <button class="data-btn" onclick="exportData()">📤 Export Project Data</button>
+            <button class="data-btn secondary" onclick="document.getElementById('importFile').click()">📥 Import Data</button>
+            <button class="data-btn secondary" onclick="resetData()">🔄 Reset Dashboard</button>
+            <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importData(event)">
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #6b7280;">
+                All data is stored locally in your browser. Export regularly for backup.
+            </p>
+        </div>
+
         <div class="last-updated">
             <p>🚀 Dashboard created: <span id="currentDate"></span></p>
+            <p><strong>Last updated:</strong> <span id="lastUpdated">Now</span></p>
             <p><strong>Next Review:</strong> End of this week</p>
         </div>
     </div>
 
     <script>
-        // Set current date
-        document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+        // Enhanced Dashboard JavaScript with Full Interactivity
         
-        // Save notes to localStorage
-        const notesTextarea = document.getElementById('projectNotes');
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+            loadAllData();
+            setupEventListeners();
+            console.log('🔥 Interactive OMVP Dashboard Loaded - Focus on execution!');
+        });
         
-        // Load saved notes
-        const savedNotes = localStorage.getItem('omvp-project-notes');
-        if (savedNotes) {
-            notesTextarea.value = savedNotes;
+        // Data storage keys
+        const STORAGE_KEYS = {
+            tasks: 'omvp-tasks',
+            metrics: 'omvp-metrics', 
+            notes: 'omvp-notes',
+            projectData: 'omvp-project-data'
+        };
+        
+        // Auto-save timer
+        let autoSaveTimer;
+        
+        function initializeDashboard() {
+            document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+            updateLastUpdated();
         }
         
-        // Save notes on change
-        notesTextarea.addEventListener('input', function() {
-            localStorage.setItem('omvp-project-notes', this.value);
-        });
+        function updateLastUpdated() {
+            document.getElementById('lastUpdated').textContent = new Date().toLocaleTimeString();
+        }
         
-        // Save task states
-        const checkboxes = document.querySelectorAll('.task-checkbox');
+        // ====================
+        // TASK MANAGEMENT
+        // ====================
         
-        // Load saved task states
-        checkboxes.forEach((checkbox, index) => {
-            const savedState = localStorage.getItem(`task-${index}`);
-            if (savedState === 'true') {
-                checkbox.checked = true;
-                checkbox.parentElement.style.opacity = '0.6';
-                checkbox.parentElement.querySelector('.task-text').style.textDecoration = 'line-through';
+        function loadAllData() {
+            loadTasks();
+            loadMetrics();
+            loadNotes();
+        }
+        
+        function loadTasks() {
+            const savedTasks = localStorage.getItem(STORAGE_KEYS.tasks);
+            if (savedTasks) {
+                const tasks = JSON.parse(savedTasks);
+                renderTasks(tasks);
+            } else {
+                // Initialize with default tasks if none exist
+                saveTasks();
             }
-        });
+        }
         
-        // Save task states on change
-        checkboxes.forEach((checkbox, index) => {
+        function saveTasks() {
+            const taskElements = document.querySelectorAll('.task-item');
+            const tasks = Array.from(taskElements).map((task, index) => {
+                const checkbox = task.querySelector('.task-checkbox');
+                const textElement = task.querySelector('.task-text');
+                const priorityElement = task.querySelector('.task-priority');
+                
+                return {
+                    id: index,
+                    text: textElement.textContent.trim(),
+                    completed: checkbox.checked,
+                    priority: task.dataset.priority || 'medium'
+                };
+            });
+            
+            localStorage.setItem(STORAGE_KEYS.tasks, JSON.stringify(tasks));
+            updateLastUpdated();
+        }
+        
+        function renderTasks(tasks) {
+            const taskList = document.getElementById('taskList');
+            taskList.innerHTML = '';
+            
+            tasks.forEach((task, index) => {
+                const taskElement = createTaskElement(task, index);
+                taskList.appendChild(taskElement);
+            });
+        }
+        
+        function createTaskElement(task, index) {
+            const taskDiv = document.createElement('div');
+            taskDiv.className = `task-item ${task.completed ? 'completed' : ''}`;
+            taskDiv.draggable = true;
+            taskDiv.dataset.priority = task.priority;
+            
+            const priorityClass = `priority-${task.priority}`;
+            const priorityText = task.priority.toUpperCase();
+            
+            taskDiv.innerHTML = `
+                <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''}>
+                <div class="task-text ${task.completed ? 'completed' : ''}" contenteditable="true">${task.text}</div>
+                <span class="task-priority ${priorityClass}">${priorityText}</span>
+                <button class="data-btn secondary" style="padding: 4px 8px; font-size: 0.7rem; margin-left: 8px;" onclick="deleteTask(this)">×</button>
+            `;
+            
+            // Add event listeners
+            const checkbox = taskDiv.querySelector('.task-checkbox');
+            const textElement = taskDiv.querySelector('.task-text');
+            
             checkbox.addEventListener('change', function() {
-                localStorage.setItem(`task-${index}`, this.checked);
-                if (this.checked) {
-                    this.parentElement.style.opacity = '0.6';
-                    this.parentElement.querySelector('.task-text').style.textDecoration = 'line-through';
+                task.completed = this.checked;
+                taskDiv.classList.toggle('completed', this.checked);
+                textElement.classList.toggle('completed', this.checked);
+                saveTasks();
+            });
+            
+            textElement.addEventListener('blur', function() {
+                task.text = this.textContent.trim();
+                saveTasks();
+            });
+            
+            // Drag and drop
+            taskDiv.addEventListener('dragstart', handleDragStart);
+            taskDiv.addEventListener('dragover', handleDragOver);
+            taskDiv.addEventListener('drop', handleDrop);
+            taskDiv.addEventListener('dragend', handleDragEnd);
+            
+            return taskDiv;
+        }
+        
+        function showAddTaskForm() {
+            document.getElementById('addTaskForm').classList.add('show');
+            document.getElementById('newTaskText').focus();
+        }
+        
+        function cancelAddTask() {
+            document.getElementById('addTaskForm').classList.remove('show');
+            document.getElementById('newTaskText').value = '';
+        }
+        
+        function addTask() {
+            const textInput = document.getElementById('newTaskText');
+            const prioritySelect = document.getElementById('newTaskPriority');
+            
+            const text = textInput.value.trim();
+            if (!text) return;
+            
+            const newTask = {
+                id: Date.now(),
+                text: text,
+                completed: false,
+                priority: prioritySelect.value
+            };
+            
+            const taskList = document.getElementById('taskList');
+            const taskElement = createTaskElement(newTask, taskList.children.length);
+            taskList.appendChild(taskElement);
+            
+            saveTasks();
+            cancelAddTask();
+        }
+        
+        function deleteTask(button) {
+            if (confirm('Delete this task?')) {
+                button.closest('.task-item').remove();
+                saveTasks();
+            }
+        }
+        
+        // Drag and drop functionality
+        let draggedElement = null;
+        
+        function handleDragStart(e) {
+            draggedElement = this;
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+        }
+        
+        function handleDragOver(e) {
+            if (e.preventDefault) e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+        
+        function handleDrop(e) {
+            if (e.stopPropagation) e.stopPropagation();
+            
+            if (draggedElement !== this) {
+                const taskList = document.getElementById('taskList');
+                const allTasks = Array.from(taskList.children);
+                const draggedIndex = allTasks.indexOf(draggedElement);
+                const targetIndex = allTasks.indexOf(this);
+                
+                if (draggedIndex < targetIndex) {
+                    taskList.insertBefore(draggedElement, this.nextSibling);
                 } else {
-                    this.parentElement.style.opacity = '1';
-                    this.parentElement.querySelector('.task-text').style.textDecoration = 'none';
+                    taskList.insertBefore(draggedElement, this);
+                }
+                
+                saveTasks();
+            }
+            
+            return false;
+        }
+        
+        function handleDragEnd(e) {
+            this.classList.remove('dragging');
+            draggedElement = null;
+        }
+        
+        // ====================
+        // METRICS MANAGEMENT
+        // ====================
+        
+        function loadMetrics() {
+            const savedMetrics = localStorage.getItem(STORAGE_KEYS.metrics);
+            if (savedMetrics) {
+                const metrics = JSON.parse(savedMetrics);
+                Object.keys(metrics).forEach(key => {
+                    const element = document.querySelector(`[data-metric="${key}"]`);
+                    if (element) {
+                        element.textContent = metrics[key];
+                    }
+                });
+            }
+        }
+        
+        function editMetric(element) {
+            const currentValue = element.textContent;
+            const metricKey = element.dataset.metric;
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentValue;
+            input.style.width = '100%';
+            
+            element.innerHTML = '';
+            element.appendChild(input);
+            input.focus();
+            input.select();
+            
+            function saveMetric() {
+                const newValue = input.value.trim() || currentValue;
+                element.textContent = newValue;
+                
+                // Save to localStorage
+                const savedMetrics = JSON.parse(localStorage.getItem(STORAGE_KEYS.metrics) || '{}');
+                savedMetrics[metricKey] = newValue;
+                localStorage.setItem(STORAGE_KEYS.metrics, JSON.stringify(savedMetrics));
+                updateLastUpdated();
+            }
+            
+            input.addEventListener('blur', saveMetric);
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    this.blur();
                 }
             });
-        });
+        }
         
-        // Add simple analytics
-        console.log('🔥 OMVP Dashboard Loaded - Focus on execution, not perfection!');
+        // ====================
+        // NOTES MANAGEMENT
+        // ====================
+        
+        function loadNotes() {
+            const savedNotes = localStorage.getItem(STORAGE_KEYS.notes);
+            const notesTextarea = document.getElementById('projectNotes');
+            
+            if (savedNotes) {
+                notesTextarea.value = savedNotes;
+            }
+            
+            // Auto-save notes
+            notesTextarea.addEventListener('input', function() {
+                clearTimeout(autoSaveTimer);
+                autoSaveTimer = setTimeout(() => {
+                    localStorage.setItem(STORAGE_KEYS.notes, this.value);
+                    showAutoSaveIndicator();
+                    updateLastUpdated();
+                }, 3000);
+            });
+        }
+        
+        function showAutoSaveIndicator() {
+            const indicator = document.getElementById('autoSaveIndicator');
+            indicator.classList.add('show');
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 2000);
+        }
+        
+        function formatText(command) {
+            const textarea = document.getElementById('projectNotes');
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const selectedText = textarea.value.substring(start, end);
+            
+            let formattedText = selectedText;
+            if (command === 'bold') {
+                formattedText = `**${selectedText}**`;
+            } else if (command === 'italic') {
+                formattedText = `*${selectedText}*`;
+            }
+            
+            textarea.value = textarea.value.substring(0, start) + formattedText + textarea.value.substring(end);
+            textarea.focus();
+            textarea.setSelectionRange(start, start + formattedText.length);
+        }
+        
+        function insertText(text) {
+            const textarea = document.getElementById('projectNotes');
+            const start = textarea.selectionStart;
+            textarea.value = textarea.value.substring(0, start) + text + textarea.value.substring(start);
+            textarea.focus();
+            textarea.setSelectionRange(start + text.length, start + text.length);
+        }
+        
+        function insertTimestamp() {
+            const timestamp = new Date().toLocaleString();
+            insertText(`\n\n**${timestamp}**\n`);
+        }
+        
+        function exportNotes() {
+            const notes = document.getElementById('projectNotes').value;
+            const blob = new Blob([notes], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `omvp-notes-${new Date().toISOString().split('T')[0]}.md`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        // ====================
+        // DATA MANAGEMENT
+        // ====================
+        
+        function exportData() {
+            const projectData = {
+                tasks: JSON.parse(localStorage.getItem(STORAGE_KEYS.tasks) || '[]'),
+                metrics: JSON.parse(localStorage.getItem(STORAGE_KEYS.metrics) || '{}'),
+                notes: localStorage.getItem(STORAGE_KEYS.notes) || '',
+                exported: new Date().toISOString(),
+                projectName: 'OMVP Home Services'
+            };
+            
+            const blob = new Blob([JSON.stringify(projectData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `omvp-project-backup-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const projectData = JSON.parse(e.target.result);
+                    
+                    if (confirm('This will replace all current data. Continue?')) {
+                        if (projectData.tasks) {
+                            localStorage.setItem(STORAGE_KEYS.tasks, JSON.stringify(projectData.tasks));
+                        }
+                        if (projectData.metrics) {
+                            localStorage.setItem(STORAGE_KEYS.metrics, JSON.stringify(projectData.metrics));
+                        }
+                        if (projectData.notes) {
+                            localStorage.setItem(STORAGE_KEYS.notes, projectData.notes);
+                        }
+                        
+                        location.reload();
+                    }
+                } catch (error) {
+                    alert('Invalid file format');
+                }
+            };
+            reader.readAsText(file);
+        }
+        
+        function resetData() {
+            if (confirm('This will delete all dashboard data. Are you sure?')) {
+                Object.values(STORAGE_KEYS).forEach(key => {
+                    localStorage.removeItem(key);
+                });
+                location.reload();
+            }
+        }
+        
+        function setupEventListeners() {
+            // Enter key for add task
+            document.getElementById('newTaskText').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    addTask();
+                }
+            });
+        }
+        
+        // Global functions for HTML onclick handlers
+        window.editMetric = editMetric;
+        window.showAddTaskForm = showAddTaskForm;
+        window.cancelAddTask = cancelAddTask;
+        window.addTask = addTask;
+        window.deleteTask = deleteTask;
+        window.formatText = formatText;
+        window.insertText = insertText;
+        window.insertTimestamp = insertTimestamp;
+        window.exportNotes = exportNotes;
+        window.exportData = exportData;
+        window.importData = importData;
+        window.resetData = resetData;
     </script>
 </body>
 </html>
