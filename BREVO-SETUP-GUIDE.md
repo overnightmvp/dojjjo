@@ -1,6 +1,6 @@
 # Brevo Email Integration Setup Guide
 
-🚀 **NEW**: Use the [Email Template Viewer](/email-template-viewer.html) for easy copy-paste of all 11 Gmail-compatible templates to Brevo!
+🚀 **NEW**: Use the [Email Template Viewer](/omvp/omvp-email-template-viewer.html) for easy copy-paste of all 11 Gmail-compatible templates to Brevo!
 
 This guide walks you through setting up Brevo (formerly SendinBlue) email integration for the DOJJJO hybrid business model with complete email automation for both lead generation and $5K OMVP service delivery.
 
@@ -17,11 +17,11 @@ Create these lists in your Brevo dashboard:
 - **OMVP High Intent** (for $5K service clients - O01-O06 sequence)  
 - **General Leads** (optional - for newsletter/updates)
 
-💡 **Pro Tip**: Use the [Email Template Viewer](/email-template-viewer.html) to see exactly which templates belong to which sequences!
+💡 **Pro Tip**: Use the [Email Template Viewer](/omvp/omvp-email-template-viewer.html) to see exactly which templates belong to which sequences!
 
 ### 3. Create Email Templates
 
-🎯 **Quick Setup**: Use the [Email Template Viewer](/email-template-viewer.html) to copy all 11 Gmail-compatible templates with one click!
+🎯 **Quick Setup**: Use the [Email Template Viewer](/omvp/omvp-email-template-viewer.html) to copy all 11 Gmail-compatible templates with one click!
 
 #### 📝 Worksheet Series (W01-W05) - Lead Generation
 - **W01 - Worksheet Delivery**: Your 48-Hour Worksheet Has Arrived ⚡
@@ -190,14 +190,14 @@ sendBrevoEmail('test@example.com', BREVO_CONFIG.TEMPLATES.W01_WORKSHEET_DELIVERY
 
 // Test OMVP client sequence  
 sendToBrevo('client@example.com', {SOURCE: 'omvp_client', STATUS: 'active'}, [BREVO_CONFIG.LISTS.OMVP_HIGH_INTENT]);
-sendBrevoEmail('client@example.com', BREVO_CONFIG.TEMPLATES.O01_WELCOME, {DASHBOARD_URL: '/omvp-delivery-dashboard.html'});
+sendBrevoEmail('client@example.com', BREVO_CONFIG.TEMPLATES.O01_WELCOME, {DASHBOARD_URL: '/omvp/omvp-delivery-dashboard.html'});
 ```
 
 ---
 
 ## 🚀 Quick Implementation Checklist
 
-- [ ] **Email Template Viewer**: Use [`/email-template-viewer.html`](/email-template-viewer.html) for easy template setup
+- [ ] **Email Template Viewer**: Use [`/omvp/omvp-email-template-viewer.html`](/omvp/omvp-email-template-viewer.html) for easy template setup
 - [ ] **Template Creation**: Copy all 11 Gmail-compatible templates to Brevo
 - [ ] **API Configuration**: Update `/assets/js/brevo-config.js` with your credentials
 - [ ] **List Setup**: Create Worksheet Subscribers and OMVP Client lists

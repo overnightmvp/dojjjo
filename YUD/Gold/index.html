@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Deal Dashboard</title>
+    <!-- Use a serif font for headers and a sans-serif for body for contrast -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Use Tailwind CSS for clean, modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+        }
+        /* Custom checkbox styling for a cleaner look */
+        .custom-checkbox {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            outline: none;
+            border: 2px solid #9ca3af;
+            border-radius: 0.25rem;
+            transition: all 0.2s ease-in-out;
+            background-color: white;
+        }
+        .custom-checkbox:checked {
+            border-color: #16a34a;
+            background-color: #d1fae5;
+        }
+        .custom-checkbox:checked + .checkbox-label:before {
+            content: '✓';
+            color: #166534;
+            display: inline-block;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+        .checkbox-label {
+            position: relative;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <!-- Main container for the dashboard -->
+    <div class="max-w-7xl mx-auto bg-white shadow-xl rounded-2xl p-6 lg:p-12 space-y-8">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mb-8">Gold Deal Dashboard</h1>
+
+        <!-- Section 1: Visualization of the Customer Journey Map -->
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 text-center">Deal Process Blueprint (Vertical View)</h2>
+            <div class="overflow-x-auto p-4 bg-white rounded-lg shadow-inner">
+                <!-- Mermaid.js chart container. The raw code is placed inside this div. -->
+                <div class="mermaid text-center">
+                    %% The chart has been changed to a vertical graph for better readability.
+                    graph TD
+                        A[1. Lead & Qualification] --> B[2. Offer & Negotiation]
+                        B --> C[3. Contract & Commitment]
+                        C --> D{4. Fulfillment - Part 1}
+                        D --> E[5. Fulfillment - Part 2]
+                        E --> F[6. Post-Fulfillment]
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Detailed Deal Progress Checklist -->
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 text-center">Deal Progress Checklist</h2>
+            <p class="text-center text-xs sm:text-sm text-gray-500 mb-6">Track the progress of the deal step-by-step.</p>
+            <div id="deal-checklist" class="space-y-4 sm:space-y-6">
+                <!-- Step 1 -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">1. Lead & Qualification</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step1-1" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step1-1" class="checkbox-label flex-1 text-gray-700 select-none">Initial Soft Corporate Offer (SCO) shared with buyer.</label>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step1-2" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step1-2" class="checkbox-label flex-1 text-gray-700 select-none">Buyer has passed KYC (Know Your Client) checks.</label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">2. Offer & Negotiation</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step2-1" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step2-1" class="checkbox-label flex-1 text-gray-700 select-none">Full Corporate Offer (FCO) has been received.</label>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step2-2" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step2-2" class="checkbox-label flex-1 text-gray-700 select-none">Final price has been agreed upon by both parties.</label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">3. Contract & Commitment</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step3-1" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step3-1" class="checkbox-label flex-1 text-gray-700 select-none">Official contract has been signed.</label>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step3-2" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step3-2" class="checkbox-label flex-1 text-gray-700 select-none">Initial deposit or proof of funds is verified.</label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">4. Fulfillment (Part 1)</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step4-1" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step4-1" class="checkbox-label flex-1 text-gray-700 select-none">500kg of gold has been transported to Hong Kong.</label>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step4-2" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step4-2" class="checkbox-label flex-1 text-gray-700 select-none">Independent appraisal has been completed.</label>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step4-3" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step4-3" class="checkbox-label flex-1 text-gray-700 select-none">Payment for the initial 500kg has been received.</label>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Step 5 -->
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">5. Fulfillment (Part 2) & Closing</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step5-1" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step5-1" class="checkbox-label flex-1 text-gray-700 select-none">Final 500kg has been secured and transferred.</label>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step5-2" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step5-2" class="checkbox-label flex-1 text-gray-700 select-none">Deal of a Day Invoices (DAO DIN) have been created and verified.</label>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <input type="checkbox" id="step5-3" class="custom-checkbox h-5 w-5 rounded focus:ring-green-500 flex-shrink-0">
+                            <label for="step5-3" class="checkbox-label flex-1 text-gray-700 select-none">Commission invoice has been sent and payment received.</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Simple Commission Calculator -->
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 text-center">Deal & Commission Calculator</h2>
+            <div class="space-y-4">
+                <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 items-center justify-center">
+                    <label for="deal-value" class="text-gray-700 font-medium">Deal Value (in USD):</label>
+                    <input type="number" id="deal-value" class="p-3 border border-gray-300 rounded-lg shadow-inner w-full sm:w-auto text-center" placeholder="e.g., 65000000" min="0">
+                </div>
+                <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col items-center text-center">
+                    <p class="text-sm font-semibold text-gray-600">Calculated Commission (2% Rate)</p>
+                    <p id="commission-display" class="text-2xl sm:text-3xl font-extrabold text-green-600 mt-2">$0.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mermaid.js library for rendering the chart -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
+    <script>
+        // Configure Mermaid to work with Tailwind's styles and custom fonts
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            fontFamily: 'Inter, sans-serif'
+        });
+
+        // JavaScript to handle the interactive checklist and calculator
+        document.addEventListener('DOMContentLoaded', () => {
+            // Checklist functionality
+            const checkboxes = document.querySelectorAll('#deal-checklist input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    const listItem = checkbox.closest('li');
+                    if (checkbox.checked) {
+                        listItem.classList.add('opacity-50', 'line-through');
+                        listItem.querySelector('label').classList.remove('text-gray-700');
+                        listItem.querySelector('label').classList.add('text-gray-500');
+                    } else {
+                        listItem.classList.remove('opacity-50', 'line-through');
+                        listItem.querySelector('label').classList.remove('text-gray-500');
+                        listItem.querySelector('label').classList.add('text-gray-700');
+                    }
+                });
+            });
+
+            // Commission calculator functionality
+            const dealValueInput = document.getElementById('deal-value');
+            const commissionDisplay = document.getElementById('commission-display');
+            const COMMISSION_RATE = 0.02; // Assuming a 2% commission rate for simplicity
+
+            dealValueInput.addEventListener('input', () => {
+                const dealValue = parseFloat(dealValueInput.value);
+                if (!isNaN(dealValue) && dealValue >= 0) {
+                    const commission = dealValue * COMMISSION_RATE;
+                    commissionDisplay.textContent = `$${commission.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                } else {
+                    commissionDisplay.textContent = '$0.00';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

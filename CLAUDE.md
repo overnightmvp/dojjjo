@@ -30,10 +30,10 @@ open "omvp/index.html"                  # $5K OMVP service landing
 # SERVICE DELIVERY SYSTEM
 open "omvp/submit.html"                 # High-intent form + file upload
 open "omvp/success.html"                # Confirmation + next steps
-open "omvp-delivery-dashboard.html"     # Client project dashboard
+open "omvp/omvp-delivery-dashboard.html"     # Client project dashboard
 
 # EMAIL AUTOMATION SYSTEM
-open "email-template-viewer.html"       # Copy templates to Brevo
+open "omvp/omvp-email-template-viewer.html"       # Copy templates to Brevo
 open "48-hour-worksheet/delivery/"      # 5 worksheet nurture emails
 open "omvp/delivery/"                   # 6 OMVP high-intent emails
 
@@ -244,7 +244,7 @@ open "48-hour-worksheet/worksheet.html" # Worksheet completion flow
 open "omvp/submit.html"                 # High-intent service submission
 
 # Validate email automation
-open "email-template-viewer.html"       # Email template preview system
+open "omvp/omvp-email-template-viewer.html"       # Email template preview system
 open "assets/js/brevo-config.js"        # Email integration configuration
 
 # Check analytics implementation

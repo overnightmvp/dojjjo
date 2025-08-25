@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Services Chaos Assessment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .assessment-form {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+
+        .question h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: #007bff;
+            background: #f8f9fa;
+        }
+
+        .option.selected {
+            border-color: #007bff;
+            background: #e7f3ff;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .submit-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .results {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .score {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .score.low { color: #28a745; }
+        .score.medium { color: #ffc107; }
+        .score.high { color: #dc3545; }
+
+        .email-capture {
+            margin-top: 30px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .email-capture input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header, .assessment-form {
+                padding: 20px;
+            }
+            
+            .email-capture input {
+                width: 100%;
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Professional Services Chaos Assessment</h1>
+            <p>How organized is your firm really? This 10-question assessment will give you an honest look at where you stand and what you might want to fix.</p>
+        </div>
+
+        <form class="assessment-form" id="chaosForm">
+            <div class="question">
+                <h3>1. How do you currently handle new lead inquiries?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="1">
+                        We have a systematic process that works smoothly
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="2">
+                        Mostly organized, but some leads fall through the cracks
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="3">
+                        It's pretty chaotic - emails, calls, no real system
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>2. How long does it typically take to onboard a new client?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="1">
+                        2-3 days with a smooth process
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="2">
+                        1-2 weeks with some back and forth
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="3">
+                        2+ weeks of email chaos and confusion
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>3. What percentage of your business comes from referrals?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="1">
+                        70%+ - we have a great referral system
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="2">
+                        30-70% - some referrals but not systematic
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="3">
+                        Less than 30% - we struggle with referrals
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>4. How do you track which marketing actually brings in clients?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="1">
+                        We have clear tracking and know our ROI
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="2">
+                        We have some idea but it's not precise
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="3">
+                        Honestly, we have no clue what's working
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>5. How much time do partners spend on administrative tasks weekly?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="1">
+                        Less than 10 hours - we're pretty efficient
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="2">
+                        10-20 hours - more than we'd like
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="3">
+                        20+ hours - it's eating our billable time
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>6. How organized is your client follow-up process?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q6" value="1">
+                        Automatic and systematic - nothing falls through cracks
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="2">
+                        Mostly good but we miss things sometimes
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="3">
+                        Completely manual and things get forgotten regularly
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>7. What happens when a partner goes on vacation?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q7" value="1">
+                        Everything runs smoothly without them
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="2">
+                        Some issues but mostly manageable
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="3">
+                        Chaos - everything depends on them being there
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>8. How do you currently qualify potential clients?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q8" value="1">
+                        We have a systematic process that filters out bad fits
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="2">
+                        We do some qualification but it's inconsistent
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="3">
+                        We talk to everyone and waste a lot of time
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>9. How would you describe your overall business processes?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q9" value="1">
+                        Well-documented and consistently followed
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="2">
+                        Some documented processes but inconsistent execution
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="3">
+                        Most things are ad hoc and depend on who's handling it
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>10. What's your biggest frustration with running the business?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q10" value="1">
+                        Minor efficiency improvements we could make
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q10" value="2">
+                        Feeling like we're always behind and reactive
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q10" value="3">
+                        Complete overwhelm - everything feels chaotic
+                    </label>
+                </div>
+            </div>
+
+            <div class="submit-section">
+                <button type="submit" class="btn" id="submitBtn">Get My Chaos Score</button>
+            </div>
+        </form>
+
+        <div class="results" id="results">
+            <h2>Your Professional Services Chaos Score</h2>
+            <div class="score" id="scoreDisplay"></div>
+            <div id="interpretation"></div>
+            
+            <div class="email-capture">
+                <p><strong>Want to see how other firms solved these problems?</strong></p>
+                <p>Get specific examples of automation systems that work for firms like yours.</p>
+                <input type="email" id="emailInput" placeholder="Enter your email">
+                <button class="btn" onclick="captureEmail()">Send Me Examples</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle option selection
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const input = this.querySelector('input[type="radio"]');
+                input.checked = true;
+                
+                // Remove selected class from siblings
+                this.parentElement.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('chaosForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Calculate score
+            let totalScore = 0;
+            for(let i = 1; i <= 10; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if(answer) {
+                    totalScore += parseInt(answer.value);
+                }
+            }
+
+            // Hide form and show results
+            document.querySelector('.assessment-form').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+
+            // Display score and interpretation
+            displayResults(totalScore);
+        });
+
+        function displayResults(score) {
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const interpretation = document.getElementById('interpretation');
+            
+            scoreDisplay.textContent = score + '/30';
+            
+            if(score <= 15) {
+                scoreDisplay.className = 'score low';
+                interpretation.innerHTML = `
+                    <h3>🟢 Pretty Well Organized (Score: ${score}/30)</h3>
+                    <p>Your firm is running fairly smoothly. You might benefit from some minor optimizations, but you're not drowning in chaos like many professional services firms.</p>
+                    <p><strong>Focus areas:</strong> Small automation wins that save time without major overhaul.</p>
+                `;
+            } else if(score <= 22) {
+                scoreDisplay.className = 'score medium';
+                interpretation.innerHTML = `
+                    <h3>🟡 Some Organization Issues (Score: ${score}/30)</h3>
+                    <p>You're probably feeling the pain of disorganized processes. Things work, but they're inefficient and you're likely wasting significant time on manual tasks.</p>
+                    <p><strong>Focus areas:</strong> Lead management, client onboarding, and follow-up automation could make a big difference.</p>
+                `;
+            } else {
+                scoreDisplay.className = 'score high';
+                interpretation.innerHTML = `
+                    <h3>🔴 High Chaos Level (Score: ${score}/30)</h3>
+                    <p>You're likely feeling overwhelmed by disorganized processes. Partners are probably spending way too much time on admin work instead of billable hours.</p>
+                    <p><strong>Focus areas:</strong> Systematic overhaul of lead handling, client onboarding, and basic business processes would have immediate impact.</p>
+                `;
+            }
+        }
+
+        function captureEmail() {
+            const email = document.getElementById('emailInput').value;
+            if(email && email.includes('@')) {
+                // Here you would send the email to your system
+                alert('Thanks! Check your email for automation examples.');
+                // In real implementation, you'd integrate with your email system
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -11,23 +11,22 @@
             background: var(--bg-primary);
             color: var(--text-primary);
             font-family: var(--font-primary);
-            line-height: 1.6;
-            padding: var(--spacing-xl);
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
         }
         
         .container {
-            max-width: 1400px;
-            margin: 0 auto;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
         
         .header {
             text-align: center;
-            margin-bottom: var(--spacing-3xl);
-            padding: var(--spacing-2xl);
+            padding: 40px 16px;
             background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
-            border-radius: var(--border-radius);
-            border: var(--brutal-border);
-            box-shadow: var(--brutal-shadow);
+            color: var(--brutal-white);
         }
         
         .header h1 {
@@ -45,81 +44,72 @@
         }
         
         .section {
-            margin-bottom: var(--spacing-3xl);
+            padding: 32px 16px;
             background: var(--bg-primary);
             color: var(--text-primary);
-            padding: var(--spacing-2xl);
-            border: var(--brutal-border);
-            border-radius: var(--border-radius);
-            box-shadow: var(--brutal-shadow);
         }
         
         .section h2 {
             color: var(--brutal-red);
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: var(--font-weight-brutal);
             text-transform: uppercase;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: 16px;
             text-align: center;
         }
         
         .mermaid {
             background: #ffffff;
-            padding: var(--spacing-xl);
-            border-radius: var(--border-radius);
-            border: 3px solid #111827;
-            box-shadow: 6px 6px 0px #111827;
-            margin: var(--spacing-xl) 0;
+            padding: 16px;
+            margin: 16px 0;
             overflow-x: auto;
             text-align: center;
-            min-height: 400px;
+            min-height: 300px;
+            border-left: 4px solid var(--brutal-red);
         }
         
         .transformation-alert {
             background: var(--success-green);
-            color: var(--text-primary);
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
+            color: var(--brutal-white);
+            padding: 20px 16px;
             text-align: center;
             font-weight: var(--font-weight-bold);
-            margin-bottom: var(--spacing-2xl);
-            font-size: 1.125rem;
+            font-size: 1rem;
         }
         
         .comparison-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-xl);
-            margin-top: var(--spacing-2xl);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+            padding: 0 16px;
         }
         
         .before-card {
             background: #fee2e2;
             color: var(--danger-red);
-            padding: var(--spacing-xl);
-            border: 3px solid var(--danger-red);
-            border-radius: var(--border-radius);
+            padding: 20px;
+            border-left: 4px solid var(--danger-red);
         }
         
         .after-card {
             background: #d1fae5;
             color: var(--success-green);
-            padding: var(--spacing-xl);
-            border: 3px solid var(--success-green);
-            border-radius: var(--border-radius);
+            padding: 20px;
+            border-left: 4px solid var(--success-green);
         }
         
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: var(--font-weight-brutal);
             text-transform: uppercase;
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 12px;
             text-align: center;
         }
         
         .card-content {
-            font-size: 0.875rem;
-            line-height: 1.6;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
         
         .cta-section {
@@ -169,14 +159,14 @@
             <h2>S-Tier Product Design Audit Process</h2>
             <div class="mermaid">
                 flowchart TD
-                    AUDIT_START[🔍 S-Tier Product Design Audit] --> ANALYSIS[📊 System Analysis]
+                    AUDIT_START["🔍 AUDIT TRIGGER<br/>🚨 Revenue stuck at $560/month<br/>🔀 Multiple landing pages causing confusion<br/>⚡ Desperate need for systematic approach"] --> ANALYSIS["📊 BRUTAL DIAGNOSIS"]
                     
-                    subgraph ANALYSIS[📊 SYSTEM ANALYSIS]
-                        A1[Landing Page Audit: 3 different pages]
-                        A2[Lead Magnet Analysis: 6+ scattered magnets]
-                        A3[Service Tier Review: 3 tiers causing confusion]
-                        A4[Funnel Flow Mapping: No clear path]
-                        A5[Brand Navigation: Multi-brand chaos]
+                    subgraph ANALYSIS["📊 BRUTAL DIAGNOSIS: What Was Broken"]
+                        A1["📱 Landing Page Chaos<br/>3 different pages competing<br/>Visitors confused, bouncing fast"]
+                        A2["📧 Lead Magnet Disaster<br/>6+ scattered magnets<br/>No clear value hierarchy"]
+                        A3["💰 Service Tier Confusion<br/>3 pricing options = paralysis<br/>Prospects choosing nothing"]
+                        A4["🔄 Funnel Flow Breakdown<br/>No clear conversion path<br/>Leaks everywhere, revenue bleeding"]
+                        A5["🏢 Multi-Brand Navigation Hell<br/>DOJJJO vs Toshio vs consulting<br/>Identity crisis killing trust"]
                     end
                     
                     ANALYSIS --> PROBLEMS[🚨 Critical Issues Identified]
@@ -232,27 +222,26 @@
         <section class="section">
             <h2>Optimized Revenue Generation Flow</h2>
             <div class="mermaid">
-                flowchart LR
-                    TRAFFIC[Social Media Traffic<br/>10,000 visitors/month] --> LANDING[Landing Page<br/>index.html]
-                    LANDING -->|20% conversion| LEADS[Email Leads<br/>2,000/month]
-                    LEADS -->|40% open rate| ENGAGED[Engaged Leads<br/>800/month]
-                    ENGAGED -->|15% booking| CALLS[Discovery Calls<br/>120/month]
-                    CALLS -->|25% close rate| CLIENTS[New Clients<br/>30/month]
-                    CLIENTS -->|$5K average| REVENUE[Monthly Revenue<br/>$150,000]
+                flowchart TB
+                    BEFORE["🚨 BEFORE: $560/month"] --> AUDIT["🔍 AUDIT PROCESS"]
+                    AUDIT --> AFTER["✅ AFTER: $15K/month"]
                     
-                    %% Revenue Breakdown
-                    REVENUE --> CONSERVATIVE[Conservative Target<br/>3 clients = $15K/month]
-                    REVENUE --> OPTIMISTIC[Optimistic Target<br/>8 clients = $40K/month]
-                    REVENUE --> SCALE[Scale Target<br/>20 clients = $100K/month]
+                    BEFORE --> B1["📉 3% Conversion"]
+                    B1 --> B2["📧 25% Email Opens"]
+                    B2 --> B3["📅 5% Booking Rate"]
                     
-                    %% Styling
-                    classDef traffic fill:#6366f1,stroke:#333,stroke-width:2px,color:#fff
-                    classDef conversion fill:#10b981,stroke:#333,stroke-width:2px,color:#fff
-                    classDef revenue fill:#ef4444,stroke:#333,stroke-width:3px,color:#fff
+                    AFTER --> A1["🚀 20% Conversion"]
+                    A1 --> A2["📲 40% Email Opens"]
+                    A2 --> A3["📎 15% Booking Rate"]
+                    A3 --> RESULT["💵 7.5x Revenue Growth"]
                     
-                    class TRAFFIC,LANDING,LEADS,ENGAGED,CALLS traffic
-                    class CLIENTS conversion
-                    class REVENUE,CONSERVATIVE,OPTIMISTIC,SCALE revenue
+                    classDef before fill:#ef4444,stroke:#111827,stroke-width:2px,color:#fff
+                    classDef after fill:#10b981,stroke:#111827,stroke-width:2px,color:#fff
+                    classDef result fill:#8b5cf6,stroke:#111827,stroke-width:2px,color:#fff
+                    
+                    class BEFORE,B1,B2,B3 before
+                    class AFTER,A1,A2,A3 after
+                    class RESULT result
             </div>
         </section>
         

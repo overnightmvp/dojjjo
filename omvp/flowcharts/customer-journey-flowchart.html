@@ -11,23 +11,22 @@
             background: var(--bg-primary);
             color: var(--text-primary);
             font-family: var(--font-primary);
-            line-height: 1.6;
-            padding: var(--spacing-xl);
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
         }
         
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
         
         .header {
             text-align: center;
-            margin-bottom: var(--spacing-3xl);
-            padding: var(--spacing-2xl);
+            padding: 40px 16px;
             background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
-            border-radius: var(--border-radius);
-            border: var(--brutal-border);
-            box-shadow: var(--brutal-shadow);
+            color: var(--brutal-white);
         }
         
         .header h1 {
@@ -45,180 +44,137 @@
         }
         
         .section {
-            margin-bottom: var(--spacing-3xl);
+            padding: 32px 16px;
             background: var(--bg-primary);
             color: var(--text-primary);
-            padding: var(--spacing-2xl);
-            border: var(--brutal-border);
-            border-radius: var(--border-radius);
-            box-shadow: var(--brutal-shadow);
         }
         
         .section h2 {
             color: var(--brutal-red);
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: var(--font-weight-brutal);
             text-transform: uppercase;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: 16px;
             text-align: center;
         }
         
         .mermaid {
             background: #ffffff;
-            padding: var(--spacing-xl);
-            border-radius: var(--border-radius);
-            border: 3px solid #111827;
-            box-shadow: 6px 6px 0px #111827;
-            margin: var(--spacing-xl) 0;
+            padding: 16px;
+            margin: 16px 0;
             overflow-x: auto;
             text-align: center;
-            min-height: 400px;
+            min-height: 300px;
+            border-left: 4px solid var(--brutal-red);
         }
         
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-2xl);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+            padding: 0 16px;
         }
         
         .metric-card {
-            background: var(--bg-elevated);
+            background: var(--bg-secondary);
             color: var(--text-primary);
-            padding: var(--spacing-xl);
-            border: var(--brutal-border);
-            border-radius: var(--border-radius);
-            box-shadow: var(--brutal-shadow);
+            padding: 20px;
             text-align: center;
-            transition: all var(--transition-normal);
+            border-left: 4px solid var(--brutal-red);
         }
         
         .metric-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: var(--brutal-shadow-hover);
+            background: var(--bg-elevated);
         }
         
         .metric-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: var(--font-weight-brutal);
             color: var(--brutal-red);
-            margin-bottom: var(--spacing-sm);
-            text-shadow: 2px 2px 0px var(--brutal-orange);
+            margin-bottom: 8px;
         }
         
         .metric-label {
             font-weight: var(--font-weight-bold);
             text-transform: uppercase;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
         }
         
         .metric-desc {
-            font-size: 0.875rem;
-            color: var(--brutal-gray);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
         }
         
         .cta-section {
             background: linear-gradient(135deg, var(--brutal-red), var(--brutal-orange));
-            color: var(--text-primary);
+            color: var(--brutal-white);
             text-align: center;
-            padding: var(--spacing-3xl);
-            border-radius: var(--border-radius);
-            border: var(--brutal-border);
-            box-shadow: var(--brutal-shadow);
+            padding: 32px 16px;
         }
         
         .btn {
             display: inline-block;
-            padding: var(--spacing-md) var(--spacing-xl);
-            background: var(--bg-elevated);
-            color: var(--text-primary);
+            padding: 12px 24px;
+            background: var(--brutal-white);
+            color: var(--brutal-black);
             text-decoration: none;
             font-weight: var(--font-weight-bold);
             text-transform: uppercase;
-            border: var(--brutal-border);
-            border-radius: var(--border-radius);
-            box-shadow: var(--brutal-shadow);
-            transition: all var(--transition-fast);
-            margin: var(--spacing-sm);
+            margin: 8px;
+            transition: opacity 0.2s;
         }
         
         .btn:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: var(--brutal-shadow-hover);
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1>DOJJJO Customer Journey - Stage 16 Complete</h1>
-            <p>Production-ready interactive tools + Flawless navigation + Professional user experience → $15K/month systematic client delivery</p>
+            <h1>Customer Journey: From Stranger to $5K Client</h1>
+            <p>The brutal truth about how founders find you, trust you, and pay you $5000 for OMVP Complete service</p>
         </header>
         
-        <!-- Simplified Funnel Overview -->
+        <!-- Journey Overview -->
         <section class="section">
-            <h2>Interactive Conversion Funnel with Template System</h2>
+            <h2>The 5-Stage Journey: Stranger → $5K Client</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: var(--spacing-xl); color: var(--text-secondary);">Every successful conversion follows this exact path. Miss one stage, lose the client.</p>
             <div class="mermaid">
-                flowchart TD
-                    START[👤 Founder with Business Idea] --> AWARENESS[📱 AWARENESS STAGE]
+                flowchart TB
+                    START["🎯 PROSPECT: Ambitious Founder"] --> AWARENESS[📱 AWARENESS]
                     
-                    subgraph AWARENESS[📱 AWARENESS - Social Discovery]
-                        A1[Social Media Content:<br/>Johnny's Journey Stories] --> A2[Profile Visit:<br/>Bangkok BJJ Lifestyle]
-                        A2 --> A3[Landing Page Visit:<br/>index.html - Single Focus]
-                        A3 --> A4[Value Prop Recognition:<br/>From Broke to Bangkok Story]
-                    end
+                    AWARENESS --> A1["🎬 Social Content<br/>Personal stories"] 
+                    A1 --> A2["👤 Profile Visit<br/>Bangkok lifestyle"]
+                    A2 --> A3["🎯 Landing Page<br/>20% conversion"]
+                    A3 --> INTEREST[🎯 INTEREST]
                     
-                    AWARENESS --> INTEREST[🎯 INTEREST STAGE]
+                    INTEREST --> I1["📋 48-Hour Blueprint<br/>Interactive worksheet"]
+                    I1 --> I2["📧 Email Capture<br/>2000 leads/month"]
+                    I2 --> I3["🏆 Elite 7% Positioning<br/>Achievement psychology"]
+                    I3 --> NURTURE[📧 NURTURE]
                     
-                    subgraph INTEREST[🎯 INTEREST - Interactive Lead Magnets]
-                        I1[Interactive 48-Hour Blueprint:<br/>7-phase progressive framework + Auto-save + Form validation]
-                        I2[7-Day MVP Validation:<br/>Clean tabbed interface + 176 tasks + Progress tracking]
-                        I3[Email Capture:<br/>Single focused opt-in with localStorage persistence]
-                        I4[Achievement Celebration:<br/>Elite 7% positioning + Dynamic statistics + Multi-path conversion]
-                        I5[Personalized Download:<br/>Custom markdown business plan + AI prompts + Template replication]
-                        I6[Template Architecture:<br/>Production-ready interactive tools + Client customization system]
-                        
-                        I1 --> I3 --> I4 --> I5
-                        I2 --> I3 --> I4 --> I5
-                        I4 --> I6
-                    end
+                    NURTURE --> N1["📧 Email 1: Blueprint Delivery<br/>65% open rate"]
+                    N1 --> N2["📧 Email 2: Why 90% Fail<br/>45% open rate"]
+                    N2 --> N3["📧 Email 3: 48-Hour Method<br/>40% open rate"]
+                    N3 --> N4["📧 Email 4: Success Story<br/>38% open rate"]
+                    N4 --> N5["📧 Email 5: Service Intro<br/>15% click rate"]
+                    N5 --> CONVERSION[💳 CONVERSION]
                     
-                    INTEREST --> NURTURE[📧 NURTURE STAGE]
+                    CONVERSION --> C1["💰 Service Page<br/>$5K OMVP Complete"]
+                    C1 --> C2["📅 Discovery Call<br/>75% show rate"]
+                    C2 --> C3["🎯 Strategy Call<br/>25% close rate"]
+                    C3 --> C4["💳 Payment<br/>$5000 commitment"]
+                    C4 --> DELIVERY[🚀 DELIVERY]
                     
-                    subgraph NURTURE[📧 NURTURE - 5-Email Sequence]
-                        N1[📧 Day 0: Welcome + Blueprint]
-                        N2[📧 Day 1: Why 90% Fail]
-                        N3[📧 Day 3: 48-Hour Method]
-                        N4[📧 Day 5: BJJ Coach Case Study]
-                        N5[📧 Day 7: OMVP Service Introduction]
-                        
-                        N1 --> N2 --> N3 --> N4 --> N5
-                    end
-                    
-                    NURTURE --> CONVERSION[💳 CONVERSION STAGE]
-                    
-                    subgraph CONVERSION[💳 CONVERSION - Service Sale]
-                        C1[Service Page Visit:<br/>$5K OMVP Complete]
-                        C2[Discovery Call Booking:<br/>Cal.com Integration]
-                        C3[Strategy Call:<br/>15 Brutal Questions]
-                        C4[Purchase Decision:<br/>$5,000 Investment]
-                        C5[Payment Processing:<br/>Stripe Integration]
-                        
-                        C1 --> C2 --> C3 --> C4 --> C5
-                    end
-                    
-                    CONVERSION --> DELIVERY[🚀 DELIVERY STAGE]
-                    
-                    subgraph DELIVERY[🚀 DELIVERY - Template-Driven Client System]
-                        D1[📅 Day 1: Discovery + Template Customization:<br/>Lead-magnet-omvp-mdgen + Brand variables + Client setup files]
-                        D2[📅 Days 2-4: Systematic Transformation:<br/>Interactive worksheet replication + Design system adaptation + Content personalization]
-                        D3[📅 Day 5: Quality Validation:<br/>7-phase testing + Mobile optimization + Analytics integration]
-                        D4[📅 Days 6-7: Delivery + Training:<br/>Client handoff + Documentation + 30-day support activation]
-                        D5[✅ Client Business System Live:<br/>Interactive tools + Revenue tracking + Template success]
-                        D6[🎯 Portfolio Enhancement:<br/>Case study documentation + Referral system + Template optimization]
-                        
-                        D1 --> D2 --> D3 --> D4 --> D5 --> D6
-                    end
+                    DELIVERY --> D1["📋 Day 1: Discovery<br/>Template setup"]
+                    D1 --> D2["🔄 Days 2-4: Build<br/>90% complete system"]
+                    D2 --> D3["✅ Day 5: QA<br/>Production ready"]
+                    D3 --> D4["🎓 Days 6-7: Handoff<br/>Client training"]
+                    D4 --> D5["💰 SUCCESS<br/>Live business system"]
                     
                     %% Styling
                     classDef awareness fill:#ff6b6b,stroke:#333,stroke-width:3px,color:#fff
@@ -237,102 +193,81 @@
         
         <!-- Conversion Metrics -->
         <section class="section">
-            <h2>Target Conversion Metrics</h2>
+            <h2>Conversion Reality Check: The Numbers That Matter</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: var(--spacing-xl); color: var(--text-secondary);">These aren't fantasy numbers. These are conservative targets based on proven funnel optimization.</p>
             <div class="mermaid">
-                graph TD
-                    TRAFFIC[Social Media Traffic: 10,000 visitors] --> LANDING[Landing Page: 20% capture rate]
-                    LANDING --> EMAIL[Email Signups: 2,000 leads]
-                    EMAIL --> NURTURE_OPEN[Email Opens: 40% open rate]
-                    NURTURE_OPEN --> BOOKING[Discovery Calls: 15% booking rate]
-                    BOOKING --> CLOSE[Closed Deals: 25% close rate]
-                    CLOSE --> REVENUE[Monthly Revenue: $15,000]
+                flowchart TB
+                    TRAFFIC["📱 10K Visitors/Month"] --> LANDING["🎯 20% Email Capture"]
+                    LANDING --> EMAIL["📧 2K Leads/Month"]
+                    EMAIL --> NURTURE["📖 40% Email Opens"]
+                    NURTURE --> BOOKING["📅 15% Book Calls"]
+                    BOOKING --> CLOSE["💰 25% Close Rate"]
+                    CLOSE --> REVENUE["💵 $15K Monthly"]
                     
-                    %% Calculations
-                    LANDING -->|2,000 leads| EMAIL_CALC[2,000 × $5K = $10M potential]
-                    EMAIL -->|800 opens| NURTURE_CALC[800 × 15% = 120 calls]
-                    BOOKING -->|120 calls| BOOKING_CALC[120 × 25% = 30 clients]
-                    CLOSE -->|30 clients| REVENUE_CALC[30 × $5K = $150K month]
-                    
-                    %% Styling
-                    classDef metric fill:#ef4444,stroke:#111827,stroke-width:3px,color:#fff
-                    classDef calc fill:#f97316,stroke:#111827,stroke-width:2px,color:#fff
-                    
-                    class TRAFFIC,LANDING,EMAIL,NURTURE_OPEN,BOOKING,CLOSE,REVENUE metric
-                    class EMAIL_CALC,NURTURE_CALC,BOOKING_CALC,REVENUE_CALC calc
+                    classDef default fill:#ef4444,stroke:#111827,stroke-width:2px,color:#fff
             </div>
             
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-number">20%</div>
                     <div class="metric-label">Landing Conversion</div>
-                    <div class="metric-desc">Visitor to email capture rate</div>
+                    <div class="metric-desc">Interactive tools destroy static pages (industry average: 2-5%)</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-number">40%</div>
                     <div class="metric-label">Email Open Rate</div>
-                    <div class="metric-desc">Nurture sequence engagement</div>
+                    <div class="metric-desc">Value-first content vs pitch-heavy sequences</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-number">15%</div>
                     <div class="metric-label">Booking Rate</div>
-                    <div class="metric-desc">Email to discovery call conversion</div>
+                    <div class="metric-desc">Pre-qualified leads vs cold traffic (10x improvement)</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-number">25%</div>
                     <div class="metric-label">Close Rate</div>
-                    <div class="metric-desc">Call to $5K sale conversion</div>
+                    <div class="metric-desc">Strategic discovery vs feature dumping</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-number">1%</div>
-                    <div class="metric-label">Overall Funnel</div>
-                    <div class="metric-desc">Visitor to customer rate</div>
+                    <div class="metric-number">0.3%</div>
+                    <div class="metric-label">Visitor → Client</div>
+                    <div class="metric-desc">Overall funnel efficiency (30 clients from 10K visitors)</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-number">$15K</div>
-                    <div class="metric-label">Monthly Target</div>
-                    <div class="metric-desc">Hybrid model: 70% service delivery + 30% personal brand</div>
+                    <div class="metric-label">Monthly Revenue</div>
+                    <div class="metric-desc">Conservative target: 3 clients minimum</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-number">2</div>
-                    <div class="metric-label">Interactive Tools</div>
-                    <div class="metric-desc">Production-ready lead magnets with flawless navigation</div>
+                    <div class="metric-number">7 Days</div>
+                    <div class="metric-label">Client Delivery</div>
+                    <div class="metric-desc">Template system enables rapid transformation</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-number">70%+</div>
-                    <div class="metric-label">Completion Rate</div>
-                    <div class="metric-desc">Interactive worksheet vs static content</div>
+                    <div class="metric-label">Tool Completion</div>
+                    <div class="metric-desc">Interactive vs static: 70% vs 15% completion</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-number">176</div>
-                    <div class="metric-label">Validation Tasks</div>
-                    <div class="metric-desc">7-day MVP framework with progress tracking</div>
+                    <div class="metric-number">2x</div>
+                    <div class="metric-label">Portfolio Value</div>
+                    <div class="metric-desc">Lead magnets serve dual purpose: conversion + credibility</div>
                 </div>
             </div>
         </section>
         
         <!-- Technical Implementation Flow -->
         <section class="section">
-            <h2>Technical Implementation Requirements</h2>
+            <h2>Technical Stack</h2>
             <div class="mermaid">
-                flowchart LR
-                    WEBSITE[Website: index.html] --> EMAIL_TOOL[Email Tool: ConvertKit/Mailchimp]
-                    EMAIL_TOOL --> BOOKING[Booking: Cal.com]
-                    BOOKING --> PAYMENT[Payment: Stripe]
-                    PAYMENT --> ANALYTICS[Analytics: GA4 + Hotjar]
-                    ANALYTICS --> CRM[CRM: Lead Tracking]
+                flowchart TB
+                    WEBSITE["🌐 Website: index.html"] --> EMAIL["📧 Email: Brevo"]
+                    EMAIL --> BOOKING["📅 Booking: Cal.com"]
+                    BOOKING --> PAYMENT["💳 Payment: Stripe"]
+                    PAYMENT --> ANALYTICS["📊 Analytics: GA4"]
+                    ANALYTICS --> CRM["🗂️ CRM: Lead Tracking"]
                     
-                    WEBSITE -->|Lead Magnets| MAGNETS[Blueprint + Assessment]
-                    EMAIL_TOOL -->|5-Email Sequence| AUTOMATION[Automation Triggers]
-                    BOOKING -->|Discovery Calls| CALENDAR[Calendar Integration]
-                    PAYMENT -->|$5K Transactions| PROCESSING[Payment Processing]
-                    ANALYTICS -->|Conversion Tracking| OPTIMIZATION[Funnel Optimization]
-                    
-                    %% Styling
-                    classDef tech fill:#111827,stroke:#ef4444,stroke-width:3px,color:#fff
-                    classDef process fill:#f97316,stroke:#111827,stroke-width:2px,color:#fff
-                    
-                    class WEBSITE,EMAIL_TOOL,BOOKING,PAYMENT,ANALYTICS,CRM tech
-                    class MAGNETS,AUTOMATION,CALENDAR,PROCESSING,OPTIMIZATION process
+                    classDef default fill:#111827,stroke:#ef4444,stroke-width:2px,color:#fff
             </div>
         </section>
         

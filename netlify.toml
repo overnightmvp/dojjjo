@@ -51,7 +51,7 @@
 
 [[redirects]]
   from = "/dojjjo-landing.html"
-  to = "/index.html"
+  to = "/omvp/omvp-landing.html"
   status = 301
 
 # Main landing page (now using index.html)

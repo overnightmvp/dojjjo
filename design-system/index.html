@@ -3,70 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OMVP Design System - iOS-Inspired Template Dashboard</title>
-    <meta name="description" content="iOS-inspired design system dashboard for OMVP client template customization">
-    <link rel="stylesheet" href="assets/css/brutal-design-system.css">
+    <title>DOJJJO Design Guidelines - Brutal Simplicity</title>
+    <meta name="description" content="Simple, brutal design guidelines for consistent user experience">
+    <link rel="stylesheet" href="../assets/css/brutal-design-system.css">
     <style>
-        /* Dashboard-specific styles */
-        .dashboard-header {
-            background: var(--template-primary);
-            color: var(--ios-white);
-            padding: var(--spacing-4xl) 0;
+        /* Simple guidelines styles */
+        .guidelines-header {
+            background: var(--brutal-red);
+            color: var(--brutal-white);
+            padding: 40px 16px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
         
-        .dashboard-header::before {
-            content: '🎨';
-            position: absolute;
-            top: 50%;
-            left: var(--spacing-4xl);
-            transform: translateY(-50%);
-            font-size: 3rem;
-            opacity: 0.3;
+        .guidelines-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
         }
         
-        .dashboard-title {
-            font-size: var(--text-large-title);
-            font-weight: var(--font-weight-black);
-            margin-bottom: var(--spacing-sm);
-        }
-        
-        .dashboard-subtitle {
-            font-size: var(--text-title-3);
+        .guidelines-header p {
+            font-size: 1.1rem;
+            font-weight: 400;
             opacity: 0.9;
-            font-weight: var(--font-weight-medium);
         }
         
         .color-palette {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-4xl);
+            gap: 16px;
+            margin-bottom: 32px;
         }
         
         .color-card {
-            background: var(--bg-elevated);
-            border-radius: var(--radius-xl);
-            padding: var(--spacing-xl);
-            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            padding: 20px;
             text-align: center;
+            border-left: 4px solid var(--brutal-red);
         }
         
         .color-swatch {
             width: 100%;
             height: 80px;
-            border-radius: var(--radius-lg);
-            margin-bottom: var(--spacing-md);
-            border: 1px solid var(--border-color);
-            position: relative;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--ios-white);
-            font-weight: var(--font-weight-bold);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            color: var(--brutal-white);
+            font-weight: 600;
+            font-size: 0.9rem;
         }
         
         .color-info {
@@ -74,44 +59,63 @@
         }
         
         .color-name {
-            font-size: var(--text-headline);
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--spacing-xs);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
         
         .color-code {
-            font-family: var(--font-monospace);
-            font-size: var(--text-subhead);
+            font-family: 'Monaco', monospace;
+            font-size: 0.9rem;
             color: var(--text-secondary);
-            background: var(--bg-secondary);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: var(--radius-sm);
+            background: var(--bg-primary);
+            padding: 4px 8px;
             display: inline-block;
         }
         
         .typography-sample {
-            margin-bottom: var(--spacing-3xl);
+            margin-bottom: 32px;
+        }
+        
+        .type-large {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        .type-medium {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .type-small {
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+            line-height: 1.5;
         }
         
         .component-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-4xl);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
         }
         
         .component-demo {
-            background: var(--bg-elevated);
-            border-radius: var(--radius-xl);
-            padding: var(--spacing-3xl);
-            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            padding: 24px;
+            border-left: 4px solid var(--brutal-red);
         }
         
         .demo-title {
-            font-size: var(--text-title-3);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--spacing-xl);
-            color: var(--template-primary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--brutal-red);
         }
         
         .spacing-demo {
@@ -209,378 +213,146 @@
     </style>
 </head>
 <body>
-    <!-- Theme toggle removed for conversion focus -->
-    
-    <!-- Customization Toggle -->
-    <button class="customization-toggle" onclick="toggleCustomization()" title="Customize Template">⚙️</button>
-    
-    <!-- Dashboard Header -->
-    <header class="dashboard-header">
-        <div class="container">
-            <h1 class="dashboard-title">OMVP Design System</h1>
-            <p class="dashboard-subtitle">iOS-Inspired Template System for Client Work</p>
-        </div>
+    <!-- Guidelines Header -->
+    <header class="guidelines-header">
+        <h1>Design Guidelines</h1>
+        <p>Brutal simplicity for consistent user experience</p>
     </header>
     
-    <main class="container">
-        <!-- Template Selection -->
-        <section class="section">
-            <h2 class="text-title-1">Template Configurations</h2>
-            <p class="text-body">Select a pre-configured template or customize your own brand colors.</p>
-            
-            <div class="template-selector">
-                <div class="template-card active" onclick="setTemplate('default')">
-                    <div class="template-preview" style="background: linear-gradient(135deg, #007AFF 0%, #FF3B30 100%);">
-                        Default
-                    </div>
-                    <h3 class="text-title-3">Default iOS</h3>
-                    <p class="text-subhead">iOS Blue & Red</p>
-                </div>
-                
-                <div class="template-card" onclick="setTemplate('mint')">
-                    <div class="template-preview" style="background: linear-gradient(135deg, #00C7BE 0%, #34C759 100%);">
-                        Mint
-                    </div>
-                    <h3 class="text-title-3">Mint Fresh</h3>
-                    <p class="text-subhead">Mint & Green</p>
-                </div>
-                
-                <div class="template-card" onclick="setTemplate('purple')">
-                    <div class="template-preview" style="background: linear-gradient(135deg, #5856D6 0%, #AF52DE 100%);">
-                        Purple
-                    </div>
-                    <h3 class="text-title-3">Purple Pro</h3>
-                    <p class="text-subhead">Indigo & Purple</p>
-                </div>
-                
-                <div class="template-card" onclick="setTemplate('orange')">
-                    <div class="template-preview" style="background: linear-gradient(135deg, #FF9500 0%, #FFCC00 100%);">
-                        Orange
-                    </div>
-                    <h3 class="text-title-3">Orange Energy</h3>
-                    <p class="text-subhead">Orange & Yellow</p>
-                </div>
-            </div>
-        </section>
+    <main style="padding: 0; max-width: none;">
         
-        <!-- Color System -->
-        <section class="section">
-            <h2 class="text-title-1">Color System</h2>
-            <p class="text-body">iOS-inspired color palette with template customization variables.</p>
+        <!-- 1. Colors -->
+        <section style="padding: 32px 16px; background: var(--bg-primary);">
+            <h2 style="font-size: 1.75rem; font-weight: 600; text-align: center; margin-bottom: 16px; color: var(--brutal-red);">Colors</h2>
+            <p style="text-align: center; margin-bottom: 24px; color: var(--text-secondary);">Three colors maximum. Keep it simple.</p>
             
             <div class="color-palette">
                 <div class="color-card">
-                    <div class="color-swatch" style="background: var(--template-primary);" id="primary-swatch">PRIMARY</div>
+                    <div class="color-swatch" style="background: var(--brutal-red);">PRIMARY</div>
                     <div class="color-info">
-                        <div class="color-name">Primary</div>
-                        <div class="color-code" id="primary-code">#007AFF</div>
+                        <div class="color-name">Primary Red</div>
+                        <div class="color-code">#ef4444</div>
                     </div>
                 </div>
                 
                 <div class="color-card">
-                    <div class="color-swatch" style="background: var(--template-secondary);" id="secondary-swatch">SECONDARY</div>
+                    <div class="color-swatch" style="background: var(--brutal-orange);">SECONDARY</div>
                     <div class="color-info">
-                        <div class="color-name">Secondary</div>
-                        <div class="color-code" id="secondary-code">#FF3B30</div>
+                        <div class="color-name">Secondary Orange</div>
+                        <div class="color-code">#f97316</div>
                     </div>
                 </div>
                 
                 <div class="color-card">
-                    <div class="color-swatch" style="background: var(--template-accent);" id="accent-swatch">ACCENT</div>
+                    <div class="color-swatch" style="background: var(--brutal-black);">TEXT</div>
                     <div class="color-info">
-                        <div class="color-name">Accent</div>
-                        <div class="color-code" id="accent-code">#FF9500</div>
-                    </div>
-                </div>
-                
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--template-success);">SUCCESS</div>
-                    <div class="color-info">
-                        <div class="color-name">Success</div>
-                        <div class="color-code">#34C759</div>
+                        <div class="color-name">Text Black</div>
+                        <div class="color-code">#111827</div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Typography System -->
-        <section class="section">
-            <h2 class="text-title-1">Typography System</h2>
-            <p class="text-body">iOS-native typography scales using SF Pro Display/Text font family.</p>
+        <!-- 2. Typography -->
+        <section style="padding: 32px 16px; background: var(--bg-secondary);">
+            <h2 style="font-size: 1.75rem; font-weight: 600; text-align: center; margin-bottom: 16px; color: var(--brutal-red);">Typography</h2>
+            <p style="text-align: center; margin-bottom: 24px; color: var(--text-secondary);">Three sizes. System fonts. High contrast.</p>
             
             <div class="typography-sample">
-                <h1 class="text-large-title">Large Title (34px) - Hero Headlines</h1>
-                <h2 class="text-title-1">Title 1 (28px) - Section Headers</h2>
-                <h3 class="text-title-2">Title 2 (22px) - Card Titles</h3>
-                <h4 class="text-title-3">Title 3 (20px) - Component Titles</h4>
-                <h5 class="text-headline">Headline (17px) - Button Text</h5>
-                <p class="text-body">Body (17px) - Main content text with excellent readability and proper line spacing for comfortable reading.</p>
-                <p class="text-callout">Callout (16px) - Secondary content</p>
-                <p class="text-subhead">Subhead (15px) - Metadata and labels</p>
-                <p class="text-footnote">Footnote (13px) - Fine print</p>
-                <p class="text-caption-1">Caption 1 (12px) - Small labels</p>
-                <p class="text-caption-2">Caption 2 (11px) - Smallest text</p>
+                <div class="type-large">Large (32px) - Headings</div>
+                <div class="type-medium">Medium (20px) - Subheadings</div>
+                <div class="type-small">Small (16px) - Body text and interface elements</div>
+            </div>
+            
+            <div style="background: var(--bg-primary); padding: 16px; margin-top: 16px;">
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 8px;">Usage Rules:</h3>
+                <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+                    <li>Font weights: 400 (normal), 600 (bold), 700 (headings)</li>
+                    <li>Never use font-weight: 900 (kills hierarchy)</li>
+                    <li>Minimum 16px for body text (accessibility)</li>
+                    <li>Line height: 1.2 (headings), 1.5 (body)</li>
+                </ul>
             </div>
         </section>
         
-        <!-- Component Showcase -->
-        <section class="section">
-            <h2 class="text-title-1">Component System</h2>
-            <p class="text-body">Reusable iOS-inspired components for consistent user experience.</p>
+        <!-- 3. Components -->
+        <section style="padding: 32px 16px; background: var(--bg-primary);">
+            <h2 style="font-size: 1.75rem; font-weight: 600; text-align: center; margin-bottom: 16px; color: var(--brutal-red);">Components</h2>
+            <p style="text-align: center; margin-bottom: 24px; color: var(--text-secondary);">Essential elements only. Copy the code.</p>
             
             <div class="component-showcase">
                 <!-- Buttons -->
                 <div class="component-demo">
                     <h3 class="demo-title">Buttons</h3>
-                    <div style="display: flex; flex-direction: column; gap: var(--spacing-md);">
-                        <button class="btn btn-primary">Primary Button</button>
-                        <button class="btn btn-secondary">Secondary Button</button>
-                        <button class="btn btn-ghost">Ghost Button</button>
-                        <button class="btn btn-primary btn-sm">Small Button</button>
-                        <button class="btn btn-primary btn-lg">Large Button</button>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <button style="background: var(--brutal-red); color: var(--brutal-white); padding: 12px 24px; border: none; font-weight: 600; cursor: pointer;">Primary Button</button>
+                        <button style="background: var(--brutal-white); color: var(--brutal-black); padding: 12px 24px; border: 2px solid var(--brutal-black); font-weight: 600; cursor: pointer;">Secondary Button</button>
                     </div>
-                </div>
-                
-                <!-- Cards -->
-                <div class="component-demo">
-                    <h3 class="demo-title">Cards</h3>
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="card-title">Card Title</div>
-                            <div class="card-subtitle">Card subtitle with additional information</div>
-                        </div>
-                        <div class="card-body">
-                            <p>Card content with proper spacing and typography.</p>
-                        </div>
-                        <div class="card-footer">
-                            <button class="btn btn-ghost btn-sm">Cancel</button>
-                            <button class="btn btn-primary btn-sm">Action</button>
-                        </div>
-                    </div>
+                    <pre style="background: var(--bg-secondary); padding: 12px; margin-top: 12px; font-size: 0.8rem; overflow-x: auto;"><code>&lt;button style="background: var(--brutal-red); color: var(--brutal-white); padding: 12px 24px; border: none; font-weight: 600;"&gt;Primary&lt;/button&gt;</code></pre>
                 </div>
                 
                 <!-- Forms -->
                 <div class="component-demo">
                     <h3 class="demo-title">Forms</h3>
-                    <div class="form-group">
-                        <label class="form-label" for="demo-input">Email Address</label>
-                        <input type="email" id="demo-input" class="form-input" placeholder="Enter your email">
+                    <div style="margin-bottom: 12px;">
+                        <label style="display: block; margin-bottom: 4px; font-weight: 600;">Email Address</label>
+                        <input type="email" style="width: 100%; padding: 12px; border: 2px solid var(--brutal-black); background: var(--brutal-white); font-size: 16px;" placeholder="Enter your email">
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="demo-textarea">Message</label>
-                        <textarea id="demo-textarea" class="form-input" rows="3" placeholder="Your message"></textarea>
-                    </div>
+                    <pre style="background: var(--bg-secondary); padding: 12px; margin-top: 12px; font-size: 0.8rem; overflow-x: auto;"><code>&lt;input style="width: 100%; padding: 12px; border: 2px solid var(--brutal-black); font-size: 16px;"&gt;</code></pre>
                 </div>
                 
-                <!-- Lists -->
+                <!-- Cards -->
                 <div class="component-demo">
-                    <h3 class="demo-title">Lists</h3>
-                    <div class="list">
-                        <div class="list-item">
-                            <div class="list-item-content">
-                                <div class="list-item-title">List Item 1</div>
-                                <div class="list-item-subtitle">Subtitle text</div>
-                            </div>
-                            <div class="list-item-accessory">›</div>
-                        </div>
-                        <div class="list-item">
-                            <div class="list-item-content">
-                                <div class="list-item-title">List Item 2</div>
-                                <div class="list-item-subtitle">Subtitle text</div>
-                            </div>
-                            <div class="list-item-accessory">›</div>
-                        </div>
+                    <h3 class="demo-title">Cards</h3>
+                    <div style="background: var(--bg-secondary); padding: 20px; border-left: 4px solid var(--brutal-red);">
+                        <h4 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 8px;">Card Title</h4>
+                        <p style="margin: 0; color: var(--text-secondary);">Card content with left border accent.</p>
                     </div>
+                    <pre style="background: var(--bg-secondary); padding: 12px; margin-top: 12px; font-size: 0.8rem; overflow-x: auto;"><code>&lt;div style="background: var(--bg-secondary); padding: 20px; border-left: 4px solid var(--brutal-red);"&gt;...&lt;/div&gt;</code></pre>
                 </div>
             </div>
         </section>
         
-        <!-- Spacing System -->
-        <section class="section">
-            <h2 class="text-title-1">Spacing System</h2>
-            <p class="text-body">Consistent spacing scale based on iOS design principles.</p>
+        <!-- 4. Guidelines -->
+        <section style="padding: 32px 16px; background: var(--bg-secondary);">
+            <h2 style="font-size: 1.75rem; font-weight: 600; text-align: center; margin-bottom: 16px; color: var(--brutal-red);">Usage Rules</h2>
+            <p style="text-align: center; margin-bottom: 24px; color: var(--text-secondary);">Do this, not that. Keep it simple.</p>
             
-            <div class="card">
-                <div class="spacing-demo">
-                    <div class="spacing-box" style="width: 2px; height: 20px;"></div>
-                    <span class="text-subhead">2xs (2px) - Minimal spacing</span>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                <!-- DO -->
+                <div style="background: #d1fae5; padding: 20px; border-left: 4px solid #10b981;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; color: #10b981;">✅ DO</h3>
+                    <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.5;">
+                        <li>Use 16px minimum font size</li>
+                        <li>High contrast colors (4.5:1 ratio)</li>
+                        <li>Mobile-first design</li>
+                        <li>Simple, clear language</li>
+                        <li>Left-border accents for cards</li>
+                        <li>8px, 16px, 32px spacing</li>
+                    </ul>
                 </div>
-                <div class="spacing-demo">
-                    <div class="spacing-box" style="width: 4px; height: 20px;"></div>
-                    <span class="text-subhead">xs (4px) - Tight spacing</span>
-                </div>
-                <div class="spacing-demo">
-                    <div class="spacing-box" style="width: 8px; height: 20px;"></div>
-                    <span class="text-subhead">sm (8px) - Small spacing</span>
-                </div>
-                <div class="spacing-demo">
-                    <div class="spacing-box" style="width: 12px; height: 20px;"></div>
-                    <span class="text-subhead">md (12px) - Medium spacing</span>
-                </div>
-                <div class="spacing-demo">
-                    <div class="spacing-box" style="width: 16px; height: 20px;"></div>
-                    <span class="text-subhead">lg (16px) - Large spacing</span>
-                </div>
-                <div class="spacing-demo">
-                    <div class="spacing-box" style="width: 20px; height: 20px;"></div>
-                    <span class="text-subhead">xl (20px) - Extra large</span>
-                </div>
-                <div class="spacing-demo">
-                    <div class="spacing-box" style="width: 24px; height: 20px;"></div>
-                    <span class="text-subhead">2xl (24px) - Double extra large</span>
-                </div>
-                <div class="spacing-demo">
-                    <div class="spacing-box" style="width: 32px; height: 20px;"></div>
-                    <span class="text-subhead">3xl (32px) - Triple extra large</span>
+                
+                <!-- DON'T -->
+                <div style="background: #fee2e2; padding: 20px; border-left: 4px solid #ef4444;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; color: #ef4444;">❌ DON'T</h3>
+                    <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; line-height: 1.5;">
+                        <li>Font sizes smaller than 16px</li>
+                        <li>Low contrast text</li>
+                        <li>Complex shadows/effects</li>
+                        <li>Too many colors</li>
+                        <li>Heavy font weights (900)</li>
+                        <li>Random spacing values</li>
+                    </ul>
                 </div>
             </div>
         </section>
         
-        <!-- Usage Instructions -->
-        <section class="section">
-            <h2 class="text-title-1">Template Usage</h2>
-            <div class="card">
-                <h3 class="card-title">Quick Start for Client Projects</h3>
-                <div class="card-body">
-                    <p><strong>1. Customize Brand Colors:</strong> Update the <code>--template-primary</code>, <code>--template-secondary</code>, and <code>--template-accent</code> CSS variables in the design system.</p>
-                    <p><strong>2. Apply Components:</strong> Use the pre-built components (buttons, cards, forms) in your HTML with consistent iOS styling.</p>
-                    <p><strong>3. Follow Typography:</strong> Use the iOS typography classes (.text-large-title, .text-body, etc.) for consistent text hierarchy.</p>
-                    <p><strong>4. Conversion Optimized:</strong> Single light theme ensures consistent brand experience and eliminates user confusion.</p>
-                </div>
-            </div>
-        </section>
     </main>
     
-    <!-- Customization Panel -->
-    <div class="customization-panel" id="customizationPanel">
-        <h3 class="text-title-2">Customize Template</h3>
-        <p class="text-subhead">Adjust colors to match your client's brand</p>
-        
-        <div class="form-group">
-            <label class="form-label" for="primaryColor">Primary Color</label>
-            <input type="color" id="primaryColor" value="#007AFF" onchange="updateColor('primary', this.value)">
-        </div>
-        
-        <div class="form-group">
-            <label class="form-label" for="secondaryColor">Secondary Color</label>
-            <input type="color" id="secondaryColor" value="#FF3B30" onchange="updateColor('secondary', this.value)">
-        </div>
-        
-        <div class="form-group">
-            <label class="form-label" for="accentColor">Accent Color</label>
-            <input type="color" id="accentColor" value="#FF9500" onchange="updateColor('accent', this.value)">
-        </div>
-        
-        <div class="form-group">
-            <button class="btn btn-primary btn-full" onclick="exportCSS()">Export Custom CSS</button>
-        </div>
-        
-        <div class="form-group">
-            <button class="btn btn-ghost btn-full" onclick="resetColors()">Reset to Default</button>
-        </div>
-    </div>
-    
-    <script>
-        // Theme Management
-        // Theme toggle removed for conversion optimization
-        
-        // Customization Panel
-        function toggleCustomization() {
-            const panel = document.getElementById('customizationPanel');
-            panel.classList.toggle('open');
-        }
-        
-        // Template Presets
-        const templates = {
-            default: { primary: '#007AFF', secondary: '#FF3B30', accent: '#FF9500' },
-            mint: { primary: '#00C7BE', secondary: '#34C759', accent: '#30B0C7' },
-            purple: { primary: '#5856D6', secondary: '#AF52DE', accent: '#FF2D92' },
-            orange: { primary: '#FF9500', secondary: '#FFCC00', accent: '#FF3B30' }
-        };
-        
-        function setTemplate(templateName) {
-            const template = templates[templateName];
-            if (template) {
-                updateColor('primary', template.primary);
-                updateColor('secondary', template.secondary);
-                updateColor('accent', template.accent);
-                
-                // Update color pickers
-                document.getElementById('primaryColor').value = template.primary;
-                document.getElementById('secondaryColor').value = template.secondary;
-                document.getElementById('accentColor').value = template.accent;
-                
-                // Update active template card
-                document.querySelectorAll('.template-card').forEach(card => card.classList.remove('active'));
-                event.target.closest('.template-card').classList.add('active');
-            }
-        }
-        
-        // Color Management
-        function updateColor(type, color) {
-            document.documentElement.style.setProperty(`--template-${type}`, color);
-            
-            // Update color display
-            const swatch = document.getElementById(`${type}-swatch`);
-            const code = document.getElementById(`${type}-code`);
-            if (swatch) swatch.style.background = color;
-            if (code) code.textContent = color.toUpperCase();
-        }
-        
-        function resetColors() {
-            setTemplate('default');
-        }
-        
-        function exportCSS() {
-            const primary = document.getElementById('primaryColor').value;
-            const secondary = document.getElementById('secondaryColor').value;
-            const accent = document.getElementById('accentColor').value;
-            
-            const css = `:root {
-    --template-primary: ${primary};
-    --template-secondary: ${secondary};
-    --template-accent: ${accent};
-}`;
-            
-            // Create and download file
-            const blob = new Blob([css], { type: 'text/css' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'custom-theme.css';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set initial color displays
-            updateColor('primary', '#007AFF');
-            updateColor('secondary', '#FF3B30');
-            updateColor('accent', '#FF9500');
-        });
-        
-        // Close customization panel when clicking outside
-        document.addEventListener('click', function(event) {
-            const panel = document.getElementById('customizationPanel');
-            const toggle = document.querySelector('.customization-toggle');
-            
-            if (panel.classList.contains('open') && 
-                !panel.contains(event.target) && 
-                !toggle.contains(event.target)) {
-                panel.classList.remove('open');
-            }
-        });
-    </script>
     
     <!-- Footer -->
-    <footer class="section" style="background: var(--bg-secondary); text-align: center;">
-        <div class="container">
-            <p class="text-subhead">OMVP iOS-Inspired Design System • Template for Client Work</p>
-            <p class="text-caption-1">Built with native iOS design principles and conversion-focused methodology</p>
-        </div>
+    <footer style="background: var(--bg-secondary); text-align: center; padding: 32px 16px;">
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">DOJJJO Design Guidelines • Keep it simple</p>
     </footer>
 </body>
 </html>
