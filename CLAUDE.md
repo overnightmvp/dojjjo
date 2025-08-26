@@ -20,7 +20,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # No build system - static HTML/CSS/JS files open directly in browser
 
 # PROJECT MANAGEMENT (Start here)
-open "cpo-dashboard.html"               # CPO Dashboard - unified project control
+open "dojjjo-dashboard.html"            # Project Dashboard - unified project control
 
 # MAIN PRODUCTION PAGES
 open "index.html"                       # Main personal brand landing
@@ -191,7 +191,7 @@ Before every deployment (git push), execute as S-tier product owner:
 1. **Update `omvp/strategy/prompts.md`**: Document all prompts in customer journey style with complete methodology
 2. **Update `omvp/strategy/OMVP-master-plan.md`**: If changes affect strategic direction or business model  
 3. **Update `omvp/flowcharts/`**: If changes impact customer journey or system architecture
-4. **Update `cpo-dashboard.html`**: Reflect any new metrics or service accounts added
+4. **Update `dojjjo-dashboard.html`**: Reflect any new metrics or service accounts added
 5. **Quality Gates**: Ensure all updates align with hybrid business model and $15K/month targets
 
 ### Pre-Deployment Checklist
@@ -200,7 +200,7 @@ Before every deployment (git push), execute as S-tier product owner:
 open "index.html"                       # Test main landing page
 open "48-hour-worksheet/index.html"     # Test lead capture funnel
 open "omvp/index.html"                  # Test service landing page
-open "cpo-dashboard.html"               # Verify dashboard links work
+open "dojjjo-dashboard.html"            # Verify dashboard links work
 
 # Check strategy documentation integrity
 ls omvp/strategy/ | wc -l              # Should show 25+ strategy files
@@ -215,7 +215,7 @@ This ensures complete methodology documentation for template replication and tea
 
 ## 🔧 Key Integration Points
 
-### CPO Dashboard (`/cpo-dashboard.html`)
+### Project Dashboard (`/dojjjo-dashboard.html`)
 - Unified project control with direct access to all OMVP strategy files
 - One-click service account access (GitHub, Claude, Gmail, Brevo, Analytics, Netlify)
 - Real-time project health metrics and development progress tracking

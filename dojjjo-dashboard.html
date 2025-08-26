@@ -196,6 +196,201 @@
             }
         }
         
+        /* Project Scorecards Styling */
+        .project-scorecards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .scorecard {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .scorecard:hover {
+            border-color: var(--cpo-accent);
+            transform: translateY(-2px);
+        }
+        
+        .scorecard-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--cpo-primary);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 0.5rem;
+        }
+        
+        .score-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.75rem 0;
+        }
+        
+        .score-label {
+            font-weight: 500;
+            color: #495057;
+        }
+        
+        .score-value {
+            font-weight: 700;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .score-value.high {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .score-value.medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .score-value.low {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-indicator {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .status-ready {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-progress {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .status-needs-work {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f1aeb5;
+        }
+        
+        /* Resource Extraction Matrix */
+        .extraction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .extraction-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .extraction-card h4 {
+            color: var(--cpo-accent);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .extraction-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .extraction-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f8f9fa;
+            font-size: 0.9rem;
+        }
+        
+        .extraction-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Decision Support Grid */
+        .decision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .decision-column {
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .decision-column h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .priority-high {
+            background: #fff5f5;
+            border: 2px solid #fed7d7;
+        }
+        
+        .priority-high h4 {
+            background: #feb2b2;
+            color: #742a2a;
+        }
+        
+        .priority-medium {
+            background: #fffbf0;
+            border: 2px solid #feebc8;
+        }
+        
+        .priority-medium h4 {
+            background: #f6e05e;
+            color: #744210;
+        }
+        
+        .priority-ready {
+            background: #f0fff4;
+            border: 2px solid #c6f6d5;
+        }
+        
+        .priority-ready h4 {
+            background: #9ae6b4;
+            color: #22543d;
+        }
+        
+        .decision-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .decision-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            font-weight: 500;
+        }
+        
+        .decision-list li:last-child {
+            border-bottom: none;
+        }
+        
         /* Dark theme removed for conversion optimization */
     </style>
 </head>
@@ -211,28 +406,158 @@
     <main class="container">
         <!-- System Status -->
         <div class="status-bar">
-            ✅ All MD Files Consolidated - OMVP Strategy Documents Ready
+            📊 Business Intelligence Dashboard - Track Projects, Make Decisions, Hit $15K/Month Target
         </div>
         
-        <!-- Project Metrics -->
+        <!-- Project Scorecards -->
         <section class="dashboard-section">
-            <h2 class="section-title">📊 Project Health</h2>
-            <div class="metrics-row">
-                <div class="metric-card">
-                    <div class="metric-value">8</div>
-                    <div class="metric-label">Core OMVP Docs</div>
+            <h2 class="section-title">🎯 Project Scorecards (Business Intelligence)</h2>
+            <div class="project-scorecards">
+                <div class="scorecard">
+                    <h3 class="scorecard-title">OMVP Core System</h3>
+                    <div class="score-row">
+                        <span class="score-label">Business Impact:</span>
+                        <span class="score-value high">9/10</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Template Quality:</span>
+                        <span class="score-value high">9/10</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Documentation:</span>
+                        <span class="score-value high">10/10</span>
+                    </div>
+                    <div class="status-indicator status-ready">🟢 Ready for Clients ($5K)</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">25+</div>
-                    <div class="metric-label">Total Strategy Files</div>
+                
+                <div class="scorecard">
+                    <h3 class="scorecard-title">OMVP-HVAC Project</h3>
+                    <div class="score-row">
+                        <span class="score-label">Business Impact:</span>
+                        <span class="score-value high">8/10</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Template Quality:</span>
+                        <span class="score-value medium">7/10</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Documentation:</span>
+                        <span class="score-value medium">6/10</span>
+                    </div>
+                    <div class="status-indicator status-progress">🟡 Template Extraction Needed</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">$15K</div>
-                    <div class="metric-label">Monthly Target</div>
+                
+                <div class="scorecard">
+                    <h3 class="scorecard-title">Service Firm Templates</h3>
+                    <div class="score-row">
+                        <span class="score-label">Business Impact:</span>
+                        <span class="score-value high">8/10</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Template Quality:</span>
+                        <span class="score-value medium">6/10</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Documentation:</span>
+                        <span class="score-value low">4/10</span>
+                    </div>
+                    <div class="status-indicator status-needs-work">🔴 Needs Strategy Work</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">$5K</div>
-                    <div class="metric-label">Service Price</div>
+                
+                <div class="scorecard">
+                    <h3 class="scorecard-title">YUD Gold System</h3>
+                    <div class="score-row">
+                        <span class="score-label">Business Impact:</span>
+                        <span class="score-value medium">6/10</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Template Quality:</span>
+                        <span class="score-value medium">7/10</span>
+                    </div>
+                    <div class="score-row">
+                        <span class="score-label">Documentation:</span>
+                        <span class="score-value low">3/10</span>
+                    </div>
+                    <div class="status-indicator status-needs-work">🔴 Niche Market - Low Priority</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Cross-Project Intelligence Matrix -->
+        <section class="dashboard-section">
+            <h2 class="section-title">🔄 Resource Extraction Matrix</h2>
+            <div class="extraction-grid">
+                <div class="extraction-card">
+                    <h4>🏠 OMVP-HVAC → Local Service Template</h4>
+                    <ul class="extraction-list">
+                        <li>✅ 90-minute execution model</li>
+                        <li>✅ Local SEO blog strategy</li>
+                        <li>✅ Emergency service positioning</li>
+                        <li>⚠️ Missing: Lead routing automation</li>
+                    </ul>
+                </div>
+                
+                <div class="extraction-card">
+                    <h4>🏢 Service-Firm → Professional Template</h4>
+                    <ul class="extraction-list">
+                        <li>✅ $15K partnership model</li>
+                        <li>✅ VA support framework</li>
+                        <li>⚠️ Missing: Client onboarding system</li>
+                        <li>🔴 Missing: Lead qualification process</li>
+                    </ul>
+                </div>
+                
+                <div class="extraction-card">
+                    <h4>💰 YUD Gold → High-Ticket B2B</h4>
+                    <ul class="extraction-list">
+                        <li>✅ Deal tracking dashboard</li>
+                        <li>✅ Commission calculation system</li>
+                        <li>🔴 Missing: KYC process templates</li>
+                        <li>🔴 Missing: Contract frameworks</li>
+                    </ul>
+                </div>
+                
+                <div class="extraction-card">
+                    <h4>📊 Backlog → Methodology Template</h4>
+                    <ul class="extraction-list">
+                        <li>✅ Complete transformation journey</li>
+                        <li>✅ 11-stage prompt engineering</li>
+                        <li>✅ Customer journey documentation</li>
+                        <li>✅ Ready for client replication</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Decision Support Dashboard -->
+        <section class="dashboard-section">
+            <h2 class="section-title">⚡ Decision Support - Work This Week</h2>
+            <div class="decision-grid">
+                <div class="decision-column priority-high">
+                    <h4>🔥 High Impact - Do Now</h4>
+                    <ul class="decision-list">
+                        <li>📋 Extract HVAC local service template</li>
+                        <li>🏢 Complete Service-firm onboarding docs</li>
+                        <li>📊 Document backlog methodology for clients</li>
+                    </ul>
+                </div>
+                
+                <div class="decision-column priority-medium">
+                    <h4>🟡 Medium Impact - Next Sprint</h4>
+                    <ul class="decision-list">
+                        <li>💰 Archive YUD Gold (niche market)</li>
+                        <li>📚 Consolidate duplicate documentation</li>
+                        <li>🎯 Create template selection guide</li>
+                    </ul>
+                </div>
+                
+                <div class="decision-column priority-ready">
+                    <h4>✅ Ready for $5K Clients</h4>
+                    <ul class="decision-list">
+                        <li>⚡ OMVP Core System - Complete</li>
+                        <li>📋 48-hour validation worksheet</li>
+                        <li>🎯 Personal brand → template delivery</li>
+                    </ul>
                 </div>
             </div>
         </section>
