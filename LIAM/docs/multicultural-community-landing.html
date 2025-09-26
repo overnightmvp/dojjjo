@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serve Your Community Direct - Melbourne West Restaurant Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: 22px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        
+        .problem-text {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #555;
+            text-align: center;
+        }
+        
+        .solution-hook {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1976d2;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        /* Value Proposition */
+        .value-props {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .value-props h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .props-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .prop-item {
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #e1f5fe;
+            transition: transform 0.3s ease;
+        }
+        
+        .prop-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .prop-item .icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .prop-item h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1976d2;
+        }
+        
+        .prop-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .feature-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1976d2;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .testimonial {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 4px solid #1976d2;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #1976d2;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 60px 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .pricing h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .price-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 2px solid #1976d2;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .price-note {
+            font-size: 18px;
+            color: #e65100;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+        
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #1976d2;
+            padding: 20px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .communities {
+            margin-top: 30px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background: #333;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero .subtitle {
+                font-size: 18px;
+            }
+            
+            .problem-text, .solution-hook {
+                font-size: 18px;
+            }
+            
+            .props-grid, .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .price {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">CommunityDirect</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Serve Your Community Direct</h1>
+            <p class="subtitle">Connect with your people without paying the big apps</p>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <p class="problem-text">
+                Your restaurant is the heart of our community. Your pho, souvlaki, pasta, or kebabs bring people together. But UberEats and Menulog are taking up to 30% of every order - money that should stay in our neighborhood.
+            </p>
+            <div class="solution-hook">
+                Build your own online presence that respects your culture, speaks to your community, and keeps your profits where they belong - supporting local families and businesses.
+            </div>
+        </div>
+    </section>
+
+    <section class="value-props">
+        <div class="container">
+            <h2>Designed for Our Diverse Communities</h2>
+            <div class="props-grid">
+                <div class="prop-item">
+                    <div class="icon">🏠</div>
+                    <h3>Community First</h3>
+                    <p>Keep profits in Melbourne's west, not Silicon Valley</p>
+                </div>
+                <div class="prop-item">
+                    <div class="icon">🌏</div>
+                    <h3>Cultural Respect</h3>
+                    <p>Websites that showcase your authentic cuisine properly</p>
+                </div>
+                <div class="prop-item">
+                    <div class="icon">📱</div>
+                    <h3>Bilingual Support</h3>
+                    <p>Serve customers in English and your community language</p>
+                </div>
+                <div class="prop-item">
+                    <div class="icon">🤝</div>
+                    <h3>Local Understanding</h3>
+                    <p>We know the difference between Vietnamese pho and Thai boat noodles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Everything Your Community Restaurant Needs</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>✅ Beautiful Menu Display</h3>
+                    <p>Show your dishes the way they deserve to be seen</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✅ Community Loyalty Program</h3>
+                    <p>Reward your regular customers properly</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✅ Local SEO</h3>
+                    <p>Help people find authentic Vietnamese/Greek/Italian food in the west</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✅ Cultural Calendar Integration</h3>
+                    <p>Promote special festival menus and events</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Community Success Stories</h2>
+            <div class="testimonial">
+                <p class="testimonial-text">"Our Vietnamese customers love ordering directly from us. The loyalty program brings families back every week."</p>
+                <p class="testimonial-author">- Linh, Footscray Pho House</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"Finally, a website that makes our Greek food look as good as it tastes. Our community appreciates supporting us direct."</p>
+                <p class="testimonial-author">- Dimitri, Williamstown Greek Taverna</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Community-Friendly Pricing</h2>
+            <div class="price-box">
+                <div class="price">$350/month</div>
+                <p style="margin-bottom: 20px; color: #666;">AUD (incl. GST)</p>
+                <p class="price-note">First month FREE for community restaurants</p>
+                <p style="color: #666; margin-top: 20px;">Support local business, keep money local</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Speak to Someone Who Understands</h2>
+            <p class="cta-text">Book a consultation with our team. We speak your language (literally and figuratively) and understand what community restaurants need to thrive.</p>
+            <a href="#" class="cta-button">Book Community Consultation</a>
+            <p class="communities">Serving: Vietnamese • Greek • Italian • Middle Eastern • Indian communities across Melbourne's west</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CommunityDirect. Supporting Melbourne's diverse food communities.</p>
+        </div>
+    </footer>
+</body>
+</html>

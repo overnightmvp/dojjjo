@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honor Your Legacy, Embrace The Future - Family Restaurant Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 25px 0;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #8b4513;
+            font-family: Georgia, serif;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 70px 0;
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-family: Georgia, serif;
+        }
+        
+        .hero .subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            opacity: 0.95;
+            font-style: italic;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 70px 0;
+            background: #f9f7f4;
+        }
+        
+        .problem-text {
+            font-size: 22px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            color: #555;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .solution-hook {
+            font-size: 24px;
+            font-weight: 600;
+            color: #8b4513;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid #deb887;
+        }
+        
+        /* Value Proposition */
+        .value-props {
+            padding: 70px 0;
+            background: white;
+        }
+        
+        .value-props h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #333;
+            font-family: Georgia, serif;
+        }
+        
+        .props-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .prop-item {
+            padding: 40px;
+            background: #f9f7f4;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #deb887;
+            transition: transform 0.3s ease;
+        }
+        
+        .prop-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .prop-item .icon {
+            font-size: 48px;
+            margin-bottom: 25px;
+        }
+        
+        .prop-item h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #8b4513;
+            font-family: Georgia, serif;
+        }
+        
+        .prop-item p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        /* Features */
+        .features {
+            padding: 70px 0;
+            background: #f9f7f4;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #333;
+            font-family: Georgia, serif;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 1px solid #deb887;
+        }
+        
+        .feature-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #8b4513;
+        }
+        
+        .feature-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Trust Building */
+        .trust {
+            padding: 70px 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .trust h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+            font-family: Georgia, serif;
+        }
+        
+        .trust-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #555;
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 70px 0;
+            background: #f9f7f4;
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #333;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border-left: 5px solid #8b4513;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #8b4513;
+            font-size: 16px;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 70px 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .pricing h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+            font-family: Georgia, serif;
+        }
+        
+        .price-box {
+            background: #f9f7f4;
+            padding: 50px;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+            border: 2px solid #8b4513;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-family: Georgia, serif;
+        }
+        
+        .price-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .price-features li {
+            padding: 10px 0;
+            font-size: 16px;
+            color: #555;
+            border-bottom: 1px solid #deb887;
+        }
+        
+        .legacy-discount {
+            background: #8b4513;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+        
+        /* CTA */
+        .cta {
+            padding: 90px 0;
+            background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 25px;
+            font-family: Georgia, serif;
+        }
+        
+        .cta-text {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #8b4513;
+            padding: 25px 50px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-family: Georgia, serif;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .legacy-message {
+            margin-top: 40px;
+            font-size: 18px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 50px 0;
+            background: #333;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero .subtitle {
+                font-size: 20px;
+            }
+            
+            .problem-text, .solution-hook {
+                font-size: 18px;
+            }
+            
+            .props-grid, .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .price {
+                font-size: 36px;
+            }
+            
+            .price-box {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">FamilyTradition</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Honor Your Legacy, Embrace The Future</h1>
+            <p class="subtitle">Protect what your family built while reaching new generations</p>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <p class="problem-text">
+                For 20, 30, maybe 40 years, your family has served this community. You've built something special - but times are changing. Young customers order online, and delivery apps are eating your profits.
+            </p>
+            <div class="solution-hook">
+                You don't need to choose between tradition and technology. Keep everything that makes your restaurant special while reaching customers the modern way - without giving away your family's hard work to big corporations.
+            </div>
+        </div>
+    </section>
+
+    <section class="value-props">
+        <div class="container">
+            <h2>Bridging Generations</h2>
+            <div class="props-grid">
+                <div class="prop-item">
+                    <div class="icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family Values, Modern Tools</h3>
+                    <p>Technology that respects your heritage</p>
+                </div>
+                <div class="prop-item">
+                    <div class="icon">📚</div>
+                    <h3>Your Story, Your Way</h3>
+                    <p>Showcase your family history and authentic recipes</p>
+                </div>
+                <div class="prop-item">
+                    <div class="icon">🏆</div>
+                    <h3>Proven Track Record</h3>
+                    <p>Simple, reliable systems that work every day</p>
+                </div>
+                <div class="prop-item">
+                    <div class="icon">💪</div>
+                    <h3>Pass It Forward</h3>
+                    <p>Build something your kids can be proud to inherit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Everything Your Family Restaurant Needs</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>✅ Heritage Storytelling</h3>
+                    <p>Share your family's journey and traditional recipes</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✅ Regular Customer Recognition</h3>
+                    <p>Reward the loyal customers who've supported you for years</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✅ Simple Management</h3>
+                    <p>Easy enough for any family member to use</p>
+                </div>
+                <div class="feature-item">
+                    <h3>✅ Community Connection</h3>
+                    <p>Stay connected to the neighborhood that raised you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust">
+        <div class="container">
+            <h2>We Understand Family Business</h2>
+            <p class="trust-text">
+                This isn't just about technology - it's about respecting what you've built while preparing for what's next. We work with family restaurants because we believe in the value of tradition and the power of community.
+            </p>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Family Success Stories</h2>
+            <div class="testimonial">
+                <p class="testimonial-text">"Three generations of our family have run this restaurant. This system helps us serve the fourth generation of our customers' families."</p>
+                <p class="testimonial-author">- Tony, Altona Italian Restaurant (Family-owned since 1987)</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"My daughter can now help with online orders while I focus on the kitchen. It's brought us closer while growing the business."</p>
+                <p class="testimonial-author">- Helen, Sunshine Greek Restaurant (Family-owned since 1982)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Family-Business Friendly</h2>
+            <div class="price-box">
+                <div class="price">$350/month</div>
+                <p style="margin-bottom: 30px; color: #666;">AUD (incl. GST)</p>
+                <ul class="price-features">
+                    <li><strong>Family training included</strong> - We'll teach everyone</li>
+                    <li><strong>Legacy business discount</strong> - 10% off for restaurants operating 15+ years</li>
+                    <li><strong>Grandfathered pricing</strong> - Your rate never increases</li>
+                    <li><strong>Simple cancellation</strong> - 30 days notice, no penalties</li>
+                </ul>
+                <div class="legacy-discount">
+                    Special: Family businesses established before 2010 receive permanent 10% discount
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Let's Talk Family to Family</h2>
+            <p class="cta-text">Book a conversation with our team. We'll come to you, meet your family, and show you how technology can honor your past while securing your future.</p>
+            <a href="#" class="cta-button">Book Family Consultation</a>
+            <p class="legacy-message">"Family businesses built Melbourne's west. Let's make sure they thrive for generations to come."</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FamilyTradition. Honoring the past, embracing the future.</p>
+        </div>
+    </footer>
+</body>
+</html>

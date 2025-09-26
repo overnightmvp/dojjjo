@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Melbourne Restaurant Success Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .gradient-bg {
+            background-image: linear-gradient(to right, #00c6ff, #0072ff);
+        }
+        .btn-primary {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 114, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-white shadow-sm p-4 md:px-6">
+        <div class="container mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-gray-900">Westside Eats</span>
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">Our Solution</a>
+                <a href="#features" class="text-gray-600 hover:text-blue-600 transition duration-300">Features</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
+            </nav>
+            <a href="#cta" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition duration-300 md:block hidden">Get Started</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="gradient-bg text-white py-20 md:py-32 rounded-b-3xl">
+            <div class="container mx-auto text-center px-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                    Stop Losing Profits to Third-Party Apps
+                </h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                    West Melbourne, your profits deserve to stay in your kitchen. We provide a complete website, online ordering, and loyalty platform to put you back in control.
+                </p>
+                <a href="#cta" class="bg-white text-blue-600 px-8 py-3 rounded-full font-bold uppercase tracking-wide btn-primary inline-block">
+                    Get Started with Zero Upfront Cost
+                </a>
+            </div>
+        </section>
+
+        <!-- Problem & Solution Section -->
+        <section id="about" class="py-16 md:py-24 bg-white rounded-3xl -mt-16 mx-4 sm:mx-8 md:mx-12 lg:mx-16 shadow-lg">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">The Challenge for West Melbourne Eateries</h2>
+                    <p class="text-gray-600 text-lg mb-8">
+                        Independent restaurants are the heart of West Melbourne, but the high commissions (up to 30%) from platforms like UberEats and DoorDash are eating into your hard-earned revenue. Many businesses lack the resources to build their own professional, commission-free online presence.
+                    </p>
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
+                        <div class="bg-red-50 p-6 rounded-2xl shadow-sm border border-red-200 w-full md:w-1/2">
+                            <h3 class="text-2xl font-semibold mb-2 text-red-700">The Problem</h3>
+                            <p class="text-gray-700">High commission fees that reduce profitability and control over your customer base.</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-2xl shadow-sm border border-green-200 w-full md:w-1/2">
+                            <h3 class="text-2xl font-semibold mb-2 text-green-700">Our Solution</h3>
+                            <p class="text-gray-700">A commission-free platform that puts you in control, increases direct orders, and builds customer loyalty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-16 md:py-24 px-4">
+            <div class="container mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Designed for West Melbourne's Restaurants</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature 1: Professional Website -->
+                    <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center text-center transition-transform hover:scale-105">
+                        <svg class="w-16 h-16 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L12 19.25M12 19.25L14.25 17M12 19.25L12 5M12 5L12 19.25"></path></svg>
+                        <h3 class="text-xl font-semibold mb-2">Beautiful, Custom Website</h3>
+                        <p class="text-gray-600">A stunning, mobile-responsive website built to showcase your unique menu and brand, tailored for your business.</p>
+                    </div>
+                    <!-- Feature 2: Online Ordering System -->
+                    <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center text-center transition-transform hover:scale-105">
+                        <svg class="w-16 h-16 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13a2 2 0 100 4a2 2 0 000-4zM16 13a2 2 0 100 4a2 2 0 000-4z"></path></svg>
+                        <h3 class="text-xl font-semibold mb-2">Commission-Free Ordering</h3>
+                        <p class="text-gray-600">Customers can order directly from you, and you keep 100% of the profits. No more cutting into your margins.</p>
+                    </div>
+                    <!-- Feature 3: Customer Loyalty -->
+                    <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center text-center transition-transform hover:scale-105">
+                        <svg class="w-16 h-16 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 1.343 3 3s-1.343 3-3 3s-3-1.343-3-3s1.343-3 3-3z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14.25C17.25 14.25 21.75 16.5 21.75 19.5V21.75C21.75 22.54 21.1 23.25 20.25 23.25H3.75C2.9 23.25 2.25 22.54 2.25 21.75V19.5C2.25 16.5 6.75 14.25 12 14.25z"></path></svg>
+                        <h3 class="text-xl font-semibold mb-2">Integrated Loyalty Program</h3>
+                        <p class="text-gray-600">Turn one-time visitors into repeat customers with a built-in loyalty system that rewards direct orders.</p>
+                    </div>
+                    <!-- Feature 4: SEO & Marketing Tools -->
+                    <div class="bg-white p-8 rounded-2xl shadow-md flex flex-col items-center text-center transition-transform hover:scale-105">
+                        <svg class="w-16 h-16 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        <h3 class="text-xl font-semibold mb-2">Foundational SEO</h3>
+                        <p class="text-gray-600">Get found by local diners searching for your type of food. Our platform is optimized to boost your search rankings.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action Section -->
+        <section id="cta" class="py-16 md:py-24 px-4 bg-gray-200">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Start Your Free Trial Today</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
+                    We're so confident we can help you grow that we'll build your website and you won't pay a cent until you've reached a sales threshold. It's a risk-free partnership.
+                </p>
+                <a href="#" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide btn-primary inline-block text-lg">
+                    Join Our West Melbourne Pilot Program
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto text-center px-4">
+            <p>&copy; 2024 Westside Eats. All rights reserved.</p>
+            <div class="mt-4 text-sm text-gray-400">
+                <a href="#" class="hover:underline mx-2">Terms of Service</a> |
+                <a href="#" class="hover:underline mx-2">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

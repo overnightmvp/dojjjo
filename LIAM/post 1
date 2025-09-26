@@ -1,0 +1,53 @@
+Yesterday I went for dinner and and I used what could be have been the best dinning experiences abroad I had:
+
+
+
+1. Seat down on the table
+
+
+
+2. Server bring me a QR code printed on their cashier [admin app] and instruct me to scan on my phone to order [client app].
+
+
+
+3. Immediately with cold drinks already in front of us asked: "water, pepsi or beer?" - could have been the first modal on the client app.
+
+
+
+4. Shows me on her 12' tablet the menu [server app] - bento layout app similar to what McDonalds POS looks like but with Images and very simple UI.
+
+
+
+4. Menu was "bilingual", even though the toggle didn't work and the Safari automatic translation also didn't work, ordering was simple -
+
+
+
+
+
+[client app breakdown]
+
+
+
+UID-001 - Home Screen
+
+- Top menu with anchor links to section on the menu and cart button on the right.
+
+- 2 collumn grid layout with all items divided by section.
+
+- items could only be added on the cart
+
+- button on the bottom to finish order - "this should have been a sticky button on the bottom of the screen with the cart button as a floating pill on the right, similar to what Material Design does. (copying google UX principles can't go wrong)"
+
+
+
+UID-002 - Cart Page
+
+- simple list of items items on the cart, where i can add or remove multiple items clicking on a + or - button.
+
+- order history 
+
+- get the bill button - "when clicking on get the bill a new section with radio options appeared, only one option was available "Pay with cash", It's no rocket science to enable online checkout but here in Thailand a LOT of businesses do only cash or QR payment, even bigger ones.
+
+
+
+$32 USD dinner for 4 people. 

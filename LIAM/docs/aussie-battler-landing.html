@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Getting Ripped Off By Delivery Apps - Melbourne West Restaurants</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: 22px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 60px 0;
+            background: #f5f5f5;
+        }
+        
+        .problem-text {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .solution-hook {
+            font-size: 22px;
+            font-weight: 600;
+            color: #d32f2f;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Value Proposition */
+        .value-props {
+            padding: 60px 0;
+            background: white;
+        }
+        
+        .value-props h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+        
+        .props-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .prop-item {
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #d32f2f;
+        }
+        
+        .prop-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .prop-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Social Proof */
+        .testimonials {
+            padding: 60px 0;
+            background: #f5f5f5;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #d32f2f;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 60px 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .pricing h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        
+        .price-box {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 0 auto;
+            border: 2px solid #d32f2f;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+        
+        .price-details {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .price-details li {
+            padding: 10px 0;
+            font-size: 16px;
+        }
+        
+        .price-details li.no {
+            color: #666;
+        }
+        
+        .price-details li.yes {
+            color: #2e7d32;
+            font-weight: 600;
+        }
+        
+        /* CTA */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #d32f2f;
+            padding: 20px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .locations {
+            margin-top: 30px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background: #333;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero .subtitle {
+                font-size: 18px;
+            }
+            
+            .problem-text, .solution-hook {
+                font-size: 18px;
+            }
+            
+            .props-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .price {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">RestaurantDirect</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Stop Getting Ripped Off By Delivery Apps</h1>
+            <p class="subtitle">Keep Your Hard-Earned Dollars Where They Belong - In Your Pocket</p>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <p class="problem-text">
+                Mate, you're working 14-hour days, serving up quality tucker, and UberEats is taking 30% of every order. That's not fair dinkum - that's your rent money, your kids' school fees, your future walking out the door.
+            </p>
+            <div class="solution-hook">
+                What if I told you there's a way to get your own website, online ordering, and customer loyalty program for just $350/month? No massive upfront costs, no tech headaches, just more money in your till.
+            </div>
+        </div>
+    </section>
+
+    <section class="value-props">
+        <div class="container">
+            <h2>Built for Battlers, By Battlers</h2>
+            <div class="props-grid">
+                <div class="prop-item">
+                    <h3>✅ Your Website, Your Rules</h3>
+                    <p>No more sharing customers with the big delivery giants</p>
+                </div>
+                <div class="prop-item">
+                    <h3>✅ Fair Dinkum Pricing</h3>
+                    <p>$350/month flat fee, no hidden costs or surprise commissions</p>
+                </div>
+                <div class="prop-item">
+                    <h3>✅ Done-For-You Setup</h3>
+                    <p>We build everything while you focus on what you do best - cooking</p>
+                </div>
+                <div class="prop-item">
+                    <h3>✅ Melbourne West Local</h3>
+                    <p>We understand Footscray, Williamstown, and Werribee businesses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonial">
+                <p class="testimonial-text">"I was losing $1,200 a month to delivery apps. Now I keep it all. Best decision I've made for my family's fish & chip shop."</p>
+                <p class="testimonial-author">- Dave, Sunshine Fish & Chips</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">"Finally, someone who gets what us small operators go through. Set up was dead easy."</p>
+                <p class="testimonial-author">- Maria, Werribee Pizza Palace</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>No BS Pricing</h2>
+            <div class="price-box">
+                <div class="price">$350/month</div>
+                <p style="margin-bottom: 30px; color: #666;">AUD (incl. GST)</p>
+                <ul class="price-details">
+                    <li class="no">❌ No commission on your sales</li>
+                    <li class="no">❌ No setup fees</li>
+                    <li class="no">❌ No long-term contracts</li>
+                    <li class="yes">✅ Cancel anytime with 30 days notice</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Book Your Free Chat</h2>
+            <p class="cta-text">I'll come to your restaurant, show you exactly how this works, and give you a free website preview. No sales pitch, just straight talk about how you can keep more of your money.</p>
+            <a href="#" class="cta-button">Book My Free Visit</a>
+            <p class="locations">Available in: Footscray • Williamstown • Werribee • Sunshine • Altona</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RestaurantDirect. Fair dinkum solutions for Melbourne's west.</p>
+        </div>
+    </footer>
+</body>
+</html>
